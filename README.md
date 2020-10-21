@@ -11,15 +11,21 @@ The node-unrtf module was created out of a need for a RTF-to-HTML conversion mod
 
 ## Installation
 
-### Linux support
+### Linux and macOS/Darwin support
 
 A Windows binary (v0.19.3) is provided with this repository.
-For Linux users, you will need to download the `unrtf` binary separately.
+For Linux and Mac users, you will need to download the `unrtf` binary separately.
 
 An example of downloading the binary on a Debian system:
 
 ```
 sudo apt-get install unrtf
+```
+
+For Mac, the binary can be installed with [Homebrew](https://brew.sh/):
+
+```
+brew install unrtf
 ```
 
 Once they have been installed, you will need to pass the `unrtf` installation directory in as parameters to an instance of the Poppler class:
