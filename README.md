@@ -67,7 +67,7 @@ const { UnRTF } = require('node-unrtf');
 const file = 'test_document.rtf';
 const unRtf = new UnRTF();
 const options = {
-    outputHtml: true
+	outputHtml: true
 };
 
 const res = await unRtf.convert(options, file);
