@@ -97,17 +97,6 @@ describe('convert function', () => {
 		expect(typeof res).toBe('string');
 	});
 
-	test('Should convert RTF file to text with VT100 escape codes', async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputVt: true
-		};
-
-		const res = await unRtf.convert(options, file);
-		expect(typeof res).toBe('string');
-	});
-
 	test('Should return an Error object if invalid value types provided for an option are passed to function', async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
