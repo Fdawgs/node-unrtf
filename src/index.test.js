@@ -84,17 +84,6 @@ describe('convert function', () => {
 		expect(typeof res).toBe('string');
 	});
 
-	test('Should convert RTF file to PostScript', async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputPs: true
-		};
-
-		const res = await unRtf.convert(options, file);
-		expect(typeof res).toBe('string');
-	});
-
 	test('Should convert RTF file to text', async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
@@ -112,17 +101,6 @@ describe('convert function', () => {
 		const options = {
 			noPictures: true,
 			outputVt: true
-		};
-
-		const res = await unRtf.convert(options, file);
-		expect(typeof res).toBe('string');
-	});
-
-	test('Should convert RTF file to WPML', async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputWpml: true
 		};
 
 		const res = await unRtf.convert(options, file);
