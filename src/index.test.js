@@ -1,4 +1,5 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
+const isHtml = require('is-html');
 const os = require('os');
 const path = require('path');
 const { UnRTF } = require('./index');
@@ -9,6 +10,10 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
 let testBinaryPath;
 const platform = os.platform();
 switch (platform) {
+	case 'darwin':
+		testBinaryPath = '/usr/local/bin';
+		break;
+
 	case 'linux':
 		testBinaryPath = '/usr/bin';
 		break;
@@ -53,7 +58,7 @@ describe('convert function', () => {
 		const res = await unRtf.convert(options, file);
 
 		expect(typeof res).toBe('string');
-		expect(res.substring(0, 6)).toBe('<html>');
+		expect(isHtml(res)).toBe(true);
 	});
 
 	test('Should convert RTF file to HTML without storing images', async () => {
@@ -66,7 +71,7 @@ describe('convert function', () => {
 		const res = await unRtf.convert(options, file);
 
 		expect(typeof res).toBe('string');
-		expect(res.substring(0, 6)).toBe('<html>');
+		expect(isHtml(res)).toBe(true);
 	});
 
 	test('Should convert RTF file to LaTeX', async () => {
@@ -74,17 +79,6 @@ describe('convert function', () => {
 		const options = {
 			noPictures: true,
 			outputLatex: true
-		};
-
-		const res = await unRtf.convert(options, file);
-		expect(typeof res).toBe('string');
-	});
-
-	test('Should convert RTF file to PostScript', async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputPs: true
 		};
 
 		const res = await unRtf.convert(options, file);
@@ -100,28 +94,6 @@ describe('convert function', () => {
 
 		const res = await unRtf.convert(options, file);
 
-		expect(typeof res).toBe('string');
-	});
-
-	test('Should convert RTF file to text with VT100 escape codes', async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputVt: true
-		};
-
-		const res = await unRtf.convert(options, file);
-		expect(typeof res).toBe('string');
-	});
-
-	test('Should convert RTF file to WPML', async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputWpml: true
-		};
-
-		const res = await unRtf.convert(options, file);
 		expect(typeof res).toBe('string');
 	});
 
