@@ -83,7 +83,7 @@ class UnRTF {
 	 * (UnRTF v0.20.5 or later only).
 	 * @param {boolean=} options.outputHtml - Generate HTML output.
 	 * @param {boolean=} options.outputLatex - Generate LaTeX output.
-	 * @param {boolean=} options.outputPs - Generate PostScript (PS) output (UnRTF v0.19.4 or earlier only). 
+	 * @param {boolean=} options.outputPs - Generate PostScript (PS) output (UnRTF v0.19.4 or earlier only).
 	 * @param {boolean=} options.outputRtf - Generate RTF output. (UnRTF v0.21.3 or later only).
 	 * @param {boolean=} options.outputText - Generate ASCII text output.
 	 * @param {boolean=} options.outputVt - Generate text output with VT100 escape codes.
