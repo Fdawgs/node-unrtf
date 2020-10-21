@@ -9,6 +9,10 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
 let testBinaryPath;
 const platform = os.platform();
 switch (platform) {
+	case 'darwin':
+		testBinaryPath = '/usr/local/bin';
+		break;
+
 	case 'linux':
 		testBinaryPath = '/usr/bin';
 		break;

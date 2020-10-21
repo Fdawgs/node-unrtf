@@ -16,6 +16,8 @@ dist: focal
 os:
     - windows
 
+osx_image: xcode12
+
 # See https://travis-ci.community/t/build-doesnt-finish-after-completing-tests/288/9
 env:
     - YARN_GPG=no
@@ -41,6 +43,13 @@ jobs:
           script:
               - sudo apt-get update
               - sudo apt-get -y install unrtf
+              - yarn test
+        - stage: test
+          name: mac osx deployment
+          node_js: lts/*
+          os: osx
+          script:
+              - brew install unrtf
               - yarn test
         - stage: test
           name: produce coverage
