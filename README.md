@@ -11,6 +11,20 @@ The node-unrtf module was created out of a need for a RTF-to-HTML conversion mod
 
 ## Installation
 
+Install using [`yarn`](https://yarnpkg.com/en/package/node-unrtf):
+
+```bash
+yarn add node-unrtf
+```
+
+Or [`npm`](https://www.npmjs.com/package/node-unrtf):
+
+```bash
+npm install node-unrtf
+```
+
+node-unrtf's test scripts use yarn commands.
+
 ### Linux and macOS/Darwin support
 
 A Windows binary (v0.19.3) is provided with this repository.
@@ -33,6 +47,31 @@ Once they have been installed, you will need to pass the `unrtf` installation di
 ```js
 const { UnRTF } = require('node-unrtf');
 const unRtf = new UnRTF('./usr/bin');
+```
+
+## API
+
+```js
+const { UnRTF } = require('node-unrtf');
+```
+
+[API Documentation can be found here](https://github.com/Fdawgs/node-unrtf/blob/master/API.md)
+
+## Example
+
+Example of an async await call to convert RTF to HTML, and then output the result to console:
+
+```js
+const { UnRTF } = require('node-unrtf');
+
+const file = 'test_document.rtf';
+const unRtf = new UnRTF();
+const options = {
+    outputHtml: true
+};
+
+const res = await unRtf.convert(options, file);
+console.log(res);
 ```
 
 ## Contributing
