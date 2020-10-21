@@ -1,4 +1,5 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
+const isHtml = require('is-html');
 const os = require('os');
 const path = require('path');
 const { UnRTF } = require('./index');
@@ -57,7 +58,7 @@ describe('convert function', () => {
 		const res = await unRtf.convert(options, file);
 
 		expect(typeof res).toBe('string');
-		expect(res.substring(0, 6)).toBe('<html>');
+		expect(isHtml(res)).toBe(true);
 	});
 
 	test('Should convert RTF file to HTML without storing images', async () => {
@@ -70,7 +71,7 @@ describe('convert function', () => {
 		const res = await unRtf.convert(options, file);
 
 		expect(typeof res).toBe('string');
-		expect(res.substring(0, 6)).toBe('<html>');
+		expect(isHtml(res)).toBe(true);
 	});
 
 	test('Should convert RTF file to LaTeX', async () => {
