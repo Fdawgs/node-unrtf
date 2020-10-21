@@ -83,10 +83,12 @@ class UnRTF {
 	 * @param {boolean=} options.outputHtml - Generate HTML output.
 	 * @param {boolean=} options.outputLatex - Generate LaTeX output.
 	 * @param {boolean=} options.outputPs - Generate PostScript (PS) output.
+	 * Will error if used with UnRTF v0.19.4 or later.
 	 * @param {boolean=} options.outputRtf - Generate RTF output.
 	 * @param {boolean=} options.outputText - Generate ASCII text output.
 	 * @param {boolean=} options.outputVt - Generate text output with VT100 escape codes.
 	 * @param {boolean=} options.outputWpml - Generate WPML output.
+	 * Will error if used with UnRTF v0.19.4 or later.
 	 * @param {boolean=} options.printVersionInfo - Print copyright and version info.
 	 * @param {boolean=} options.quiet - Do not print any messages or errors.
 	 * @param {string} file - Filepath of the RTF file to read.
