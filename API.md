@@ -21,7 +21,7 @@
 
 -   [UnRTF](#UnRTF)
     -   [new UnRTF([binPath])](#new_UnRTF_new)
-    -   [.convert([options], file)](#UnRTF+convert) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
+    -   [.convert(options, file)](#UnRTF+convert) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
 
 <a name="new_UnRTF_new"></a>
 
@@ -33,7 +33,7 @@
 
 <a name="UnRTF+convert"></a>
 
-### unRTF.convert([options], file) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
+### unRTF.convert(options, file) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
 
 Converts a RTF file to HTML/LaTeX/RTF/TXT.
 UnRTF will use the directory of the original file to store embedded pictures.
@@ -44,7 +44,7 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 | Param                      | Type                 | Description                                                                               |
 | -------------------------- | -------------------- | ----------------------------------------------------------------------------------------- |
-| [options]                  | <code>object</code>  | Object containing options to pass to binary.                                              |
+| options                    | <code>object</code>  | Object containing options to pass to binary.                                              |
 | [options.noPictures]       | <code>boolean</code> | Disable the automatic storing of embedded pictures to the directory of the original file. |
 | [options.noRemap]          | <code>boolean</code> | Disable charset conversion (only works for 8-bit charsets) (UnRTF v0.20.5 or later only). |
 | [options.outputHtml]       | <code>boolean</code> | Generate HTML output.                                                                     |

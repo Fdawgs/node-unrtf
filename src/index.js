@@ -76,7 +76,7 @@ class UnRTF {
 	 * @author Frazer Smith
 	 * @description Converts a RTF file to HTML/LaTeX/RTF/TXT.
 	 * UnRTF will use the directory of the original file to store embedded pictures.
-	 * @param {object=} options - Object containing options to pass to binary.
+	 * @param {object} options - Object containing options to pass to binary.
 	 * @param {boolean=} options.noPictures - Disable the automatic storing of embedded
 	 * pictures to the directory of the original file.
 	 * @param {boolean=} options.noRemap - Disable charset conversion (only works for 8-bit charsets)
