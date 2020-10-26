@@ -1,3 +1,14 @@
+## 1.0.0 (2020-10-26)
+
+-   build(deps-dev): bump dev dependencies ([dd3f926](https://github.com/Fdawgs/node-unrtf/commit/dd3f926))
+-   refactor(index): move optional option param for convert function to end ([02b95a9](https://github.com/Fdawgs/node-unrtf/commit/02b95a9))
+-   chore(scripts): do not lint ts and tsx files ([f40b335](https://github.com/Fdawgs/node-unrtf/commit/f40b335))
+-   feat(index): add typescript definitions ([e2203a6](https://github.com/Fdawgs/node-unrtf/commit/e2203a6))
+
+### BREAKING CHANGE
+
+-   `usage of convert(option, file) should be replaced with convert(file, option)`
+
 ## <small>0.0.2 (2020-10-21)</small>
 
 -   docs: add api docs and examples ([59f1fc3](https://github.com/Fdawgs/node-unrtf/commit/59f1fc3))
