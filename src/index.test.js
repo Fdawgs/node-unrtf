@@ -40,7 +40,7 @@ if (platform === 'win32') {
 				outputHtml: true
 			};
 
-			const res = await unRtf.convert(options, file);
+			const res = await unRtf.convert(file, options);
 
 			expect(typeof res).toBe('string');
 			expect(res.substring(0, 6)).toBe('<html>');
@@ -55,7 +55,7 @@ describe('convert function', () => {
 			outputHtml: true
 		};
 
-		const res = await unRtf.convert(options, file);
+		const res = await unRtf.convert(file, options);
 
 		expect(typeof res).toBe('string');
 		expect(isHtml(res)).toBe(true);
@@ -68,7 +68,7 @@ describe('convert function', () => {
 			outputHtml: true
 		};
 
-		const res = await unRtf.convert(options, file);
+		const res = await unRtf.convert(file, options);
 
 		expect(typeof res).toBe('string');
 		expect(isHtml(res)).toBe(true);
@@ -81,7 +81,7 @@ describe('convert function', () => {
 			outputLatex: true
 		};
 
-		const res = await unRtf.convert(options, file);
+		const res = await unRtf.convert(file, options);
 		expect(typeof res).toBe('string');
 	});
 
@@ -92,7 +92,7 @@ describe('convert function', () => {
 			outputText: true
 		};
 
-		const res = await unRtf.convert(options, file);
+		const res = await unRtf.convert(file, options);
 
 		expect(typeof res).toBe('string');
 	});
@@ -104,7 +104,7 @@ describe('convert function', () => {
 			outputHtml: 'sure'
 		};
 
-		await unRtf.convert(options, file).catch((err) => {
+		await unRtf.convert(file, options).catch((err) => {
 			expect(err.message).toEqual(
 				"Invalid value type provided for option 'outputHtml', expected boolean but recieved string"
 			);
@@ -118,7 +118,7 @@ describe('convert function', () => {
 			outputMp3: true
 		};
 
-		await unRtf.convert(options, file).catch((err) => {
+		await unRtf.convert(file, options).catch((err) => {
 			expect(err.message).toEqual("Invalid option provided 'outputMp3'");
 		});
 	});

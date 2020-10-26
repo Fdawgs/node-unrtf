@@ -76,7 +76,8 @@ class UnRTF {
 	 * @author Frazer Smith
 	 * @description Converts a RTF file to HTML/LaTeX/RTF/TXT.
 	 * UnRTF will use the directory of the original file to store embedded pictures.
-	 * @param {object} options - Object containing options to pass to binary.
+	 * @param {string} file - Filepath of the RTF file to read.
+	 * @param {object=} options - Object containing options to pass to binary.
 	 * @param {boolean=} options.noPictures - Disable the automatic storing of embedded
 	 * pictures to the directory of the original file.
 	 * @param {boolean=} options.noRemap - Disable charset conversion (only works for 8-bit charsets)
@@ -90,10 +91,9 @@ class UnRTF {
 	 * @param {boolean=} options.outputWpml - Generate WPML output (UnRTF v0.19.4 or earlier only).
 	 * @param {boolean=} options.printVersionInfo - Print copyright and version info.
 	 * @param {boolean=} options.quiet - Do not print any leading comments in output (UnRTF v0.21.3 or later only).
-	 * @param {string} file - Filepath of the RTF file to read.
 	 * @returns {Promise<string|Error>} Promise of stdout string on resolve, or Error object on rejection.
 	 */
-	async convert(options = {}, file) {
+	async convert(file, options = {}) {
 		const acceptedOptions = {
 			noPictures: { arg: '--nopict', type: 'boolean' },
 			noRemap: { arg: '--noremap', type: 'boolean' },
