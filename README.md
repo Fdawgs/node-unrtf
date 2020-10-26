@@ -70,7 +70,7 @@ const options = {
 	outputHtml: true
 };
 
-const res = await unRtf.convert(options, file);
+const res = await unRtf.convert(file, options);
 console.log(res);
 ```
 
