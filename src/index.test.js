@@ -122,4 +122,18 @@ describe('convert function', () => {
 			expect(err.message).toEqual("Invalid option provided 'outputMp3'");
 		});
 	});
+
+	test('Should return an Error object if file is missing', async () => {
+		const unRtf = new UnRTF(testBinaryPath);
+		const options = {
+			noPictures: true,
+			outputHtml: 'sure'
+		};
+
+		await unRtf.convert(undefined, options).catch((err) => {
+			expect(err.message).toEqual(
+				"File missing"
+			);
+		});
+	});
 });
