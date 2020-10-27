@@ -1,3 +1,9 @@
+## <small>1.0.1 (2020-10-27)</small>
+
+-   build(deps-dev): bump dev dependencies ([cf5cd8b](https://github.com/Fdawgs/node-unrtf/commit/cf5cd8b))
+-   ci(travis): add npm deploy stage ([d194055](https://github.com/Fdawgs/node-unrtf/commit/d194055))
+-   fix(index): catch empty file vars before unrtf parses them ([789afbd](https://github.com/Fdawgs/node-unrtf/commit/789afbd))
+
 ## 1.0.0 (2020-10-26)
 
 -   build(deps-dev): bump dev dependencies ([dd3f926](https://github.com/Fdawgs/node-unrtf/commit/dd3f926))
