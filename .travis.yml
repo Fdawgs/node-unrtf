@@ -59,3 +59,15 @@ jobs:
               - jest --coverage
               - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
               - rm -rf ./coverage
+        - stage: deploy
+          name: NPM release
+          node_js: lts/*
+          os: linux
+          script: skip
+          deploy:
+              provider: npm
+              email: devfrazs@outlook.com
+              api_token:
+                  secure: hqrMU24GsbhHPLrSmZCvWBlcNbV5z/nAV3NyK/mdAh0IzJVQZaoLV7v4Hj28lOeUQM+lXlgUDFW/vrTkkhKurNLZPcIAUk+yEGEKPw8JXVy7bC32FMM57T+RvoHYzOQVkibKpmx1sDwZlLDyQW/ICyviLqTtEAGmAoE9ukcl8sVbRN05mCAV9PBhpWtoUzkklN8i/yWgHKByQTVelgP0LGMUrDXqZNN2SKN61KfluekbOlXOYUFxfFMXqZKzD9duPmBKUNu9/utE10h+qhv2Xh4fO5Etp9auRaMS6RpoeT0No+vY+7OHrNUgydkggVP+DuPlK+UQsAfyUx2s5AoYQRYzcqtBEwBJazgNNceaxFh6QdTZTvzjdP3TWmklrLg88rEeenbeJNzlcYqlMwtDQb0t1Z9fjfRzESESmaMMPjhkde2lrmWs7Szp+fmNJoIw9ggvWG3ozG7I5YMzZNyTqcq04mIC+qVwLctXB2GmhBy2rLaJw0zllf2FmbAhadDljZd0wEvM+ikPSH1jyW5DellfxfUNmdCZizRTFy5t+A0N0aBNuwuL5uOmrbOYGkUu0ZxHpeh1qYtOvWGEPWModStBzfr22Jkz2X4IU2bj/pvCCf5Pk+V3YzQhEhAX1tkWE0vFSXE0yulvv7IuzPqnw7sY1ofG83N53lh2jHjvDcc=
+              on:
+                  tags: true
