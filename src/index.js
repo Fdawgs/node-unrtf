@@ -108,6 +108,11 @@ class UnRTF {
 			printVersionInfo: { arg: '--version', type: 'boolean' }
 		};
 
+		// UnRTF still attempts to convert empty strings/files, so catch them here before
+		if (file === undefined || Object.keys(file).length === 0) {
+			throw new Error('File missing');
+		}
+
 		try {
 			const args = await parseOptions(options, acceptedOptions);
 			args.push(file);
