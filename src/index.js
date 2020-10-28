@@ -1,3 +1,4 @@
+const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { execFile } = require('child_process');
@@ -109,7 +110,7 @@ class UnRTF {
 		};
 
 		// UnRTF still attempts to convert empty strings/files, so catch them here before
-		if (file === undefined || Object.keys(file).length === 0) {
+		if (file === undefined || fs.existsSync(file) === false) {
 			throw new Error('File missing');
 		}
 
