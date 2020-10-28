@@ -36,7 +36,7 @@ An example of downloading the binary on a Debian system:
 sudo apt-get install unrtf
 ```
 
-For Mac, the binary can be installed with [Homebrew](https://brew.sh/):
+For macOS, the binary can be installed with [Homebrew](https://brew.sh/):
 
 ```
 brew install unrtf
@@ -59,7 +59,7 @@ const { UnRTF } = require('node-unrtf');
 
 ## Example
 
-Example of an async await call to convert RTF to HTML, and then output the result to console:
+Example of an async await call to convert an RTF file to HTML, and then output the result to console:
 
 ```js
 const { UnRTF } = require('node-unrtf');

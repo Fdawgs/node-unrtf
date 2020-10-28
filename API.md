@@ -35,7 +35,7 @@
 
 ### unRTF.convert(file, [options]) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
 
-Converts a RTF file to HTML/LaTeX/RTF/TXT.
+Converts an RTF file to HTML/LaTeX/RTF/TXT.
 UnRTF will use the directory of the original file to store embedded pictures.
 
 **Kind**: instance method of [<code>UnRTF</code>](#UnRTF)  
