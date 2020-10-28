@@ -75,7 +75,7 @@ class UnRTF {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Converts a RTF file to HTML/LaTeX/RTF/TXT.
+	 * @description Converts an RTF file to HTML/LaTeX/RTF/TXT.
 	 * UnRTF will use the directory of the original file to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
 	 * @param {object=} options - Object containing options to pass to binary.
