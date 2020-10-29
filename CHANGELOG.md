@@ -1,3 +1,9 @@
+## <small>1.0.2 (2020-10-29)</small>
+
+-   build(deps-dev): bump dev dependencies ([79e05f9](https://github.com/Fdawgs/node-unrtf/commit/79e05f9))
+-   docs: grammar and spelling fixes ([f5fb9e3](https://github.com/Fdawgs/node-unrtf/commit/f5fb9e3))
+-   fix(index): check file exists before attempting to parse ([41daf30](https://github.com/Fdawgs/node-unrtf/commit/41daf30))
+
 ## <small>1.0.1 (2020-10-27)</small>
 
 -   build(deps-dev): bump dev dependencies ([cf5cd8b](https://github.com/Fdawgs/node-unrtf/commit/cf5cd8b))
