@@ -104,6 +104,7 @@ describe('convert function', () => {
 			outputHtml: 'sure'
 		};
 
+		expect.assertions(1);
 		await unRtf.convert(file, options).catch((err) => {
 			expect(err.message).toEqual(
 				"Invalid value type provided for option 'outputHtml', expected boolean but recieved string"
@@ -118,6 +119,7 @@ describe('convert function', () => {
 			outputMp3: true
 		};
 
+		expect.assertions(1);
 		await unRtf.convert(file, options).catch((err) => {
 			expect(err.message).toEqual("Invalid option provided 'outputMp3'");
 		});
@@ -130,10 +132,9 @@ describe('convert function', () => {
 			outputHtml: 'sure'
 		};
 
+		expect.assertions(1);
 		await unRtf.convert(undefined, options).catch((err) => {
-			expect(err.message).toEqual(
-				"File missing"
-			);
+			expect(err.message).toEqual('File missing');
 		});
 	});
 });
