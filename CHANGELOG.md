@@ -1,3 +1,11 @@
+## <small>1.0.3 (2020-11-10)</small>
+
+-   build(deps-dev): bump dev dependencies ([2e96ea0](https://github.com/Fdawgs/node-unrtf/commit/2e96ea0))
+-   fix(index): return promise objects ([863d9f7](https://github.com/Fdawgs/node-unrtf/commit/863d9f7))
+-   docs(index): correct return jsdoc tag for parseoptions function ([59bb581](https://github.com/Fdawgs/node-unrtf/commit/59bb581))
+-   refactor(index): concat invalid args provided into error object ([dd1084e](https://github.com/Fdawgs/node-unrtf/commit/dd1084e))
+-   chore(index): rename const to reflect functionality ([a0624e9](https://github.com/Fdawgs/node-unrtf/commit/a0624e9))
+
 ## <small>1.0.2 (2020-10-29)</small>
 
 -   build(deps-dev): bump dev dependencies ([79e05f9](https://github.com/Fdawgs/node-unrtf/commit/79e05f9))
