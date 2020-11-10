@@ -112,12 +112,12 @@ class UnRTF {
 			printVersionInfo: { arg: '--version', type: 'boolean' }
 		};
 
-		// UnRTF still attempts to convert empty strings/files, so catch them here before
-		if (file === undefined || fs.existsSync(file) === false) {
-			throw new Error('File missing');
-		}
-
 		try {
+			// UnRTF still attempts to convert empty strings/files, so catch them here before
+			if (file === undefined || fs.existsSync(file) === false) {
+				throw new Error('File missing');
+			}
+
 			const args = await parseOptions(acceptedOptions, options);
 			args.push(file);
 
@@ -125,9 +125,9 @@ class UnRTF {
 				path.join(this.unrtfPath, 'unrtf'),
 				args
 			);
-			return stdout;
+			return Promise.resolve(stdout);
 		} catch (err) {
-			return err;
+			return Promise.reject(err);
 		}
 	}
 }
