@@ -14,9 +14,10 @@ const platform = os.platform();
  * @param {object} acceptedOptions - Object containing options that a binary accepts.
  * @returns {Promise<string|Error>} Promise of stdout string on resolve, or Error object on rejection.
  */
-function parseOptions(options, acceptedOptions) {
+function parseOptions(acceptedOptions, options) {
 	return new Promise((resolve, reject) => {
 		const args = [];
+		const invalidArgs = [];
 		Object.keys(options).forEach((key) => {
 			if (Object.prototype.hasOwnProperty.call(acceptedOptions, key)) {
 				// eslint-disable-next-line valid-typeof
@@ -26,19 +27,21 @@ function parseOptions(options, acceptedOptions) {
 						args.push(options[key]);
 					}
 				} else {
-					reject(
-						new Error(
-							`Invalid value type provided for option '${key}', expected ${
-								acceptedOptions[key].type
-							} but recieved ${typeof options[key]}`
-						)
+					invalidArgs.push(
+						`Invalid value type provided for option '${key}', expected ${
+							acceptedOptions[key].type
+						} but recieved ${typeof options[key]}`
 					);
 				}
 			} else {
-				reject(new Error(`Invalid option provided '${key}'`));
+				invalidArgs.push(`Invalid option provided '${key}'`);
 			}
 		});
-		resolve(args);
+		if (invalidArgs.length === 0) {
+			resolve(args);
+		} else {
+			reject(new Error(invalidArgs.join('; ')));
+		}
 	});
 }
 
@@ -115,7 +118,7 @@ class UnRTF {
 		}
 
 		try {
-			const args = await parseOptions(options, acceptedOptions);
+			const args = await parseOptions(acceptedOptions, options);
 			args.push(file);
 
 			const { stdout } = await execFileAsync(
