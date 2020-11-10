@@ -4,19 +4,20 @@ const path = require('path');
 const { execFile } = require('child_process');
 const util = require('util');
 
-const execFileSync = util.promisify(execFile);
+const execFileAsync = util.promisify(execFile);
 const platform = os.platform();
 
 /**
  * @author Frazer Smith
  * @description Check each option provided is valid and of the correct type.
- * @param {object} options - Object containing options to pass to binary.
  * @param {object} acceptedOptions - Object containing options that a binary accepts.
- * @returns {Promise<string|Error>} Promise of stdout string on resolve, or Error object on rejection.
+ * @param {object} options - Object containing options to pass to binary.
+ * @returns {Promise<Array|Error>} Promise of array of CLI arguments on resolve, or Error object on rejection.
  */
-function parseOptions(options, acceptedOptions) {
+function parseOptions(acceptedOptions, options) {
 	return new Promise((resolve, reject) => {
 		const args = [];
+		const invalidArgs = [];
 		Object.keys(options).forEach((key) => {
 			if (Object.prototype.hasOwnProperty.call(acceptedOptions, key)) {
 				// eslint-disable-next-line valid-typeof
@@ -26,19 +27,21 @@ function parseOptions(options, acceptedOptions) {
 						args.push(options[key]);
 					}
 				} else {
-					reject(
-						new Error(
-							`Invalid value type provided for option '${key}', expected ${
-								acceptedOptions[key].type
-							} but recieved ${typeof options[key]}`
-						)
+					invalidArgs.push(
+						`Invalid value type provided for option '${key}', expected ${
+							acceptedOptions[key].type
+						} but recieved ${typeof options[key]}`
 					);
 				}
 			} else {
-				reject(new Error(`Invalid option provided '${key}'`));
+				invalidArgs.push(`Invalid option provided '${key}'`);
 			}
 		});
-		resolve(args);
+		if (invalidArgs.length === 0) {
+			resolve(args);
+		} else {
+			reject(new Error(invalidArgs.join('; ')));
+		}
 	});
 }
 
@@ -109,22 +112,22 @@ class UnRTF {
 			printVersionInfo: { arg: '--version', type: 'boolean' }
 		};
 
-		// UnRTF still attempts to convert empty strings/files, so catch them here before
-		if (file === undefined || fs.existsSync(file) === false) {
-			throw new Error('File missing');
-		}
-
 		try {
-			const args = await parseOptions(options, acceptedOptions);
+			// UnRTF still attempts to convert empty strings/files, so catch them here before
+			if (file === undefined || fs.existsSync(file) === false) {
+				throw new Error('File missing');
+			}
+
+			const args = await parseOptions(acceptedOptions, options);
 			args.push(file);
 
-			const { stdout } = await execFileSync(
+			const { stdout } = await execFileAsync(
 				path.join(this.unrtfPath, 'unrtf'),
 				args
 			);
-			return stdout;
+			return Promise.resolve(stdout);
 		} catch (err) {
-			return err;
+			return Promise.reject(err);
 		}
 	}
 }
