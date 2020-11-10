@@ -4,7 +4,7 @@ const path = require('path');
 const { execFile } = require('child_process');
 const util = require('util');
 
-const execFileSync = util.promisify(execFile);
+const execFileAsync = util.promisify(execFile);
 const platform = os.platform();
 
 /**
@@ -118,7 +118,7 @@ class UnRTF {
 			const args = await parseOptions(options, acceptedOptions);
 			args.push(file);
 
-			const { stdout } = await execFileSync(
+			const { stdout } = await execFileAsync(
 				path.join(this.unrtfPath, 'unrtf'),
 				args
 			);
