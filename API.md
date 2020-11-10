@@ -8,7 +8,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#parseOptions">parseOptions(options, acceptedOptions)</a> ⇒ <code>Promise.&lt;(string|Error)&gt;</code></dt>
+<dt><a href="#parseOptions">parseOptions(acceptedOptions, options)</a> ⇒ <code>Promise.&lt;(Array|Error)&gt;</code></dt>
 <dd><p>Check each option provided is valid and of the correct type.</p>
 </dd>
 </dl>
@@ -60,15 +60,15 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 <a name="parseOptions"></a>
 
-## parseOptions(options, acceptedOptions) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
+## parseOptions(acceptedOptions, options) ⇒ <code>Promise.&lt;(Array\|Error)&gt;</code>
 
 Check each option provided is valid and of the correct type.
 
 **Kind**: global function  
-**Returns**: <code>Promise.&lt;(string\|Error)&gt;</code> - Promise of stdout string on resolve, or Error object on rejection.  
+**Returns**: <code>Promise.&lt;(Array\|Error)&gt;</code> - Promise of array of CLI arguments on resolve, or Error object on rejection.  
 **Author**: Frazer Smith
 
 | Param           | Type                | Description                                      |
 | --------------- | ------------------- | ------------------------------------------------ |
-| options         | <code>object</code> | Object containing options to pass to binary.     |
 | acceptedOptions | <code>object</code> | Object containing options that a binary accepts. |
+| options         | <code>object</code> | Object containing options to pass to binary.     |
