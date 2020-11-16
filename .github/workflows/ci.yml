@@ -1,0 +1,98 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - master
+            - dependabot/**
+            - feat/**
+        tags:
+            # Wait for push events with tags matching v*, e.g. v1.0, v20.15.10, v0.3.1
+            - v*.*.*
+    pull_request:
+        # The branches below must be a subset of the branches above
+        branches:
+            - master
+
+jobs:
+    macos:
+        name: macOS Build
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x, 14.x]
+
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - run: yarn install
+            - name: Run Tests
+              run: |
+                  brew install unrtf
+                  yarn test-coverage
+            - name: Coveralls Parallel
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  parallel: true
+
+    ubuntu:
+        name: Ubuntu Build
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x, 14.x]
+
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - run: yarn install
+            - name: Run Tests
+              run: |
+                  sudo apt-get -y install unrtf
+                  yarn test-coverage
+            - name: Coveralls Parallel
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  parallel: true
+
+    windows:
+        name: Windows Build
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x, 14.x]
+
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - run: yarn install
+            - name: Run Tests
+              run: |
+                  yarn test-coverage
+            - name: Coveralls Parallel
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  parallel: true
+
+    coverage:
+        name: Aggregate Coverage Calculations
+        needs: [macos, ubuntu, windows]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Coveralls Finished
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  parallel-finished: true
