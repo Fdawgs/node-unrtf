@@ -1,3 +1,10 @@
+## <small>1.0.4 (2020-12-01)</small>
+
+-   build(deps-dev): bump dev dependencies ([25a4bb4](https://github.com/Fdawgs/node-unrtf/commit/25a4bb4))
+-   chore: add security.md ([821352e](https://github.com/Fdawgs/node-unrtf/commit/821352e))
+-   ci: add cd action to publish to npm ([709bef7](https://github.com/Fdawgs/node-unrtf/commit/709bef7))
+-   ci: replace travis-ci with github actions ([70d23d8](https://github.com/Fdawgs/node-unrtf/commit/70d23d8))
+
 ## <small>1.0.3 (2020-11-10)</small>
 
 -   build(deps-dev): bump dev dependencies ([2e96ea0](https://github.com/Fdawgs/node-unrtf/commit/2e96ea0))
