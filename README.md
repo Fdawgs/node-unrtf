@@ -7,7 +7,7 @@
 
 ## Intro
 
-The node-unrtf module was created out of a need for a RTF-to-HTML conversion module at [Yeovil District Hospital NHSFT](https://yeovilhospital.co.uk/) to convert clinical documents in RTF format to HTML.
+The node-unrtf module was created out of a need for a RTF-to-HTML conversion module at [Yeovil District Hospital NHS Foundation Trust](https://yeovilhospital.co.uk/) to convert clinical documents in RTF format to HTML.
 
 ## Installation
 
