@@ -1,3 +1,28 @@
+## <small>1.0.5 (2020-12-28)</small>
+
+-   build: update github-actions with dependabot ([e905020](https://github.com/Fdawgs/node-unrtf/commit/e905020))
+-   build(deps-dev): bump cross-env from 7.0.2 to 7.0.3 ([3c99ec3](https://github.com/Fdawgs/node-unrtf/commit/3c99ec3))
+-   build(deps-dev): bump eslint from 7.14.0 to 7.16.0 ([96b903f](https://github.com/Fdawgs/node-unrtf/commit/96b903f))
+-   build(deps-dev): bump eslint-config-prettier from 6.15.0 to 7.1.0 ([a9c02e6](https://github.com/Fdawgs/node-unrtf/commit/a9c02e6))
+-   build(deps-dev): bump eslint-plugin-jsdoc from 30.7.8 to 30.7.9 (#14) ([ff9c9d2](https://github.com/Fdawgs/node-unrtf/commit/ff9c9d2)), closes [#14](https://github.com/Fdawgs/node-unrtf/issues/14)
+-   build(deps-dev): bump typescript from 4.1.2 to 4.1.3 (#16) ([372bd4b](https://github.com/Fdawgs/node-unrtf/commit/372bd4b)), closes [#16](https://github.com/Fdawgs/node-unrtf/issues/16)
+-   build(deps-dev): remove eslint-plugin-json ([ae41058](https://github.com/Fdawgs/node-unrtf/commit/ae41058))
+-   build(deps): bump fastify/github-action-merge-dependabot (#13) ([dbda5ae](https://github.com/Fdawgs/node-unrtf/commit/dbda5ae)), closes [#13](https://github.com/Fdawgs/node-unrtf/issues/13)
+-   build(typescript): enable strict option ([4c5344a](https://github.com/Fdawgs/node-unrtf/commit/4c5344a))
+-   docs(contributing): update prettier script ([c2df110](https://github.com/Fdawgs/node-unrtf/commit/c2df110))
+-   docs(readme): remove abbreviation ([cca9eb4](https://github.com/Fdawgs/node-unrtf/commit/cca9eb4))
+-   ci: add linting job; expand scope of jobs ([2abbfc1](https://github.com/Fdawgs/node-unrtf/commit/2abbfc1))
+-   ci: automatically merge dependabot pull requests on pass build stage ([3c7b40a](https://github.com/Fdawgs/node-unrtf/commit/3c7b40a))
+-   ci: bump actions/setup-node from v1 to v2 ([3ec3d8b](https://github.com/Fdawgs/node-unrtf/commit/3ec3d8b))
+-   ci: freeze yarn lockfile on publish ([65135d6](https://github.com/Fdawgs/node-unrtf/commit/65135d6))
+-   ci: merge unit test jobs ([4fe02c8](https://github.com/Fdawgs/node-unrtf/commit/4fe02c8))
+-   ci: move dependency installs to correct step ([5bf2bd9](https://github.com/Fdawgs/node-unrtf/commit/5bf2bd9))
+-   ci: require lint job on automerge ([ab41541](https://github.com/Fdawgs/node-unrtf/commit/ab41541))
+-   style: use default prettier options for trailing commas and quotes ([c4f9fad](https://github.com/Fdawgs/node-unrtf/commit/c4f9fad))
+-   fix(scripts): test script ([b5a59e0](https://github.com/Fdawgs/node-unrtf/commit/b5a59e0))
+-   chore: add stale confg ([777a58e](https://github.com/Fdawgs/node-unrtf/commit/777a58e))
+-   chore(scripts): rename test scripts ([e0cee9f](https://github.com/Fdawgs/node-unrtf/commit/e0cee9f))
+
 ## <small>1.0.4 (2020-12-01)</small>
 
 -   build(deps-dev): bump dev dependencies ([25a4bb4](https://github.com/Fdawgs/node-unrtf/commit/25a4bb4))
