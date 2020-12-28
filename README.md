@@ -45,14 +45,14 @@ brew install unrtf
 Once they have been installed, you will need to pass the `unrtf` installation directory in as parameters to an instance of the UnRTF class:
 
 ```js
-const { UnRTF } = require('node-unrtf');
-const unRtf = new UnRTF('./usr/bin');
+const { UnRTF } = require("node-unrtf");
+const unRtf = new UnRTF("./usr/bin");
 ```
 
 ## API
 
 ```js
-const { UnRTF } = require('node-unrtf');
+const { UnRTF } = require("node-unrtf");
 ```
 
 [API Documentation can be found here](https://github.com/Fdawgs/node-unrtf/blob/master/API.md)
@@ -62,12 +62,12 @@ const { UnRTF } = require('node-unrtf');
 Example of an async await call to convert an RTF file to HTML, and then output the result to console:
 
 ```js
-const { UnRTF } = require('node-unrtf');
+const { UnRTF } = require("node-unrtf");
 
-const file = 'test_document.rtf';
+const file = "test_document.rtf";
 const unRtf = new UnRTF();
 const options = {
-	outputHtml: true
+	outputHtml: true,
 };
 
 const res = await unRtf.convert(file, options);
