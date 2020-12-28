@@ -1,8 +1,8 @@
-const fs = require('fs');
-const os = require('os');
-const path = require('path');
-const { execFile } = require('child_process');
-const util = require('util');
+const fs = require("fs");
+const os = require("os");
+const path = require("path");
+const { execFile } = require("child_process");
+const util = require("util");
 
 const execFileAsync = util.promisify(execFile);
 const platform = os.platform();
@@ -23,7 +23,7 @@ function parseOptions(acceptedOptions, options) {
 				// eslint-disable-next-line valid-typeof
 				if (typeof options[key] === acceptedOptions[key].type) {
 					args.push(acceptedOptions[key].arg);
-					if (typeof options[key] !== 'boolean') {
+					if (typeof options[key] !== "boolean") {
 						args.push(options[key]);
 					}
 				} else {
@@ -40,7 +40,7 @@ function parseOptions(acceptedOptions, options) {
 		if (invalidArgs.length === 0) {
 			resolve(args);
 		} else {
-			reject(new Error(invalidArgs.join('; ')));
+			reject(new Error(invalidArgs.join("; ")));
 		}
 	});
 }
@@ -59,13 +59,13 @@ class UnRTF {
 			// Build path to UnRTF binary based on OS
 			switch (platform) {
 				// Windows OS
-				case 'win32':
+				case "win32":
 					unrtfPath = path.join(
 						__dirname,
-						'lib',
-						'win32',
-						'unrtf-0.19.3',
-						'bin'
+						"lib",
+						"win32",
+						"unrtf-0.19.3",
+						"bin"
 					);
 					break;
 				default:
@@ -99,30 +99,30 @@ class UnRTF {
 	 */
 	async convert(file, options = {}) {
 		const acceptedOptions = {
-			noPictures: { arg: '--nopict', type: 'boolean' },
-			noRemap: { arg: '--noremap', type: 'boolean' },
-			outputHtml: { arg: '--html', type: 'boolean' },
-			outputLatex: { arg: '--latex', type: 'boolean' },
-			outputPs: { arg: '--ps', type: 'boolean' },
-			outputRtf: { arg: '--rtf', type: 'boolean' },
-			outputText: { arg: '--text', type: 'boolean' },
-			outputVt: { arg: '--vt', type: 'boolean' },
-			outputWpml: { arg: '--wpml', type: 'boolean' },
-			quiet: { arg: '--quiet', type: 'boolean' },
-			printVersionInfo: { arg: '--version', type: 'boolean' }
+			noPictures: { arg: "--nopict", type: "boolean" },
+			noRemap: { arg: "--noremap", type: "boolean" },
+			outputHtml: { arg: "--html", type: "boolean" },
+			outputLatex: { arg: "--latex", type: "boolean" },
+			outputPs: { arg: "--ps", type: "boolean" },
+			outputRtf: { arg: "--rtf", type: "boolean" },
+			outputText: { arg: "--text", type: "boolean" },
+			outputVt: { arg: "--vt", type: "boolean" },
+			outputWpml: { arg: "--wpml", type: "boolean" },
+			quiet: { arg: "--quiet", type: "boolean" },
+			printVersionInfo: { arg: "--version", type: "boolean" },
 		};
 
 		try {
 			// UnRTF still attempts to convert empty strings/files, so catch them here before
 			if (file === undefined || fs.existsSync(file) === false) {
-				throw new Error('File missing');
+				throw new Error("File missing");
 			}
 
 			const args = await parseOptions(acceptedOptions, options);
 			args.push(file);
 
 			const { stdout } = await execFileAsync(
-				path.join(this.unrtfPath, 'unrtf'),
+				path.join(this.unrtfPath, "unrtf"),
 				args
 			);
 			return Promise.resolve(stdout);
@@ -133,5 +133,5 @@ class UnRTF {
 }
 
 module.exports = {
-	UnRTF
+	UnRTF,
 };
