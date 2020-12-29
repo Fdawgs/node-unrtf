@@ -55,11 +55,13 @@ const unRtf = new UnRTF("./usr/bin");
 const { UnRTF } = require("node-unrtf");
 ```
 
-[API Documentation can be found here](https://github.com/Fdawgs/node-unrtf/blob/master/API.md)
+[**API Documentation can be found here**](https://github.com/Fdawgs/node-unrtf/blob/master/API.md)
 
-## Example
+## Examples
 
-Example of an async await call to convert an RTF file to HTML, and then output the result to console:
+### Async Await
+
+Example of an `async` `await` call to convert an RTF file to HTML, and then output the result to console:
 
 ```js
 const { UnRTF } = require("node-unrtf");
@@ -72,6 +74,24 @@ const options = {
 
 const res = await unRtf.convert(file, options);
 console.log(res);
+```
+
+### Promise Chaining
+
+Example of calling unRTF.convert with a promise chain:
+
+```js
+const { UnRTF } = require("node-unrtf");
+
+const file = "test_document.rtf";
+const unRtf = new UnRTF("./usr/bin");
+const options = {
+	outputHtml: true,
+};
+
+unRTF.convert(file, options).then((res) => {
+	console.log(res);
+});
 ```
 
 ## Contributing
