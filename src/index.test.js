@@ -61,6 +61,15 @@ describe("convert function", () => {
 		expect(isHtml(res)).toBe(true);
 	});
 
+	test("Should convert RTF file to HTML with no options set", async () => {
+		const unRtf = new UnRTF(testBinaryPath);
+
+		const res = await unRtf.convert(file);
+
+		expect(typeof res).toBe("string");
+		expect(isHtml(res)).toBe(true);
+	});
+
 	test("Should convert RTF file to HTML without storing images", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {

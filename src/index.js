@@ -1,11 +1,9 @@
 const fs = require("fs");
-const os = require("os");
 const path = require("path");
 const { execFile } = require("child_process");
 const util = require("util");
 
 const execFileAsync = util.promisify(execFile);
-const platform = os.platform();
 
 /**
  * @author Frazer Smith
@@ -47,32 +45,20 @@ function parseOptions(acceptedOptions, options) {
 
 class UnRTF {
 	/**
-	 * @param {string=} binPath - Path of UnRTF binary.
-	 * Useful for Linux users who have UnRTF binary already installed.
+	 * @param {string=} binPath - Path of UnRTF binary, i.e. `/usr/bin`
 	 */
 	constructor(binPath) {
 		if (binPath) {
 			this.unrtfPath = binPath;
 		} else {
-			let unrtfPath;
-
-			// Build path to UnRTF binary based on OS
-			switch (platform) {
-				// Windows OS
-				case "win32":
-					unrtfPath = path.join(
-						__dirname,
-						"lib",
-						"win32",
-						"unrtf-0.19.3",
-						"bin"
-					);
-					break;
-				default:
-					return new Error(`${platform} is NOT supported.`);
-			}
-
-			this.unrtfPath = unrtfPath;
+			// If not set, expect user to be using Win32
+			this.unrtfPath = path.join(
+				__dirname,
+				"lib",
+				"win32",
+				"unrtf-0.19.3",
+				"bin"
+			);
 		}
 	}
 
