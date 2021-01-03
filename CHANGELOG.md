@@ -1,3 +1,17 @@
+## <small>1.0.6 (2021-01-03)</small>
+
+-   build(deps-dev): bump eslint from 7.16.0 to 7.17.0 (#23) ([906057f](https://github.com/Fdawgs/node-unrtf/commit/906057f)), closes [#23](https://github.com/Fdawgs/node-unrtf/issues/23)
+-   build(deps-dev): bump eslint-plugin-jsdoc from 30.7.9 to 30.7.13 (#22) ([3a6a54c](https://github.com/Fdawgs/node-unrtf/commit/3a6a54c)), closes [#22](https://github.com/Fdawgs/node-unrtf/issues/22)
+-   build(deps-dev): remove cross-env ([3fb81e4](https://github.com/Fdawgs/node-unrtf/commit/3fb81e4))
+-   ci: refactor `codeql-analysis.yml` ([ed2cf30](https://github.com/Fdawgs/node-unrtf/commit/ed2cf30))
+-   ci: use yarn cache of node dependencies if present ([fe7171a](https://github.com/Fdawgs/node-unrtf/commit/fe7171a))
+-   ci(codeql): specify more query suites ([0bf1d99](https://github.com/Fdawgs/node-unrtf/commit/0bf1d99))
+-   chore: remove old .env files from gitignore ([1fcc8dd](https://github.com/Fdawgs/node-unrtf/commit/1fcc8dd))
+-   docs(readme): update examples ([22d5943](https://github.com/Fdawgs/node-unrtf/commit/22d5943))
+-   test(index): function with no options param passed ([72c97af](https://github.com/Fdawgs/node-unrtf/commit/72c97af))
+-   refactor(index): remove unused default branch ([aee6c76](https://github.com/Fdawgs/node-unrtf/commit/aee6c76))
+-   style(ci): tidy job names ([78bc55e](https://github.com/Fdawgs/node-unrtf/commit/78bc55e))
+
 ## <small>1.0.5 (2020-12-28)</small>
 
 -   build: update github-actions with dependabot ([e905020](https://github.com/Fdawgs/node-unrtf/commit/e905020))
