@@ -1,10 +1,9 @@
 export class UnRTF {
 	/**
-	 * @param {string=} binPath - Path of UnRTF binary.
-	 * Useful for Linux users who have UnRTF binary already installed.
+	 * @param {string=} binPath - Path of UnRTF binary, i.e. `/usr/bin`
 	 */
 	constructor(binPath?: string | undefined);
-	unrtfPath: string | undefined;
+	unrtfPath: string;
 	/**
 	 * @author Frazer Smith
 	 * @description Converts an RTF file to HTML/LaTeX/RTF/TXT.
