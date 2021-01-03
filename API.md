@@ -27,9 +27,9 @@
 
 ### new UnRTF([binPath])
 
-| Param     | Type                | Description                                                                           |
-| --------- | ------------------- | ------------------------------------------------------------------------------------- |
-| [binPath] | <code>string</code> | Path of UnRTF binary. Useful for Linux users who have UnRTF binary already installed. |
+| Param     | Type                | Description                           |
+| --------- | ------------------- | ------------------------------------- |
+| [binPath] | <code>string</code> | Path of UnRTF binary, i.e. `/usr/bin` |
 
 <a name="UnRTF+convert"></a>
 
