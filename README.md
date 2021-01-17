@@ -11,19 +11,19 @@ The node-unrtf module was created out of a need for a RTF-to-HTML conversion mod
 
 ## Installation
 
-Install using [`yarn`](https://yarnpkg.com/en/package/node-unrtf):
-
-```bash
-yarn add node-unrtf
-```
-
-Or [`npm`](https://www.npmjs.com/package/node-unrtf):
+Install using [`npm`](https://www.npmjs.com/package/node-unrtf):
 
 ```bash
 npm install node-unrtf
 ```
 
-node-unrtf's test scripts use yarn commands.
+Or [`yarn`](https://yarnpkg.com/en/package/node-unrtf):
+
+```bash
+yarn add node-unrtf
+```
+
+node-unrtf's test scripts use npm commands.
 
 ### Linux and macOS/Darwin support
 
