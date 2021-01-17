@@ -22,8 +22,12 @@
 	],
 	"main": "src/index.js",
 	"repository": "git+https://github.com/Fdawgs/node-unrtf.git",
-	"author": "Frazer Smith <frazer.dev@outlook.com>",
+	"homepage": "https://github.com/Fdawgs/node-unrtf",
+	"bugs": {
+		"url": "https://github.com/Fdawgs/node-unrtf/issues"
+	},
 	"license": "MIT",
+	"author": "Frazer Smith <frazer.dev@outlook.com>",
 	"engines": {
 		"node": ">=10.22.0"
 	},
