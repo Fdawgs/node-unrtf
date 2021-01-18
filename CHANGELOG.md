@@ -1,3 +1,17 @@
+## <small>1.0.7 (2021-01-18)</small>
+
+-   build: add typoci config file ([673d667](https://github.com/Fdawgs/node-unrtf/commit/673d667))
+-   build: remove `yarn` as package manager, revert to `npm` ([92bfa05](https://github.com/Fdawgs/node-unrtf/commit/92bfa05))
+-   build(deps-dev): bump eslint-plugin-jsdoc from 30.7.13 to 31.0.7 (#26) ([3a385b0](https://github.com/Fdawgs/node-unrtf/commit/3a385b0)), closes [#26](https://github.com/Fdawgs/node-unrtf/issues/26)
+-   fix: remove lockfile ([3f1f06f](https://github.com/Fdawgs/node-unrtf/commit/3f1f06f))
+-   fix: script calls ([92c1d12](https://github.com/Fdawgs/node-unrtf/commit/92c1d12))
+-   ci: ignore scripts on publish ([51bbc50](https://github.com/Fdawgs/node-unrtf/commit/51bbc50))
+-   ci: remove redundant javascript dictionary ([5bb970f](https://github.com/Fdawgs/node-unrtf/commit/5bb970f))
+-   ci(typo-ci): add `ydh` to list of excluded words ([ce0dd7d](https://github.com/Fdawgs/node-unrtf/commit/ce0dd7d))
+-   chore(package): add homepage and bug urls ([0296e85](https://github.com/Fdawgs/node-unrtf/commit/0296e85))
+-   docs: update contact email ([b1ab606](https://github.com/Fdawgs/node-unrtf/commit/b1ab606))
+-   docs(contributing): update yarn link ([e1c4bc0](https://github.com/Fdawgs/node-unrtf/commit/e1c4bc0))
+
 ## <small>1.0.6 (2021-01-03)</small>
 
 -   build(deps-dev): bump eslint from 7.16.0 to 7.17.0 (#23) ([906057f](https://github.com/Fdawgs/node-unrtf/commit/906057f)), closes [#23](https://github.com/Fdawgs/node-unrtf/issues/23)
