@@ -50,6 +50,7 @@
 	},
 	"jest": {
 		"clearMocks": true,
+		"resetMocks": true,
 		"testEnvironment": "node",
 		"testTimeout": 10000
 	},
