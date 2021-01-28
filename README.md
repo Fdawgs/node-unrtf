@@ -25,7 +25,7 @@ yarn add node-unrtf
 
 node-unrtf's test scripts use npm commands.
 
-### Linux and macOS/Darwin support
+### Linux and macOS/Darwin Support
 
 A Windows binary (v0.19.3) is provided with this repository.
 For Linux and Mac users, you will need to download the `unrtf` binary separately.
