@@ -118,3 +118,6 @@ dist
 # lock files
 package-lock.json
 yarn.lock
+
+# Test files
+pict001.wmf
