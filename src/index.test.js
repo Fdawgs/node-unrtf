@@ -48,7 +48,7 @@ if (platform === "win32") {
 	});
 }
 
-describe("convert function", () => {
+describe("Convert Function", () => {
 	test("Should convert RTF file to HTML with stored images", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
