@@ -103,8 +103,8 @@ unRTF.convert(file, options).then((res) => {
 
 ## Contributing
 
-Please see [CONTRIBUTING.md](https://github.com/Fdawgs/node-unrtf/blob/master/CONTRIBUTING.md) for more details regarding contributing to this project.
+Please see [CONTRIBUTING.md](./CONTRIBUTING) for more details regarding contributing to this project.
 
 ## License
 
-`node-unrtf` is licensed under the [MIT](https://github.com/Fdawgs/node-unrtf/blob/master/LICENSE) license.
+`node-unrtf` is licensed under the [MIT](./LICENSE) license.
