@@ -103,7 +103,7 @@ unRTF.convert(file, options).then((res) => {
 
 ## Contributing
 
-Please see [CONTRIBUTING.md](./CONTRIBUTING) for more details regarding contributing to this project.
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for more details regarding contributing to this project.
 
 ## License
 
