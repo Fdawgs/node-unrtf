@@ -1,4 +1,68 @@
-## <small>1.0.7 (2021-01-18)</small>
+### [1.0.8](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.7...v1.0.8) (2021-03-02)
+
+### Documentation
+
+-   bump coc from v1.4.0 to v2.0.0 ([3f1a367](https://www.github.com/Fdawgs/node-unrtf/commit/3f1a36790321cd9d95ef4c7d3cc4d846b40cac1f))
+-   **contributing:** add documentation style ([17b373b](https://www.github.com/Fdawgs/node-unrtf/commit/17b373b54dd75f2b72f1c2585ef9025fb9f4254d))
+-   **readme:** fix broken link ([a0d360f](https://www.github.com/Fdawgs/node-unrtf/commit/a0d360fa8c7e495b6cc5164a2417d74b532098cd))
+-   **readme:** grammar ([68aba60](https://www.github.com/Fdawgs/node-unrtf/commit/68aba60fe2400dbab646bca4a0c7c0018a9a1278))
+-   **readme:** revamp intro section ([86edaa3](https://www.github.com/Fdawgs/node-unrtf/commit/86edaa3fd33309f4d684bf92a09022cda5bd4380))
+-   **readme:** shorten links ([bb80196](https://www.github.com/Fdawgs/node-unrtf/commit/bb801961d63b4de98c1662185822a3f70e02ba2c))
+
+### Dependencies
+
+-   **dependabot:** set commit message prefix; lower pull limit ([26cac51](https://www.github.com/Fdawgs/node-unrtf/commit/26cac5147257b317c053e930284d4e4c34be8673))
+-   **deps-dev:** add husky for git hook handling ([537497c](https://www.github.com/Fdawgs/node-unrtf/commit/537497c3bc112f2b2e3d6c9467235ea94c2cb8c1))
+-   **deps-dev:** bump @commitlint/cli from 11.0.0 to 12.0.1 ([#41](https://www.github.com/Fdawgs/node-unrtf/issues/41)) ([9b2d9b4](https://www.github.com/Fdawgs/node-unrtf/commit/9b2d9b4bd5289caf24a9f988ea03b2b4719244f2))
+-   **deps-dev:** bump @commitlint/config-conventional ([e1b6506](https://www.github.com/Fdawgs/node-unrtf/commit/e1b6506710a5d30b539cdf4cde15161251e325b7))
+-   **deps-dev:** bump eslint-config-prettier from 7.2.0 to 8.1.0 ([cd7a091](https://www.github.com/Fdawgs/node-unrtf/commit/cd7a091622e740040a6915b0ee5b23f3b6be5c74))
+-   **deps-dev:** bump eslint-plugin-jsdoc from 31.6.1 to 32.0.1 ([#37](https://www.github.com/Fdawgs/node-unrtf/issues/37)) ([5fa4c1f](https://www.github.com/Fdawgs/node-unrtf/commit/5fa4c1fb81d1cd990703fbe2d601ad9801a65824))
+-   **deps-dev:** bump jsdoc-to-markdown from 6.0.1 to 7.0.0 ([#40](https://www.github.com/Fdawgs/node-unrtf/issues/40)) ([00306f0](https://www.github.com/Fdawgs/node-unrtf/commit/00306f0728251860f15ac9bb8b8e785d414663fc))
+-   **deps-dev:** pin husky major version ([994c53b](https://www.github.com/Fdawgs/node-unrtf/commit/994c53b8ad4e5211998723c4293edb861b45bcad))
+-   **deps-dev:** remove coveralls, replaced by github action ([d602daf](https://www.github.com/Fdawgs/node-unrtf/commit/d602daf8258389f54be800520989fdfd740e438a))
+-   **deps-dev:** remove jsinspect ([ddb0e60](https://www.github.com/Fdawgs/node-unrtf/commit/ddb0e60a40c68d08f02f4ebb763d2f884d6ca42b))
+-   **deps:** bump wagoid/commitlint-github-action from v2.0.3 to v2.2.3 ([eab0134](https://www.github.com/Fdawgs/node-unrtf/commit/eab01346c6e655a56ad14796a69511e673070f93))
+-   **deps:** bump wagoid/commitlint-github-action from v2.2.3 to v3.0.1 ([4226100](https://www.github.com/Fdawgs/node-unrtf/commit/42261005af9c3df7f94b1cf33e7aa698f4de505c))
+-   **deps:** specify minor and hotfix versions ([57bcbd1](https://www.github.com/Fdawgs/node-unrtf/commit/57bcbd19e299a461c46f6db48c166137be114675))
+
+### Miscellaneous
+
+-   add commit-lint job ([b2842b4](https://www.github.com/Fdawgs/node-unrtf/commit/b2842b4601d3a9a63feb90cccafa711041688871))
+-   add commitlint husky `commit-msg` hook ([47b8438](https://www.github.com/Fdawgs/node-unrtf/commit/47b843828fc76dc6d2fdf08e3d82eaa6b475332a))
+-   add link check workflow ([d56c153](https://www.github.com/Fdawgs/node-unrtf/commit/d56c1539a97831d47bfd89058c66ae9989331727))
+-   add pull request template ([41593f5](https://www.github.com/Fdawgs/node-unrtf/commit/41593f5b02a9a5147fd020d64844798653d1a382))
+-   automate release and changelog generation ([84113f7](https://www.github.com/Fdawgs/node-unrtf/commit/84113f718879320e4a7b3b4fec791c7d25640a88))
+-   capitalise headings correctly ([3c302f8](https://www.github.com/Fdawgs/node-unrtf/commit/3c302f890cf60e07d66be9ce81d816272832d936))
+-   **ci:** capitalise jobs and job step names ([e4fb8d1](https://www.github.com/Fdawgs/node-unrtf/commit/e4fb8d1be1f20fd56c91ca46ce25746958a353d2))
+-   **codeql:** remove autobuild action ([27d7e86](https://www.github.com/Fdawgs/node-unrtf/commit/27d7e8665e868aed22ee1649a8d9a4c14d08e60e))
+-   **dependabot:** ignore husky updates ([234088c](https://www.github.com/Fdawgs/node-unrtf/commit/234088cf875367eb36a7de71e00d67526b776021))
+-   disable long running homebrew cleanup tasks ([812de48](https://www.github.com/Fdawgs/node-unrtf/commit/812de481769a4697f0b72bccd55cf28cce9c08b0))
+-   **github-actions:** set `flag-name` for parallel coverage tests ([7dccf38](https://www.github.com/Fdawgs/node-unrtf/commit/7dccf38f1049a7b13aa41ba61ad79d9d17353a10))
+-   **github-actions:** set semver for coverallsapp ([723b833](https://www.github.com/Fdawgs/node-unrtf/commit/723b83368798e4528674570e2d197211c62eb256))
+-   ignore test wmf file ([550287f](https://www.github.com/Fdawgs/node-unrtf/commit/550287f72b0fcefa664fccb46dc387e33f3612d7))
+-   **jest:** enable resetmocks option ([c7bb98c](https://www.github.com/Fdawgs/node-unrtf/commit/c7bb98cfd60d72410594ead53eb24421efe6f6bc))
+-   **linkcheck:** extend ignored urls ([c8b7162](https://www.github.com/Fdawgs/node-unrtf/commit/c8b716299a2f72b21248ccb40ee837df43e85be5))
+-   **lint-check:** compress patterns ([5f1d76c](https://www.github.com/Fdawgs/node-unrtf/commit/5f1d76cfee0fbf144b878df489fef6c4cf677a0c))
+-   **readme:** add linebreaks between badges ([07af20d](https://www.github.com/Fdawgs/node-unrtf/commit/07af20d688a150de69813c9b61d8dbf596a32368))
+-   **readme:** capitalise headings correctly ([ef91208](https://www.github.com/Fdawgs/node-unrtf/commit/ef9120895eaa5af667d2d35734720ba209f900ba))
+-   **readme:** prettier badge shape ([ea67e5c](https://www.github.com/Fdawgs/node-unrtf/commit/ea67e5c457c27babe56496dff7ab9f87afc1520f))
+-   remove cache actions as they use lock file ([c8ca340](https://www.github.com/Fdawgs/node-unrtf/commit/c8ca34057f5e91cf5d651e19d4074b2a33b6f034))
+-   replace stalebot with github action ([2d9339b](https://www.github.com/Fdawgs/node-unrtf/commit/2d9339b3802e9457f3b030bf3086ff21bfe04ff5))
+-   replace typo ci app with action ([8c5f4f9](https://www.github.com/Fdawgs/node-unrtf/commit/8c5f4f9e3e78effd7cd60430d703e1de87b0a4db))
+-   revert linux os to `ubuntu-latest` from `20.04` ([cfe6b9f](https://www.github.com/Fdawgs/node-unrtf/commit/cfe6b9fc4faa56eddc197a99f9b508d3561f19ef))
+-   **scripts:** rename `jest-coverage` to `jest:coverage` ([093e365](https://www.github.com/Fdawgs/node-unrtf/commit/093e365df746efe86fb6114b155ff9db52a485c4))
+-   shorten husky pre-push script ([5e03f99](https://www.github.com/Fdawgs/node-unrtf/commit/5e03f99a37f166b0f36e7ea59d12415ef680ac26))
+-   stop excess coverage files being generated ([15be36a](https://www.github.com/Fdawgs/node-unrtf/commit/15be36ae88c9b67f902e215a29ea51688eebe5d9))
+-   **tests:** use apa header style for describe name params ([78eef74](https://www.github.com/Fdawgs/node-unrtf/commit/78eef74fe7fbe16f8b11b57592e804a02697f35b))
+-   **vscode:** add `redhat.vscode-yaml` as recommended extension ([aeb9a16](https://www.github.com/Fdawgs/node-unrtf/commit/aeb9a168ad12e66f793a43bb0b6e1a035e10158e))
+-   **vscode:** add `updateImportsOnFileMove` setting ([bcf3342](https://www.github.com/Fdawgs/node-unrtf/commit/bcf3342f05f202ed4d98a434e284ba9676072879))
+-   **vscode:** add workspace settings and extensions ([0704d1d](https://www.github.com/Fdawgs/node-unrtf/commit/0704d1d4e0bff12e6ed229268ad93408df6a0927))
+-   **vscode:** remove conflicting prettier ext setting ([cb2fe3d](https://www.github.com/Fdawgs/node-unrtf/commit/cb2fe3db555bb31af20790fba9b014ad46f17eaa))
+-   **workflows:** fix release types to account for bots ([477dae4](https://www.github.com/Fdawgs/node-unrtf/commit/477dae4e6485ff6147595c4427557ca7d0432d95))
+-   **workflows:** rename spellcheck workflow ([f8a2de7](https://www.github.com/Fdawgs/node-unrtf/commit/f8a2de727acff05772f604c3a9f3f1e9b7d219e3))
+-   **workflows:** tidy node-version syntax ([5ff6186](https://www.github.com/Fdawgs/node-unrtf/commit/5ff61868b093b3d6df9c9f45d5fc13d4c31f638b))
+
+### 1.0.7 (2021-01-18)
 
 -   build: add typoci config file ([673d667](https://github.com/Fdawgs/node-unrtf/commit/673d667))
 -   build: remove `yarn` as package manager, revert to `npm` ([92bfa05](https://github.com/Fdawgs/node-unrtf/commit/92bfa05))
@@ -12,7 +76,7 @@
 -   docs: update contact email ([b1ab606](https://github.com/Fdawgs/node-unrtf/commit/b1ab606))
 -   docs(contributing): update yarn link ([e1c4bc0](https://github.com/Fdawgs/node-unrtf/commit/e1c4bc0))
 
-## <small>1.0.6 (2021-01-03)</small>
+### 1.0.6 (2021-01-03)
 
 -   build(deps-dev): bump eslint from 7.16.0 to 7.17.0 (#23) ([906057f](https://github.com/Fdawgs/node-unrtf/commit/906057f)), closes [#23](https://github.com/Fdawgs/node-unrtf/issues/23)
 -   build(deps-dev): bump eslint-plugin-jsdoc from 30.7.9 to 30.7.13 (#22) ([3a6a54c](https://github.com/Fdawgs/node-unrtf/commit/3a6a54c)), closes [#22](https://github.com/Fdawgs/node-unrtf/issues/22)
@@ -26,7 +90,7 @@
 -   refactor(index): remove unused default branch ([aee6c76](https://github.com/Fdawgs/node-unrtf/commit/aee6c76))
 -   style(ci): tidy job names ([78bc55e](https://github.com/Fdawgs/node-unrtf/commit/78bc55e))
 
-## <small>1.0.5 (2020-12-28)</small>
+### 1.0.5 (2020-12-28)
 
 -   build: update github-actions with dependabot ([e905020](https://github.com/Fdawgs/node-unrtf/commit/e905020))
 -   build(deps-dev): bump cross-env from 7.0.2 to 7.0.3 ([3c99ec3](https://github.com/Fdawgs/node-unrtf/commit/3c99ec3))
@@ -51,14 +115,14 @@
 -   chore: add stale confg ([777a58e](https://github.com/Fdawgs/node-unrtf/commit/777a58e))
 -   chore(scripts): rename test scripts ([e0cee9f](https://github.com/Fdawgs/node-unrtf/commit/e0cee9f))
 
-## <small>1.0.4 (2020-12-01)</small>
+### 1.0.4 (2020-12-01)
 
 -   build(deps-dev): bump dev dependencies ([25a4bb4](https://github.com/Fdawgs/node-unrtf/commit/25a4bb4))
 -   chore: add security.md ([821352e](https://github.com/Fdawgs/node-unrtf/commit/821352e))
 -   ci: add cd action to publish to npm ([709bef7](https://github.com/Fdawgs/node-unrtf/commit/709bef7))
 -   ci: replace travis-ci with github actions ([70d23d8](https://github.com/Fdawgs/node-unrtf/commit/70d23d8))
 
-## <small>1.0.3 (2020-11-10)</small>
+### 1.0.3 (2020-11-10)
 
 -   build(deps-dev): bump dev dependencies ([2e96ea0](https://github.com/Fdawgs/node-unrtf/commit/2e96ea0))
 -   fix(index): return promise objects ([863d9f7](https://github.com/Fdawgs/node-unrtf/commit/863d9f7))
@@ -66,13 +130,13 @@
 -   refactor(index): concat invalid args provided into error object ([dd1084e](https://github.com/Fdawgs/node-unrtf/commit/dd1084e))
 -   chore(index): rename const to reflect functionality ([a0624e9](https://github.com/Fdawgs/node-unrtf/commit/a0624e9))
 
-## <small>1.0.2 (2020-10-29)</small>
+### 1.0.2 (2020-10-29)
 
 -   build(deps-dev): bump dev dependencies ([79e05f9](https://github.com/Fdawgs/node-unrtf/commit/79e05f9))
 -   docs: grammar and spelling fixes ([f5fb9e3](https://github.com/Fdawgs/node-unrtf/commit/f5fb9e3))
 -   fix(index): check file exists before attempting to parse ([41daf30](https://github.com/Fdawgs/node-unrtf/commit/41daf30))
 
-## <small>1.0.1 (2020-10-27)</small>
+### 1.0.1 (2020-10-27)
 
 -   build(deps-dev): bump dev dependencies ([cf5cd8b](https://github.com/Fdawgs/node-unrtf/commit/cf5cd8b))
 -   ci(travis): add npm deploy stage ([d194055](https://github.com/Fdawgs/node-unrtf/commit/d194055))
@@ -89,7 +153,7 @@
 
 -   `usage of convert(option, file) should be replaced with convert(file, option)`
 
-## <small>0.0.2 (2020-10-21)</small>
+### 0.0.2 (2020-10-21)
 
 -   docs: add api docs and examples ([59f1fc3](https://github.com/Fdawgs/node-unrtf/commit/59f1fc3))
 -   docs(index): add note to jsdoc tags about select options errors ([d1d9964](https://github.com/Fdawgs/node-unrtf/commit/d1d9964))
