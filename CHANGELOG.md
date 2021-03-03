@@ -62,7 +62,7 @@
 -   **workflows:** rename spellcheck workflow ([f8a2de7](https://www.github.com/Fdawgs/node-unrtf/commit/f8a2de727acff05772f604c3a9f3f1e9b7d219e3))
 -   **workflows:** tidy node-version syntax ([5ff6186](https://www.github.com/Fdawgs/node-unrtf/commit/5ff61868b093b3d6df9c9f45d5fc13d4c31f638b))
 
-### 1.0.7 (2021-01-18)
+### [1.0.7](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.6...v1.0.7) (2021-01-18)
 
 -   build: add typoci config file ([673d667](https://github.com/Fdawgs/node-unrtf/commit/673d667))
 -   build: remove `yarn` as package manager, revert to `npm` ([92bfa05](https://github.com/Fdawgs/node-unrtf/commit/92bfa05))
@@ -76,7 +76,7 @@
 -   docs: update contact email ([b1ab606](https://github.com/Fdawgs/node-unrtf/commit/b1ab606))
 -   docs(contributing): update yarn link ([e1c4bc0](https://github.com/Fdawgs/node-unrtf/commit/e1c4bc0))
 
-### 1.0.6 (2021-01-03)
+### [1.0.6](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.5...v1.0.6) (2021-01-03)
 
 -   build(deps-dev): bump eslint from 7.16.0 to 7.17.0 (#23) ([906057f](https://github.com/Fdawgs/node-unrtf/commit/906057f)), closes [#23](https://github.com/Fdawgs/node-unrtf/issues/23)
 -   build(deps-dev): bump eslint-plugin-jsdoc from 30.7.9 to 30.7.13 (#22) ([3a6a54c](https://github.com/Fdawgs/node-unrtf/commit/3a6a54c)), closes [#22](https://github.com/Fdawgs/node-unrtf/issues/22)
@@ -90,7 +90,7 @@
 -   refactor(index): remove unused default branch ([aee6c76](https://github.com/Fdawgs/node-unrtf/commit/aee6c76))
 -   style(ci): tidy job names ([78bc55e](https://github.com/Fdawgs/node-unrtf/commit/78bc55e))
 
-### 1.0.5 (2020-12-28)
+### [1.0.5](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.4...v1.0.5) (2020-12-28)
 
 -   build: update github-actions with dependabot ([e905020](https://github.com/Fdawgs/node-unrtf/commit/e905020))
 -   build(deps-dev): bump cross-env from 7.0.2 to 7.0.3 ([3c99ec3](https://github.com/Fdawgs/node-unrtf/commit/3c99ec3))
@@ -115,14 +115,14 @@
 -   chore: add stale confg ([777a58e](https://github.com/Fdawgs/node-unrtf/commit/777a58e))
 -   chore(scripts): rename test scripts ([e0cee9f](https://github.com/Fdawgs/node-unrtf/commit/e0cee9f))
 
-### 1.0.4 (2020-12-01)
+### [1.0.4](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.3...v1.0.4) (2020-12-01)
 
 -   build(deps-dev): bump dev dependencies ([25a4bb4](https://github.com/Fdawgs/node-unrtf/commit/25a4bb4))
 -   chore: add security.md ([821352e](https://github.com/Fdawgs/node-unrtf/commit/821352e))
 -   ci: add cd action to publish to npm ([709bef7](https://github.com/Fdawgs/node-unrtf/commit/709bef7))
 -   ci: replace travis-ci with github actions ([70d23d8](https://github.com/Fdawgs/node-unrtf/commit/70d23d8))
 
-### 1.0.3 (2020-11-10)
+### [1.0.3](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.2...v1.0.3) (2020-11-10)
 
 -   build(deps-dev): bump dev dependencies ([2e96ea0](https://github.com/Fdawgs/node-unrtf/commit/2e96ea0))
 -   fix(index): return promise objects ([863d9f7](https://github.com/Fdawgs/node-unrtf/commit/863d9f7))
@@ -130,19 +130,19 @@
 -   refactor(index): concat invalid args provided into error object ([dd1084e](https://github.com/Fdawgs/node-unrtf/commit/dd1084e))
 -   chore(index): rename const to reflect functionality ([a0624e9](https://github.com/Fdawgs/node-unrtf/commit/a0624e9))
 
-### 1.0.2 (2020-10-29)
+### [1.0.2](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.1...v1.0.2) (2020-10-29)
 
 -   build(deps-dev): bump dev dependencies ([79e05f9](https://github.com/Fdawgs/node-unrtf/commit/79e05f9))
 -   docs: grammar and spelling fixes ([f5fb9e3](https://github.com/Fdawgs/node-unrtf/commit/f5fb9e3))
 -   fix(index): check file exists before attempting to parse ([41daf30](https://github.com/Fdawgs/node-unrtf/commit/41daf30))
 
-### 1.0.1 (2020-10-27)
+### [1.0.1](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.0...v1.0.1) (2020-10-27)
 
 -   build(deps-dev): bump dev dependencies ([cf5cd8b](https://github.com/Fdawgs/node-unrtf/commit/cf5cd8b))
 -   ci(travis): add npm deploy stage ([d194055](https://github.com/Fdawgs/node-unrtf/commit/d194055))
 -   fix(index): catch empty file vars before unrtf parses them ([789afbd](https://github.com/Fdawgs/node-unrtf/commit/789afbd))
 
-## 1.0.0 (2020-10-26)
+## [1.0.0](https://www.github.com/Fdawgs/node-unrtf/compare/v0.0.2...v1.0.0) (2020-10-26)
 
 -   build(deps-dev): bump dev dependencies ([dd3f926](https://github.com/Fdawgs/node-unrtf/commit/dd3f926))
 -   refactor(index): move optional option param for convert function to end ([02b95a9](https://github.com/Fdawgs/node-unrtf/commit/02b95a9))
