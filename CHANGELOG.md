@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.0.9](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.8...v1.0.9) (2021-03-03)
+
+
+### Documentation
+
+* **changelog:** add compare links ([8b51b55](https://www.github.com/Fdawgs/node-unrtf/commit/8b51b5529f3bc923987492ab9277750f674fe7a6))
+* **changelog:** add h1 header ([ec72246](https://www.github.com/Fdawgs/node-unrtf/commit/ec7224681d629ce5d45faf526553a685d29aaf64))
+
+
+### Miscellaneous
+
+* **package:** move prettier config to separate file ([8a20a35](https://www.github.com/Fdawgs/node-unrtf/commit/8a20a35bb4582d2da9a121186885b83ab1e10dd4))
+* **prettier:** create .prettierignore ([0fbe516](https://www.github.com/Fdawgs/node-unrtf/commit/0fbe5160ba88664869789cafb2db530734391fec))
+* **workflows:** move release steps into `cd` workflow ([#45](https://www.github.com/Fdawgs/node-unrtf/issues/45)) ([7713848](https://www.github.com/Fdawgs/node-unrtf/commit/7713848037ff066bca84665cc358328ba8681cca))
+
 ### [1.0.8](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.7...v1.0.8) (2021-03-02)
 
 ### Documentation
