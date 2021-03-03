@@ -1,3 +1,7 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ### [1.0.8](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.7...v1.0.8) (2021-03-02)
 
 ### Documentation
