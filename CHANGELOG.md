@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.8...v1.1.0) (2021-03-08)
+
+
+### Features
+
+* **index:** add binary version checking for options ([3e91223](https://www.github.com/Fdawgs/node-unrtf/commit/3e91223aba763abd8be5d3775f2c0443cd24423b))
+
+
+### Bug Fixes
+
+* **index:** correct misspelling of `received` in error string ([cda01e6](https://www.github.com/Fdawgs/node-unrtf/commit/cda01e6f1a2e460dd9b86b9cd9438e2f3c5936f0))
+
+
+### Continuous Integration
+
+* **workflows:** move release steps into `cd` workflow ([#45](https://www.github.com/Fdawgs/node-unrtf/issues/45)) ([7713848](https://www.github.com/Fdawgs/node-unrtf/commit/7713848037ff066bca84665cc358328ba8681cca))
+
+
+### Documentation
+
+* **changelog:** add compare links ([8b51b55](https://www.github.com/Fdawgs/node-unrtf/commit/8b51b5529f3bc923987492ab9277750f674fe7a6))
+* **changelog:** add h1 header ([ec72246](https://www.github.com/Fdawgs/node-unrtf/commit/ec7224681d629ce5d45faf526553a685d29aaf64))
+
+
+### Miscellaneous
+
+* **package:** move prettier config to separate file ([8a20a35](https://www.github.com/Fdawgs/node-unrtf/commit/8a20a35bb4582d2da9a121186885b83ab1e10dd4))
+* **prettier:** create .prettierignore ([0fbe516](https://www.github.com/Fdawgs/node-unrtf/commit/0fbe5160ba88664869789cafb2db530734391fec))
+* **workflows:** rename ci and perf sections ([7674345](https://www.github.com/Fdawgs/node-unrtf/commit/7674345fd82c737413322164232d68f31874dbe0))
+
+
+### Dependencies
+
+* **deps:** add semver dependency ([a1e8467](https://www.github.com/Fdawgs/node-unrtf/commit/a1e8467f2b8768380fadfc504f920161b4fd90f1))
+* **deps:** bump actions/stale from v3.0.17 to v3.0.18 ([0e95561](https://www.github.com/Fdawgs/node-unrtf/commit/0e95561bf0d796e4266037008ea394c0fcf39977))
+* **deps:** bump fastify/github-action-merge-dependabot ([733272f](https://www.github.com/Fdawgs/node-unrtf/commit/733272f0e5d3288fbed109847f09a4a653dcfe3f))
+* **deps:** bump GoogleCloudPlatform/release-please-action ([f5bfb06](https://www.github.com/Fdawgs/node-unrtf/commit/f5bfb0655c1a78027ef31045b8cc685d1dfc693b))
+* **deps:** bump wagoid/commitlint-github-action from v3.0.1 to v3.0.6 ([fa23fec](https://www.github.com/Fdawgs/node-unrtf/commit/fa23fec20eab9aafad9e5e17eb2b19f8b16011f6))
+
 ### [1.0.8](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.7...v1.0.8) (2021-03-02)
 
 ### Documentation
