@@ -116,7 +116,7 @@ describe("Convert Function", () => {
 		expect.assertions(1);
 		await unRtf.convert(file, options).catch((err) => {
 			expect(err.message).toEqual(
-				"Invalid value type provided for option 'outputHtml', expected boolean but recieved string"
+				"Invalid value type provided for option 'outputHtml', expected boolean but received string"
 			);
 		});
 	});
