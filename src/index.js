@@ -10,12 +10,12 @@ const execFileAsync = util.promisify(execFile);
  * @author Frazer Smith
  * @description Check each option provided is valid, of the correct type, and can be used by specified
  * version of binary.
- * @param {string} version - Semantic version of binary.
  * @param {object} acceptedOptions - Object containing options that a binary accepts.
  * @param {object} options - Object containing options to pass to binary.
+ * @param {string=} version - Semantic version of binary.
  * @returns {Promise<Array|Error>} Promise of array of CLI arguments on resolve, or Error object on rejection.
  */
-function parseOptions(version, acceptedOptions, options) {
+function parseOptions(acceptedOptions, options, version) {
 	return new Promise((resolve, reject) => {
 		const args = [];
 		const invalidArgs = [];
@@ -37,6 +37,7 @@ function parseOptions(version, acceptedOptions, options) {
 
 				if (
 					acceptedOptions[key].minVersion &&
+					version &&
 					semver.lt(version, acceptedOptions[key].minVersion)
 				) {
 					invalidArgs.push(
@@ -46,6 +47,7 @@ function parseOptions(version, acceptedOptions, options) {
 
 				if (
 					acceptedOptions[key].maxVersion &&
+					version &&
 					semver.gt(version, acceptedOptions[key].maxVersion)
 				) {
 					invalidArgs.push(
@@ -161,16 +163,16 @@ class UnRTF {
 			);
 
 			/**
-			 * UnRTF outputs the version into stderr for some reason.
+			 * UnRTF outputs the version into stderr:
 			 * v0.19.3 returns "0.19.3\r\n"
 			 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
 			 */
 			const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
 
 			const args = await parseOptions(
-				versionInfo,
 				acceptedOptions,
-				options
+				options,
+				versionInfo
 			);
 			args.push(file);
 
