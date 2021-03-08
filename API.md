@@ -8,7 +8,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#parseOptions">parseOptions(version, acceptedOptions, options)</a> ⇒ <code>Promise.&lt;(Array|Error)&gt;</code></dt>
+<dt><a href="#parseOptions">parseOptions(acceptedOptions, options, [version])</a> ⇒ <code>Promise.&lt;(Array|Error)&gt;</code></dt>
 <dd><p>Check each option provided is valid, of the correct type, and can be used by specified
 version of binary.</p>
 </dd>
@@ -61,7 +61,7 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 <a name="parseOptions"></a>
 
-## parseOptions(version, acceptedOptions, options) ⇒ <code>Promise.&lt;(Array\|Error)&gt;</code>
+## parseOptions(acceptedOptions, options, [version]) ⇒ <code>Promise.&lt;(Array\|Error)&gt;</code>
 
 Check each option provided is valid, of the correct type, and can be used by specified
 version of binary.
@@ -72,6 +72,6 @@ version of binary.
 
 | Param           | Type                | Description                                      |
 | --------------- | ------------------- | ------------------------------------------------ |
-| version         | <code>string</code> | Semantic version of binary.                      |
 | acceptedOptions | <code>object</code> | Object containing options that a binary accepts. |
 | options         | <code>object</code> | Object containing options to pass to binary.     |
+| [version]       | <code>string</code> | Semantic version of binary.                      |
