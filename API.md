@@ -8,8 +8,9 @@
 ## Functions
 
 <dl>
-<dt><a href="#parseOptions">parseOptions(acceptedOptions, options)</a> ⇒ <code>Promise.&lt;(Array|Error)&gt;</code></dt>
-<dd><p>Check each option provided is valid and of the correct type.</p>
+<dt><a href="#parseOptions">parseOptions(version, acceptedOptions, options)</a> ⇒ <code>Promise.&lt;(Array|Error)&gt;</code></dt>
+<dd><p>Check each option provided is valid, of the correct type, and can be used by specified
+version of binary.</p>
 </dd>
 </dl>
 
@@ -60,9 +61,10 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 <a name="parseOptions"></a>
 
-## parseOptions(acceptedOptions, options) ⇒ <code>Promise.&lt;(Array\|Error)&gt;</code>
+## parseOptions(version, acceptedOptions, options) ⇒ <code>Promise.&lt;(Array\|Error)&gt;</code>
 
-Check each option provided is valid and of the correct type.
+Check each option provided is valid, of the correct type, and can be used by specified
+version of binary.
 
 **Kind**: global function  
 **Returns**: <code>Promise.&lt;(Array\|Error)&gt;</code> - Promise of array of CLI arguments on resolve, or Error object on rejection.  
@@ -70,5 +72,6 @@ Check each option provided is valid and of the correct type.
 
 | Param           | Type                | Description                                      |
 | --------------- | ------------------- | ------------------------------------------------ |
+| version         | <code>string</code> | Semantic version of binary.                      |
 | acceptedOptions | <code>object</code> | Object containing options that a binary accepts. |
 | options         | <code>object</code> | Object containing options to pass to binary.     |
