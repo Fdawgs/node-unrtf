@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const semver = require("semver");
 const { execFile } = require("child_process");
 const util = require("util");
 
@@ -7,12 +8,14 @@ const execFileAsync = util.promisify(execFile);
 
 /**
  * @author Frazer Smith
- * @description Check each option provided is valid and of the correct type.
+ * @description Check each option provided is valid, of the correct type, and can be used by specified
+ * version of binary.
+ * @param {string} version - Semantic version of binary.
  * @param {object} acceptedOptions - Object containing options that a binary accepts.
  * @param {object} options - Object containing options to pass to binary.
  * @returns {Promise<Array|Error>} Promise of array of CLI arguments on resolve, or Error object on rejection.
  */
-function parseOptions(acceptedOptions, options) {
+function parseOptions(version, acceptedOptions, options) {
 	return new Promise((resolve, reject) => {
 		const args = [];
 		const invalidArgs = [];
@@ -29,6 +32,24 @@ function parseOptions(acceptedOptions, options) {
 						`Invalid value type provided for option '${key}', expected ${
 							acceptedOptions[key].type
 						} but received ${typeof options[key]}`
+					);
+				}
+
+				if (
+					acceptedOptions[key].minVersion &&
+					semver.lt(version, acceptedOptions[key].minVersion)
+				) {
+					invalidArgs.push(
+						`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
+					);
+				}
+
+				if (
+					acceptedOptions[key].maxVersion &&
+					semver.gt(version, acceptedOptions[key].maxVersion)
+				) {
+					invalidArgs.push(
+						`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
 					);
 				}
 			} else {
@@ -85,17 +106,47 @@ class UnRTF {
 	 */
 	async convert(file, options = {}) {
 		const acceptedOptions = {
-			noPictures: { arg: "--nopict", type: "boolean" },
-			noRemap: { arg: "--noremap", type: "boolean" },
-			outputHtml: { arg: "--html", type: "boolean" },
-			outputLatex: { arg: "--latex", type: "boolean" },
-			outputPs: { arg: "--ps", type: "boolean" },
-			outputRtf: { arg: "--rtf", type: "boolean" },
-			outputText: { arg: "--text", type: "boolean" },
-			outputVt: { arg: "--vt", type: "boolean" },
-			outputWpml: { arg: "--wpml", type: "boolean" },
-			quiet: { arg: "--quiet", type: "boolean" },
-			printVersionInfo: { arg: "--version", type: "boolean" },
+			noPictures: {
+				arg: "--nopict",
+				type: "boolean",
+				minVersion: "0.0.1",
+			},
+			noRemap: {
+				arg: "--noremap",
+				type: "boolean",
+				minVersion: "0.20.5",
+			},
+			outputHtml: {
+				arg: "--html",
+				type: "boolean",
+				minVersion: "0.0.1",
+			},
+			outputLatex: {
+				arg: "--latex",
+				type: "boolean",
+				minVersion: "0.0.1",
+			},
+			outputPs: {
+				arg: "--ps",
+				type: "boolean",
+				minVersion: "0.0.1",
+				maxVersion: "0.19.4",
+			},
+			outputRtf: { arg: "--rtf", type: "boolean", minVersion: "0.21.3" },
+			outputText: { arg: "--text", type: "boolean", minVersion: "0.0.1" },
+			outputVt: { arg: "--vt", type: "boolean", minVersion: "0.0.1" },
+			outputWpml: {
+				arg: "--wpml",
+				type: "boolean",
+				minVersion: "0.0.1",
+				maxVersion: "0.19.4",
+			},
+			printVersionInfo: {
+				arg: "--version",
+				type: "boolean",
+				minVersion: "0.0.1",
+			},
+			quiet: { arg: "--quiet", type: "boolean", minVersion: "0.21.3" },
 		};
 
 		try {
@@ -104,7 +155,23 @@ class UnRTF {
 				throw new Error("File missing");
 			}
 
-			const args = await parseOptions(acceptedOptions, options);
+			const { stderr } = await execFileAsync(
+				path.join(this.unrtfPath, "unrtf"),
+				["--version"]
+			);
+
+			/**
+			 * UnRTF outputs the version into stderr for some reason.
+			 * v0.19.3 returns "0.19.3\r\n"
+			 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
+			 */
+			const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
+
+			const args = await parseOptions(
+				versionInfo,
+				acceptedOptions,
+				options
+			);
 			args.push(file);
 
 			const { stdout } = await execFileAsync(
