@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.1.1](https://www.github.com/Fdawgs/node-unrtf/compare/v1.1.0...v1.1.1) (2021-03-29)
+
+
+### Miscellaneous
+
+* **husky:** move doc step to pre-commit hook ([bbca3e5](https://www.github.com/Fdawgs/node-unrtf/commit/bbca3e5a4101e391bd8a48062cab48444e4637aa))
+* **index:** make version param optional ([3476ad0](https://www.github.com/Fdawgs/node-unrtf/commit/3476ad06099abb55ab1895797016baaeeb513979))
+* **prettierignore:** add `api.md` ([15ec35e](https://www.github.com/Fdawgs/node-unrtf/commit/15ec35ef6eb2263196cd133b0fac2aaa2a66d264))
+
+
+### Dependencies
+
+* **deps-dev:** bump husky from 4.3.8 to 6.0.0 ([3832a5b](https://www.github.com/Fdawgs/node-unrtf/commit/3832a5ba4fcb6d24ec8a76641e5000cb6926beec))
+* **deps:** bump GoogleCloudPlatform/release-please-action ([387d34b](https://www.github.com/Fdawgs/node-unrtf/commit/387d34b4c41a1db2a29be1a382ba67d3531c7f89))
+* **deps:** bump typoci/spellcheck-action from v0.3.0 to v0.4.0 ([13fd1b3](https://www.github.com/Fdawgs/node-unrtf/commit/13fd1b3c2dbcc59e500a8d5b2140c06ff2aa4def))
+
+
+### Continuous Integration
+
+* **automerge:** move automerge job into new workflow ([1f6c64c](https://www.github.com/Fdawgs/node-unrtf/commit/1f6c64c39ef0f8a58472ce49f6054575ca88c37b))
+* **ci:** ignore dependabot prs for commit message linting ([4db8bdc](https://www.github.com/Fdawgs/node-unrtf/commit/4db8bdc0459c247d3f7adb9baf803c95b808ca1a))
+* **stale:** shorten workflow name ([84f86ae](https://www.github.com/Fdawgs/node-unrtf/commit/84f86aed55f86388f5a0aa10c6190fdd2b24793a))
+* **workflows:** run only on push and pulls to master branch ([d993574](https://www.github.com/Fdawgs/node-unrtf/commit/d99357417fff0f073a4569f0f686761a2ddfd8e0))
+
 ## [1.1.0](https://www.github.com/Fdawgs/node-unrtf/compare/v1.0.8...v1.1.0) (2021-03-08)
 
 
