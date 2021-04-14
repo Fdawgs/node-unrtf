@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.1.2](https://www.github.com/Fdawgs/node-unrtf/compare/v1.1.1...v1.1.2) (2021-04-14)
+
+
+### Dependencies
+
+* **deps:** bump actions/github-script from v3.1.0 to v3.1.1 ([eff3805](https://www.github.com/Fdawgs/node-unrtf/commit/eff380528a5ec8cdbd270a51824ac508be533557))
+
+
+### Continuous Integration
+
+* add cleanup-run job ([37eda95](https://www.github.com/Fdawgs/node-unrtf/commit/37eda951536b2a4373b5c3bd68a62130969c33b7))
+* do not run coveralls steps/jobs on forks ([cb9a6f8](https://www.github.com/Fdawgs/node-unrtf/commit/cb9a6f8d2d8fcb23d3f03b52f0ea3bcfe9b4fa35))
+* **link-check:** fix skip regex ([be010ea](https://www.github.com/Fdawgs/node-unrtf/commit/be010ea51fa1942045ab20425ed4aca60411bd9b))
+
 ### [1.1.1](https://www.github.com/Fdawgs/node-unrtf/compare/v1.1.0...v1.1.1) (2021-03-29)
 
 
