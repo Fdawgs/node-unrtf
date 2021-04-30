@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://www.github.com/Fdawgs/node-unrtf/compare/v1.1.1...v2.0.0) (2021-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove support for nodejs v10, as it is EOL as of 2021-04-30
+
+### Dependencies
+
+* **deps:** bump actions/github-script from v3.1.0 to v3.1.1 ([eff3805](https://www.github.com/Fdawgs/node-unrtf/commit/eff380528a5ec8cdbd270a51824ac508be533557))
+
+
+### Miscellaneous
+
+* remove support for nodejs v10 ([2ae95c7](https://www.github.com/Fdawgs/node-unrtf/commit/2ae95c7d64e74019ce2f89dc89a5dfc9e53f4bb5))
+
+
+### Documentation
+
+* grammar and readability fixes ([35e9d0c](https://www.github.com/Fdawgs/node-unrtf/commit/35e9d0c88f8fcaed7c611251a8d27ed8dd97acee))
+
+
+### Continuous Integration
+
+* add cleanup-run job ([37eda95](https://www.github.com/Fdawgs/node-unrtf/commit/37eda951536b2a4373b5c3bd68a62130969c33b7))
+* add nodejs v16 to unit test matrix ([eac6377](https://www.github.com/Fdawgs/node-unrtf/commit/eac63778c91030edaee86a0a2f02b617bb5c3b4e))
+* do not run coveralls steps/jobs on forks ([cb9a6f8](https://www.github.com/Fdawgs/node-unrtf/commit/cb9a6f8d2d8fcb23d3f03b52f0ea3bcfe9b4fa35))
+* **link-check:** fix skip regex ([be010ea](https://www.github.com/Fdawgs/node-unrtf/commit/be010ea51fa1942045ab20425ed4aca60411bd9b))
+* **link-check:** ignore links to lib binaries ([822a03a](https://www.github.com/Fdawgs/node-unrtf/commit/822a03a03784162ddaf81f2b2e90173f45ef525a))
+
 ### [1.1.1](https://www.github.com/Fdawgs/node-unrtf/compare/v1.1.0...v1.1.1) (2021-03-29)
 
 
