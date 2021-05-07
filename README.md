@@ -14,7 +14,7 @@
 [UnRTF](https://www.gnu.org/software/unrtf/) is a CLI program that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
 
 The `node-unrtf` module provides an asynchronous node.js wrapper around said CLI program for easier use.
-It was created out of a need for an RTF-to-HTML conversion module at [Yeovil District Hospital NHS Foundation Trust](https://yeovilhospital.co.uk/) to convert clinical documents in RTF format to HTML.
+It was created out of a need for an RTF-to-HTML conversion module at [Yeovil District Hospital NHS Foundation Trust](https://yeovilhospital.co.uk/) to convert clinical documents.
 
 ## Installation
 
