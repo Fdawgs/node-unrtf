@@ -48,8 +48,8 @@ if (platform === "win32") {
 
 			const res = await unRtf.convert(file, options);
 
-			expect(typeof res).toBe("string");
-			expect(res.substring(0, 6)).toBe("<html>");
+			expect(typeof res).toEqual("string");
+			expect(res.substring(0, 6)).toEqual("<html>");
 		});
 	});
 }
@@ -73,8 +73,8 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
-		expect(isHtml(res)).toBe(true);
+		expect(typeof res).toEqual("string");
+		expect(isHtml(res)).toEqual(true);
 	});
 
 	test("Should convert RTF file to HTML with no options set", async () => {
@@ -82,8 +82,8 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file);
 
-		expect(typeof res).toBe("string");
-		expect(isHtml(res)).toBe(true);
+		expect(typeof res).toEqual("string");
+		expect(isHtml(res)).toEqual(true);
 	});
 
 	test("Should convert RTF file to HTML without storing images", async () => {
@@ -95,8 +95,8 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
-		expect(isHtml(res)).toBe(true);
+		expect(typeof res).toEqual("string");
+		expect(isHtml(res)).toEqual(true);
 	});
 
 	test("Should convert RTF file to LaTeX", async () => {
@@ -107,7 +107,7 @@ describe("Convert Function", () => {
 		};
 
 		const res = await unRtf.convert(file, options);
-		expect(typeof res).toBe("string");
+		expect(typeof res).toEqual("string");
 	});
 
 	test("Should convert RTF file to text", async () => {
@@ -119,7 +119,7 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
+		expect(typeof res).toEqual("string");
 	});
 
 	test("Should return an Error object if invalid value types provided for an option are passed to function", async () => {
