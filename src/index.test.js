@@ -16,6 +16,7 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
 let testBinaryPath;
 const platform = os.platform();
 switch (platform) {
+	// macOS
 	case "darwin":
 		testBinaryPath = "/usr/local/bin";
 		break;
@@ -107,7 +108,10 @@ describe("Convert Function", () => {
 		};
 
 		const res = await unRtf.convert(file, options);
+
 		expect(typeof res).toEqual("string");
+		expect(res).toEqual(expect.stringContaining("\\begin{document}"));
+		expect(isHtml(res)).toEqual(false);
 	});
 
 	test("Should convert RTF file to text", async () => {
@@ -120,6 +124,12 @@ describe("Convert Function", () => {
 		const res = await unRtf.convert(file, options);
 
 		expect(typeof res).toEqual("string");
+		expect(res).toEqual(
+			expect.stringContaining(
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+			)
+		);
+		expect(isHtml(res)).toEqual(false);
 	});
 
 	test("Should return an Error object if invalid value types provided for an option are passed to function", async () => {
