@@ -1,5 +1,5 @@
 const fs = require("fs");
-const path = require("path");
+const path = require("upath");
 const semver = require("semver");
 const { execFile } = require("child_process");
 const util = require("util");
@@ -75,7 +75,7 @@ class UnRTF {
 			this.unrtfPath = binPath;
 		} else {
 			// If not set, expect user to be using Win32
-			this.unrtfPath = path.join(
+			this.unrtfPath = path.joinSafe(
 				__dirname,
 				"lib",
 				"win32",
@@ -153,12 +153,15 @@ class UnRTF {
 
 		try {
 			// UnRTF still attempts to convert empty strings/files, so catch them here before
-			if (file === undefined || fs.existsSync(file) === false) {
+			if (
+				file === undefined ||
+				fs.existsSync(path.normalizeSafe(file)) === false
+			) {
 				throw new Error("File missing");
 			}
 
 			const { stderr } = await execFileAsync(
-				path.join(this.unrtfPath, "unrtf"),
+				path.joinSafe(this.unrtfPath, "unrtf"),
 				["--version"]
 			);
 
@@ -174,10 +177,10 @@ class UnRTF {
 				options,
 				versionInfo
 			);
-			args.push(file);
+			args.push(path.normalizeSafe(file));
 
 			const { stdout } = await execFileAsync(
-				path.join(this.unrtfPath, "unrtf"),
+				path.joinSafe(this.unrtfPath, "unrtf"),
 				args
 			);
 			return Promise.resolve(stdout);

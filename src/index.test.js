@@ -2,7 +2,7 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
 const isHtml = require("is-html");
 const os = require("os");
-const path = require("path");
+const path = require("upath");
 const semver = require("semver");
 const { execFile } = require("child_process");
 const util = require("util");
@@ -28,7 +28,7 @@ switch (platform) {
 	// Windows OS
 	case "win32":
 	default:
-		testBinaryPath = path.join(
+		testBinaryPath = path.joinSafe(
 			__dirname,
 			"lib",
 			"win32",
@@ -60,7 +60,7 @@ describe("Convert Function", () => {
 
 	beforeAll(async () => {
 		const { stderr } = await execFileAsync(
-			path.join(testBinaryPath, "unrtf"),
+			path.joinSafe(testBinaryPath, "unrtf"),
 			["--version"]
 		);
 		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
