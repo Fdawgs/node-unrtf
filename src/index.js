@@ -155,7 +155,7 @@ class UnRTF {
 			// UnRTF still attempts to convert empty strings/files, so catch them here before
 			if (
 				file === undefined ||
-				fs.existsSync(path.normalizeSafe(file)) === false
+				fs.existsSync(path.normalizeTrim(file)) === false
 			) {
 				throw new Error("File missing");
 			}
@@ -177,7 +177,7 @@ class UnRTF {
 				options,
 				versionInfo
 			);
-			args.push(path.normalizeSafe(file));
+			args.push(path.normalizeTrim(file));
 
 			const { stdout } = await execFileAsync(
 				path.joinSafe(this.unrtfPath, "unrtf"),
