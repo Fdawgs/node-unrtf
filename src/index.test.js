@@ -2,7 +2,7 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
 const isHtml = require("is-html");
 const os = require("os");
-const path = require("path");
+const path = require("upath");
 const semver = require("semver");
 const { execFile } = require("child_process");
 const util = require("util");
@@ -16,6 +16,7 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
 let testBinaryPath;
 const platform = os.platform();
 switch (platform) {
+	// macOS
 	case "darwin":
 		testBinaryPath = "/usr/local/bin";
 		break;
@@ -27,7 +28,7 @@ switch (platform) {
 	// Windows OS
 	case "win32":
 	default:
-		testBinaryPath = path.join(
+		testBinaryPath = path.joinSafe(
 			__dirname,
 			"lib",
 			"win32",
@@ -59,7 +60,7 @@ describe("Convert Function", () => {
 
 	beforeAll(async () => {
 		const { stderr } = await execFileAsync(
-			path.join(testBinaryPath, "unrtf"),
+			path.joinSafe(testBinaryPath, "unrtf"),
 			["--version"]
 		);
 		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
@@ -107,7 +108,10 @@ describe("Convert Function", () => {
 		};
 
 		const res = await unRtf.convert(file, options);
+
 		expect(typeof res).toEqual("string");
+		expect(res).toEqual(expect.stringContaining("\\begin{document}"));
+		expect(isHtml(res)).toEqual(false);
 	});
 
 	test("Should convert RTF file to text", async () => {
@@ -120,6 +124,12 @@ describe("Convert Function", () => {
 		const res = await unRtf.convert(file, options);
 
 		expect(typeof res).toEqual("string");
+		expect(res).toEqual(
+			expect.stringContaining(
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+			)
+		);
+		expect(isHtml(res)).toEqual(false);
 	});
 
 	test("Should return an Error object if invalid value types provided for an option are passed to function", async () => {
