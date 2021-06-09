@@ -132,6 +132,21 @@ describe("Convert Function", () => {
 		expect(isHtml(res)).toEqual(false);
 	});
 
+	test("Should return an Error object if file passed not RTF format", async () => {
+		const unRtf = new UnRTF(testBinaryPath);
+		const options = {
+			noPictures: true,
+		};
+		const testTxtFile = `${testDirectory}test.txt`;
+
+		expect.assertions(1);
+		await unRtf.convert(testTxtFile, options).catch((err) => {
+			expect(err.message).toEqual(
+				"File is not the correct media type, expected 'application/rtf'"
+			);
+		});
+	});
+
 	test("Should return an Error object if invalid value types provided for an option are passed to function", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {

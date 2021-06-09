@@ -1,3 +1,4 @@
+const fileType = require("file-type");
 const fs = require("fs");
 const path = require("upath");
 const semver = require("semver");
@@ -152,12 +153,26 @@ class UnRTF {
 		};
 
 		try {
-			// UnRTF still attempts to convert empty strings/files, so catch them here before
+			/**
+			 * UnRTF will attempt to convert empty strings/files, and non-RTF files
+			 * so catch them here
+			 */
 			if (
 				file === undefined ||
 				fs.existsSync(path.normalizeTrim(file)) === false
 			) {
 				throw new Error("File missing");
+			}
+
+			const results = await fileType.fromFile(path.normalizeTrim(file));
+			if (
+				results === undefined ||
+				results.mime === undefined ||
+				results.mime !== "application/rtf"
+			) {
+				throw new Error(
+					"File is not the correct media type, expected 'application/rtf'"
+				);
 			}
 
 			const { stderr } = await execFileAsync(
