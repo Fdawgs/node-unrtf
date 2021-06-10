@@ -138,9 +138,16 @@ describe("Convert Function", () => {
 			noPictures: true,
 		};
 		const testTxtFile = `${testDirectory}test.txt`;
+		const testPdfFile = `${testDirectory}test.pdf`;
 
-		expect.assertions(1);
+		expect.assertions(2);
 		await unRtf.convert(testTxtFile, options).catch((err) => {
+			expect(err.message).toEqual(
+				"File is not the correct media type, expected 'application/rtf'"
+			);
+		});
+
+		await unRtf.convert(testPdfFile, options).catch((err) => {
 			expect(err.message).toEqual(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
