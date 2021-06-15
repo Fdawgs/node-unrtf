@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.1](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.0...v2.0.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* **index:** normalize file paths ([#89](https://www.github.com/Fdawgs/node-unrtf/issues/89)) ([9660cce](https://www.github.com/Fdawgs/node-unrtf/commit/9660ccea347e9153984658640781bd054cd02bae))
+* **index:** throw error if file param is not rtf ([e3552bb](https://www.github.com/Fdawgs/node-unrtf/commit/e3552bb07ccfcf9a663cf633298eb312b8e2556c))
+
+
+### Documentation
+
+* **readme:** remove repetition ([08758ff](https://www.github.com/Fdawgs/node-unrtf/commit/08758ff6024c2ba251f29a4d03f40624ed80ba77))
+
+
+### Miscellaneous
+
+* **ci:** replace `node-version` key with shorter `node` ([#80](https://www.github.com/Fdawgs/node-unrtf/issues/80)) ([6beeef2](https://www.github.com/Fdawgs/node-unrtf/commit/6beeef254a394e1f0e29678a02a2a16920c57dfc))
+* **workflows:** remove `stale.yml` ([e914a39](https://www.github.com/Fdawgs/node-unrtf/commit/e914a39b7c3f7fb5afd4a3d447d9f2083c52891b))
+
+
+### Continuous Integration
+
+* **cd:** move perf optimizations and refactoring into same section ([7ab68ec](https://www.github.com/Fdawgs/node-unrtf/commit/7ab68ec5f9a18d930eb60c7c549361e02bb71335))
+* fix key usage in `action/setup-node` ([d3ddf47](https://www.github.com/Fdawgs/node-unrtf/commit/d3ddf4712a99df2fef95122c9a3fde6180ebac9f))
+
+
+### Dependencies
+
+* **deps-dev:** bump eslint-plugin-jsdoc from 33.3.0 to 35.1.2 ([bb5f80e](https://www.github.com/Fdawgs/node-unrtf/commit/bb5f80ea3ba9379f05bc6b88b4b251f7be628e1f))
+* **deps-dev:** bump jest from 26.6.3 to 27.0.3 ([ff94919](https://www.github.com/Fdawgs/node-unrtf/commit/ff94919ac60b2af179b69edf71f193491d7f8f04))
+* **deps-dev:** bump prettier from 2.2.1 to 2.3.0 ([61478d5](https://www.github.com/Fdawgs/node-unrtf/commit/61478d5af073ab082f7f5a84f7c794eb1052f371))
+* **deps-dev:** bump prettier from 2.3.0 to 2.3.1 ([538a5a4](https://www.github.com/Fdawgs/node-unrtf/commit/538a5a4a035f2611bc9c20f845481531a3d61bff))
+* **deps:** bump GoogleCloudPlatform/release-please-action ([671e4e0](https://www.github.com/Fdawgs/node-unrtf/commit/671e4e0be73750e775fdb070db422ee77c247827))
+* **deps:** bump wagoid/commitlint-github-action from 3.1.0 to 3.1.4 ([da1c9a1](https://www.github.com/Fdawgs/node-unrtf/commit/da1c9a1132704dde34e11c78b1524fdc0ff40c20))
+
 ## [2.0.0](https://www.github.com/Fdawgs/node-unrtf/compare/v1.1.1...v2.0.0) (2021-04-29)
 
 
