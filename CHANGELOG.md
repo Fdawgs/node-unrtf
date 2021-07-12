@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.2](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.1...v2.0.2) (2021-07-12)
+
+
+### Dependencies
+
+* **deps-dev:** bump husky from 6.0.0 to 7.0.0 ([fd57ff6](https://www.github.com/Fdawgs/node-unrtf/commit/fd57ff61702afdeb51ab7d69919762ab9fdad86c))
+* **deps-dev:** bump prettier from 2.3.1 to 2.3.2 ([fedc7d4](https://www.github.com/Fdawgs/node-unrtf/commit/fedc7d4c748184b5f43828bcfae7602dc5495422))
+* **deps:** bump actions/setup-node from 2.1.5 to 2.2.0 ([b28e5b9](https://www.github.com/Fdawgs/node-unrtf/commit/b28e5b935599b3bb174749b63f15740fbf597037))
+* **deps:** bump actions/upload-artifact from 2.2.3 to 2.2.4 ([e2635a8](https://www.github.com/Fdawgs/node-unrtf/commit/e2635a84e4d87737bd36190f9441bb52b38f00d8))
+
+
+### Miscellaneous
+
+* **vscode:** disable red hat telemetry ([7218381](https://www.github.com/Fdawgs/node-unrtf/commit/72183819ae9bdca572bda6d271b376b173ecc78c))
+* **vscode:** remove user space config setting ([c712ca6](https://www.github.com/Fdawgs/node-unrtf/commit/c712ca63c9a889b8fb629c8705b6a55f062b2d9b))
+
+
+### Continuous Integration
+
+* **ci:** disable homebrew analytics for macos builds ([#101](https://www.github.com/Fdawgs/node-unrtf/issues/101)) ([486f1b0](https://www.github.com/Fdawgs/node-unrtf/commit/486f1b0c192c488bceb6d927411d167bb02c74c6))
+* **link-check:** reduce frequency from daily to monthly ([#95](https://www.github.com/Fdawgs/node-unrtf/issues/95)) ([c77d334](https://www.github.com/Fdawgs/node-unrtf/commit/c77d3348bdb0f3756eb1b29508158e75e8d1bfdc))
+
 ### [2.0.1](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.0...v2.0.1) (2021-06-15)
 
 
