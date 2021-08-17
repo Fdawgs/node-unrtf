@@ -49,7 +49,7 @@ For macOS, the binary can be installed with [Homebrew](https://brew.sh/):
 brew install unrtf
 ```
 
-Once they have been installed, you will need to pass the `unrtf` installation directory in as parameters to an instance of the UnRTF class:
+Once they have been installed, you will need to pass the `unrtf` installation directory as a parameter to an instance of the UnRTF class:
 
 ```js
 const { UnRTF } = require("node-unrtf");
