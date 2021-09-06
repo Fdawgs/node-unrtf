@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.2](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.1...v2.0.2) (2021-09-06)
+
+
+### Documentation
+
+* **readme:** grammar fix ([0c067cb](https://www.github.com/Fdawgs/node-unrtf/commit/0c067cb8161a00fc813ac7534a2d664e1b1d1b5a))
+
+
+### Miscellaneous
+
+* **.github:** use new YAML configured GitHub issue forms ([#113](https://www.github.com/Fdawgs/node-unrtf/issues/113)) ([1ebfbd5](https://www.github.com/Fdawgs/node-unrtf/commit/1ebfbd555e1f166f3420685064412ad398d2e642))
+* **vscode:** disable red hat telemetry ([8b4caad](https://www.github.com/Fdawgs/node-unrtf/commit/8b4caad58580d02d1ffb2a125a6fac6f3c2ca101))
+* **vscode:** remove user space config setting ([a86bb2f](https://www.github.com/Fdawgs/node-unrtf/commit/a86bb2f1b55bba6701198c37661e9933eba6f4ec))
+
+
+### Continuous Integration
+
+* **ci:** disable homebrew analytics for macos builds ([#101](https://www.github.com/Fdawgs/node-unrtf/issues/101)) ([de448c3](https://www.github.com/Fdawgs/node-unrtf/commit/de448c3399267922cfc839332bc715c8d735158d))
+* **ci:** replace workflow-run-cleanup-action with github concurrency ([#114](https://www.github.com/Fdawgs/node-unrtf/issues/114)) ([15f202c](https://www.github.com/Fdawgs/node-unrtf/commit/15f202c453ee90ef682e2f94f8e243b9b457fa3d))
+* **link-check:** reduce frequency from daily to monthly ([#95](https://www.github.com/Fdawgs/node-unrtf/issues/95)) ([42f60b8](https://www.github.com/Fdawgs/node-unrtf/commit/42f60b88c3ea1cf2f017e2790584b2e11c186f77))
+
+
+### Dependencies
+
+* add .npmignore; reduce package size from 1.2MB to 117.2kB ([#115](https://www.github.com/Fdawgs/node-unrtf/issues/115)) ([0484881](https://www.github.com/Fdawgs/node-unrtf/commit/0484881bcebeda521c2ce5cb041aa4bdbe0686eb))
+* **deps-dev:** bump @commitlint/cli from 12.1.4 to 13.1.0 ([0f0a344](https://www.github.com/Fdawgs/node-unrtf/commit/0f0a34435e49087ae65b2e1874088f9770df5f8d))
+* **deps-dev:** bump @commitlint/config-conventional ([a195be4](https://www.github.com/Fdawgs/node-unrtf/commit/a195be4a48f48dab8ba9e59515783752adcf487b))
+* **deps-dev:** bump eslint-plugin-jsdoc from 35.5.1 to 36.0.6 ([55eb347](https://www.github.com/Fdawgs/node-unrtf/commit/55eb34797c2eb9feff64fe65d00333f1ffbcb9e6))
+* **deps-dev:** bump husky from 6.0.0 to 7.0.0 ([07b37d7](https://www.github.com/Fdawgs/node-unrtf/commit/07b37d77ea33b4cc81c53ff35507defa99cd36ee))
+* **deps-dev:** bump prettier from 2.3.1 to 2.3.2 ([5d59e46](https://www.github.com/Fdawgs/node-unrtf/commit/5d59e4645d85bcb685996fdab1f4ccc75c2a394f))
+* **deps:** bump actions/github-script from 4.0.2 to 4.1 ([c0c97ff](https://www.github.com/Fdawgs/node-unrtf/commit/c0c97ff78a8516fee912501eea5988932a30eb4e))
+* **deps:** bump actions/setup-node from 2.1.5 to 2.2.0 ([fc0ff51](https://www.github.com/Fdawgs/node-unrtf/commit/fc0ff51c1de72a01660ce570a39761a1a490b1ec))
+* **deps:** bump actions/setup-node from 2.2.0 to 2.3.0 ([09bbcd6](https://www.github.com/Fdawgs/node-unrtf/commit/09bbcd6f471aed68a8e9dffd1e74d9fe257c4dc3))
+* **deps:** bump actions/setup-node from 2.3.0 to 2.4.0 ([261513f](https://www.github.com/Fdawgs/node-unrtf/commit/261513fd9d105ad12dbf7cac56a0c32ecd592267))
+* **deps:** bump actions/upload-artifact from 2.2.3 to 2.2.4 ([00e3c19](https://www.github.com/Fdawgs/node-unrtf/commit/00e3c197e4c6440e887516ea6f050d1041ede7ee))
+* **deps:** bump coverallsapp/github-action from 1.1.2 to 1.1.3 ([d6f6386](https://www.github.com/Fdawgs/node-unrtf/commit/d6f638646a647765f94f949176546e53155c9d2e))
+* **deps:** bump GoogleCloudPlatform/release-please-action ([745c5d1](https://www.github.com/Fdawgs/node-unrtf/commit/745c5d12b313ed8482c225477188b474a5b3f3d1))
+* **deps:** bump wagoid/commitlint-github-action from 3.1.4 to 4.1.1 ([b48d588](https://www.github.com/Fdawgs/node-unrtf/commit/b48d5889c202e71e2b0d5e6b044bdac230ae90a6))
+
 ### [2.0.1](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.0...v2.0.1) (2021-06-15)
 
 
