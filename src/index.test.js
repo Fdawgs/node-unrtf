@@ -49,8 +49,8 @@ if (platform === "win32") {
 
 			const res = await unRtf.convert(file, options);
 
-			expect(typeof res).toEqual("string");
-			expect(res.substring(0, 6)).toEqual("<html>");
+			expect(typeof res).toBe("string");
+			expect(res.substring(0, 6)).toBe("<html>");
 		});
 	});
 }
@@ -74,8 +74,8 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toEqual("string");
-		expect(isHtml(res)).toEqual(true);
+		expect(typeof res).toBe("string");
+		expect(isHtml(res)).toBe(true);
 	});
 
 	test("Should convert RTF file to HTML with no options set", async () => {
@@ -83,8 +83,8 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file);
 
-		expect(typeof res).toEqual("string");
-		expect(isHtml(res)).toEqual(true);
+		expect(typeof res).toBe("string");
+		expect(isHtml(res)).toBe(true);
 	});
 
 	test("Should convert RTF file to HTML without storing images", async () => {
@@ -96,8 +96,8 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toEqual("string");
-		expect(isHtml(res)).toEqual(true);
+		expect(typeof res).toBe("string");
+		expect(isHtml(res)).toBe(true);
 	});
 
 	test("Should convert RTF file to LaTeX", async () => {
@@ -109,9 +109,9 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toEqual("string");
+		expect(typeof res).toBe("string");
 		expect(res).toEqual(expect.stringContaining("\\begin{document}"));
-		expect(isHtml(res)).toEqual(false);
+		expect(isHtml(res)).toBe(false);
 	});
 
 	test("Should convert RTF file to text", async () => {
@@ -123,13 +123,13 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toEqual("string");
+		expect(typeof res).toBe("string");
 		expect(res).toEqual(
 			expect.stringContaining(
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 			)
 		);
-		expect(isHtml(res)).toEqual(false);
+		expect(isHtml(res)).toBe(false);
 	});
 
 	test("Should return an Error object if file passed not RTF format", async () => {
@@ -142,13 +142,13 @@ describe("Convert Function", () => {
 
 		expect.assertions(2);
 		await unRtf.convert(testTxtFile, options).catch((err) => {
-			expect(err.message).toEqual(
+			expect(err.message).toBe(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
 		});
 
 		await unRtf.convert(testPdfFile, options).catch((err) => {
-			expect(err.message).toEqual(
+			expect(err.message).toBe(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
 		});
@@ -163,7 +163,7 @@ describe("Convert Function", () => {
 
 		expect.assertions(1);
 		await unRtf.convert(file, options).catch((err) => {
-			expect(err.message).toEqual(
+			expect(err.message).toBe(
 				"Invalid value type provided for option 'outputHtml', expected boolean but received string"
 			);
 		});
@@ -178,7 +178,7 @@ describe("Convert Function", () => {
 		if (semver.lte(version, "0.21.3")) {
 			expect.assertions(1);
 			await unRtf.convert(file, options).catch((err) => {
-				expect(err.message).toEqual(
+				expect(err.message).toBe(
 					`Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v${version}`
 				);
 			});
@@ -194,7 +194,7 @@ describe("Convert Function", () => {
 		if (semver.gt(version, "0.19.4")) {
 			expect.assertions(1);
 			await unRtf.convert(file, options).catch((err) => {
-				expect(err.message).toEqual(
+				expect(err.message).toBe(
 					`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${version}`
 				);
 			});
@@ -210,7 +210,7 @@ describe("Convert Function", () => {
 
 		expect.assertions(1);
 		await unRtf.convert(file, options).catch((err) => {
-			expect(err.message).toEqual("Invalid option provided 'outputMp3'");
+			expect(err.message).toBe("Invalid option provided 'outputMp3'");
 		});
 	});
 
@@ -223,7 +223,7 @@ describe("Convert Function", () => {
 
 		expect.assertions(1);
 		await unRtf.convert(undefined, options).catch((err) => {
-			expect(err.message).toEqual("File missing");
+			expect(err.message).toBe("File missing");
 		});
 	});
 });
