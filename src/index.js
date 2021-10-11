@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-child-process */
 const fileType = require("file-type");
 const fs = require("fs");
 const path = require("upath");
