@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-child-process */
 const fileType = require("file-type");
 const fs = require("fs");
 const path = require("upath");
@@ -159,6 +160,7 @@ class UnRTF {
 			 */
 			if (
 				file === undefined ||
+				// eslint-disable-next-line security/detect-non-literal-fs-filename
 				fs.existsSync(path.normalizeTrim(file)) === false
 			) {
 				throw new Error("File missing");
