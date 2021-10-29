@@ -25,3 +25,5 @@ SECURITY.md
 src/**/*.test.js
 test_files
 test_resources
+*.wmf
+*.emf
