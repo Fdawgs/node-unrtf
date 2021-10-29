@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.4](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.3...v2.0.4) (2021-10-29)
+
+
+### Miscellaneous
+
+* ignore emf and wmf test files ([#134](https://www.github.com/Fdawgs/node-unrtf/issues/134)) ([8d79d76](https://www.github.com/Fdawgs/node-unrtf/commit/8d79d76c18d95f7f2344568ed64ea54f6144f89c))
+
 ### [2.0.3](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.2...v2.0.3) (2021-10-29)
 
 
