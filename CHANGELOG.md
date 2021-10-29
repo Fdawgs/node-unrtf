@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.3](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.2...v2.0.3) (2021-10-29)
+
+
+### Continuous Integration
+
+* **automerge:** update location of octokit rest methods ([853455e](https://www.github.com/Fdawgs/node-unrtf/commit/853455e704c3eadd02294bf56fb5078ee20be243))
+* **ci:** revert to workflow-run-clean-action from github concurrency ([010965e](https://www.github.com/Fdawgs/node-unrtf/commit/010965eba01bac1414b82989ab2fe64f46b350a8))
+
+
+### Miscellaneous
+
+* **.eslintrc:** remove inaccurate sourcetype ([#128](https://www.github.com/Fdawgs/node-unrtf/issues/128)) ([6b9bd44](https://www.github.com/Fdawgs/node-unrtf/commit/6b9bd443c371322d15b0b6d3e9e8b3b1790e7b69))
+* **.eslintrc:** remove redundant `impliedStrict` option ([#131](https://www.github.com/Fdawgs/node-unrtf/issues/131)) ([6e1d15f](https://www.github.com/Fdawgs/node-unrtf/commit/6e1d15fd7db2bf2657af28fb7cb682c9d942d2cd))
+* **.eslintrc:** set correct ecmascript version ([#118](https://www.github.com/Fdawgs/node-unrtf/issues/118)) ([1e0913c](https://www.github.com/Fdawgs/node-unrtf/commit/1e0913cdef24a0646afb8e846be173f87e06f51e))
+* **.husky/.gitignore:** remove now redundant file ([4c805bd](https://www.github.com/Fdawgs/node-unrtf/commit/4c805bd559d7fead2d0c0c3c30f8835cfa7d8e72))
+* **.npmignore:** add `API.md` ([#120](https://www.github.com/Fdawgs/node-unrtf/issues/120)) ([acf9589](https://www.github.com/Fdawgs/node-unrtf/commit/acf9589ed9f69b9f7d92ca67bca47a1e761a4695))
+* **.prettierrc:** enable `bracketsameline` option ([bfde76d](https://www.github.com/Fdawgs/node-unrtf/commit/bfde76d73033cba002f73267502c16cb74067476))
+* **.prettierrc:** override defaults for html, css, and scss files ([#119](https://www.github.com/Fdawgs/node-unrtf/issues/119)) ([c3cc50e](https://www.github.com/Fdawgs/node-unrtf/commit/c3cc50ede74380f91e0ea155da603850ab4778ea))
+* **.vscode:** add `mhutchie.git-graph` extension ([e4fa7e4](https://www.github.com/Fdawgs/node-unrtf/commit/e4fa7e41f6be4c5ef67ac8a8ece972c3ca63e140))
+* **.vscode:** remove deprecated settings ([#129](https://www.github.com/Fdawgs/node-unrtf/issues/129)) ([a09bb79](https://www.github.com/Fdawgs/node-unrtf/commit/a09bb79eb70bb7a802eb229368bed6168fff5be4))
+* disable irrelevant eslint rules ([#130](https://www.github.com/Fdawgs/node-unrtf/issues/130)) ([1542272](https://www.github.com/Fdawgs/node-unrtf/commit/1542272da90e43d036ee809e20ea6a40b9536a42))
+
+
+### Documentation
+
+* bump coc from v2.0.0 to v2.1.0 ([#132](https://www.github.com/Fdawgs/node-unrtf/issues/132)) ([c7bb201](https://www.github.com/Fdawgs/node-unrtf/commit/c7bb201cd1b1ebdb0f33176a1941c52588cea784))
+
+
+### Dependencies
+
+* **deps-dev:** add eslint-plugin-security-node ([#121](https://www.github.com/Fdawgs/node-unrtf/issues/121)) ([71ed617](https://www.github.com/Fdawgs/node-unrtf/commit/71ed61710b6924cb22a14386b871d6a717392f33))
+* **deps-dev:** bump dev dependencies ([9fe5ece](https://www.github.com/Fdawgs/node-unrtf/commit/9fe5ece26dcb03a3c0e26a5d3efc8a0e5f03044d))
+* **deps-dev:** bump prettier from 2.3.2 to 2.4.1 ([9caa2bc](https://www.github.com/Fdawgs/node-unrtf/commit/9caa2bca8a7a14800d0a09e4571efa18eda747f5))
+* **deps:** bump actions/setup-node from 2.4.0 to 2.4.1 ([12c1d2c](https://www.github.com/Fdawgs/node-unrtf/commit/12c1d2c58bcad26a938b54b30252506d0619a840))
+* **deps:** bump file-type from 16.5.0 to 16.5.3 ([f7246ba](https://www.github.com/Fdawgs/node-unrtf/commit/f7246badb83771fb914d38dda4aea83f694502de))
+* **deps:** bump GoogleCloudPlatform/release-please-action ([40836ed](https://www.github.com/Fdawgs/node-unrtf/commit/40836edde92a46300fbf670671ff60b065e8e9d6))
+* **deps:** bump semver from 7.3.4 to 7.3.5 ([f15e0a5](https://www.github.com/Fdawgs/node-unrtf/commit/f15e0a59c54964bc358c57f2e5876306088910ed))
+* **deps:** bump wagoid/commitlint-github-action from 4.1.1 to 4.1.5 ([4bba7ee](https://www.github.com/Fdawgs/node-unrtf/commit/4bba7eee336edf253f5247e7cf6c3640a563cff6))
+
 ### [2.0.2](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.1...v2.0.2) (2021-09-06)
 
 
