@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.5](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.4...v2.0.5) (2021-11-04)
+
+
+### Bug Fixes
+
+* **index:** normalize `binPath` constructor param ([#145](https://www.github.com/Fdawgs/node-unrtf/issues/145)) ([81e2863](https://www.github.com/Fdawgs/node-unrtf/commit/81e2863f48824bd0732f15f7d9a8839cb65c6de5))
+
+
+### Dependencies
+
+* **deps-dev:** bump @commitlint/cli from 13.2.1 to 14.1.0 ([a289044](https://www.github.com/Fdawgs/node-unrtf/commit/a2890447bc4deae1cdcfa1d3c4b4661df714666d))
+* **deps-dev:** bump @commitlint/config-conventional ([c5990e5](https://www.github.com/Fdawgs/node-unrtf/commit/c5990e59a49553826b12b99c9fad1b968c331228))
+* **deps:** bump actions/checkout from 2.3.4 to 2.3.5 ([6940cbe](https://www.github.com/Fdawgs/node-unrtf/commit/6940cbebe7b38972e914ed9dcec9c05c6ec1c8ef))
+* **deps:** bump GoogleCloudPlatform/release-please-action ([70e5b66](https://www.github.com/Fdawgs/node-unrtf/commit/70e5b66be83332019eebe76cf328a7db06964752))
+* **deps:** bump wagoid/commitlint-github-action from 4.1.5 to 4.1.9 ([de5ab57](https://www.github.com/Fdawgs/node-unrtf/commit/de5ab57915704e354c7378d535fdafe0a8a2b32e))
+
+
+### Miscellaneous
+
+* **.prettierrc:** only enable `bracketSameLine` for html ([#142](https://www.github.com/Fdawgs/node-unrtf/issues/142)) ([529f0e8](https://www.github.com/Fdawgs/node-unrtf/commit/529f0e806f75dc85e2a2692fbded343206602a70))
+
+
+### Continuous Integration
+
+* **cd:** stop `prepare` script running ([#144](https://www.github.com/Fdawgs/node-unrtf/issues/144)) ([731aecb](https://www.github.com/Fdawgs/node-unrtf/commit/731aecb5cfe5425525d02b9f9bd745932230ce3e))
+
 ### [2.0.4](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.3...v2.0.4) (2021-10-29)
 
 
