@@ -74,7 +74,7 @@ class UnRTF {
 	 */
 	constructor(binPath) {
 		if (binPath) {
-			this.unrtfPath = binPath;
+			this.unrtfPath = path.normalizeTrim(binPath);
 		} else {
 			// If not set, expect user to be using Win32
 			this.unrtfPath = path.joinSafe(
