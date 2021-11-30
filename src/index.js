@@ -26,9 +26,6 @@ function parseOptions(acceptedOptions, options, version) {
 				// eslint-disable-next-line valid-typeof
 				if (typeof options[key] === acceptedOptions[key].type) {
 					args.push(acceptedOptions[key].arg);
-					if (typeof options[key] !== "boolean") {
-						args.push(options[key]);
-					}
 				} else {
 					invalidArgs.push(
 						`Invalid value type provided for option '${key}', expected ${
