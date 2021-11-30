@@ -2,7 +2,6 @@
 /* eslint-disable security/detect-child-process */
 /* eslint-disable security/detect-non-literal-fs-filename */
 const isHtml = require("is-html");
-const os = require("os");
 const path = require("upath");
 const semver = require("semver");
 const { execFile } = require("child_process");
@@ -15,8 +14,7 @@ const testDirectory = `${__dirname}/../test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 let testBinaryPath;
-const platform = os.platform();
-switch (platform) {
+switch (process.platform) {
 	// macOS
 	case "darwin":
 		testBinaryPath = "/usr/local/bin";
@@ -39,9 +37,9 @@ switch (platform) {
 		break;
 }
 
-if (platform === "win32") {
-	describe("Constructor", () => {
-		test("Should convert RTF file to HTML without binary set, and use included Windows binary", async () => {
+describe("Constructor", () => {
+	if (process.platform === "win32") {
+		test("Should convert RTF file to HTML without binary set on win32, and use included binary", async () => {
 			const unRtf = new UnRTF();
 			const options = {
 				noPictures: true,
@@ -53,8 +51,22 @@ if (platform === "win32") {
 			expect(typeof res).toBe("string");
 			expect(res.substring(0, 6)).toBe("<html>");
 		});
-	});
-}
+	}
+
+	if (process.platform !== "win32") {
+		test(`Should return an Error object if binary path unset on ${process.platform}`, async () => {
+			expect.assertions(1);
+			try {
+				// eslint-disable-next-line no-unused-vars
+				const unRtf = new UnRTF();
+			} catch (err) {
+				expect(err.message).toBe(
+					`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+				);
+			}
+		});
+	}
+});
 
 describe("Convert Function", () => {
 	let version;
