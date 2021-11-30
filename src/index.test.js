@@ -2,7 +2,6 @@
 /* eslint-disable security/detect-child-process */
 /* eslint-disable security/detect-non-literal-fs-filename */
 const isHtml = require("is-html");
-const os = require("os");
 const path = require("upath");
 const semver = require("semver");
 const { execFile } = require("child_process");
@@ -15,8 +14,7 @@ const testDirectory = `${__dirname}/../test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 let testBinaryPath;
-const platform = os.platform();
-switch (platform) {
+switch (process.platform) {
 	// macOS
 	case "darwin":
 		testBinaryPath = "/usr/local/bin";
@@ -39,7 +37,7 @@ switch (platform) {
 		break;
 }
 
-if (platform === "win32") {
+if (process.platform === "win32") {
 	describe("Constructor", () => {
 		test("Should convert RTF file to HTML without binary set, and use included Windows binary", async () => {
 			const unRtf = new UnRTF();

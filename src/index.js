@@ -75,14 +75,17 @@ class UnRTF {
 	constructor(binPath) {
 		if (binPath) {
 			this.unrtfPath = path.normalizeTrim(binPath);
-		} else {
-			// If not set, expect user to be using Win32
+		} else if (process.platform === "win32") {
 			this.unrtfPath = path.joinSafe(
 				__dirname,
 				"lib",
 				"win32",
 				"unrtf-0.19.3",
 				"bin"
+			);
+		} else {
+			throw new Error(
+				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
 	}
