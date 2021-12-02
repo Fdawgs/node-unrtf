@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.6](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.5...v2.0.6) (2021-12-02)
+
+
+### Bug Fixes
+
+* **index:** do not assume win32 usage for binaries ([bbd50d8](https://www.github.com/Fdawgs/node-unrtf/commit/bbd50d838b6dbc487233ac5cdaee0db657d64f93))
+
+
+### Continuous Integration
+
+* **ci:** do not run clean-up on draft prs ([f0105cf](https://www.github.com/Fdawgs/node-unrtf/commit/f0105cfc185cc2c83f03e987e209bc56e9957c50))
+* **spell-check:** do not run on draft prs ([f4705c2](https://www.github.com/Fdawgs/node-unrtf/commit/f4705c276576b3b6af550256846ebeb55e15e47b))
+* trigger workflows when drafts marked as "ready to review" ([#148](https://www.github.com/Fdawgs/node-unrtf/issues/148)) ([4fc27d5](https://www.github.com/Fdawgs/node-unrtf/commit/4fc27d5c2b5dbeb33a3d7b99191ce6864c869619))
+
+
+### Documentation
+
+* **coc:** reduce verbosity ([6532486](https://www.github.com/Fdawgs/node-unrtf/commit/65324866d1621ce189a755422b6d89e8deee3f5b))
+
+
+### Miscellaneous
+
+* ignore `.yarnclean` ([#154](https://www.github.com/Fdawgs/node-unrtf/issues/154)) ([fc420c9](https://www.github.com/Fdawgs/node-unrtf/commit/fc420c9f53ab95838e1d2048914b66b14671eea6))
+* **package/scripts:** add `lint:licenses` ([#155](https://www.github.com/Fdawgs/node-unrtf/issues/155)) ([3761264](https://www.github.com/Fdawgs/node-unrtf/commit/37612646c91e564d0d05de6fbcc5eede0563b7eb))
+
+
+### Improvements
+
+* **index:** remove unused conditional; all options are binary ([#157](https://www.github.com/Fdawgs/node-unrtf/issues/157)) ([d563d23](https://www.github.com/Fdawgs/node-unrtf/commit/d563d2308e90ef354764357acb1db992108b6a46))
+
+
+### Dependencies
+
+* **dependabot:** ignore minor and patch github-actions updates ([#149](https://www.github.com/Fdawgs/node-unrtf/issues/149)) ([5994571](https://www.github.com/Fdawgs/node-unrtf/commit/599457199c750827e865d4e8ac3dfe6260e69a90))
+* **deps-dev:** bump @commitlint/cli from 14.1.0 to 15.0.0 ([1d6e73a](https://www.github.com/Fdawgs/node-unrtf/commit/1d6e73a432ef816ebb8db06fceadeb8eb8d7f9ed))
+* **deps-dev:** bump @commitlint/config-conventional ([46b55b7](https://www.github.com/Fdawgs/node-unrtf/commit/46b55b75810be1f3b0e49960999833e4a0e21b50))
+* **deps-dev:** bump dev dependencies ([#161](https://www.github.com/Fdawgs/node-unrtf/issues/161)) ([8ef1863](https://www.github.com/Fdawgs/node-unrtf/commit/8ef1863fe06468064f95ddf0a47fca80bd2aa8c5))
+* **deps-dev:** bump eslint-config-airbnb-base from 14.2.1 to 15.0.0 ([6659063](https://www.github.com/Fdawgs/node-unrtf/commit/6659063c4c443ee911cd1bd5ba28d77a5074527c))
+* **deps-dev:** bump prettier from 2.4.1 to 2.5.0 ([8d98289](https://www.github.com/Fdawgs/node-unrtf/commit/8d9828956fc61ba993790e07085c16449e95692c))
+* **deps:** bump GoogleCloudPlatform/release-please-action ([21f0d71](https://www.github.com/Fdawgs/node-unrtf/commit/21f0d718f0e1019a8a3e8ab082adf441dace2a5f))
+
 ### [2.0.5](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.4...v2.0.5) (2021-11-04)
 
 
