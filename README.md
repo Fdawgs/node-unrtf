@@ -34,13 +34,13 @@ node-unrtf's test scripts use npm commands.
 
 ### Known Issues With Included Windows Binary and Recommendations
 
-An UnRTF v0.19.3 Windows binary is included with this module which, due to its age, has a number of issues.
+An UnRTF v0.19.3 Windows binary is included with this module which, due to its age, has several issues.
 
 #### Inability To Convert RTF Documents Generated From 2007 Onwards
 
 Discovered in [#83](https://github.com/Fdawgs/node-unrtf/issues/83) by [@thegoathearder](https://github.com/thegoatherder).
 
-The binary was released in 2005, when v1.8 of the RTF specification was standard.
+The binary was released in 2005 when v1.8 of the RTF specification was standard.
 RTF v1.9 was released in 2007, and Microsoft Word 2007 onwards saves new RTFs using v1.9.1.
 
 The included binary will throw errors and fails to convert any RTF documents that were generated from 2007 onwards using RTF >=1.9.
@@ -64,7 +64,7 @@ The above issues were fixed in later versions of UnRTF.
 GnuWin was the organisation porting GNU utilities to Win32, and they are no longer maintained since 2017.
 Due to this, it is highly unlikely newer versions of UnRTF will be released for Windows.
 
-As such, it is recommended that whatever application is using the `node-unrtf` module in run in a Linux environment (as a Docker container or otherwise), by following the steps in [Linux and macOS/Darwin Support](#linux-and-macosdarwin-support).
+As such, it is recommended that whatever application is using the `node-unrtf` module is run in a Linux environment (as a Docker container or otherwise), by following the steps in [Linux and macOS/Darwin Support](#linux-and-macosdarwin-support).
 
 ### Linux and macOS/Darwin Support
 
