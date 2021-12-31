@@ -1,6 +1,6 @@
 {
 	"name": "node-unrtf",
-	"version": "2.0.6",
+	"version": "2.0.7",
 	"description": "Asynchronous node.js wrapper for the UnRTF RTF conversion program",
 	"keywords": [
 		"async",

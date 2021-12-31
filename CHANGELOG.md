@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.7](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.6...v2.0.7) (2021-12-31)
+
+
+### Miscellaneous
+
+* turn off `security/detect-object-injection` eslint rule ([#162](https://www.github.com/Fdawgs/node-unrtf/issues/162)) ([9fde2cf](https://www.github.com/Fdawgs/node-unrtf/commit/9fde2cf21b2d44644da399e965a3263010bd57f7))
+
+
+### Dependencies
+
+* **dependabot:** ignore minor and patch release-please-action updates ([#164](https://www.github.com/Fdawgs/node-unrtf/issues/164)) ([edd4c69](https://www.github.com/Fdawgs/node-unrtf/commit/edd4c69bd82142c0f5b7caa1159d076c8a89fb49))
+
+
+### Documentation
+
+* **contributing:** add mention of husky pre-commit hook ([4a006fd](https://www.github.com/Fdawgs/node-unrtf/commit/4a006fdaf8d3b600bf12f89523fd0e3c702d3c08))
+* **contributing:** add step for `lint:licenses` script ([#166](https://www.github.com/Fdawgs/node-unrtf/issues/166)) ([54a54f5](https://www.github.com/Fdawgs/node-unrtf/commit/54a54f5ac644a2bcbecfe387ad3e14bd7982a02b))
+* **readme:** add windows binary known issues section ([#165](https://www.github.com/Fdawgs/node-unrtf/issues/165)) ([06b9b1b](https://www.github.com/Fdawgs/node-unrtf/commit/06b9b1bc25539f15dc9e343a1611be4603b11af3))
+
 ### [2.0.6](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.5...v2.0.6) (2021-12-02)
 
 
