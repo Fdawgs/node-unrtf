@@ -71,7 +71,7 @@
 		"eslint-plugin-security": "^1.4.0",
 		"eslint-plugin-security-node": "^1.0.14",
 		"husky": "^7.0.4",
-		"is-html": "^2.0.0",
+		"is-html": "^3.0.0",
 		"jest": "^27.4.3",
 		"jsdoc-to-markdown": "^7.1.0",
 		"license-checker": "^25.0.1",
