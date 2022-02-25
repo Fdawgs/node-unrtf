@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.7](https://github.com/Fdawgs/node-unrtf/compare/v2.0.6...v2.0.7) (2022-02-25)
+
+
+### Bug Fixes
+
+* **index:** use `spawn` for larger stream results ([#181](https://github.com/Fdawgs/node-unrtf/issues/181)) ([14515f2](https://github.com/Fdawgs/node-unrtf/commit/14515f25b9504c69ef5261bf299b8226bd880504))
+
+
+### Documentation
+
+* **contributing:** add mention of husky pre-commit hook ([4a006fd](https://github.com/Fdawgs/node-unrtf/commit/4a006fdaf8d3b600bf12f89523fd0e3c702d3c08))
+* **contributing:** add step for `lint:licenses` script ([#166](https://github.com/Fdawgs/node-unrtf/issues/166)) ([54a54f5](https://github.com/Fdawgs/node-unrtf/commit/54a54f5ac644a2bcbecfe387ad3e14bd7982a02b))
+* **readme:** add windows binary known issues section ([#165](https://github.com/Fdawgs/node-unrtf/issues/165)) ([06b9b1b](https://github.com/Fdawgs/node-unrtf/commit/06b9b1bc25539f15dc9e343a1611be4603b11af3))
+
+
+### Continuous Integration
+
+* remove spellcheck workflow ([#173](https://github.com/Fdawgs/node-unrtf/issues/173)) ([4c28c91](https://github.com/Fdawgs/node-unrtf/commit/4c28c91525f8c4a9ee9788242928b7f481cf9130))
+
+
+### Miscellaneous
+
+* **.github:** remove trailing whitespace ([5a9a431](https://github.com/Fdawgs/node-unrtf/commit/5a9a431277af3b8a97e11e3f0f0344aea9d177b5))
+* turn off `security/detect-object-injection` eslint rule ([#162](https://github.com/Fdawgs/node-unrtf/issues/162)) ([9fde2cf](https://github.com/Fdawgs/node-unrtf/commit/9fde2cf21b2d44644da399e965a3263010bd57f7))
+
+
+### Dependencies
+
+* **dependabot:** ignore minor and patch commit-lint updates ([#175](https://github.com/Fdawgs/node-unrtf/issues/175)) ([0443af1](https://github.com/Fdawgs/node-unrtf/commit/0443af184ce821845c08e2999206db73f6d373e5))
+* **dependabot:** ignore minor and patch release-please-action updates ([#164](https://github.com/Fdawgs/node-unrtf/issues/164)) ([edd4c69](https://github.com/Fdawgs/node-unrtf/commit/edd4c69bd82142c0f5b7caa1159d076c8a89fb49))
+* **dependabot:** major tags no longer need ignore support ([240be7b](https://github.com/Fdawgs/node-unrtf/commit/240be7b7f47442cd8476d2813fbbacc67d04bf57))
+* **dependabot:** use default open-pull-requests-limit value ([d7e2723](https://github.com/Fdawgs/node-unrtf/commit/d7e2723a6fa230a967cf5efdcbff8fc486e1e33d))
+* **deps-dev:** bump @commitlint/cli from 15.0.0 to 16.0.1 ([8c86caa](https://github.com/Fdawgs/node-unrtf/commit/8c86caa9c24d1c22033f80e3ec85cd985cc1dfe5))
+* **deps-dev:** bump @commitlint/config-conventional ([a7974fb](https://github.com/Fdawgs/node-unrtf/commit/a7974fb7f87b7be1af5140cc1beaaefe5da8368a))
+* **deps-dev:** bump dev dependencies ([7c244dd](https://github.com/Fdawgs/node-unrtf/commit/7c244ddbdd965b1822d37e3edf4fbf5fa9ca65c1))
+* **deps-dev:** bump eslint from 7.32.0 to 8.7.0 ([9c7954b](https://github.com/Fdawgs/node-unrtf/commit/9c7954b8442eb74111cd9671a8ff19a1d1361403))
+* **deps-dev:** bump eslint-plugin-jest from 25.7.0 to 26.0.0 ([67fc04d](https://github.com/Fdawgs/node-unrtf/commit/67fc04d0fa45229866171684371b198823739771))
+* **deps-dev:** bump eslint-plugin-promise from 5.2.0 to 6.0.0 ([9b249c3](https://github.com/Fdawgs/node-unrtf/commit/9b249c3f55a0ad5d91132e68379c3ecb52247bc0))
+* **deps-dev:** bump prettier from 2.5.0 to 2.5.1 ([3fbe274](https://github.com/Fdawgs/node-unrtf/commit/3fbe274ba4abb38265e54ec92f0af6dae2b3ea3b))
+* **deps:** bump actions/github-script from 5 to 6 ([f8af51e](https://github.com/Fdawgs/node-unrtf/commit/f8af51e98efd4b210a5759f7b7140fa5abce6a3c))
+* **deps:** bump actions/setup-node from 2 to 3 ([ad9d0df](https://github.com/Fdawgs/node-unrtf/commit/ad9d0df262331b16453a4c901cacb19c6c1d4709))
+* **deps:** bump GoogleCloudPlatform/release-please-action from 2 to 3 ([165b2ab](https://github.com/Fdawgs/node-unrtf/commit/165b2ab963b0202c08bf295808d54bfcab349fee))
+
 ### [2.0.6](https://www.github.com/Fdawgs/node-unrtf/compare/v2.0.5...v2.0.6) (2021-12-02)
 
 
