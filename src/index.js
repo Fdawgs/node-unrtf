@@ -3,7 +3,7 @@ const fileType = require("file-type");
 const fs = require("fs");
 const path = require("upath");
 const semver = require("semver");
-const { execFile } = require("child_process");
+const { execFile, spawn } = require("child_process");
 const util = require("util");
 
 const execFileAsync = util.promisify(execFile);
@@ -196,11 +196,32 @@ class UnRTF {
 			);
 			args.push(path.normalizeTrim(file));
 
-			const { stdout } = await execFileAsync(
-				path.joinSafe(this.unrtfPath, "unrtf"),
-				args
-			);
-			return Promise.resolve(stdout);
+			return new Promise((resolve, reject) => {
+				const child = spawn(
+					path.joinSafe(this.unrtfPath, "unrtf"),
+					args
+				);
+
+				let stdOut = "";
+				let stdErr = "";
+
+				child.stdout.on("data", async (data) => {
+					stdOut += data;
+				});
+
+				child.stderr.on("data", async (data) => {
+					stdErr += data;
+				});
+
+				child.on("close", async () => {
+					/* istanbul ignore else */
+					if (stdOut !== "") {
+						resolve(stdOut.trim());
+					} else {
+						reject(new Error(stdErr.trim()));
+					}
+				});
+			});
 		} catch (err) {
 			return Promise.reject(err);
 		}
