@@ -47,7 +47,7 @@ The included binary will throw errors and fails to convert any RTF documents tha
 
 #### `noPictures` option still generates pictures
 
-Discovered in [#81](https://github.com/Fdawgs/node-unrtf/issues/81) by [@olliebreeden](https://github.com/olliebreeden).
+Discovered in [#81](https://github.com/Fdawgs/node-unrtf/issues/81) by [@semics-tech](https://github.com/semics-tech).
 
 The `noPictures` option, when passed to the unRTF class, will still generate pictures:
 
@@ -138,7 +138,7 @@ unRTF.convert(file, options).then((res) => {
 
 Contributions are welcome, and any help is greatly appreciated!
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to get started.
+See [the contributing guide](./CONTRIBUTING.md) for details on how to get started.
 Please adhere to this project's [Code of Conduct](./CODE_OF_CONDUCT.md) when contributing.
 
 ## License
