@@ -47,7 +47,7 @@ The included binary will throw errors and fails to convert any RTF documents tha
 
 #### `noPictures` option still generates pictures
 
-Discovered in [#81](https://github.com/Fdawgs/node-unrtf/issues/81) by [@olliebreeden](https://github.com/olliebreeden).
+Discovered in [#81](https://github.com/Fdawgs/node-unrtf/issues/81) by [@semics-tech](https://github.com/semics-tech).
 
 The `noPictures` option, when passed to the unRTF class, will still generate pictures:
 
