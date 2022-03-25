@@ -29,7 +29,7 @@ version of binary.</p>
 
 | Param | Type | Description |
 | --- | --- | --- |
-| [binPath] | <code>string</code> | Path of UnRTF binary, i.e. `/usr/bin` |
+| [binPath] | <code>string</code> | Path of UnRTF binary. |
 
 <a name="UnRTF+convert"></a>
 

@@ -67,7 +67,7 @@ function parseOptions(acceptedOptions, options, version) {
 
 class UnRTF {
 	/**
-	 * @param {string=} binPath - Path of UnRTF binary, i.e. `/usr/bin`
+	 * @param {string=} binPath - Path of UnRTF binary.
 	 */
 	constructor(binPath) {
 		if (binPath) {
