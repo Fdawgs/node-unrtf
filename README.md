@@ -20,7 +20,7 @@ It was created out of a need for an RTF-to-HTML conversion module at [Yeovil Dis
 Install using [`npm`](https://www.npmjs.com/package/node-unrtf):
 
 ```bash
-npm install node-unrtf
+npm i node-unrtf
 ```
 
 Or [`yarn`](https://yarnpkg.com/en/package/node-unrtf):
