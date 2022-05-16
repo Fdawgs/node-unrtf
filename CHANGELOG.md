@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.8](https://github.com/Fdawgs/node-unrtf/compare/v2.0.7...v2.0.8) (2022-05-16)
+
+
+### Documentation
+
+* improve readability ([7636248](https://github.com/Fdawgs/node-unrtf/commit/763624809a239645629490ed43001c15a71670db))
+* **readme:** fix broken link ([96cb17c](https://github.com/Fdawgs/node-unrtf/commit/96cb17cd298324d142036ddad0a81ef00b05d393))
+* **readme:** remove snyk badge ([dd5dfae](https://github.com/Fdawgs/node-unrtf/commit/dd5dfae1cb655d7b2d248f2588797051c0875c77))
+
+
+### Dependencies
+
+* **deps-dev:** bump eslint-plugin-jsdoc from 37.9.7 to 38.0.6 ([1184217](https://github.com/Fdawgs/node-unrtf/commit/1184217b7bf97e3ba41659bf56e7d9e75d3ace89))
+* **deps-dev:** bump eslint-plugin-jsdoc from 38.1.6 to 39.2.9 ([#198](https://github.com/Fdawgs/node-unrtf/issues/198)) ([7bcab92](https://github.com/Fdawgs/node-unrtf/commit/7bcab92662359cd924c7f34083112a066c451b98))
+* **deps-dev:** bump jest from 27.5.1 to 28.0.3 ([#197](https://github.com/Fdawgs/node-unrtf/issues/197)) ([0684645](https://github.com/Fdawgs/node-unrtf/commit/068464568fc8205ea338788930cdced14e0cb5de))
+* **deps:** bump actions/checkout from 2 to 3 ([af36dea](https://github.com/Fdawgs/node-unrtf/commit/af36dea71e3471d171ef3c9e0197d48d61e539fe))
+* **deps:** bump actions/upload-artifact from 2 to 3 ([#196](https://github.com/Fdawgs/node-unrtf/issues/196)) ([0a365b3](https://github.com/Fdawgs/node-unrtf/commit/0a365b3a18af6c8afc07b8f13fbb91a5c41216ae))
+* **deps:** bump github/codeql-action from 1 to 2 ([#195](https://github.com/Fdawgs/node-unrtf/issues/195)) ([96392b2](https://github.com/Fdawgs/node-unrtf/commit/96392b2393b7c3977c67d07d4246e80d8012459b))
+
+
+### Miscellaneous
+
+* **.eslintrc:** enable `plugin:jest/style` rules ([#200](https://github.com/Fdawgs/node-unrtf/issues/200)) ([b1af9ca](https://github.com/Fdawgs/node-unrtf/commit/b1af9ca72830f28ef57e08833be543910a5cd401))
+* **.github/codeql-config:** remove quotation marks ([7062f47](https://github.com/Fdawgs/node-unrtf/commit/7062f474a6c7869dc750beef72c9af9c5299d012))
+* **ci:** remove quotation marks from step name ([03554a3](https://github.com/Fdawgs/node-unrtf/commit/03554a396b0e2a63399953eae621ef43ebe46fc7))
+* **index:** update constructor jsdoc param tag ([#189](https://github.com/Fdawgs/node-unrtf/issues/189)) ([3abc92a](https://github.com/Fdawgs/node-unrtf/commit/3abc92afa14965563ea818cdeef7b5cb8cfb6eec))
+* **scripts:** remove redundant gitkraken fix from prepare script ([758bce0](https://github.com/Fdawgs/node-unrtf/commit/758bce0d8cece49b857a16c0ef71bc5ab01a3594))
+* **scripts:** use shorter arg aliases; remove debugging args from jest ([eb83f38](https://github.com/Fdawgs/node-unrtf/commit/eb83f38d8366154fa61d638cce40ad50f5d1c38e))
+* use npm install alias ([26e9fdd](https://github.com/Fdawgs/node-unrtf/commit/26e9fdd57ff11b8ef7d7c483bd37656ae2798d79))
+
+
+### Continuous Integration
+
+* add dependency-review job ([0c42629](https://github.com/Fdawgs/node-unrtf/commit/0c42629c2a24388eaa0fac979d61f60242a5733c))
+* add job step names, workflow comments, and whitespace ([10d24d8](https://github.com/Fdawgs/node-unrtf/commit/10d24d85c5b766016ac51e89763ebc759752694b))
+* **automerge:** squash automerge prs ([#190](https://github.com/Fdawgs/node-unrtf/issues/190)) ([7afcfb8](https://github.com/Fdawgs/node-unrtf/commit/7afcfb8a70be64032034fc45d41757ace426df12))
+* **cd:** update org name for release-please-action ([a640ab2](https://github.com/Fdawgs/node-unrtf/commit/a640ab2574b3166e8aeccf3229662b95003b54b5))
+* check `user.login` is dependabot instead of `actor` ([#202](https://github.com/Fdawgs/node-unrtf/issues/202)) ([9178aec](https://github.com/Fdawgs/node-unrtf/commit/9178aecc1a270999d6152aca7abc3c25c74e622b))
+* **ci:** require `unit-tests` job to pass for `save-pr-number` job to run ([438652b](https://github.com/Fdawgs/node-unrtf/commit/438652bbb16004e4058086ae6aa9e9feb2558ae7))
+* **codeql-analysis:** remove unused autobuild step ([5913103](https://github.com/Fdawgs/node-unrtf/commit/591310349544fbeff674bcaa78a8f57a5e05e94c))
+* **codeql:** grant minimum permissions to run; rename file ([#186](https://github.com/Fdawgs/node-unrtf/issues/186)) ([47379f6](https://github.com/Fdawgs/node-unrtf/commit/47379f660d5764d7341b7ed3247da2876003c932))
+* **codeql:** only run on pr changes to `.html`, `.js`, and `.yml` files ([09733fb](https://github.com/Fdawgs/node-unrtf/commit/09733fbe0dccd0f4c17dc085be40792f7525c62a))
+* **codeql:** resolve missing analyses ([5fbd4b6](https://github.com/Fdawgs/node-unrtf/commit/5fbd4b608e4fdec73c35646b5298fa350ccb0a8d))
+* **codeql:** specify which files to scan during analysis ([c4a7a0f](https://github.com/Fdawgs/node-unrtf/commit/c4a7a0feea2c76870974067f4e6bb4bb6e901d6f))
+* **link-check:** fix skip regex ([48da5ac](https://github.com/Fdawgs/node-unrtf/commit/48da5ac7f3f932fabc0075db022640029ef19b64))
+* **link-check:** replace `npx linkinator` call with github action ([983c25e](https://github.com/Fdawgs/node-unrtf/commit/983c25e8923fb2df4241eb8c16c72b1f00394acb))
+* only save pr number artifact for dependabot ([d66ce1c](https://github.com/Fdawgs/node-unrtf/commit/d66ce1cb7ce65a81ed729588f9f9eb415f2bb60a))
+* only trigger dependency-review on pr ([6347c11](https://github.com/Fdawgs/node-unrtf/commit/6347c11d15cd581f532a24620558af0cd22ed31f))
+* reduce workflow permissions to minimum ([bb640f2](https://github.com/Fdawgs/node-unrtf/commit/bb640f2c4e9c4065ea321d6cd0c30beb0fef23ad))
+* replace workflow-run-cleanup-action with github concurrency ([fd31220](https://github.com/Fdawgs/node-unrtf/commit/fd312204760ab7137ff6a850ff2c7641e43eb531))
+
 ### [2.0.7](https://github.com/Fdawgs/node-unrtf/compare/v2.0.6...v2.0.7) (2022-02-25)
 
 
