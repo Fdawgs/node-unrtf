@@ -49,7 +49,7 @@ describe("Constructor", () => {
 			const res = await unRtf.convert(file, options);
 
 			expect(typeof res).toBe("string");
-			expect(res.substring(0, 6)).toBe("<html>");
+			expect(isHtml(res)).toBe(true);
 		});
 	}
 
@@ -122,7 +122,6 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
 		expect(res).toEqual(expect.stringContaining("\\begin{document}"));
 		expect(isHtml(res)).toBe(false);
 	});
@@ -136,7 +135,6 @@ describe("Convert Function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
 		expect(res).toEqual(
 			expect.stringContaining(
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
