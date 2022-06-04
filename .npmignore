@@ -23,6 +23,11 @@ coverage
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 SECURITY.md
+src/lib/win32/unrtf*/contrib/**
+!src/lib/win32/unrtf*/contrib/**/COPYING
+!src/lib/win32/unrtf*/contrib/**/README
+src/lib/win32/unrtf*/man/**
+src/lib/win32/unrtf*/manifest/**
 
 # Test files
 src/**/*.test.js
