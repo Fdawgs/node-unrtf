@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.9](https://github.com/Fdawgs/node-unrtf/compare/v2.0.8...v2.0.9) (2022-06-04)
+
+
+### Miscellaneous
+
+* **.github/funding:** remove unused keys ([c76b454](https://github.com/Fdawgs/node-unrtf/commit/c76b4541aadf902a9728780f698a657903c37990))
+* **.github:** add `FUNDING.yml` ([5f0d22f](https://github.com/Fdawgs/node-unrtf/commit/5f0d22f019b1a6573caccce89aff96a6f3b57eb1))
+
+
+### Dependencies
+
+* **.npmignore:** ignore `tsconfig.json` ([1539079](https://github.com/Fdawgs/node-unrtf/commit/15390799f7c8db2f50e3572fc3f6e3e36d32679c))
+* **.npmignore:** ignore support files; reduce package size by ~73% ([01f9e6f](https://github.com/Fdawgs/node-unrtf/commit/01f9e6f741ae7bfafb72714a0366a96a98197a16))
+
 ### [2.0.8](https://github.com/Fdawgs/node-unrtf/compare/v2.0.7...v2.0.8) (2022-06-01)
 
 
