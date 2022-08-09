@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0](https://github.com/Fdawgs/node-unrtf/compare/v2.0.9...v3.0.0) (2022-08-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop support for EOL node 12
+
+### Miscellaneous
+
+* **.gitignore:** use latest github ignore template ([cbf460d](https://github.com/Fdawgs/node-unrtf/commit/cbf460de48ec3211db61947271c78d849fcce140))
+* **.npmrc:** disable package-lock generation ([#219](https://github.com/Fdawgs/node-unrtf/issues/219)) ([fadab12](https://github.com/Fdawgs/node-unrtf/commit/fadab12b20aafc1c412e6200e43c5f44ab84ab42))
+* **.prettierignore:** add new paths from `.gitignore` ([999cb48](https://github.com/Fdawgs/node-unrtf/commit/999cb48645d2a0b274abcf92c76204dd04b73259))
+* drop support for node 12 ([#222](https://github.com/Fdawgs/node-unrtf/issues/222)) ([f8289a2](https://github.com/Fdawgs/node-unrtf/commit/f8289a20e9a0e335da76de2f7c01c10daf6f25a9))
+* ignore pnpm lock file ([e7d4d64](https://github.com/Fdawgs/node-unrtf/commit/e7d4d646725563d0c5de6c9c408aa93bc781ac6e))
+
+
+### Dependencies
+
+* **.npmignore:** add documentation; reduce package size by ~33.2% ([#220](https://github.com/Fdawgs/node-unrtf/issues/220)) ([3b9f772](https://github.com/Fdawgs/node-unrtf/commit/3b9f772b78706dc7a2eeec84a27f1512e3df3f0b))
+* **dependabot:** increase `open-pull-requests-limit` from 5 to 20 ([1de18cb](https://github.com/Fdawgs/node-unrtf/commit/1de18cbf8f799161e4280551806bc7ec37465bf2))
+* **deps:** bump actions/dependency-review-action from 1 to 2 ([#217](https://github.com/Fdawgs/node-unrtf/issues/217)) ([6d06a02](https://github.com/Fdawgs/node-unrtf/commit/6d06a026fb70f4cf61cf501581ba09861182e9b6))
+* **deps:** bump dependencies ([#223](https://github.com/Fdawgs/node-unrtf/issues/223)) ([4af18b4](https://github.com/Fdawgs/node-unrtf/commit/4af18b4201bd97d5cf4c6f11b44f4b04fa50aac3))
+* **deps:** bump wagoid/commitlint-github-action from 4 to 5 ([#216](https://github.com/Fdawgs/node-unrtf/issues/216)) ([58679bf](https://github.com/Fdawgs/node-unrtf/commit/58679bf90c46bf33ae2ff6e8f4eb6659f1c45d00))
+
 ## [2.0.9](https://github.com/Fdawgs/node-unrtf/compare/v2.0.8...v2.0.9) (2022-06-04)
 
 
