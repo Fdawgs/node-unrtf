@@ -4,9 +4,9 @@ const fs = require("fs");
 const path = require("upath");
 const semver = require("semver");
 const { execFile, spawn } = require("child_process");
-const util = require("util");
+const { promisify } = require("util");
 
-const execFileAsync = util.promisify(execFile);
+const execFileAsync = promisify(execFile);
 
 /**
  * @author Frazer Smith

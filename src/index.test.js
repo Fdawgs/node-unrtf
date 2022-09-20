@@ -5,9 +5,9 @@ const isHtml = require("is-html");
 const path = require("upath");
 const semver = require("semver");
 const { execFile } = require("child_process");
-const util = require("util");
+const { promisify } = require("util");
 
-const execFileAsync = util.promisify(execFile);
+const execFileAsync = promisify(execFile);
 const { UnRTF } = require("./index");
 
 const testDirectory = `${__dirname}/../test_files/`;
