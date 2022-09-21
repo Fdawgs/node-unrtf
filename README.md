@@ -1,7 +1,7 @@
 # node-unrtf
 
 [![GitHub Release](https://img.shields.io/github/release/Fdawgs/node-unrtf.svg)](https://github.com/Fdawgs/node-unrtf/releases/latest/)
-[![npm version](https://img.shields.io/npm/v/node-unrtf)](https://www.npmjs.com/package/node-unrtf)
+[![npm version](https://img.shields.io/npm/v/node-unrtf)](https://npmjs.com/package/node-unrtf)
 ![Build Status](https://github.com/Fdawgs/node-unrtf/workflows/CI/badge.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/Fdawgs/node-unrtf/badge.svg?branch=master)](https://coveralls.io/github/Fdawgs/node-unrtf?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
@@ -10,26 +10,20 @@
 
 ## Intro
 
-[UnRTF](https://www.gnu.org/software/unrtf/) is a CLI program that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
+[UnRTF](https://gnu.org/software/unrtf/) is a CLI program that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
 
 The `node-unrtf` module provides an asynchronous node.js wrapper around said CLI program for easier use.
 It was created out of a need for an RTF-to-HTML conversion module at [Yeovil District Hospital NHS Foundation Trust](https://yeovilhospital.co.uk/) to convert clinical documents.
 
 ## Installation
 
-Install using [`npm`](https://www.npmjs.com/package/node-unrtf):
+Install using `npm`:
 
 ```bash
 npm i node-unrtf
 ```
 
-Or [`yarn`](https://yarnpkg.com/en/package/node-unrtf):
-
-```bash
-yarn add node-unrtf
-```
-
-node-unrtf's test scripts use npm commands.
+node-unrtf's test scripts use `npm` commands.
 
 ### Known Issues With Included Windows Binary and Recommendations
 
