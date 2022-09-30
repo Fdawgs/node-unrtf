@@ -1,39 +1,9 @@
-# Development and CI/CD config
-.github
-.husky
-.vscode
-
-# TypeScript
-tsconfig.json
-
-# Coverage directory used by tools like istanbul
-coverage
-
-# Optional eslint cache
-.eslintcache
-
-# eslint config
-.eslintrc.js
-
-# Prettier config
-.prettierignore
-.prettierrc
-
-# Documentation
-API.md
-CHANGELOG.md
-CODE_OF_CONDUCT.md
-CONTRIBUTING.md
-SECURITY.md
-src/lib/win32/unrtf*/contrib/**
+# `package.json` is published to npm, so everything we add is included in the installed tarball.
+# Removing the `files` key and replacing it with this `.npmignore` saves some bytes, which
+# should improve installation performance slightly
+*
+!src/index.js
+!src/index.d.ts
+!src/lib/win32/unrtf*/bin/**
 !src/lib/win32/unrtf*/contrib/**/COPYING
 !src/lib/win32/unrtf*/contrib/**/README
-src/lib/win32/unrtf*/man/**
-src/lib/win32/unrtf*/manifest/**
-
-# Test files
-src/**/*.test.js
-test_files
-test_resources
-*.wmf
-*.emf
