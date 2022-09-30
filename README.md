@@ -23,8 +23,6 @@ Install using `npm`:
 npm i node-unrtf
 ```
 
-node-unrtf's test scripts use `npm` commands.
-
 ### Known Issues With Included Windows Binary and Recommendations
 
 An UnRTF v0.19.3 Windows binary is included with this module which, due to its age, has several issues.
