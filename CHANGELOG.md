@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1](https://github.com/Fdawgs/node-unrtf/compare/v3.0.0...v3.0.1) (2022-10-03)
+
+
+### Documentation
+
+* **readme:** remove redundant statement ([58f2f60](https://github.com/Fdawgs/node-unrtf/commit/58f2f6008c106c75a885731f8adbaf72a82049eb))
+* use shorter urls; remove yarn install guidance ([be81d59](https://github.com/Fdawgs/node-unrtf/commit/be81d59d7dba344962cd55c7b579f07f0f7d0da4))
+
+
+### Miscellaneous
+
+* **.husky:** shell path and arg updates ([#224](https://github.com/Fdawgs/node-unrtf/issues/224)) ([9fd65dd](https://github.com/Fdawgs/node-unrtf/commit/9fd65dd4b531bb271eb65c4c3cabef32348b949e))
+* **.npmignore:** reduce entries ([c3dd237](https://github.com/Fdawgs/node-unrtf/commit/c3dd237d9dcca9ca20097b511d4912a08b971568))
+* **.vscode/extensions:** remove unmaintained extension ([a6d6f49](https://github.com/Fdawgs/node-unrtf/commit/a6d6f49381f1cf53240cd1dffc2cbde0d5a05eb7))
+* ***.ignore:** add clinicjs directory ([8ee7d00](https://github.com/Fdawgs/node-unrtf/commit/8ee7d0052b5c675cbbac02d451e4cb512dfd0903))
+* import destructuring ([#230](https://github.com/Fdawgs/node-unrtf/issues/230)) ([80e4748](https://github.com/Fdawgs/node-unrtf/commit/80e4748453783e0ba63e9b0bf662576bbc52f22d))
+* **LICENSE:** remove trailing whitespace ([ca8cb7d](https://github.com/Fdawgs/node-unrtf/commit/ca8cb7daabde1a24bae43d659e3a3290574026c5))
+* prefer object destructuring ([#232](https://github.com/Fdawgs/node-unrtf/issues/232)) ([abaa7dd](https://github.com/Fdawgs/node-unrtf/commit/abaa7ddf848ad4ddf250eedc5b4f1a211c26a143))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([c0b587b](https://github.com/Fdawgs/node-unrtf/commit/c0b587b1d08ed8d926787cc5a45ffc7803085e58))
+* **deps-dev:** bump eslint-plugin-jest from 26.9.0 to 27.0.1 ([#226](https://github.com/Fdawgs/node-unrtf/issues/226)) ([f7e67b6](https://github.com/Fdawgs/node-unrtf/commit/f7e67b6e23aa9513015d1ab5ac7214b3a98be652))
+* **deps-dev:** bump jest from 28.1.3 to 29.0.1 ([#227](https://github.com/Fdawgs/node-unrtf/issues/227)) ([c1cffa3](https://github.com/Fdawgs/node-unrtf/commit/c1cffa3eccad74d180e87a2a9f4f9ee9da1f41b3))
+
 ## [3.0.0](https://github.com/Fdawgs/node-unrtf/compare/v2.0.9...v3.0.0) (2022-08-09)
 
 
