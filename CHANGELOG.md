@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.3](https://github.com/Fdawgs/node-unrtf/compare/v3.0.2...v3.0.3) (2022-10-25)
+
+
+### Continuous Integration
+
+* **cd:** fix typescript def gen ([931b986](https://github.com/Fdawgs/node-unrtf/commit/931b986531cc4cc72e5c8b9e08f6a1e397ed7303))
+
 ## [3.0.2](https://github.com/Fdawgs/node-unrtf/compare/v3.0.1...v3.0.2) (2022-10-25)
 
 
