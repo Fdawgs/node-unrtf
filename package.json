@@ -80,7 +80,7 @@
 	},
 	"dependencies": {
 		"file-type": "^16.5.3",
-		"semver": "^7.3.7",
+		"semver": "^7.3.8",
 		"upath": "^2.0.1"
 	}
 }
