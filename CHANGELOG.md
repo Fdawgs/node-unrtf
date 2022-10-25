@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.2](https://github.com/Fdawgs/node-unrtf/compare/v3.0.1...v3.0.2) (2022-10-25)
+
+
+### Miscellaneous
+
+* **lib/win32:** compress binaries ([#233](https://github.com/Fdawgs/node-unrtf/issues/233)) ([caf7794](https://github.com/Fdawgs/node-unrtf/commit/caf77941a37c591e4db6005610584c800c75bd66))
+
+
+### Continuous Integration
+
+* **cd:** gen typescript definitions before publishing ([21e0b85](https://github.com/Fdawgs/node-unrtf/commit/21e0b8514fb10abbb4a875fccf1f92a7e178db50))
+* **cd:** remove dev values from `package.json` ([49a022d](https://github.com/Fdawgs/node-unrtf/commit/49a022d6f30843431c85a412e5080e88047ab23f))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([8cd7042](https://github.com/Fdawgs/node-unrtf/commit/8cd7042dda9f23579c84aea090761352c1e8855a))
+* **deps:** bump semver from 7.3.7 to 7.3.8 ([bdf759c](https://github.com/Fdawgs/node-unrtf/commit/bdf759cec1fe73430ba36be690e2a0e6c96e3bf3))
+
 ## [3.0.1](https://github.com/Fdawgs/node-unrtf/compare/v3.0.0...v3.0.1) (2022-10-03)
 
 
