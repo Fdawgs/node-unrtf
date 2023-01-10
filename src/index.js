@@ -15,54 +15,51 @@ const execFileAsync = promisify(execFile);
  * @param {object} acceptedOptions - Object containing options that a binary accepts.
  * @param {object} options - Object containing options to pass to binary.
  * @param {string=} version - Semantic version of binary.
- * @returns {Promise<Array|Error>} Promise of array of CLI arguments on resolve, or Error object on rejection.
+ * @returns {Array|Error} Array of CLI arguments or Error object if invalid arguments provided.
  */
 function parseOptions(acceptedOptions, options, version) {
-	return new Promise((resolve, reject) => {
-		const args = [];
-		const invalidArgs = [];
-		Object.keys(options).forEach((key) => {
-			if (Object.prototype.hasOwnProperty.call(acceptedOptions, key)) {
-				// eslint-disable-next-line valid-typeof
-				if (typeof options[key] === acceptedOptions[key].type) {
-					args.push(acceptedOptions[key].arg);
-				} else {
-					invalidArgs.push(
-						`Invalid value type provided for option '${key}', expected ${
-							acceptedOptions[key].type
-						} but received ${typeof options[key]}`
-					);
-				}
-
-				if (
-					acceptedOptions[key].minVersion &&
-					version &&
-					semver.lt(version, acceptedOptions[key].minVersion)
-				) {
-					invalidArgs.push(
-						`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
-					);
-				}
-
-				if (
-					acceptedOptions[key].maxVersion &&
-					version &&
-					semver.gt(version, acceptedOptions[key].maxVersion)
-				) {
-					invalidArgs.push(
-						`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
-					);
-				}
+	const args = [];
+	const invalidArgs = [];
+	Object.keys(options).forEach((key) => {
+		if (Object.prototype.hasOwnProperty.call(acceptedOptions, key)) {
+			// eslint-disable-next-line valid-typeof
+			if (typeof options[key] === acceptedOptions[key].type) {
+				args.push(acceptedOptions[key].arg);
 			} else {
-				invalidArgs.push(`Invalid option provided '${key}'`);
+				invalidArgs.push(
+					`Invalid value type provided for option '${key}', expected ${
+						acceptedOptions[key].type
+					} but received ${typeof options[key]}`
+				);
 			}
-		});
-		if (invalidArgs.length === 0) {
-			resolve(args);
+
+			if (
+				acceptedOptions[key].minVersion &&
+				version &&
+				semver.lt(version, acceptedOptions[key].minVersion)
+			) {
+				invalidArgs.push(
+					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
+				);
+			}
+
+			if (
+				acceptedOptions[key].maxVersion &&
+				version &&
+				semver.gt(version, acceptedOptions[key].maxVersion)
+			) {
+				invalidArgs.push(
+					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
+				);
+			}
 		} else {
-			reject(new Error(invalidArgs.join("; ")));
+			invalidArgs.push(`Invalid option provided '${key}'`);
 		}
 	});
+	if (invalidArgs.length === 0) {
+		return args;
+	}
+	throw new Error(invalidArgs.join("; "));
 }
 
 class UnRTF {
@@ -189,11 +186,7 @@ class UnRTF {
 			 */
 			const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
 
-			const args = await parseOptions(
-				acceptedOptions,
-				options,
-				versionInfo
-			);
+			const args = parseOptions(acceptedOptions, options, versionInfo);
 			args.push(path.normalizeTrim(file));
 
 			return new Promise((resolve, reject) => {
