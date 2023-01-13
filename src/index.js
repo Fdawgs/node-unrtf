@@ -150,74 +150,67 @@ class UnRTF {
 			quiet: { arg: "--quiet", type: "boolean", minVersion: "0.21.3" },
 		};
 
-		try {
-			/**
-			 * UnRTF will attempt to convert empty strings/files, and non-RTF files
-			 * so catch them here
-			 */
-			if (
-				file === undefined ||
-				// eslint-disable-next-line security/detect-non-literal-fs-filename
-				fs.existsSync(path.normalizeTrim(file)) === false
-			) {
-				throw new Error("File missing");
-			}
-
-			const results = await fileType.fromFile(path.normalizeTrim(file));
-			if (
-				results === undefined ||
-				results.mime === undefined ||
-				results.mime !== "application/rtf"
-			) {
-				throw new Error(
-					"File is not the correct media type, expected 'application/rtf'"
-				);
-			}
-
-			const { stderr } = await execFileAsync(
-				path.joinSafe(this.unrtfPath, "unrtf"),
-				["--version"]
-			);
-
-			/**
-			 * UnRTF outputs the version into stderr:
-			 * v0.19.3 returns "0.19.3\r\n"
-			 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
-			 */
-			const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
-
-			const args = parseOptions(acceptedOptions, options, versionInfo);
-			args.push(path.normalizeTrim(file));
-
-			return new Promise((resolve, reject) => {
-				const child = spawn(
-					path.joinSafe(this.unrtfPath, "unrtf"),
-					args
-				);
-
-				let stdOut = "";
-				let stdErr = "";
-
-				child.stdout.on("data", async (data) => {
-					stdOut += data;
-				});
-
-				child.stderr.on("data", async (data) => {
-					stdErr += data;
-				});
-
-				child.on("close", async () => {
-					/* istanbul ignore else */
-					if (stdOut !== "") {
-						resolve(stdOut.trim());
-					} else {
-						reject(new Error(stdErr.trim()));
-					}
-				});
-			});
-		} catch (err) {
-			return Promise.reject(err);
+		/**
+		 * UnRTF will attempt to convert empty strings/files, and non-RTF files
+		 * so catch them here
+		 */
+		if (
+			file === undefined ||
+			// eslint-disable-next-line security/detect-non-literal-fs-filename
+			fs.existsSync(path.normalizeTrim(file)) === false
+		) {
+			throw new Error("File missing");
 		}
+
+		const results = await fileType.fromFile(path.normalizeTrim(file));
+		if (
+			results === undefined ||
+			results.mime === undefined ||
+			results.mime !== "application/rtf"
+		) {
+			throw new Error(
+				"File is not the correct media type, expected 'application/rtf'"
+			);
+		}
+
+		const { stderr } = await execFileAsync(
+			path.joinSafe(this.unrtfPath, "unrtf"),
+			["--version"]
+		);
+
+		/**
+		 * UnRTF outputs the version into stderr:
+		 * v0.19.3 returns "0.19.3\r\n"
+		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
+		 */
+		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
+
+		const args = parseOptions(acceptedOptions, options, versionInfo);
+		args.push(path.normalizeTrim(file));
+
+		return new Promise((resolve, reject) => {
+			const child = spawn(path.joinSafe(this.unrtfPath, "unrtf"), args);
+
+			let stdOut = "";
+			let stdErr = "";
+
+			child.stdout.on("data", async (data) => {
+				stdOut += data;
+			});
+
+			child.stderr.on("data", async (data) => {
+				stdErr += data;
+			});
+
+			child.on("close", async () => {
+				/* istanbul ignore else */
+				if (stdOut !== "") {
+					resolve(stdOut.trim());
+				} else {
+					reject(new Error(stdErr.trim()));
+				}
+			});
+		});
 	}
 }
 
