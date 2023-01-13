@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.4](https://github.com/Fdawgs/node-unrtf/compare/v3.0.3...v3.0.4) (2023-01-13)
+
+
+### Miscellaneous
+
+* **license:** update license year ([e77850e](https://github.com/Fdawgs/node-unrtf/commit/e77850e1039f71dec8683748187d850f8364c3cf))
+
+
+### Documentation
+
+* **contributing:** update min node version ([d0b3ef7](https://github.com/Fdawgs/node-unrtf/commit/d0b3ef7d10e00c32f1cf2e8483c052d8439cb5b9))
+* grammar and clarity fixes ([ce7a89f](https://github.com/Fdawgs/node-unrtf/commit/ce7a89f4999abb326ab33b1fa16d358519fee0ee))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([e81d337](https://github.com/Fdawgs/node-unrtf/commit/e81d33758051d0aa36d9f112d7e4996a38555864))
+* **deps-dev:** bump jsdoc-to-markdown from 7.1.1 to 8.0.0 ([#238](https://github.com/Fdawgs/node-unrtf/issues/238)) ([e8eeced](https://github.com/Fdawgs/node-unrtf/commit/e8eeced4672e7928de0eaaf2c97857e203f240ee))
+* **deps:** bump actions/dependency-review-action from 2 to 3 ([#237](https://github.com/Fdawgs/node-unrtf/issues/237)) ([3616a3f](https://github.com/Fdawgs/node-unrtf/commit/3616a3fcb5ac0789fd328891760f87ecc1c35dc3))
+
+
+### Improvements
+
+* **index:** convert `parseOptions()` internal func to sync ([39d24e2](https://github.com/Fdawgs/node-unrtf/commit/39d24e24944a3a0f87aab71364d19e63ee500d85))
+* **index:** remove catch rethrowing errors ([#241](https://github.com/Fdawgs/node-unrtf/issues/241)) ([907902f](https://github.com/Fdawgs/node-unrtf/commit/907902fcd9e93be22be2f4c906aa8cd3f612a24f))
+
 ## [3.0.3](https://github.com/Fdawgs/node-unrtf/compare/v3.0.2...v3.0.3) (2022-10-25)
 
 
