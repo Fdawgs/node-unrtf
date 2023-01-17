@@ -77,7 +77,7 @@ Once they have been installed, you will need to pass the `unrtf` installation di
 
 ```js
 const { UnRTF } = require("node-unrtf");
-const unRtf = new UnRTF("./usr/bin");
+const unRtf = new UnRTF("/usr/bin");
 ```
 
 ## API
@@ -115,7 +115,7 @@ Example of calling unRTF.convert with a promise chain:
 const { UnRTF } = require("node-unrtf");
 
 const file = "test_document.rtf";
-const unRtf = new UnRTF("./usr/bin");
+const unRtf = new UnRTF("/usr/bin");
 const options = {
 	outputHtml: true,
 };
