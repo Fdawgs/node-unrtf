@@ -1,6 +1,11 @@
 export class UnRTF {
 	/**
-	 * @param {string=} binPath - Path of UnRTF binary.
+	 * @param {string=} binPath - Path of UnRTF binary directory.
+	 * Constructor will look for the binaries in the following
+	 * directory paths, if not provided, based on OS:
+	 * - macOS/Darwin: `/usr/local/bin`
+	 * - Linux: `/usr/bin`
+	 * - Windows: Uses included binaries
 	 */
 	constructor(binPath?: string | undefined);
 	unrtfPath: string;

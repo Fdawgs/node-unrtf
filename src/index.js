@@ -64,23 +64,39 @@ function parseOptions(acceptedOptions, options, version) {
 
 class UnRTF {
 	/**
-	 * @param {string=} binPath - Path of UnRTF binary.
+	 * @param {string=} binPath - Path of UnRTF binary directory.
+	 * Constructor will look for the binaries in the following
+	 * directory paths, if not provided, based on OS:
+	 * - macOS/Darwin: `/usr/local/bin`
+	 * - Linux: `/usr/bin`
+	 * - Windows: Uses included binaries
 	 */
 	constructor(binPath) {
 		if (binPath) {
 			this.unrtfPath = path.normalizeTrim(binPath);
-		} else if (process.platform === "win32") {
-			this.unrtfPath = path.joinSafe(
-				__dirname,
-				"lib",
-				"win32",
-				"unrtf-0.19.3",
-				"bin"
-			);
 		} else {
-			throw new Error(
-				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
-			);
+			switch (process.platform) {
+				case "win32":
+					this.unrtfPath = path.joinSafe(
+						__dirname,
+						"lib",
+						"win32",
+						"unrtf-0.19.3",
+						"bin"
+					);
+					break;
+				case "linux":
+					this.unrtfPath = "/usr/bin";
+					break;
+
+				case "darwin":
+					this.unrtfPath = "/usr/local/bin";
+					break;
+				default:
+					throw new Error(
+						`${process.platform} UnRTF directory path not found, please pass the directory path as a parameter to the UnRTF instance.`
+					);
+			}
 		}
 	}
 

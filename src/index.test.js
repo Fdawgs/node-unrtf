@@ -38,34 +38,46 @@ switch (process.platform) {
 }
 
 describe("Constructor", () => {
-	if (process.platform === "win32") {
-		test("Should convert RTF file to HTML without binary set on win32, and use included binary", async () => {
-			const unRtf = new UnRTF();
-			const options = {
-				noPictures: true,
-				outputHtml: true,
-			};
+	test("Should convert RTF file to HTML without binary directory path set, and use included binaries", async () => {
+		const unRtf = new UnRTF();
+		const options = {
+			noPictures: true,
+			outputHtml: true,
+		};
 
-			const res = await unRtf.convert(file, options);
+		const res = await unRtf.convert(file, options);
 
-			expect(typeof res).toBe("string");
-			expect(isHtml(res)).toBe(true);
+		expect(typeof res).toBe("string");
+		expect(isHtml(res)).toBe(true);
+	});
+
+	describe("Unsupported OS", () => {
+		const originalPlatform = process.platform;
+
+		beforeAll(() => {
+			Object.defineProperty(process, "platform", {
+				value: "MockOS",
+			});
 		});
-	}
 
-	if (process.platform !== "win32") {
-		test(`Should return an Error object if binary path unset on ${process.platform}`, async () => {
+		afterAll(() => {
+			Object.defineProperty(process, "platform", {
+				value: originalPlatform,
+			});
+		});
+
+		test(`Should return an Error object if binary directory path unset and OS not supported`, async () => {
 			expect.assertions(1);
 			try {
 				// eslint-disable-next-line no-unused-vars
 				const unRtf = new UnRTF();
 			} catch (err) {
 				expect(err.message).toBe(
-					`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+					`${process.platform} UnRTF directory path not found, please pass the directory path as a parameter to the UnRTF instance.`
 				);
 			}
 		});
-	}
+	});
 });
 
 describe("Convert Function", () => {

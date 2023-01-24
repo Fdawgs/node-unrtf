@@ -46,12 +46,8 @@ For macOS, the binary can be installed with [Homebrew](https://brew.sh/):
 brew install unrtf
 ```
 
-Once they have been installed, you will need to pass the `unrtf` installation directory as a parameter to an instance of the UnRTF class:
-
-```js
-const { UnRTF } = require("node-unrtf");
-const unRtf = new UnRTF("/usr/bin");
-```
+`node-unrtf` will look for the binaries in the default directory paths for Linux (`/usr/bin`) and macOS (`/usr/local/bin`),
+unless a custom directory path is provided as a param to the constructor.
 
 ## API
 
@@ -88,7 +84,7 @@ Example of calling unRTF.convert with a promise chain:
 const { UnRTF } = require("node-unrtf");
 
 const file = "test_document.rtf";
-const unRtf = new UnRTF("/usr/bin");
+const unRtf = new UnRTF("/usr/bin/example-custom-path");
 const options = {
 	outputHtml: true,
 };

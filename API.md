@@ -8,7 +8,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#parseOptions">parseOptions(acceptedOptions, options, [version])</a> ⇒ <code>Promise.&lt;(Array|Error)&gt;</code></dt>
+<dt><a href="#parseOptions">parseOptions(acceptedOptions, options, [version])</a> ⇒ <code>Array</code> | <code>Error</code></dt>
 <dd><p>Check each option provided is valid, of the correct type, and can be used by specified
 version of binary.</p>
 </dd>
@@ -29,7 +29,7 @@ version of binary.</p>
 
 | Param | Type | Description |
 | --- | --- | --- |
-| [binPath] | <code>string</code> | Path of UnRTF binary. |
+| [binPath] | <code>string</code> | Path of UnRTF binary directory. Constructor will look for the binaries in the following directory paths, if not provided, based on OS: - macOS/Darwin: `/usr/local/bin` - Linux: `/usr/bin` - Windows: Uses included binaries |
 
 <a name="UnRTF+convert"></a>
 
@@ -59,12 +59,12 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 <a name="parseOptions"></a>
 
-## parseOptions(acceptedOptions, options, [version]) ⇒ <code>Promise.&lt;(Array\|Error)&gt;</code>
+## parseOptions(acceptedOptions, options, [version]) ⇒ <code>Array</code> \| <code>Error</code>
 Check each option provided is valid, of the correct type, and can be used by specified
 version of binary.
 
 **Kind**: global function  
-**Returns**: <code>Promise.&lt;(Array\|Error)&gt;</code> - Promise of array of CLI arguments on resolve, or Error object on rejection.  
+**Returns**: <code>Array</code> \| <code>Error</code> - Array of CLI arguments or Error object if invalid arguments provided.  
 **Author**: Frazer Smith  
 
 | Param | Type | Description |
