@@ -1,3 +1,10 @@
+> **Note**
+> An UnRTF v0.19.3 Windows binary is included with this module which, due to its age, has several issues,
+> such as the [inability to convert RTF documents generated from 2007 onwards](https://github.com/Fdawgs/node-unrtf/issues/83), and a [bug in the
+> `noPictures` option that still generates pictures](https://github.com/Fdawgs/node-unrtf/issues/81).
+> It is recommended that whatever application is using the `node-unrtf` module is run in a Linux environment using the latest
+> available UnRTF binaries, which do not have these bugs.
+
 # node-unrtf
 
 [![GitHub Release](https://img.shields.io/github/release/Fdawgs/node-unrtf.svg)](https://github.com/Fdawgs/node-unrtf/releases/latest/)
@@ -22,40 +29,6 @@ Install using `npm`:
 ```bash
 npm i node-unrtf
 ```
-
-### Known Issues With Included Windows Binary and Recommendations
-
-An UnRTF v0.19.3 Windows binary is included with this module which, due to its age, has several issues.
-
-#### Inability To Convert RTF Documents Generated From 2007 Onwards
-
-Discovered in [#83](https://github.com/Fdawgs/node-unrtf/issues/83) by [@thegoathearder](https://github.com/thegoatherder).
-
-The binary was released in 2005 when v1.8 of the RTF specification was standard.
-RTF v1.9 was released in 2007, and Microsoft Word 2007 onwards saves new RTFs using v1.9.1.
-
-The included binary will throw errors and fails to convert any RTF documents that were generated from 2007 onwards using RTF >=1.9.
-
-#### `noPictures` option still generates pictures
-
-Discovered in [#81](https://github.com/Fdawgs/node-unrtf/issues/81) by [@semics-tech](https://github.com/semics-tech).
-
-The `noPictures` option, when passed to the unRTF class, will still generate pictures:
-
-```js
-unRTF.convert(file.Path, {
-	noPictures: true,
-	outputText: true,
-});
-```
-
-#### Recommendations
-
-The above issues were fixed in later versions of UnRTF.
-GnuWin was the organisation porting GNU utilities to Win32, and they are no longer maintained since 2017.
-Due to this, it is highly unlikely newer versions of UnRTF will be released for Windows.
-
-As such, it is recommended that whatever application is using the `node-unrtf` module is run in a Linux environment (as a Docker container or otherwise), by following the steps in [Linux and macOS/Darwin Support](#linux-and-macosdarwin-support).
 
 ### Linux and macOS/Darwin Support
 
