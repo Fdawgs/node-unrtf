@@ -1,5 +1,4 @@
 /* eslint-disable security/detect-child-process */
-const fileType = require("file-type");
 const fs = require("fs");
 const path = require("upath");
 const semver = require("semver");
@@ -162,12 +161,10 @@ class UnRTF {
 			throw new Error("File missing");
 		}
 
-		const results = await fileType.fromFile(path.normalizeTrim(file));
-		if (
-			results === undefined ||
-			results.mime === undefined ||
-			results.mime !== "application/rtf"
-		) {
+		// eslint-disable-next-line security/detect-non-literal-fs-filename
+		const buff = await fs.promises.readFile(path.normalizeTrim(file));
+		// Check for RTF specific magic number
+		if (!/^{\\rtf/m.test(buff.toString())) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
