@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.5](https://github.com/Fdawgs/node-unrtf/compare/v3.0.4...v3.0.5) (2023-01-31)
+
+
+### Miscellaneous
+
+* **package:** remove `doc` script ([#245](https://github.com/Fdawgs/node-unrtf/issues/245)) ([6d9e929](https://github.com/Fdawgs/node-unrtf/commit/6d9e929965d1763e1ef1046511c80779c2156936))
+
+
+### Documentation
+
+* **readme:** add note re windows binary ([1032a12](https://github.com/Fdawgs/node-unrtf/commit/1032a1228206fc3208c7cd755d439229ecbacd70))
+* **readme:** fix linux path example ([#242](https://github.com/Fdawgs/node-unrtf/issues/242)) ([4210dfd](https://github.com/Fdawgs/node-unrtf/commit/4210dfd8b0f15652adf48c77a32f7f2210b62bb5))
+* **readme:** remove fluff ([9f7240b](https://github.com/Fdawgs/node-unrtf/commit/9f7240b5bc10d20af4d030e8456702f25ddba435))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([860a394](https://github.com/Fdawgs/node-unrtf/commit/860a394b042da4ac83813fb5146c8e4739fee4b0))
+* **deps:** replace file-type with native functionality ([148ee6e](https://github.com/Fdawgs/node-unrtf/commit/148ee6e40725553f5d2f0e010c65168afb2deccd))
+
 ## [3.0.4](https://github.com/Fdawgs/node-unrtf/compare/v3.0.3...v3.0.4) (2023-01-13)
 
 
