@@ -15,7 +15,7 @@
 
 > Asynchronous node.js wrapper for the UnRTF RTF conversion program
 
-## Intro
+## Overview
 
 [UnRTF](https://gnu.org/software/unrtf/) is a CLI program that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
 
