@@ -29,7 +29,7 @@ Install using `npm`:
 npm i node-unrtf
 ```
 
-### Linux and macOS/Darwin Support
+### Linux and macOS/Darwin support
 
 For Linux and Mac users, you will need to download the `unrtf` binary separately.
 
@@ -79,7 +79,7 @@ const res = await unRtf.convert(file, options);
 console.log(res);
 ```
 
-### Promise Chaining
+### Promise chaining
 
 Example of calling unRTF.convert with a promise chain:
 
