@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.6](https://github.com/Fdawgs/node-unrtf/compare/v3.0.5...v3.0.6) (2023-02-13)
+
+
+### Documentation
+
+* **readme:** rename intro to overview ([9145985](https://github.com/Fdawgs/node-unrtf/commit/9145985e298a989e0c9f9320318d786744a87370))
+
+
+### Continuous integration
+
+* **cd:** use sentence case for changelog headings ([49b64e2](https://github.com/Fdawgs/node-unrtf/commit/49b64e2c2f1be1ca710e4e854b9b3a0c7d3bd018))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([283b042](https://github.com/Fdawgs/node-unrtf/commit/283b042e13f6aab60d43165ddc87976b47390db0))
+
+
+### Miscellaneous
+
+* rename master branch to main ([#250](https://github.com/Fdawgs/node-unrtf/issues/250)) ([1de78ad](https://github.com/Fdawgs/node-unrtf/commit/1de78ad253690d827bf56a963f34f2ea63d09eb7))
+* use sentence case over ap style for titles and headings ([eef9ac5](https://github.com/Fdawgs/node-unrtf/commit/eef9ac5b56b2e25d828b031a8cd35b0f23a3f76b))
+
 ## [3.0.5](https://github.com/Fdawgs/node-unrtf/compare/v3.0.4...v3.0.5) (2023-01-31)
 
 
