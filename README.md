@@ -9,8 +9,8 @@
 
 [![GitHub Release](https://img.shields.io/github/release/Fdawgs/node-unrtf.svg)](https://github.com/Fdawgs/node-unrtf/releases/latest/)
 [![npm version](https://img.shields.io/npm/v/node-unrtf)](https://npmjs.com/package/node-unrtf)
-![Build Status](https://github.com/Fdawgs/node-unrtf/workflows/CI/badge.svg?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/Fdawgs/node-unrtf/badge.svg?branch=master)](https://coveralls.io/github/Fdawgs/node-unrtf?branch=master)
+![Build Status](https://github.com/Fdawgs/node-unrtf/workflows/CI/badge.svg?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/Fdawgs/node-unrtf/badge.svg?branch=main)](https://coveralls.io/github/Fdawgs/node-unrtf?branch=main)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
 
 > Asynchronous node.js wrapper for the UnRTF RTF conversion program
@@ -58,7 +58,7 @@ const unRtf = new UnRTF("/usr/bin");
 const { UnRTF } = require("node-unrtf");
 ```
 
-[**API Documentation can be found here**](https://github.com/Fdawgs/node-unrtf/blob/master/API.md)
+[**API Documentation can be found here**](https://github.com/Fdawgs/node-unrtf/blob/main/API.md)
 
 ## Examples
 
