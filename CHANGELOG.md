@@ -51,7 +51,7 @@ All notable changes to this project will be documented in this file.
 ## [3.0.3](https://github.com/Fdawgs/node-unrtf/compare/v3.0.2...v3.0.3) (2022-10-25)
 
 
-### Continuous Integration
+### Continuous integration
 
 * **cd:** fix typescript def gen ([931b986](https://github.com/Fdawgs/node-unrtf/commit/931b986531cc4cc72e5c8b9e08f6a1e397ed7303))
 
@@ -63,7 +63,7 @@ All notable changes to this project will be documented in this file.
 * **lib/win32:** compress binaries ([#233](https://github.com/Fdawgs/node-unrtf/issues/233)) ([caf7794](https://github.com/Fdawgs/node-unrtf/commit/caf77941a37c591e4db6005610584c800c75bd66))
 
 
-### Continuous Integration
+### Continuous integration
 
 * **cd:** gen typescript definitions before publishing ([21e0b85](https://github.com/Fdawgs/node-unrtf/commit/21e0b8514fb10abbb4a875fccf1f92a7e178db50))
 * **cd:** remove dev values from `package.json` ([49a022d](https://github.com/Fdawgs/node-unrtf/commit/49a022d6f30843431c85a412e5080e88047ab23f))
@@ -160,7 +160,7 @@ All notable changes to this project will be documented in this file.
 * use npm install alias ([26e9fdd](https://github.com/Fdawgs/node-unrtf/commit/26e9fdd57ff11b8ef7d7c483bd37656ae2798d79))
 
 
-### Continuous Integration
+### Continuous integration
 
 * add dependency-review job ([0c42629](https://github.com/Fdawgs/node-unrtf/commit/0c42629c2a24388eaa0fac979d61f60242a5733c))
 * add job step names, workflow comments, and whitespace ([10d24d8](https://github.com/Fdawgs/node-unrtf/commit/10d24d85c5b766016ac51e89763ebc759752694b))
@@ -203,7 +203,7 @@ All notable changes to this project will be documented in this file.
 ### [2.0.7](https://github.com/Fdawgs/node-unrtf/compare/v2.0.6...v2.0.7) (2022-02-25)
 
 
-### Bug Fixes
+### Bug fixes
 
 * **index:** use `spawn` for larger stream results ([#181](https://github.com/Fdawgs/node-unrtf/issues/181)) ([14515f2](https://github.com/Fdawgs/node-unrtf/commit/14515f25b9504c69ef5261bf299b8226bd880504))
 
@@ -215,7 +215,7 @@ All notable changes to this project will be documented in this file.
 * **readme:** add windows binary known issues section ([#165](https://github.com/Fdawgs/node-unrtf/issues/165)) ([06b9b1b](https://github.com/Fdawgs/node-unrtf/commit/06b9b1bc25539f15dc9e343a1611be4603b11af3))
 
 
-### Continuous Integration
+### Continuous integration
 
 * remove spellcheck workflow ([#173](https://github.com/Fdawgs/node-unrtf/issues/173)) ([4c28c91](https://github.com/Fdawgs/node-unrtf/commit/4c28c91525f8c4a9ee9788242928b7f481cf9130))
 
@@ -246,12 +246,12 @@ All notable changes to this project will be documented in this file.
 ### [2.0.6](https://github.com/Fdawgs/node-unrtf/compare/v2.0.5...v2.0.6) (2021-12-02)
 
 
-### Bug Fixes
+### Bug fixes
 
 * **index:** do not assume win32 usage for binaries ([bbd50d8](https://github.com/Fdawgs/node-unrtf/commit/bbd50d838b6dbc487233ac5cdaee0db657d64f93))
 
 
-### Continuous Integration
+### Continuous integration
 
 * **ci:** do not run clean-up on draft prs ([f0105cf](https://github.com/Fdawgs/node-unrtf/commit/f0105cfc185cc2c83f03e987e209bc56e9957c50))
 * **spell-check:** do not run on draft prs ([f4705c2](https://github.com/Fdawgs/node-unrtf/commit/f4705c276576b3b6af550256846ebeb55e15e47b))
@@ -287,7 +287,7 @@ All notable changes to this project will be documented in this file.
 ### [2.0.5](https://github.com/Fdawgs/node-unrtf/compare/v2.0.4...v2.0.5) (2021-11-04)
 
 
-### Bug Fixes
+### Bug fixes
 
 * **index:** normalize `binPath` constructor param ([#145](https://github.com/Fdawgs/node-unrtf/issues/145)) ([81e2863](https://github.com/Fdawgs/node-unrtf/commit/81e2863f48824bd0732f15f7d9a8839cb65c6de5))
 
@@ -306,7 +306,7 @@ All notable changes to this project will be documented in this file.
 * **.prettierrc:** only enable `bracketSameLine` for html ([#142](https://github.com/Fdawgs/node-unrtf/issues/142)) ([529f0e8](https://github.com/Fdawgs/node-unrtf/commit/529f0e806f75dc85e2a2692fbded343206602a70))
 
 
-### Continuous Integration
+### Continuous integration
 
 * **cd:** stop `prepare` script running ([#144](https://github.com/Fdawgs/node-unrtf/issues/144)) ([731aecb](https://github.com/Fdawgs/node-unrtf/commit/731aecb5cfe5425525d02b9f9bd745932230ce3e))
 
@@ -320,7 +320,7 @@ All notable changes to this project will be documented in this file.
 ### [2.0.3](https://github.com/Fdawgs/node-unrtf/compare/v2.0.2...v2.0.3) (2021-10-29)
 
 
-### Continuous Integration
+### Continuous integration
 
 * **automerge:** update location of octokit rest methods ([853455e](https://github.com/Fdawgs/node-unrtf/commit/853455e704c3eadd02294bf56fb5078ee20be243))
 * **ci:** revert to workflow-run-clean-action from github concurrency ([010965e](https://github.com/Fdawgs/node-unrtf/commit/010965eba01bac1414b82989ab2fe64f46b350a8))
@@ -371,7 +371,7 @@ All notable changes to this project will be documented in this file.
 * **vscode:** remove user space config setting ([a86bb2f](https://github.com/Fdawgs/node-unrtf/commit/a86bb2f1b55bba6701198c37661e9933eba6f4ec))
 
 
-### Continuous Integration
+### Continuous integration
 
 * **ci:** disable homebrew analytics for macos builds ([#101](https://github.com/Fdawgs/node-unrtf/issues/101)) ([de448c3](https://github.com/Fdawgs/node-unrtf/commit/de448c3399267922cfc839332bc715c8d735158d))
 * **ci:** replace workflow-run-cleanup-action with github concurrency ([#114](https://github.com/Fdawgs/node-unrtf/issues/114)) ([15f202c](https://github.com/Fdawgs/node-unrtf/commit/15f202c453ee90ef682e2f94f8e243b9b457fa3d))
@@ -398,7 +398,7 @@ All notable changes to this project will be documented in this file.
 ### [2.0.1](https://github.com/Fdawgs/node-unrtf/compare/v2.0.0...v2.0.1) (2021-06-15)
 
 
-### Bug Fixes
+### Bug fixes
 
 * **index:** normalize file paths ([#89](https://github.com/Fdawgs/node-unrtf/issues/89)) ([9660cce](https://github.com/Fdawgs/node-unrtf/commit/9660ccea347e9153984658640781bd054cd02bae))
 * **index:** throw error if file param is not rtf ([e3552bb](https://github.com/Fdawgs/node-unrtf/commit/e3552bb07ccfcf9a663cf633298eb312b8e2556c))
@@ -415,7 +415,7 @@ All notable changes to this project will be documented in this file.
 * **workflows:** remove `stale.yml` ([e914a39](https://github.com/Fdawgs/node-unrtf/commit/e914a39b7c3f7fb5afd4a3d447d9f2083c52891b))
 
 
-### Continuous Integration
+### Continuous integration
 
 * **cd:** move perf optimizations and refactoring into same section ([7ab68ec](https://github.com/Fdawgs/node-unrtf/commit/7ab68ec5f9a18d930eb60c7c549361e02bb71335))
 * fix key usage in `action/setup-node` ([d3ddf47](https://github.com/Fdawgs/node-unrtf/commit/d3ddf4712a99df2fef95122c9a3fde6180ebac9f))
@@ -452,7 +452,7 @@ All notable changes to this project will be documented in this file.
 * grammar and readability fixes ([35e9d0c](https://github.com/Fdawgs/node-unrtf/commit/35e9d0c88f8fcaed7c611251a8d27ed8dd97acee))
 
 
-### Continuous Integration
+### Continuous integration
 
 * add cleanup-run job ([37eda95](https://github.com/Fdawgs/node-unrtf/commit/37eda951536b2a4373b5c3bd68a62130969c33b7))
 * add nodejs v16 to unit test matrix ([eac6377](https://github.com/Fdawgs/node-unrtf/commit/eac63778c91030edaee86a0a2f02b617bb5c3b4e))
@@ -477,7 +477,7 @@ All notable changes to this project will be documented in this file.
 * **deps:** bump typoci/spellcheck-action from v0.3.0 to v0.4.0 ([13fd1b3](https://github.com/Fdawgs/node-unrtf/commit/13fd1b3c2dbcc59e500a8d5b2140c06ff2aa4def))
 
 
-### Continuous Integration
+### Continuous integration
 
 * **automerge:** move automerge job into new workflow ([1f6c64c](https://github.com/Fdawgs/node-unrtf/commit/1f6c64c39ef0f8a58472ce49f6054575ca88c37b))
 * **ci:** ignore dependabot prs for commit message linting ([4db8bdc](https://github.com/Fdawgs/node-unrtf/commit/4db8bdc0459c247d3f7adb9baf803c95b808ca1a))
@@ -492,12 +492,12 @@ All notable changes to this project will be documented in this file.
 * **index:** add binary version checking for options ([3e91223](https://github.com/Fdawgs/node-unrtf/commit/3e91223aba763abd8be5d3775f2c0443cd24423b))
 
 
-### Bug Fixes
+### Bug fixes
 
 * **index:** correct misspelling of `received` in error string ([cda01e6](https://github.com/Fdawgs/node-unrtf/commit/cda01e6f1a2e460dd9b86b9cd9438e2f3c5936f0))
 
 
-### Continuous Integration
+### Continuous integration
 
 * **workflows:** move release steps into `cd` workflow ([#45](https://github.com/Fdawgs/node-unrtf/issues/45)) ([7713848](https://github.com/Fdawgs/node-unrtf/commit/7713848037ff066bca84665cc358328ba8681cca))
 

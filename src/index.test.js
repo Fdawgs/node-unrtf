@@ -68,7 +68,7 @@ describe("Constructor", () => {
 	}
 });
 
-describe("Convert Function", () => {
+describe("Convert function", () => {
 	let version;
 
 	beforeAll(async () => {

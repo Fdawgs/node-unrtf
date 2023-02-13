@@ -15,7 +15,7 @@
 
 > Asynchronous node.js wrapper for the UnRTF RTF conversion program
 
-## Intro
+## Overview
 
 [UnRTF](https://gnu.org/software/unrtf/) is a CLI program that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
 
@@ -29,7 +29,7 @@ Install using `npm`:
 npm i node-unrtf
 ```
 
-### Linux and macOS/Darwin Support
+### Linux and macOS/Darwin support
 
 For Linux and Mac users, you will need to download the `unrtf` binary separately.
 
@@ -79,7 +79,7 @@ const res = await unRtf.convert(file, options);
 console.log(res);
 ```
 
-### Promise Chaining
+### Promise chaining
 
 Example of calling unRTF.convert with a promise chain:
 
