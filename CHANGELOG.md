@@ -482,7 +482,7 @@ All notable changes to this project will be documented in this file.
 * **automerge:** move automerge job into new workflow ([1f6c64c](https://github.com/Fdawgs/node-unrtf/commit/1f6c64c39ef0f8a58472ce49f6054575ca88c37b))
 * **ci:** ignore dependabot prs for commit message linting ([4db8bdc](https://github.com/Fdawgs/node-unrtf/commit/4db8bdc0459c247d3f7adb9baf803c95b808ca1a))
 * **stale:** shorten workflow name ([84f86ae](https://github.com/Fdawgs/node-unrtf/commit/84f86aed55f86388f5a0aa10c6190fdd2b24793a))
-* **workflows:** run only on push and pulls to master branch ([d993574](https://github.com/Fdawgs/node-unrtf/commit/d99357417fff0f073a4569f0f686761a2ddfd8e0))
+* **workflows:** run only on push and pulls to main branch ([d993574](https://github.com/Fdawgs/node-unrtf/commit/d99357417fff0f073a4569f0f686761a2ddfd8e0))
 
 ## [1.1.0](https://github.com/Fdawgs/node-unrtf/compare/v1.0.8...v1.1.0) (2021-03-08)
 
