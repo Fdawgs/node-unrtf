@@ -1,19 +1,3 @@
-## Classes
-
-<dl>
-<dt><a href="#UnRTF">UnRTF</a></dt>
-<dd></dd>
-</dl>
-
-## Functions
-
-<dl>
-<dt><a href="#parseOptions">parseOptions(acceptedOptions, options, [version])</a> ⇒ <code>Promise.&lt;(Array|Error)&gt;</code></dt>
-<dd><p>Check each option provided is valid, of the correct type, and can be used by specified
-version of binary.</p>
-</dd>
-</dl>
-
 <a name="UnRTF"></a>
 
 ## UnRTF
@@ -56,20 +40,4 @@ UnRTF will use the directory of the original file to store embedded pictures.
 | [options.outputWpml] | <code>boolean</code> | Generate WPML output (UnRTF v0.19.4 or earlier only). |
 | [options.printVersionInfo] | <code>boolean</code> | Print copyright and version info. |
 | [options.quiet] | <code>boolean</code> | Do not print any leading comments in output (UnRTF v0.21.3 or later only). |
-
-<a name="parseOptions"></a>
-
-## parseOptions(acceptedOptions, options, [version]) ⇒ <code>Promise.&lt;(Array\|Error)&gt;</code>
-Check each option provided is valid, of the correct type, and can be used by specified
-version of binary.
-
-**Kind**: global function  
-**Returns**: <code>Promise.&lt;(Array\|Error)&gt;</code> - Promise of array of CLI arguments on resolve, or Error object on rejection.  
-**Author**: Frazer Smith  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| acceptedOptions | <code>object</code> | Object containing options that a binary accepts. |
-| options | <code>object</code> | Object containing options to pass to binary. |
-| [version] | <code>string</code> | Semantic version of binary. |
 
