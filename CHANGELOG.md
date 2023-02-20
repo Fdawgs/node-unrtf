@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0](https://github.com/Fdawgs/node-unrtf/compare/v3.0.6...v3.1.0) (2023-02-20)
+
+
+### Features
+
+* add nodenext compatibility ([#252](https://github.com/Fdawgs/node-unrtf/issues/252)) ([0476264](https://github.com/Fdawgs/node-unrtf/commit/047626450a3f8dbef6a37bd6c55a2f23c949b2db))
+
+
+### Documentation
+
+* **api:** remove `parseOptions()` private method ([#253](https://github.com/Fdawgs/node-unrtf/issues/253)) ([6412a92](https://github.com/Fdawgs/node-unrtf/commit/6412a92e1ea7af08a1c631cd4676590f6eda38aa))
+
+
+### Miscellaneous
+
+* **index:** remove jsdoc type from `parseOptions()` ([a19a76e](https://github.com/Fdawgs/node-unrtf/commit/a19a76e2472034cee9034158ee3922c1b0797b8f))
+
+
+### Improvements
+
+* **index:** do not return empty error message on rejection ([88c92c5](https://github.com/Fdawgs/node-unrtf/commit/88c92c510a4f535341c8dd0117387cc1ff2c6fbf))
+
 ## [3.0.6](https://github.com/Fdawgs/node-unrtf/compare/v3.0.5...v3.0.6) (2023-02-13)
 
 
