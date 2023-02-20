@@ -3,7 +3,7 @@
 # should improve installation performance slightly
 *
 !src/index.js
-!src/index.d.ts
 !src/lib/win32/unrtf*/bin/**
 !src/lib/win32/unrtf*/contrib/**/COPYING
 !src/lib/win32/unrtf*/contrib/**/README
+!types/index.d.ts
