@@ -15,7 +15,8 @@ const execFileAsync = promisify(execFile);
  * @param {object} acceptedOptions - Object containing options that a binary accepts.
  * @param {object} options - Object containing options to pass to binary.
  * @param {string=} version - Semantic version of binary.
- * @returns {Array|Error} Array of CLI arguments or Error object if invalid arguments provided.
+ * @returns {Array<string>} Array of CLI arguments.
+ * @throws {Error} If invalid arguments provided.
  */
 function parseOptions(acceptedOptions, options, version) {
 	const args = [];
@@ -212,6 +213,5 @@ class UnRTF {
 	}
 }
 
-module.exports = {
-	UnRTF,
-};
+module.exports.UnRTF = UnRTF;
+module.exports.default = UnRTF;

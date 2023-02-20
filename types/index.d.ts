@@ -1,3 +1,4 @@
+export default UnRTF;
 export class UnRTF {
 	/**
 	 * @param {string=} binPath - Path of UnRTF binary.
