@@ -1,5 +1,5 @@
 /* eslint-disable security/detect-child-process */
-const fs = require("fs");
+const fs = require("fs/promises");
 const path = require("upath");
 const semver = require("semver");
 const { execFile, spawn } = require("child_process");
@@ -152,19 +152,16 @@ class UnRTF {
 		};
 
 		/**
-		 * UnRTF will attempt to convert empty strings/files, and non-RTF files
-		 * so catch them here
+		 * UnRTF will attempt to convert empty strings, missing files,
+		 * and non-RTF files. Catch before passing to binary
 		 */
-		if (
-			file === undefined ||
+		let buff;
+		try {
 			// eslint-disable-next-line security/detect-non-literal-fs-filename
-			fs.existsSync(path.normalizeTrim(file)) === false
-		) {
+			buff = await fs.readFile(path.normalizeTrim(file));
+		} catch {
 			throw new Error("File missing");
 		}
-
-		// eslint-disable-next-line security/detect-non-literal-fs-filename
-		const buff = await fs.promises.readFile(path.normalizeTrim(file));
 		// Check for RTF specific magic number
 		if (!/^{\\rtf/m.test(buff.toString())) {
 			throw new Error(
