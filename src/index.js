@@ -190,15 +190,15 @@ class UnRTF {
 			let stdOut = "";
 			let stdErr = "";
 
-			child.stdout.on("data", async (data) => {
+			child.stdout.on("data", (data) => {
 				stdOut += data;
 			});
 
-			child.stderr.on("data", async (data) => {
+			child.stderr.on("data", (data) => {
 				stdErr += data;
 			});
 
-			child.on("close", async () => {
+			child.on("close", () => {
 				/* istanbul ignore else */
 				if (stdOut !== "") {
 					resolve(stdOut.trim());
