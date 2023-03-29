@@ -122,7 +122,7 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(res).toEqual(expect.stringContaining("\\begin{document}"));
+		expect(res).toMatch("\\begin{document}");
 		expect(isHtml(res)).toBe(false);
 	});
 
@@ -135,10 +135,8 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(res).toEqual(
-			expect.stringContaining(
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-			)
+		expect(res).toMatch(
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 		);
 		expect(isHtml(res)).toBe(false);
 	});
