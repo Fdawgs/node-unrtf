@@ -44,6 +44,7 @@ function parseOptions(acceptedOptions, options, version) {
 				);
 			}
 
+			/* istanbul ignore next: requires incredibly old version of UnRTF to test */
 			if (
 				acceptedOptions[key].maxVersion &&
 				version &&
@@ -68,6 +69,7 @@ class UnRTF {
 	 * @param {string=} binPath - Path of UnRTF binary.
 	 */
 	constructor(binPath) {
+		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
 			this.unrtfPath = path.normalizeTrim(binPath);
 		} else if (process.platform === "win32") {
