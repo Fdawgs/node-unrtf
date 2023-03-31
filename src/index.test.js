@@ -48,7 +48,6 @@ describe("Constructor", () => {
 
 			const res = await unRtf.convert(file, options);
 
-			expect(typeof res).toBe("string");
 			expect(isHtml(res)).toBe(true);
 		});
 	}
@@ -87,7 +86,6 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
 		expect(isHtml(res)).toBe(true);
 	});
 
@@ -96,7 +94,6 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file);
 
-		expect(typeof res).toBe("string");
 		expect(isHtml(res)).toBe(true);
 	});
 
@@ -109,7 +106,6 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
 		expect(isHtml(res)).toBe(true);
 	});
 
@@ -122,7 +118,7 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(res).toEqual(expect.stringContaining("\\begin{document}"));
+		expect(res).toMatch("\\begin{document}");
 		expect(isHtml(res)).toBe(false);
 	});
 
@@ -135,10 +131,8 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(res).toEqual(
-			expect.stringContaining(
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-			)
+		expect(res).toMatch(
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 		);
 		expect(isHtml(res)).toBe(false);
 	});
@@ -148,21 +142,16 @@ describe("Convert function", () => {
 		const options = {
 			noPictures: true,
 		};
-		const testTxtFile = `${testDirectory}test.txt`;
-		const testPdfFile = `${testDirectory}test.pdf`;
-
-		expect.assertions(2);
-		await unRtf.convert(testTxtFile, options).catch((err) => {
-			expect(err.message).toBe(
-				"File is not the correct media type, expected 'application/rtf'"
-			);
-		});
-
-		await unRtf.convert(testPdfFile, options).catch((err) => {
-			expect(err.message).toBe(
-				"File is not the correct media type, expected 'application/rtf'"
-			);
-		});
+		await expect(
+			unRtf.convert(`${testDirectory}test.txt`, options)
+		).rejects.toThrow(
+			"File is not the correct media type, expected 'application/rtf'"
+		);
+		await expect(
+			unRtf.convert(`${testDirectory}test.pdf`, options)
+		).rejects.toThrow(
+			"File is not the correct media type, expected 'application/rtf'"
+		);
 	});
 
 	test("Should return an Error object if invalid value types provided for an option are passed to function", async () => {
@@ -172,12 +161,9 @@ describe("Convert function", () => {
 			outputHtml: "sure",
 		};
 
-		expect.assertions(1);
-		await unRtf.convert(file, options).catch((err) => {
-			expect(err.message).toBe(
-				"Invalid value type provided for option 'outputHtml', expected boolean but received string"
-			);
-		});
+		await expect(unRtf.convert(file, options)).rejects.toThrow(
+			"Invalid value type provided for option 'outputHtml', expected boolean but received string"
+		);
 	});
 
 	test("Should return an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
@@ -187,12 +173,9 @@ describe("Convert function", () => {
 			outputRtf: true,
 		};
 		if (semver.lte(version, "0.21.3")) {
-			expect.assertions(1);
-			await unRtf.convert(file, options).catch((err) => {
-				expect(err.message).toBe(
-					`Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v${version}`
-				);
-			});
+			await expect(unRtf.convert(file, options)).rejects.toThrow(
+				`Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v${version}`
+			);
 		}
 	});
 
@@ -203,12 +186,9 @@ describe("Convert function", () => {
 			outputPs: true,
 		};
 		if (semver.gt(version, "0.19.4")) {
-			expect.assertions(1);
-			await unRtf.convert(file, options).catch((err) => {
-				expect(err.message).toBe(
-					`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${version}`
-				);
-			});
+			await expect(unRtf.convert(file, options)).rejects.toThrow(
+				`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${version}`
+			);
 		}
 	});
 
@@ -219,10 +199,9 @@ describe("Convert function", () => {
 			outputMp3: true,
 		};
 
-		expect.assertions(1);
-		await unRtf.convert(file, options).catch((err) => {
-			expect(err.message).toBe("Invalid option provided 'outputMp3'");
-		});
+		await expect(unRtf.convert(file, options)).rejects.toThrow(
+			"Invalid option provided 'outputMp3'"
+		);
 	});
 
 	test("Should return an Error object if file is missing", async () => {
@@ -232,9 +211,8 @@ describe("Convert function", () => {
 			outputHtml: "sure",
 		};
 
-		expect.assertions(1);
-		await unRtf.convert(undefined, options).catch((err) => {
-			expect(err.message).toBe("File missing");
-		});
+		await expect(unRtf.convert(undefined, options)).rejects.toThrow(
+			"File missing"
+		);
 	});
 });
