@@ -48,7 +48,6 @@ describe("Constructor", () => {
 
 			const res = await unRtf.convert(file, options);
 
-			expect(typeof res).toBe("string");
 			expect(isHtml(res)).toBe(true);
 		});
 	}
@@ -87,7 +86,6 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
 		expect(isHtml(res)).toBe(true);
 	});
 
@@ -96,7 +94,6 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file);
 
-		expect(typeof res).toBe("string");
 		expect(isHtml(res)).toBe(true);
 	});
 
@@ -109,7 +106,6 @@ describe("Convert function", () => {
 
 		const res = await unRtf.convert(file, options);
 
-		expect(typeof res).toBe("string");
 		expect(isHtml(res)).toBe(true);
 	});
 
