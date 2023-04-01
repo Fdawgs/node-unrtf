@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-child-process */
 const fs = require("fs/promises");
 const path = require("upath");
 const semver = require("semver");
