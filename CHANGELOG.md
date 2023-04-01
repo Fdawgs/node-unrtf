@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.1](https://github.com/Fdawgs/node-unrtf/compare/v3.1.0...v3.1.1) (2023-03-31)
+
+
+### Miscellaneous
+
+* ignore bun lockfile ([#258](https://github.com/Fdawgs/node-unrtf/issues/258)) ([414bb45](https://github.com/Fdawgs/node-unrtf/commit/414bb45720248f6e875cbf62ed05441b6b9f063a))
+* **index:** remove redundant `async` keywords ([#262](https://github.com/Fdawgs/node-unrtf/issues/262)) ([d4e0ac0](https://github.com/Fdawgs/node-unrtf/commit/d4e0ac0a71639344977a9febb6aa5e512b75ed16))
+* **package:** add funding url ([a7e5ee7](https://github.com/Fdawgs/node-unrtf/commit/a7e5ee79d28639299df91cb27f60c30d9c484ad0))
+* **scripts:** add eslint rule file ([c02487f](https://github.com/Fdawgs/node-unrtf/commit/c02487f550707dc7822ba4c3b096d3bd4d269c00))
+* **scripts:** remove redundant export ([931c586](https://github.com/Fdawgs/node-unrtf/commit/931c586e8a4e96ee7bf74edf674dc3f72b8cf777))
+* **scripts:** use js script to check licenses ([#260](https://github.com/Fdawgs/node-unrtf/issues/260)) ([3f69505](https://github.com/Fdawgs/node-unrtf/commit/3f6950551c19f12b9ad55b2abf597ceb88b63085))
+
+
+### Documentation
+
+* **contributing:** add link to conventional config ([#265](https://github.com/Fdawgs/node-unrtf/issues/265)) ([73a8fb8](https://github.com/Fdawgs/node-unrtf/commit/73a8fb808cc0d8b1558dc08ac4768b055657e419))
+
+
+### Continuous integration
+
+* **dependabot:** change commit message prefix for gh actions to `ci` ([#264](https://github.com/Fdawgs/node-unrtf/issues/264)) ([23b4631](https://github.com/Fdawgs/node-unrtf/commit/23b4631338a0eee48a05bb3ecdec2c40063dcbb0))
+* **dependabot:** ignore esm major versions ([#263](https://github.com/Fdawgs/node-unrtf/issues/263)) ([0e12e21](https://github.com/Fdawgs/node-unrtf/commit/0e12e216bb6a221661cf5bb26fa0b8bac7bc8edb))
+* **deps:** bump coverallsapp/github-action from 1.2.4 to 2.0.0 ([#266](https://github.com/Fdawgs/node-unrtf/issues/266)) ([4c4c7ee](https://github.com/Fdawgs/node-unrtf/commit/4c4c7ee93912d64ce5d59822ad61360c961743ba))
+
+
+### Improvements
+
+* **index:** remove blocking `fs.existsSync()` call ([#261](https://github.com/Fdawgs/node-unrtf/issues/261)) ([2c3efd9](https://github.com/Fdawgs/node-unrtf/commit/2c3efd926f07335d801783515501fb2bd35dfd06))
+* **index:** remove redundant multi line regex flag ([#269](https://github.com/Fdawgs/node-unrtf/issues/269)) ([b8b6fa2](https://github.com/Fdawgs/node-unrtf/commit/b8b6fa262bd0e0a9e416313f38aaf522a37d8630))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([9a967fa](https://github.com/Fdawgs/node-unrtf/commit/9a967fafc36f5f230c5c9bd85d27f25f6257ece8))
+* **deps-dev:** bump typescript from 4.9.5 to 5.0.2 ([#267](https://github.com/Fdawgs/node-unrtf/issues/267)) ([4679b8e](https://github.com/Fdawgs/node-unrtf/commit/4679b8e4f0c1cd59aacba699c503813dd91aceb2))
+* **deps:** bump coverallsapp/github-action from 1.1.3 to 1.2.3 ([#256](https://github.com/Fdawgs/node-unrtf/issues/256)) ([3fbf0d4](https://github.com/Fdawgs/node-unrtf/commit/3fbf0d4382b7bed00ae2401a356dda52ae7ea8bc))
+* **deps:** bump coverallsapp/github-action from 1.2.3 to 1.2.4 ([#257](https://github.com/Fdawgs/node-unrtf/issues/257)) ([1a5ff13](https://github.com/Fdawgs/node-unrtf/commit/1a5ff13cfdc794a25f93a1d4056626d0246bac92))
+
 ## [3.1.0](https://github.com/Fdawgs/node-unrtf/compare/v3.0.6...v3.1.0) (2023-02-20)
 
 
