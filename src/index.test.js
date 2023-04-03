@@ -38,7 +38,7 @@ switch (process.platform) {
 
 describe("Constructor", () => {
 	if (process.platform === "win32") {
-		test("Should convert RTF file to HTML without binary set on win32, and use included binary", async () => {
+		it("Converts RTF file to HTML without binary set on win32, and use included binary", async () => {
 			const unRtf = new UnRTF();
 			const options = {
 				noPictures: true,
@@ -52,7 +52,7 @@ describe("Constructor", () => {
 	}
 
 	if (process.platform !== "win32") {
-		test(`Should return an Error object if binary path unset on ${process.platform}`, async () => {
+		it(`Returns an Error object if binary path unset on ${process.platform}`, async () => {
 			expect.assertions(1);
 			try {
 				// eslint-disable-next-line no-unused-vars
@@ -77,7 +77,7 @@ describe("Convert function", () => {
 		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
 	});
 
-	test("Should convert RTF file to HTML with stored images", async () => {
+	it("Converts RTF file to HTML with stored images", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			outputHtml: true,
@@ -88,7 +88,7 @@ describe("Convert function", () => {
 		expect(isHtml(res)).toBe(true);
 	});
 
-	test("Should convert RTF file to HTML with no options set", async () => {
+	it("Converts RTF file to HTML with no options set", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 
 		const res = await unRtf.convert(file);
@@ -96,7 +96,7 @@ describe("Convert function", () => {
 		expect(isHtml(res)).toBe(true);
 	});
 
-	test("Should convert RTF file to HTML without storing images", async () => {
+	it("Converts RTF file to HTML without storing images", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -108,7 +108,7 @@ describe("Convert function", () => {
 		expect(isHtml(res)).toBe(true);
 	});
 
-	test("Should convert RTF file to LaTeX", async () => {
+	it("Converts RTF file to LaTeX", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -121,7 +121,7 @@ describe("Convert function", () => {
 		expect(isHtml(res)).toBe(false);
 	});
 
-	test("Should convert RTF file to text", async () => {
+	it("Converts RTF file to text", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -136,7 +136,7 @@ describe("Convert function", () => {
 		expect(isHtml(res)).toBe(false);
 	});
 
-	test("Should return an Error object if file passed not RTF format", async () => {
+	it("Returns an Error object if file passed not RTF format", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -153,7 +153,7 @@ describe("Convert function", () => {
 		);
 	});
 
-	test("Should return an Error object if invalid value types provided for an option are passed to function", async () => {
+	it("Returns an Error object if invalid value types provided for an option are passed to function", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -165,7 +165,7 @@ describe("Convert function", () => {
 		);
 	});
 
-	test("Should return an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
+	it("Returns an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -178,7 +178,7 @@ describe("Convert function", () => {
 		}
 	});
 
-	test("Should return an Error object if option provided is only available in an earlier version of the UnRTF binary than what was provided", async () => {
+	it("Returns an Error object if option provided is only available in an earlier version of the UnRTF binary than what was provided", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -191,7 +191,7 @@ describe("Convert function", () => {
 		}
 	});
 
-	test("Should return an Error object if invalid option is passed to function", async () => {
+	it("Returns an Error object if invalid option is passed to function", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
@@ -203,7 +203,7 @@ describe("Convert function", () => {
 		);
 	});
 
-	test("Should return an Error object if file is missing", async () => {
+	it("Returns an Error object if file is missing", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
