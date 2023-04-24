@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.2](https://github.com/Fdawgs/node-unrtf/compare/v3.1.1...v3.1.2) (2023-04-24)
+
+
+### Miscellaneous
+
+* **.prettierrc:** enable `arrowParens` option ([#274](https://github.com/Fdawgs/node-unrtf/issues/274)) ([93598f6](https://github.com/Fdawgs/node-unrtf/commit/93598f60a7e101ab5d3512f808839d677356cf9d))
+* **index:** remove redundant eslint comments ([#271](https://github.com/Fdawgs/node-unrtf/issues/271)) ([095cb26](https://github.com/Fdawgs/node-unrtf/commit/095cb26332711e0fd491f61e95ed9e62c935b278))
+
+
+### Dependencies
+
+* **deps-dev:** bump eslint-plugin-jsdoc from 40.3.0 to 43.0.7 ([#276](https://github.com/Fdawgs/node-unrtf/issues/276)) ([4d6224a](https://github.com/Fdawgs/node-unrtf/commit/4d6224ae95208d8ba4aa6cb8f0c984f6780393bd))
+
+
+### Continuous integration
+
+* **cd:** publish to npm with provenance ([#278](https://github.com/Fdawgs/node-unrtf/issues/278)) ([88ff6d0](https://github.com/Fdawgs/node-unrtf/commit/88ff6d040716654ea64597768fa9f4749d3ea0aa))
+* **ci:** add node 20 to test matrix ([#277](https://github.com/Fdawgs/node-unrtf/issues/277)) ([7df7c7b](https://github.com/Fdawgs/node-unrtf/commit/7df7c7b3e5d40e983f8041eb3f62928f0adc6bce))
+* **deps:** bump coverallsapp/github-action from 2.0.0 to 2.1.2 ([#275](https://github.com/Fdawgs/node-unrtf/issues/275)) ([caad54e](https://github.com/Fdawgs/node-unrtf/commit/caad54ea654fda7002a62e84fc0bb29bfe14d26e))
+
 ## [3.1.1](https://github.com/Fdawgs/node-unrtf/compare/v3.1.0...v3.1.1) (2023-03-31)
 
 
