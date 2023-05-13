@@ -96,6 +96,30 @@ describe("Convert function", () => {
 		expect(isHtml(res)).toBe(true);
 	});
 
+	it("Converts RTF file to HTML if the `output*` option is set to false", async () => {
+		const outputOptions = [
+			"outputHtml",
+			"outputLatex",
+			"outputText",
+			"outputVt",
+		];
+
+		const unRtf = new UnRTF(testBinaryPath);
+
+		await Promise.all(
+			outputOptions.map(async (option) => {
+				const options = {
+					noPictures: true,
+					[option]: false,
+				};
+
+				const res = await unRtf.convert(file, options);
+
+				expect(isHtml(res)).toBe(true);
+			})
+		);
+	});
+
 	it("Converts RTF file to HTML without storing images", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {

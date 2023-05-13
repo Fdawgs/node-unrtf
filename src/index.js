@@ -24,6 +24,10 @@ function parseOptions(acceptedOptions, options, version) {
 		if (Object.prototype.hasOwnProperty.call(acceptedOptions, key)) {
 			// eslint-disable-next-line valid-typeof
 			if (typeof options[key] === acceptedOptions[key].type) {
+				// Skip boolean options if false
+				if (acceptedOptions[key].type === "boolean" && !options[key]) {
+					return;
+				}
 				args.push(acceptedOptions[key].arg);
 			} else {
 				invalidArgs.push(
@@ -89,6 +93,7 @@ class UnRTF {
 	/**
 	 * @author Frazer Smith
 	 * @description Converts an RTF file to HTML/LaTeX/RTF/TXT.
+	 * Defaults to HTML output if no `output*` options are provided.
 	 * UnRTF will use the directory of the original file to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
 	 * @param {object=} options - Object containing options to pass to binary.
