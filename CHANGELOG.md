@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.3](https://github.com/Fdawgs/node-unrtf/compare/v3.1.2...v3.1.3) (2023-05-13)
+
+
+### Miscellaneous
+
+* **index:** state default output if no `output*` options passed ([639fcda](https://github.com/Fdawgs/node-unrtf/commit/639fcda136ffb3e3cec8e88c6cb6e47304361a16))
+* **scripts/license-checker:** resolve eslint jsdoc warning ([#279](https://github.com/Fdawgs/node-unrtf/issues/279)) ([ed2b694](https://github.com/Fdawgs/node-unrtf/commit/ed2b69451f98222b3c414371cc275915af683a12))
+
+
+### Bug fixes
+
+* **index:** do not pass false boolean options to binary ([44fddd2](https://github.com/Fdawgs/node-unrtf/commit/44fddd282e57df34ad109a63bd2bbe93af905ba3))
+
+
+### Dependencies
+
+* **deps-dev:** bump eslint-plugin-jsdoc from 43.2.0 to 44.2.3 ([#284](https://github.com/Fdawgs/node-unrtf/issues/284)) ([96cf2e2](https://github.com/Fdawgs/node-unrtf/commit/96cf2e2adda9b0cb0fc9541a7fb7f9e165401b77))
+* **deps:** bump semver from 7.3.8 to 7.5.1 ([#282](https://github.com/Fdawgs/node-unrtf/issues/282)) ([784d186](https://github.com/Fdawgs/node-unrtf/commit/784d18653a33927fb1795e609acea3b8c887d008))
+
 ## [3.1.2](https://github.com/Fdawgs/node-unrtf/compare/v3.1.1...v3.1.2) (2023-04-24)
 
 
