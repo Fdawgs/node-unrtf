@@ -5,11 +5,12 @@ const path = require("upath");
 const semver = require("semver");
 const { execFile } = require("child_process");
 const { promisify } = require("util");
+const generateCombos = require("../test_resources/utils/genCombos");
 
 const execFileAsync = promisify(execFile);
 const { UnRTF } = require("./index");
 
-const testDirectory = `${__dirname}/../test_files/`;
+const testDirectory = `${__dirname}/../test_resources/test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 let testBinaryPath;
@@ -75,6 +76,40 @@ describe("Convert function", () => {
 			["--version"]
 		);
 		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
+	});
+
+	it("Does not throw if any valid options are set", async () => {
+		// Generates 32 different combinations
+		const optionCombos = generateCombos([
+			{ noPictures: true },
+			{ outputHtml: true },
+			{ outputLatex: true },
+			{ outputText: true },
+			{ outputVt: true },
+		]);
+
+		await Promise.all(
+			optionCombos.map(async (options) => {
+				const unRtf = new UnRTF(testBinaryPath);
+
+				await expect(
+					unRtf.convert(file, options)
+				).resolves.not.toThrow();
+			})
+		);
+	});
+
+	it("Throws version info `printVersionInfo` option is set", async () => {
+		const unRtf = new UnRTF(testBinaryPath);
+		const options = {
+			printVersionInfo: true,
+		};
+
+		await expect(unRtf.convert(file, options)).rejects.toThrow(
+			expect.objectContaining({
+				message: expect.stringContaining(version),
+			})
+		);
 	});
 
 	it("Converts RTF file to HTML with stored images", async () => {
