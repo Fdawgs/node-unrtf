@@ -110,7 +110,7 @@ class UnRTF {
 	 * @param {boolean=} options.outputWpml - Generate WPML output (UnRTF v0.19.4 or earlier only).
 	 * @param {boolean=} options.printVersionInfo - Print copyright and version info.
 	 * @param {boolean=} options.quiet - Do not print any leading comments in output (UnRTF v0.21.3 or later only).
-	 * @returns {Promise<string|Error>} Promise of stdout string on resolve, or Error object on rejection.
+	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 */
 	async convert(file, options = {}) {
 		const acceptedOptions = {

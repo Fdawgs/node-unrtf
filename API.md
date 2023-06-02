@@ -5,7 +5,7 @@
 
 * [UnRTF](#UnRTF)
     * [new UnRTF([binPath])](#new_UnRTF_new)
-    * [.convert(file, [options])](#UnRTF+convert) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
+    * [.convert(file, [options])](#UnRTF+convert) ⇒ <code>Promise.&lt;string&gt;</code>
 
 <a name="new_UnRTF_new"></a>
 
@@ -17,13 +17,13 @@
 
 <a name="UnRTF+convert"></a>
 
-### unRTF.convert(file, [options]) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
+### unRTF.convert(file, [options]) ⇒ <code>Promise.&lt;string&gt;</code>
 Converts an RTF file to HTML/LaTeX/RTF/TXT.
 Defaults to HTML output if no `output*` options are provided.
 UnRTF will use the directory of the original file to store embedded pictures.
 
 **Kind**: instance method of [<code>UnRTF</code>](#UnRTF)  
-**Returns**: <code>Promise.&lt;(string\|Error)&gt;</code> - Promise of stdout string on resolve, or Error object on rejection.  
+**Returns**: <code>Promise.&lt;string&gt;</code> - A promise that resolves with a stdout string, or rejects with an `Error` object.  
 **Author**: Frazer Smith  
 
 | Param | Type | Description |
