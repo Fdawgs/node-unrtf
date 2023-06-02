@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.4](https://github.com/Fdawgs/node-unrtf/compare/v3.1.3...v3.1.4) (2023-06-02)
+
+
+### Miscellaneous
+
+* fix inline comment style ([9e04b13](https://github.com/Fdawgs/node-unrtf/commit/9e04b131b5cfaacceeb91790200d3b1e8e824941))
+* use nouns for leading word in function description tags ([#285](https://github.com/Fdawgs/node-unrtf/issues/285)) ([354a2a8](https://github.com/Fdawgs/node-unrtf/commit/354a2a8a02a18cfadbd1ec525d951944c9c8ab61))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([#288](https://github.com/Fdawgs/node-unrtf/issues/288)) ([85c9570](https://github.com/Fdawgs/node-unrtf/commit/85c9570f4a251d63908fc01ade32773f17ee477e))
+* **deps-dev:** bump eslint-plugin-jsdoc from 44.2.7 to 46.1.0 ([#289](https://github.com/Fdawgs/node-unrtf/issues/289)) ([bce0174](https://github.com/Fdawgs/node-unrtf/commit/bce01742615ad280ce3bb1245b42160b69fc2b1d))
+
+
+### Bug fixes
+
+* **index:** return types don't support promise rejection values ([#290](https://github.com/Fdawgs/node-unrtf/issues/290)) ([79746ec](https://github.com/Fdawgs/node-unrtf/commit/79746ec62fea909ba2eae7f7789caf5889374a2a))
+
 ## [3.1.3](https://github.com/Fdawgs/node-unrtf/compare/v3.1.2...v3.1.3) (2023-05-13)
 
 
