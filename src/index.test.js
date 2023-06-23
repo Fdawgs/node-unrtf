@@ -90,7 +90,7 @@ describe("Convert function", () => {
 		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
 	});
 
-	it("Does not throw if any valid options are set", async () => {
+	it("Converts RTF if any valid options are set", async () => {
 		// Generates 32 different combinations
 		const optionCombos = generateCombos([
 			{ noPictures: true },
@@ -105,9 +105,9 @@ describe("Convert function", () => {
 			optionCombos.map(async (options) => {
 				const unRtf = new UnRTF(testBinaryPath);
 
-				await expect(
-					unRtf.convert(file, options)
-				).resolves.not.toThrow();
+				await expect(unRtf.convert(file, options)).resolves.toEqual(
+					expect.any(String)
+				);
 			})
 		);
 	});
