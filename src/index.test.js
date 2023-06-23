@@ -13,6 +13,13 @@ const { UnRTF } = require("./index");
 const testDirectory = `${__dirname}/../test_resources/test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
+const windowsPath = path.joinSafe(
+	__dirname,
+	"lib",
+	"win32",
+	"unrtf-0.19.3",
+	"bin"
+);
 let testBinaryPath;
 switch (process.platform) {
 	// macOS
@@ -27,44 +34,49 @@ switch (process.platform) {
 	// Windows OS
 	case "win32":
 	default:
-		testBinaryPath = path.joinSafe(
-			__dirname,
-			"lib",
-			"win32",
-			"unrtf-0.19.3",
-			"bin"
-		);
+		testBinaryPath = windowsPath;
 		break;
 }
 
 describe("Constructor", () => {
-	if (process.platform === "win32") {
-		it("Converts RTF file to HTML without binary set on win32, and use included binary", async () => {
+	let platform;
+
+	beforeEach(() => {
+		// Copy the process platform
+		({ platform } = process);
+	});
+
+	afterEach(() => {
+		// Restore the process platform
+		Object.defineProperty(process, "platform", {
+			value: platform,
+		});
+	});
+
+	it("Creates a new UnRTF instance without the binary path set on win32", () => {
+		Object.defineProperty(process, "platform", {
+			value: "win32",
+		});
+
+		const unRtf = new UnRTF();
+		expect(unRtf.unrtfPath).toBe(windowsPath);
+	});
+
+	it("Throws an Error if the binary path is not set and the platform is not win32", () => {
+		Object.defineProperty(process, "platform", {
+			value: "mockOS",
+		});
+
+		expect.assertions(1);
+		try {
+			// eslint-disable-next-line no-unused-vars
 			const unRtf = new UnRTF();
-			const options = {
-				noPictures: true,
-				outputHtml: true,
-			};
-
-			const res = await unRtf.convert(file, options);
-
-			expect(isHtml(res)).toBe(true);
-		});
-	}
-
-	if (process.platform !== "win32") {
-		it(`Rejects with an Error object if binary path unset on ${process.platform}`, async () => {
-			expect.assertions(1);
-			try {
-				// eslint-disable-next-line no-unused-vars
-				const unRtf = new UnRTF();
-			} catch (err) {
-				expect(err.message).toBe(
-					`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
-				);
-			}
-		});
-	}
+		} catch (err) {
+			expect(err.message).toBe(
+				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+			);
+		}
+	});
 });
 
 describe("Convert function", () => {
@@ -266,7 +278,7 @@ describe("Convert function", () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			noPictures: true,
-			outputHtml: "sure",
+			outputHtml: true,
 		};
 
 		await expect(unRtf.convert(undefined, options)).rejects.toThrow(
