@@ -112,7 +112,7 @@ describe("Convert function", () => {
 		);
 	});
 
-	it("Throws version info `printVersionInfo` option is set", async () => {
+	it("Rejects with version info `printVersionInfo` option is set", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			printVersionInfo: true,
