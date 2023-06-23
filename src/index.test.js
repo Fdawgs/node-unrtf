@@ -100,6 +100,7 @@ describe("Convert function", () => {
 			{ outputVt: true },
 		]);
 
+		expect.assertions(optionCombos.length);
 		await Promise.all(
 			optionCombos.map(async (options) => {
 				const unRtf = new UnRTF(testBinaryPath);
@@ -134,6 +135,7 @@ describe("Convert function", () => {
 
 		const unRtf = new UnRTF(testBinaryPath);
 
+		expect.assertions(outputOptions.length);
 		await Promise.all(
 			outputOptions.map(async (option) => {
 				const options = {
