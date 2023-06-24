@@ -13,6 +13,13 @@ const { UnRTF } = require("./index");
 const testDirectory = `${__dirname}/../test_resources/test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
+const windowsPath = path.joinSafe(
+	__dirname,
+	"lib",
+	"win32",
+	"unrtf-0.19.3",
+	"bin"
+);
 let testBinaryPath;
 switch (process.platform) {
 	// macOS
@@ -27,44 +34,49 @@ switch (process.platform) {
 	// Windows OS
 	case "win32":
 	default:
-		testBinaryPath = path.joinSafe(
-			__dirname,
-			"lib",
-			"win32",
-			"unrtf-0.19.3",
-			"bin"
-		);
+		testBinaryPath = windowsPath;
 		break;
 }
 
 describe("Constructor", () => {
-	if (process.platform === "win32") {
-		it("Converts RTF file to HTML without binary set on win32, and use included binary", async () => {
+	let platform;
+
+	beforeEach(() => {
+		// Copy the process platform
+		({ platform } = process);
+	});
+
+	afterEach(() => {
+		// Restore the process platform
+		Object.defineProperty(process, "platform", {
+			value: platform,
+		});
+	});
+
+	it("Creates a new UnRTF instance without the binary path set on win32", () => {
+		Object.defineProperty(process, "platform", {
+			value: "win32",
+		});
+
+		const unRtf = new UnRTF();
+		expect(unRtf.unrtfPath).toBe(windowsPath);
+	});
+
+	it("Throws an Error if the binary path is not set and the platform is not win32", () => {
+		Object.defineProperty(process, "platform", {
+			value: "mockOS",
+		});
+
+		expect.assertions(1);
+		try {
+			// eslint-disable-next-line no-unused-vars
 			const unRtf = new UnRTF();
-			const options = {
-				noPictures: true,
-				outputHtml: true,
-			};
-
-			const res = await unRtf.convert(file, options);
-
-			expect(isHtml(res)).toBe(true);
-		});
-	}
-
-	if (process.platform !== "win32") {
-		it(`Rejects with an Error object if binary path unset on ${process.platform}`, async () => {
-			expect.assertions(1);
-			try {
-				// eslint-disable-next-line no-unused-vars
-				const unRtf = new UnRTF();
-			} catch (err) {
-				expect(err.message).toBe(
-					`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
-				);
-			}
-		});
-	}
+		} catch (err) {
+			expect(err.message).toBe(
+				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+			);
+		}
+	});
 });
 
 describe("Convert function", () => {
@@ -78,7 +90,7 @@ describe("Convert function", () => {
 		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
 	});
 
-	it("Does not throw if any valid options are set", async () => {
+	it("Converts RTF if any valid options are set", async () => {
 		// Generates 32 different combinations
 		const optionCombos = generateCombos([
 			{ noPictures: true },
@@ -88,18 +100,19 @@ describe("Convert function", () => {
 			{ outputVt: true },
 		]);
 
+		expect.assertions(optionCombos.length);
 		await Promise.all(
 			optionCombos.map(async (options) => {
 				const unRtf = new UnRTF(testBinaryPath);
 
-				await expect(
-					unRtf.convert(file, options)
-				).resolves.not.toThrow();
+				await expect(unRtf.convert(file, options)).resolves.toEqual(
+					expect.any(String)
+				);
 			})
 		);
 	});
 
-	it("Throws version info `printVersionInfo` option is set", async () => {
+	it("Rejects with version info `printVersionInfo` option is set", async () => {
 		const unRtf = new UnRTF(testBinaryPath);
 		const options = {
 			printVersionInfo: true,
@@ -112,26 +125,7 @@ describe("Convert function", () => {
 		);
 	});
 
-	it("Converts RTF file to HTML with stored images", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			outputHtml: true,
-		};
-
-		const res = await unRtf.convert(file, options);
-
-		expect(isHtml(res)).toBe(true);
-	});
-
-	it("Converts RTF file to HTML with no options set", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-
-		const res = await unRtf.convert(file);
-
-		expect(isHtml(res)).toBe(true);
-	});
-
-	it("Converts RTF file to HTML if the `output*` option is set to false", async () => {
+	it("Converts RTF file to HTML if any `output*` option is set to false", async () => {
 		const outputOptions = [
 			"outputHtml",
 			"outputLatex",
@@ -141,6 +135,7 @@ describe("Convert function", () => {
 
 		const unRtf = new UnRTF(testBinaryPath);
 
+		expect.assertions(outputOptions.length);
 		await Promise.all(
 			outputOptions.map(async (option) => {
 				const options = {
@@ -155,73 +150,55 @@ describe("Convert function", () => {
 		);
 	});
 
-	it("Converts RTF file to HTML without storing images", async () => {
+	it.each([
+		{
+			testName: "HTML with no options set",
+			options: undefined,
+			expected: {
+				html: true,
+				stringMatch:
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			},
+		},
+		{
+			testName: "HTML with `outputHtml` set to true",
+			options: {
+				outputHtml: true,
+			},
+			expected: {
+				html: true,
+				stringMatch:
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			},
+		},
+		{
+			testName: "LATeX with `outputLatex` set to true",
+			options: {
+				outputLatex: true,
+			},
+			expected: {
+				html: false,
+				stringMatch: "\\begin{document}",
+			},
+		},
+		{
+			testName: "Text with `outputText` set to true",
+			options: {
+				outputText: true,
+			},
+			expected: {
+				html: false,
+				stringMatch:
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			},
+		},
+	])("Converts RTF file to $testName", async ({ options, expected }) => {
 		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputHtml: true,
-		};
 
 		const res = await unRtf.convert(file, options);
 
-		expect(isHtml(res)).toBe(true);
-	});
-
-	it("Converts RTF file to LaTeX", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputLatex: true,
-		};
-
-		const res = await unRtf.convert(file, options);
-
-		expect(res).toMatch("\\begin{document}");
-		expect(isHtml(res)).toBe(false);
-	});
-
-	it("Converts RTF file to text", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputText: true,
-		};
-
-		const res = await unRtf.convert(file, options);
-
-		expect(res).toMatch(
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-		);
-		expect(isHtml(res)).toBe(false);
-	});
-
-	it("Rejects with an Error object if file passed not RTF format", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-		};
-		await expect(
-			unRtf.convert(`${testDirectory}test.txt`, options)
-		).rejects.toThrow(
-			"File is not the correct media type, expected 'application/rtf'"
-		);
-		await expect(
-			unRtf.convert(`${testDirectory}test.pdf`, options)
-		).rejects.toThrow(
-			"File is not the correct media type, expected 'application/rtf'"
-		);
-	});
-
-	it("Rejects with an Error object if invalid value types provided for an option are passed to function", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputHtml: "sure",
-		};
-
-		await expect(unRtf.convert(file, options)).rejects.toThrow(
-			"Invalid value type provided for option 'outputHtml', expected boolean but received string"
-		);
+		expect(isHtml(res)).toBe(expected.html);
+		expect(res).toMatch(expected.stringMatch);
 	});
 
 	it("Rejects with an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
@@ -250,27 +227,54 @@ describe("Convert function", () => {
 		}
 	});
 
-	it("Rejects with an Error object if invalid option is passed to function", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputMp3: true,
-		};
+	it.each([
+		{
+			testName: "file is not RTF format",
+			filePath: `${testDirectory}test.txt`,
+			options: {
+				outputHtml: true,
+			},
+			expError:
+				"File is not the correct media type, expected 'application/rtf'",
+		},
 
-		await expect(unRtf.convert(file, options)).rejects.toThrow(
-			"Invalid option provided 'outputMp3'"
-		);
-	});
+		{
+			testName: "file is missing",
+			filePath: undefined,
+			options: {
+				outputHtml: true,
+			},
+			expError: "File missing",
+		},
+		{
+			testName: "invalid option is passed to function",
+			filePath: file,
+			options: {
+				outputMp3: true,
+			},
+			expError: "Invalid option provided 'outputMp3'",
+		},
+		{
+			testName:
+				"invalid value types provided for an option are passed to function",
+			filePath: file,
+			options: {
+				outputHtml: "sure",
+			},
+			expError:
+				"Invalid value type provided for option 'outputHtml', expected boolean but received string",
+		},
+	])(
+		"Rejects with an Error object if $testName",
+		async ({ filePath, options, expError }) => {
+			const unRtf = new UnRTF(testBinaryPath);
 
-	it("Rejects with an Error object if file is missing", async () => {
-		const unRtf = new UnRTF(testBinaryPath);
-		const options = {
-			noPictures: true,
-			outputHtml: "sure",
-		};
-
-		await expect(unRtf.convert(undefined, options)).rejects.toThrow(
-			"File missing"
-		);
-	});
+			await expect(
+				unRtf.convert(filePath, {
+					noPictures: true,
+					...options,
+				})
+			).rejects.toThrow(expError);
+		}
+	);
 });
