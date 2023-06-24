@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.5](https://github.com/Fdawgs/node-unrtf/compare/v3.1.4...v3.1.5) (2023-06-24)
+
+
+### Continuous integration
+
+* **deps:** bump coverallsapp/github-action from 2.1.2 to 2.2.0 ([#294](https://github.com/Fdawgs/node-unrtf/issues/294)) ([b717f52](https://github.com/Fdawgs/node-unrtf/commit/b717f52297057acb9469f53a8a5dfcecc4eda326))
+
+
+### Miscellaneous
+
+* **.eslintrc:** enable additional jest plugin rules ([7146e71](https://github.com/Fdawgs/node-unrtf/commit/7146e7198b489a2aa506e10dedf33f4564912ddd))
+* **.eslintrc:** enable additional jsdoc plugin rules ([f19811d](https://github.com/Fdawgs/node-unrtf/commit/f19811df96c1aea0166cb2f2503195cd95d28bcf))
+* **.eslintrc:** only use jest plugin to lint test-related files ([96b981a](https://github.com/Fdawgs/node-unrtf/commit/96b981a7bad6b361adad30a36b2864b38a792b51))
+* **.eslintrc:** update ecmascript version ([fc4ab0b](https://github.com/Fdawgs/node-unrtf/commit/fc4ab0b1db130c357b0aa00815256c714de41172))
+* **package:** remove global jest mock config values ([#291](https://github.com/Fdawgs/node-unrtf/issues/291)) ([9331a40](https://github.com/Fdawgs/node-unrtf/commit/9331a4030fcb84c386b8c94813ce3b129d69c473))
+* **package:** set jest coverage threshold ([42bc695](https://github.com/Fdawgs/node-unrtf/commit/42bc6951ae3c375994404948883edef2a7452ca5))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([f2ad989](https://github.com/Fdawgs/node-unrtf/commit/f2ad989cb9409eeaba1c797f408a05a3224cb9bb))
+* **deps:** bump semver from 7.5.1 to 7.5.3 ([b4455f2](https://github.com/Fdawgs/node-unrtf/commit/b4455f20d96fe06d0c15ccfe86b6281aafb5b533))
+
 ## [3.1.4](https://github.com/Fdawgs/node-unrtf/compare/v3.1.3...v3.1.4) (2023-06-02)
 
 
