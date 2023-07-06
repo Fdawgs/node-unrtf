@@ -169,7 +169,7 @@ class UnRTF {
 			throw new Error("File missing");
 		}
 		// Check for RTF specific magic number
-		if (!/^\{\\rtf/.test(buff.toString())) {
+		if (!/^\{\\rtf/u.test(buff.toString())) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
@@ -185,7 +185,7 @@ class UnRTF {
 		 * v0.19.3 returns "0.19.3\r\n"
 		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
 		 */
-		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/.exec(stderr)[1];
+		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
 
 		const args = parseOptions(acceptedOptions, options, versionInfo);
 		args.push(path.normalizeTrim(file));
