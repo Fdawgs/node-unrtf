@@ -169,7 +169,7 @@ class UnRTF {
 			throw new Error("File missing");
 		}
 		// Check for RTF specific magic number
-		if (!/^{\\rtf/.test(buff.toString())) {
+		if (!/^\{\\rtf/.test(buff.toString())) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
