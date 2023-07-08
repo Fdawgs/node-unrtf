@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.6](https://github.com/Fdawgs/node-unrtf/compare/v3.1.5...v3.1.6) (2023-07-08)
+
+
+### Improvements
+
+* **index:** add strict `u` flag to all regex patterns ([e53e956](https://github.com/Fdawgs/node-unrtf/commit/e53e956e77a948df085e6b239a57ac8306c700d7))
+* **index:** remove useless `i` regex flag ([34d2df3](https://github.com/Fdawgs/node-unrtf/commit/34d2df3dc55b68bcc7d28add9a49865fecac761e))
+
+
+### Miscellaneous
+
+* **.eslintrc:** sort `extends` array ([d679587](https://github.com/Fdawgs/node-unrtf/commit/d67958794edf398c134364d432f6f0c4be0932ef))
+
+
+### Dependencies
+
+* **deps-dev:** add eslint-plugin-regexp ([4616c07](https://github.com/Fdawgs/node-unrtf/commit/4616c077fe31d8d5387279ac99d1433757fa048e))
+* **deps-dev:** bump dev dependencies ([0080245](https://github.com/Fdawgs/node-unrtf/commit/00802457bd7abc5e4b85c0ef337244769a4c5ae1))
+
+
+### Bug fixes
+
+* add missing strict mode directives ([#300](https://github.com/Fdawgs/node-unrtf/issues/300)) ([f3aa8ac](https://github.com/Fdawgs/node-unrtf/commit/f3aa8ac6d8f49b8a5398a43b61cdfd9152daf5aa))
+* **index:** escape regexp quantifier characters ([fbb7fa5](https://github.com/Fdawgs/node-unrtf/commit/fbb7fa5ca8efd86be701bcd4ad47661ec11139af))
+
 ## [3.1.5](https://github.com/Fdawgs/node-unrtf/compare/v3.1.4...v3.1.5) (2023-06-24)
 
 
