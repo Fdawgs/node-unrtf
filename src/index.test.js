@@ -1,5 +1,8 @@
 /* eslint-disable jest/no-conditional-expect */
 /* eslint-disable security/detect-non-literal-fs-filename */
+
+"use strict";
+
 const isHtml = require("is-html");
 const path = require("upath");
 const semver = require("semver");
