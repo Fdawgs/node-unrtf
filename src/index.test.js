@@ -90,7 +90,7 @@ describe("Convert function", () => {
 			path.joinSafe(testBinaryPath, "unrtf"),
 			["--version"]
 		);
-		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/i.exec(stderr)[1];
+		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
 	});
 
 	it("Converts RTF if any valid options are set", async () => {
