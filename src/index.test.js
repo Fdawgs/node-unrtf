@@ -108,9 +108,9 @@ describe("Convert function", () => {
 			optionCombos.map(async (options) => {
 				const unRtf = new UnRTF(testBinaryPath);
 
-				await expect(unRtf.convert(file, options)).resolves.toEqual(
-					expect.any(String)
-				);
+				await expect(
+					unRtf.convert(file, options)
+				).resolves.toStrictEqual(expect.any(String));
 			})
 		);
 	});
