@@ -3,8 +3,8 @@
 const { execFile, spawn } = require("child_process");
 const { promisify } = require("util");
 const { readFile } = require("fs/promises");
-const path = require("upath");
 const { gt, lt } = require("semver");
+const path = require("upath");
 
 const execFileAsync = promisify(execFile);
 

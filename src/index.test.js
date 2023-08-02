@@ -6,8 +6,8 @@
 const { execFile } = require("child_process");
 const { promisify } = require("util");
 const isHtml = require("is-html");
-const path = require("upath");
 const { gt, lt } = require("semver");
+const path = require("upath");
 const generateCombos = require("../test_resources/utils/genCombos");
 
 const execFileAsync = promisify(execFile);

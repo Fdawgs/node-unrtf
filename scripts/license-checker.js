@@ -6,9 +6,9 @@
 const { promisify } = require("util");
 const { init } = require("license-checker");
 const copyLeftLicenses = require("spdx-copyleft");
+const path = require("upath");
 
 const check = promisify(init);
-const path = require("upath");
 
 /**
  * @author Frazer Smith
