@@ -1,10 +1,10 @@
 "use strict";
 
+const { execFile, spawn } = require("child_process");
+const { promisify } = require("util");
 const fs = require("fs/promises");
 const path = require("upath");
 const semver = require("semver");
-const { execFile, spawn } = require("child_process");
-const { promisify } = require("util");
 
 const execFileAsync = promisify(execFile);
 

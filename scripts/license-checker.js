@@ -3,9 +3,9 @@
 
 "use strict";
 
+const { promisify } = require("util");
 const checker = require("license-checker");
 const copyLeftLicenses = require("spdx-copyleft");
-const { promisify } = require("util");
 
 const init = promisify(checker.init);
 const path = require("upath");
