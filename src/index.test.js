@@ -7,7 +7,7 @@ const { promisify } = require("util");
 const isHtml = require("is-html");
 const { gt, lt } = require("semver");
 const path = require("upath");
-const generateCombos = require("../test_resources/utils/genCombos");
+const generateCombos = require("../test_resources/utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
 const { UnRTF } = require("./index");
