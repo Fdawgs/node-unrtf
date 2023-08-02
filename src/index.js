@@ -2,9 +2,9 @@
 
 const { execFile, spawn } = require("child_process");
 const { promisify } = require("util");
-const fs = require("fs/promises");
+const { readFile } = require("fs/promises");
 const path = require("upath");
-const semver = require("semver");
+const { gt, lt } = require("semver");
 
 const execFileAsync = promisify(execFile);
 
@@ -42,7 +42,7 @@ function parseOptions(acceptedOptions, options, version) {
 			if (
 				acceptedOptions[key].minVersion &&
 				version &&
-				semver.lt(version, acceptedOptions[key].minVersion)
+				lt(version, acceptedOptions[key].minVersion)
 			) {
 				invalidArgs.push(
 					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
@@ -53,7 +53,7 @@ function parseOptions(acceptedOptions, options, version) {
 			if (
 				acceptedOptions[key].maxVersion &&
 				version &&
-				semver.gt(version, acceptedOptions[key].maxVersion)
+				gt(version, acceptedOptions[key].maxVersion)
 			) {
 				invalidArgs.push(
 					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
@@ -166,7 +166,7 @@ class UnRTF {
 		let buff;
 		try {
 			// eslint-disable-next-line security/detect-non-literal-fs-filename
-			buff = await fs.readFile(path.normalizeTrim(file));
+			buff = await readFile(path.normalizeTrim(file));
 		} catch {
 			throw new Error("File missing");
 		}

@@ -4,10 +4,10 @@
 "use strict";
 
 const { promisify } = require("util");
-const checker = require("license-checker");
+const { init } = require("license-checker");
 const copyLeftLicenses = require("spdx-copyleft");
 
-const init = promisify(checker.init);
+const check = promisify(init);
 const path = require("upath");
 
 /**
@@ -52,7 +52,7 @@ async function checkLicenses() {
 	// Merge copyleft licenses with deprecated licenses list
 	copyLeftLicenses.push(...deprecatedLicenseList);
 
-	const licenses = await init({
+	const licenses = await check({
 		direct: true,
 		production: true,
 		start: path.joinSafe(__dirname, ".."),
