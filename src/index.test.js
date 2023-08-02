@@ -1,14 +1,13 @@
 /* eslint-disable jest/no-conditional-expect */
-/* eslint-disable security/detect-non-literal-fs-filename */
 
 "use strict";
 
-const isHtml = require("is-html");
-const path = require("upath");
-const semver = require("semver");
 const { execFile } = require("child_process");
 const { promisify } = require("util");
-const generateCombos = require("../test_resources/utils/genCombos");
+const isHtml = require("is-html");
+const { gt, lt } = require("semver");
+const path = require("upath");
+const generateCombos = require("../test_resources/utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
 const { UnRTF } = require("./index");
@@ -210,7 +209,7 @@ describe("Convert function", () => {
 			noPictures: true,
 			outputRtf: true,
 		};
-		if (semver.lte(version, "0.21.3")) {
+		if (lt(version, "0.21.3")) {
 			await expect(unRtf.convert(file, options)).rejects.toThrow(
 				`Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v${version}`
 			);
@@ -223,7 +222,7 @@ describe("Convert function", () => {
 			noPictures: true,
 			outputPs: true,
 		};
-		if (semver.gt(version, "0.19.4")) {
+		if (gt(version, "0.19.4")) {
 			await expect(unRtf.convert(file, options)).rejects.toThrow(
 				`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${version}`
 			);
