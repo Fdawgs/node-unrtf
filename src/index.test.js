@@ -1,5 +1,4 @@
 /* eslint-disable jest/no-conditional-expect */
-/* eslint-disable security/detect-non-literal-fs-filename */
 
 "use strict";
 
