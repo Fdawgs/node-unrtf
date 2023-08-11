@@ -15,8 +15,8 @@ const execFileAsync = promisify(execFile);
  * @ignore
  * @param {object} acceptedOptions - Object containing options that a binary accepts.
  * @param {object} options - Object containing options to pass to binary.
- * @param {string=} version - Semantic version of binary.
- * @returns {Array<string>} Array of CLI arguments.
+ * @param {string} [version] - Semantic version of binary.
+ * @returns {string[]} Array of CLI arguments.
  * @throws If invalid arguments provided.
  */
 function parseOptions(acceptedOptions, options, version) {
@@ -71,7 +71,7 @@ function parseOptions(acceptedOptions, options, version) {
 
 class UnRTF {
 	/**
-	 * @param {string=} binPath - Path of UnRTF binary.
+	 * @param {string} [binPath] - Path of UnRTF binary.
 	 */
 	constructor(binPath) {
 		/* istanbul ignore else: requires specific OS */
@@ -98,20 +98,20 @@ class UnRTF {
 	 * Defaults to HTML output if no `output*` options are provided.
 	 * UnRTF will use the directory of the original file to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
-	 * @param {object=} options - Object containing options to pass to binary.
-	 * @param {boolean=} options.noPictures - Disable the automatic storing of embedded
+	 * @param {object} [options] - Object containing options to pass to binary.
+	 * @param {boolean} [options.noPictures] - Disable the automatic storing of embedded
 	 * pictures to the directory of the original file.
-	 * @param {boolean=} options.noRemap - Disable charset conversion (only works for 8-bit charsets)
+	 * @param {boolean} [options.noRemap] - Disable charset conversion (only works for 8-bit charsets)
 	 * (UnRTF v0.20.5 or later only).
-	 * @param {boolean=} options.outputHtml - Generate HTML output.
-	 * @param {boolean=} options.outputLatex - Generate LaTeX output.
-	 * @param {boolean=} options.outputPs - Generate PostScript (PS) output (UnRTF v0.19.4 or earlier only).
-	 * @param {boolean=} options.outputRtf - Generate RTF output. (UnRTF v0.21.3 or later only).
-	 * @param {boolean=} options.outputText - Generate ASCII text output.
-	 * @param {boolean=} options.outputVt - Generate text output with VT100 escape codes.
-	 * @param {boolean=} options.outputWpml - Generate WPML output (UnRTF v0.19.4 or earlier only).
-	 * @param {boolean=} options.printVersionInfo - Print copyright and version info.
-	 * @param {boolean=} options.quiet - Do not print any leading comments in output (UnRTF v0.21.3 or later only).
+	 * @param {boolean} [options.outputHtml] - Generate HTML output.
+	 * @param {boolean} [options.outputLatex] - Generate LaTeX output.
+	 * @param {boolean} [options.outputPs] - Generate PostScript (PS) output (UnRTF v0.19.4 or earlier only).
+	 * @param {boolean} [options.outputRtf] - Generate RTF output. (UnRTF v0.21.3 or later only).
+	 * @param {boolean} [options.outputText] - Generate ASCII text output.
+	 * @param {boolean} [options.outputVt] - Generate text output with VT100 escape codes.
+	 * @param {boolean} [options.outputWpml] - Generate WPML output (UnRTF v0.19.4 or earlier only).
+	 * @param {boolean} [options.printVersionInfo] - Print copyright and version info.
+	 * @param {boolean} [options.quiet] - Do not print any leading comments in output (UnRTF v0.21.3 or later only).
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 */
 	async convert(file, options = {}) {
