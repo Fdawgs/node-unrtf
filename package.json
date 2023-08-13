@@ -37,6 +37,7 @@
 		"build": "tsc && jsdoc2md src/index.js > API.md && npm run lint:prettier:fix",
 		"jest": "jest",
 		"jest:coverage": "jest --coverage",
+		"jest:ci": "jest --ci --coverage",
 		"lint": "eslint . --cache --ext js,jsx --ignore-path .gitignore",
 		"lint:licenses": "node scripts/license-checker.js",
 		"lint:prettier": "prettier . -c -u",
