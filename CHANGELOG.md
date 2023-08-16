@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.7](https://github.com/Fdawgs/node-unrtf/compare/v3.1.6...v3.1.7) (2023-08-16)
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([71bd998](https://github.com/Fdawgs/node-unrtf/commit/71bd9980ec0f9878b814d458600cca59d576dbc3))
+* **deps-dev:** bump eslint-config-prettier from 8.10.0 to 9.0.0 ([#311](https://github.com/Fdawgs/node-unrtf/issues/311)) ([a7e5354](https://github.com/Fdawgs/node-unrtf/commit/a7e53546966b4fc7ff3a417dd91be493b235a9a3))
+* **deps:** bump semver from 7.5.3 to 7.5.4 ([168bf47](https://github.com/Fdawgs/node-unrtf/commit/168bf47c61f14374ad821d8143658dd2d4a25c70))
+
+
+### Miscellaneous
+
+* **.eslintrc:** error on google closure jsdoc syntax ([7fb28c7](https://github.com/Fdawgs/node-unrtf/commit/7fb28c7e8ddfa500267b470ea26d04f5edc9f97b))
+* fix import order for linting ([5c210f3](https://github.com/Fdawgs/node-unrtf/commit/5c210f3430d7eca599678913e540f279d48f1b46))
+* remove outdated inline eslint rule ([349fd26](https://github.com/Fdawgs/node-unrtf/commit/349fd26e169c0d96b9575c337ad664080b1d49ac))
+* rename `lint:prettier` scripts to reflect their function ([#303](https://github.com/Fdawgs/node-unrtf/issues/303)) ([37116c8](https://github.com/Fdawgs/node-unrtf/commit/37116c88e06e71e8212e00b25ea79fd1e2e0bf3c))
+* **scripts/license-checker:** use `console.error()` to log failures ([89c9397](https://github.com/Fdawgs/node-unrtf/commit/89c93978a8f41e9ed3fad560e49192fdb1c94ff3))
+* **test-resources:** use dash over camelcase for naming files ([5dfee8e](https://github.com/Fdawgs/node-unrtf/commit/5dfee8e2925ec73eeae13b06a512e491ac9a0229))
+* **tsconfig:** sort options ([70990c8](https://github.com/Fdawgs/node-unrtf/commit/70990c8702cf3a4aa29795b014dbebe483340113))
+* update import order ([07df94c](https://github.com/Fdawgs/node-unrtf/commit/07df94cdaa8567c5cdf50fa919ed29628c3ffc43))
+* use jsdoc syntax for arrays over interfaces ([302d17c](https://github.com/Fdawgs/node-unrtf/commit/302d17c10fcefb43a878f28ab812415155a04f22))
+* use jsdoc syntax for opt params over google closure syntax ([92e4068](https://github.com/Fdawgs/node-unrtf/commit/92e406833a7ed35a2b2559269c6cbeebe1428dc5))
+
+
+### Continuous integration
+
+* **ci:** error on new jest snapshot ([370addc](https://github.com/Fdawgs/node-unrtf/commit/370addcc91818739b3090da8b842cbd2dd8227f1))
+* **ci:** revert jest snapshot cli arg addition ([3cb32b7](https://github.com/Fdawgs/node-unrtf/commit/3cb32b72d7d8f774a85da73b7772bc875e316095))
+* **deps:** bump coverallsapp/github-action from 2.2.0 to 2.2.1 ([#306](https://github.com/Fdawgs/node-unrtf/issues/306)) ([970e9f2](https://github.com/Fdawgs/node-unrtf/commit/970e9f2129af3d92361b470ba5cc3763a138433e))
+
+
+### Improvements
+
+* deconstruct imports ([dbe1051](https://github.com/Fdawgs/node-unrtf/commit/dbe10513c48a52f5cfb0262acc5db7fc5f86f6e5))
+
 ## [3.1.6](https://github.com/Fdawgs/node-unrtf/compare/v3.1.5...v3.1.6) (2023-07-08)
 
 
