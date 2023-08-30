@@ -1,8 +1,8 @@
 "use strict";
 
-const { execFile, spawn } = require("child_process");
-const { promisify } = require("util");
-const { readFile } = require("fs/promises");
+const { execFile, spawn } = require("node:child_process");
+const { promisify } = require("node:util");
+const { readFile } = require("node:fs/promises");
 const { gt, lt } = require("semver");
 const path = require("upath");
 
