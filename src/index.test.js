@@ -2,8 +2,8 @@
 
 "use strict";
 
-const { execFile } = require("child_process");
-const { promisify } = require("util");
+const { execFile } = require("node:child_process");
+const { promisify } = require("node:util");
 const isHtml = require("is-html");
 const { gt, lt } = require("semver");
 const path = require("upath");
