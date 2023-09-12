@@ -4,7 +4,7 @@ const { execFile, spawn } = require("node:child_process");
 const { promisify } = require("node:util");
 const { readFile } = require("node:fs/promises");
 const { gt, lt } = require("semver");
-const path = require("upath");
+const { joinSafe, normalizeTrim } = require("upath");
 
 const execFileAsync = promisify(execFile);
 
@@ -76,9 +76,9 @@ class UnRTF {
 	constructor(binPath) {
 		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
-			this.unrtfPath = path.normalizeTrim(binPath);
+			this.unrtfPath = normalizeTrim(binPath);
 		} else if (process.platform === "win32") {
-			this.unrtfPath = path.joinSafe(
+			this.unrtfPath = joinSafe(
 				__dirname,
 				"lib",
 				"win32",
@@ -166,7 +166,7 @@ class UnRTF {
 		let buff;
 		try {
 			// eslint-disable-next-line security/detect-non-literal-fs-filename
-			buff = await readFile(path.normalizeTrim(file));
+			buff = await readFile(normalizeTrim(file));
 		} catch {
 			throw new Error("File missing");
 		}
@@ -178,7 +178,7 @@ class UnRTF {
 		}
 
 		const { stderr } = await execFileAsync(
-			path.joinSafe(this.unrtfPath, "unrtf"),
+			joinSafe(this.unrtfPath, "unrtf"),
 			["--version"]
 		);
 
@@ -190,10 +190,10 @@ class UnRTF {
 		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
 
 		const args = parseOptions(acceptedOptions, options, versionInfo);
-		args.push(path.normalizeTrim(file));
+		args.push(normalizeTrim(file));
 
 		return new Promise((resolve, reject) => {
-			const child = spawn(path.joinSafe(this.unrtfPath, "unrtf"), args);
+			const child = spawn(joinSafe(this.unrtfPath, "unrtf"), args);
 
 			let stdOut = "";
 			let stdErr = "";

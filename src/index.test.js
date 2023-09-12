@@ -6,7 +6,7 @@ const { execFile } = require("node:child_process");
 const { promisify } = require("node:util");
 const isHtml = require("is-html");
 const { gt, lt } = require("semver");
-const path = require("upath");
+const { joinSafe } = require("upath");
 const generateCombos = require("../test_resources/utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
@@ -15,13 +15,7 @@ const { UnRTF } = require("./index");
 const testDirectory = `${__dirname}/../test_resources/test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
-const windowsPath = path.joinSafe(
-	__dirname,
-	"lib",
-	"win32",
-	"unrtf-0.19.3",
-	"bin"
-);
+const windowsPath = joinSafe(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
 let testBinaryPath;
 switch (process.platform) {
 	// macOS
@@ -86,7 +80,7 @@ describe("Convert function", () => {
 
 	beforeAll(async () => {
 		const { stderr } = await execFileAsync(
-			path.joinSafe(testBinaryPath, "unrtf"),
+			joinSafe(testBinaryPath, "unrtf"),
 			["--version"]
 		);
 		version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
