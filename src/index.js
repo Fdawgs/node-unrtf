@@ -73,9 +73,7 @@ function parseOptions(acceptedOptions, options, version) {
 }
 
 class UnRTF {
-	/**
-	 * @param {string} [binPath] - Path of UnRTF binary.
-	 */
+	/** @param {string} [binPath] - Path of UnRTF binary. */
 	constructor(binPath) {
 		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
