@@ -13,14 +13,16 @@ const execFileAsync = promisify(execFile);
  * @description Checks each option provided is valid, of the correct type, and can be used by specified
  * version of binary.
  * @ignore
- * @param {object} acceptedOptions - Object containing options that a binary accepts.
- * @param {object} options - Object containing options to pass to binary.
+ * @param {{[key: string]: {arg: string, type: string, minVersion: string, maxVersion?: string}}} acceptedOptions - Object containing accepted options.
+ * @param {{[key: string]: any}} options - Object containing options to pass to binary.
  * @param {string} [version] - Semantic version of binary.
  * @returns {string[]} Array of CLI arguments.
  * @throws If invalid arguments provided.
  */
 function parseOptions(acceptedOptions, options, version) {
+	/** @type {string[]} */
 	const args = [];
+	/** @type {string[]} */
 	const invalidArgs = [];
 	Object.keys(options).forEach((key) => {
 		if (Object.hasOwn(acceptedOptions, key)) {
@@ -53,6 +55,7 @@ function parseOptions(acceptedOptions, options, version) {
 			if (
 				acceptedOptions[key].maxVersion &&
 				version &&
+				// @ts-ignore: type checking is done above
 				gt(version, acceptedOptions[key].maxVersion)
 			) {
 				invalidArgs.push(
@@ -187,6 +190,7 @@ class UnRTF {
 		 * v0.19.3 returns "0.19.3\r\n"
 		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
 		 */
+		// @ts-ignore: parseOptions checks if falsy
 		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
 
 		const args = parseOptions(acceptedOptions, options, versionInfo);
