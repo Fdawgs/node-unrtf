@@ -90,7 +90,7 @@
 		"license-checker": "^25.0.1",
 		"prettier": "^3.0.2",
 		"spdx-copyleft": "^1.0.0",
-		"typescript": "^5.1.6"
+		"typescript": "^5.2.2"
 	},
 	"dependencies": {
 		"semver": "^7.5.4",

@@ -1,8 +1,6 @@
 export default UnRTF;
 export class UnRTF {
-	/**
-	 * @param {string} [binPath] - Path of UnRTF binary.
-	 */
+	/** @param {string} [binPath] - Path of UnRTF binary. */
 	constructor(binPath?: string | undefined);
 	unrtfPath: string;
 	/**
