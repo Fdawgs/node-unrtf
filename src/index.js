@@ -13,49 +13,62 @@ const execFileAsync = promisify(execFile);
  * @description Checks each option provided is valid, of the correct type, and can be used by specified
  * version of binary.
  * @ignore
- * @param {object} acceptedOptions - Object containing options that a binary accepts.
+ * @param {object} acceptedOptions - Object containing accepted options.
  * @param {object} options - Object containing options to pass to binary.
  * @param {string} [version] - Semantic version of binary.
  * @returns {string[]} Array of CLI arguments.
  * @throws If invalid arguments provided.
  */
 function parseOptions(acceptedOptions, options, version) {
+	/** @type {string[]} */
 	const args = [];
+	/** @type {string[]} */
 	const invalidArgs = [];
 	Object.keys(options).forEach((key) => {
-		if (Object.prototype.hasOwnProperty.call(acceptedOptions, key)) {
+		if (Object.hasOwn(acceptedOptions, key)) {
+			// @ts-ignore
 			// eslint-disable-next-line valid-typeof
 			if (typeof options[key] === acceptedOptions[key].type) {
 				// Skip boolean options if false
+				// @ts-ignore
 				if (acceptedOptions[key].type === "boolean" && !options[key]) {
 					return;
 				}
+				// @ts-ignore
 				args.push(acceptedOptions[key].arg);
 			} else {
 				invalidArgs.push(
 					`Invalid value type provided for option '${key}', expected ${
+						// @ts-ignore
 						acceptedOptions[key].type
+						// @ts-ignore
 					} but received ${typeof options[key]}`
 				);
 			}
 
 			if (
+				// @ts-ignore
 				acceptedOptions[key].minVersion &&
 				version &&
+				// @ts-ignore
 				lt(version, acceptedOptions[key].minVersion)
 			) {
 				invalidArgs.push(
+					// @ts-ignore
 					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
 				);
 			}
 
 			/* istanbul ignore next: requires incredibly old version of UnRTF to test */
 			if (
+				// @ts-ignore
 				acceptedOptions[key].maxVersion &&
 				version &&
+				// @ts-ignore: type checking is done above
 				gt(version, acceptedOptions[key].maxVersion)
 			) {
 				invalidArgs.push(
+					// @ts-ignore
 					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
 				);
 			}
@@ -70,9 +83,7 @@ function parseOptions(acceptedOptions, options, version) {
 }
 
 class UnRTF {
-	/**
-	 * @param {string} [binPath] - Path of UnRTF binary.
-	 */
+	/** @param {string} [binPath] - Path of UnRTF binary. */
 	constructor(binPath) {
 		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
@@ -187,6 +198,7 @@ class UnRTF {
 		 * v0.19.3 returns "0.19.3\r\n"
 		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
 		 */
+		// @ts-ignore: parseOptions checks if falsy
 		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
 
 		const args = parseOptions(acceptedOptions, options, versionInfo);
