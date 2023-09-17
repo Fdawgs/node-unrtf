@@ -23,7 +23,7 @@ function parseOptions(acceptedOptions, options, version) {
 	const args = [];
 	const invalidArgs = [];
 	Object.keys(options).forEach((key) => {
-		if (Object.prototype.hasOwnProperty.call(acceptedOptions, key)) {
+		if (Object.hasOwn(acceptedOptions, key)) {
 			// eslint-disable-next-line valid-typeof
 			if (typeof options[key] === acceptedOptions[key].type) {
 				// Skip boolean options if false
