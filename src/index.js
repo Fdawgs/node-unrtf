@@ -8,6 +8,10 @@ const { joinSafe, normalizeTrim } = require("upath");
 
 const execFileAsync = promisify(execFile);
 
+const errorMessages = {
+	unk: "Unknown error",
+};
+
 /**
  * @author Frazer Smith
  * @description Checks each option provided is valid, of the correct type, and can be used by specified
@@ -208,12 +212,18 @@ class UnRTF {
 				stdErr += data;
 			});
 
-			child.on("close", () => {
+			child.on("close", (code) => {
 				/* istanbul ignore else */
 				if (stdOut !== "") {
 					resolve(stdOut.trim());
+				} else if (stdErr !== "") {
+					reject(new Error(stdErr.trim()));
 				} else {
-					reject(new Error(stdErr ? stdErr.trim() : undefined));
+					reject(
+						new Error(
+							code ? errorMessages[code] : errorMessages.unk
+						)
+					);
 				}
 			});
 		});
