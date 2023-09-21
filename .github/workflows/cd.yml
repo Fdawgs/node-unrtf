@@ -20,6 +20,9 @@ jobs:
         name: Create/Update Release Pull Request
         runs-on: ubuntu-latest
         steps:
+            - name: Monitor permissions
+              uses: GitHubSecurityLab/actions-permissions/monitor@v1
+
             - name: Release Please
               id: release
               uses: google-github-actions/release-please-action@v3
