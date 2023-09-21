@@ -92,9 +92,16 @@ const options = {
 	outputHtml: true,
 };
 
-unRTF.convert(file, options).then((res) => {
-	console.log(res);
-});
+unRTF
+	.convert(file, options)
+	.then((res) => {
+		console.log(res);
+		return res;
+	})
+	.catch((err) => {
+		console.error(err);
+		throw err;
+	});
 ```
 
 ## Contributing
