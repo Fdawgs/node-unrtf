@@ -2,6 +2,58 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0](https://github.com/Fdawgs/node-unrtf/compare/v3.1.7...v4.0.0) (2023-09-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* dropped support for EOL node 14 and 16
+
+### Bug fixes
+
+* **index:** type build ([1a25f55](https://github.com/Fdawgs/node-unrtf/commit/1a25f55e195b672f3bb95d3a4601b80ac0d96cf9))
+
+
+### Dependencies
+
+* **deps-dev:** add @types/jest ([9499665](https://github.com/Fdawgs/node-unrtf/commit/949966531803e0be01e5b2c9917975a825fdfc36))
+* **deps-dev:** bump dev dependencies ([78801a8](https://github.com/Fdawgs/node-unrtf/commit/78801a8a31d3b288b465cae78e00448a1dd719e1))
+
+
+### Miscellaneous
+
+* **.eslintrc:** bump ecmaversion to 2023 ([552b51b](https://github.com/Fdawgs/node-unrtf/commit/552b51bf48a6d4a48a567b5aacffe199cad36bef))
+* add missing `.gitattributes` file ([c91218b](https://github.com/Fdawgs/node-unrtf/commit/c91218b469b51c1f168e456d440aed9260dd2193))
+* change comment blocks with one line into single block ([794a75f](https://github.com/Fdawgs/node-unrtf/commit/794a75f0d2ac87a0b33db07f471463af55452ecf))
+* destruct upath module import ([#316](https://github.com/Fdawgs/node-unrtf/issues/316)) ([8ae0fdc](https://github.com/Fdawgs/node-unrtf/commit/8ae0fdc90955e8e1f261b6d146030948b75c564c))
+* drop support for node 14 and 16 ([#317](https://github.com/Fdawgs/node-unrtf/issues/317)) ([680aa50](https://github.com/Fdawgs/node-unrtf/commit/680aa50c0bda79b16f3ae2d8bbe43c844d2fbd6c))
+* **index:** add seg fault error code ([07510c1](https://github.com/Fdawgs/node-unrtf/commit/07510c166fa898725c0a23100a30a19e0e2b6eb0))
+* **package:** explicitly declare js module type ([e43ea37](https://github.com/Fdawgs/node-unrtf/commit/e43ea37b82c51b01ee318f5b191933d9dcf9612b))
+* **scripts/license-checker:** declare `copyLeftLicenses` type ([0b7e98b](https://github.com/Fdawgs/node-unrtf/commit/0b7e98b98f57bf53afbd28a3bfb65ff1d1f4889f))
+* **scripts/license-checker:** ignore invalid ts error ([57f79e9](https://github.com/Fdawgs/node-unrtf/commit/57f79e99897212661919f6cb21f441e519d319ae))
+* **tsconfig:** disable strict mode ([#319](https://github.com/Fdawgs/node-unrtf/issues/319)) ([fd6f241](https://github.com/Fdawgs/node-unrtf/commit/fd6f24142a5b3dd756c57c9f6ceca1e9af3d3b63))
+* **tsconfig:** enable checkJs compiler option ([f2502e6](https://github.com/Fdawgs/node-unrtf/commit/f2502e692af6bc44e9b8d7d016c4cb804541eae1))
+* **tsconfig:** set module to nodenext ([25254c2](https://github.com/Fdawgs/node-unrtf/commit/25254c2a6dea0fc01346c699822ddae58670a557))
+* use `[@see](https://github.com/see)` jsdoc tag for inline comment links ([cf7c27d](https://github.com/Fdawgs/node-unrtf/commit/cf7c27d65249d7cb2393fe5df5f8516414a8cae7))
+
+
+### Continuous integration
+
+* **deps:** bump actions/checkout from 3 to 4 ([#322](https://github.com/Fdawgs/node-unrtf/issues/322)) ([4f8e2a5](https://github.com/Fdawgs/node-unrtf/commit/4f8e2a5b39bbe0d7ae82a77462f0ba2ca792646e))
+* **deps:** bump coverallsapp/github-action from 2.2.1 to 2.2.3 ([#323](https://github.com/Fdawgs/node-unrtf/issues/323)) ([327547e](https://github.com/Fdawgs/node-unrtf/commit/327547e901bf4363ad1fb3b248522ded28d1fc47))
+
+
+### Improvements
+
+* **index:** replace `hasOwnProperty.call()` with `hasOwn()` ([fbedb02](https://github.com/Fdawgs/node-unrtf/commit/fbedb02e6a4bfe71180f42f253d9b871c9bc45d0))
+* **index:** return error messages ([#320](https://github.com/Fdawgs/node-unrtf/issues/320)) ([df842df](https://github.com/Fdawgs/node-unrtf/commit/df842dfaa7342f18d22b2e662321578914ebf31c))
+* use `node:` prefix to bypass require.cache call for builtins ([db1b1a8](https://github.com/Fdawgs/node-unrtf/commit/db1b1a8c053a489041a69c3a1496fad9c51ed976))
+
+
+### Documentation
+
+* **readme:** update chaining example with `.catch()` ([a925c05](https://github.com/Fdawgs/node-unrtf/commit/a925c05de96df0034d00180388dc6c6a387c287e))
+
 ## [3.1.7](https://github.com/Fdawgs/node-unrtf/compare/v3.1.6...v3.1.7) (2023-08-16)
 
 
