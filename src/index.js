@@ -9,6 +9,7 @@ const { joinSafe, normalizeTrim } = require("upath");
 const execFileAsync = promisify(execFile);
 
 const errorMessages = {
+	3221225477: "Segmentation fault",
 	unk: "Unknown error",
 };
 
