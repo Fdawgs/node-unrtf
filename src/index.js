@@ -1,12 +1,9 @@
 "use strict";
 
-const { execFile, spawn, spawnSync } = require("node:child_process");
-const { promisify } = require("node:util");
+const { spawn, spawnSync } = require("node:child_process");
 const { readFile } = require("node:fs/promises");
 const { gt, lt } = require("semver");
 const { joinSafe, normalizeTrim } = require("upath");
-
-const execFileAsync = promisify(execFile);
 
 const errorMessages = {
 	3221225477: "Segmentation fault",
@@ -81,12 +78,14 @@ class UnRTF {
 	 * @param {string} [binPath] - Path of UnRTF binary.
 	 * If not provided, the constructor will attempt to find the binary
 	 * in the PATH environment variable.
-	 * For `win32` the binary is bundled with the package and will be used
+	 *
+	 * For `win32`, a binary is bundled with the package and will be used
 	 * if a local installation is not found.
 	 */
 	constructor(binPath) {
 		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
+			/** @type {string|undefined} */
 			this.unrtfPath = binPath;
 		} else {
 			const { platform } = process;
@@ -121,8 +120,19 @@ class UnRTF {
 				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
-
 		this.unrtfPath = normalizeTrim(this.unrtfPath);
+
+		/**
+		 * Get version of UnRTF binary for use in `convert` function.
+		 * UnRTF outputs the version into stderr:
+		 * v0.19.3 returns "0.19.3\r\n"
+		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
+		 */
+		const version = spawnSync(joinSafe(this.unrtfPath, "unrtf"), [
+			"--version",
+		]).stderr.toString();
+		/** @type {string|undefined} */
+		this.unrtfVersion = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(version)?.[1];
 	}
 
 	/**
@@ -210,20 +220,7 @@ class UnRTF {
 			);
 		}
 
-		const { stderr } = await execFileAsync(
-			joinSafe(this.unrtfPath, "unrtf"),
-			["--version"]
-		);
-
-		/**
-		 * UnRTF outputs the version into stderr:
-		 * v0.19.3 returns "0.19.3\r\n"
-		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
-		 */
-		// @ts-ignore: parseOptions checks if falsy
-		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
-
-		const args = parseOptions(acceptedOptions, options, versionInfo);
+		const args = parseOptions(acceptedOptions, options, this.unrtfVersion);
 		args.push(normalizeTrim(file));
 
 		return new Promise((resolve, reject) => {
