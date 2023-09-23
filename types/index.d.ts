@@ -1,7 +1,7 @@
 export default UnRTF;
 export class UnRTF {
 	/** @param {string} [binPath] - Path of UnRTF binary. */
-	constructor(binPath?: string | undefined);
+	constructor(binPath?: string);
 	unrtfPath: string;
 	/**
 	 * @author Frazer Smith
@@ -27,20 +27,18 @@ export class UnRTF {
 	 */
 	convert(
 		file: string,
-		options?:
-			| {
-					noPictures?: boolean | undefined;
-					noRemap?: boolean | undefined;
-					outputHtml?: boolean | undefined;
-					outputLatex?: boolean | undefined;
-					outputPs?: boolean | undefined;
-					outputRtf?: boolean | undefined;
-					outputText?: boolean | undefined;
-					outputVt?: boolean | undefined;
-					outputWpml?: boolean | undefined;
-					printVersionInfo?: boolean | undefined;
-					quiet?: boolean | undefined;
-			  }
-			| undefined
+		options?: {
+			noPictures?: boolean;
+			noRemap?: boolean;
+			outputHtml?: boolean;
+			outputLatex?: boolean;
+			outputPs?: boolean;
+			outputRtf?: boolean;
+			outputText?: boolean;
+			outputVt?: boolean;
+			outputWpml?: boolean;
+			printVersionInfo?: boolean;
+			quiet?: boolean;
+		}
 	): Promise<string>;
 }
