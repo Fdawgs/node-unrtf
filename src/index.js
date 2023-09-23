@@ -10,7 +10,6 @@ const execFileAsync = promisify(execFile);
 
 const errorMessages = {
 	3221225477: "Segmentation fault",
-	unk: "Unknown error",
 };
 
 /**
@@ -222,7 +221,10 @@ class UnRTF {
 				} else {
 					reject(
 						new Error(
-							code ? errorMessages[code] : errorMessages.unk
+							errorMessages[code] ||
+								`unrtf ${args.join(
+									" "
+								)} exited with code ${code}`
 						)
 					);
 				}
