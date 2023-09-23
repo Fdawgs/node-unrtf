@@ -1,6 +1,6 @@
 "use strict";
 
-const { execFile, spawn } = require("node:child_process");
+const { execFile, spawn, spawnSync } = require("node:child_process");
 const { promisify } = require("node:util");
 const { readFile } = require("node:fs/promises");
 const { gt, lt } = require("semver");
@@ -77,24 +77,52 @@ function parseOptions(acceptedOptions, options, version) {
 }
 
 class UnRTF {
-	/** @param {string} [binPath] - Path of UnRTF binary. */
+	/**
+	 * @param {string} [binPath] - Path of UnRTF binary.
+	 * If not provided, the constructor will attempt to find the binary
+	 * in the PATH environment variable.
+	 * For `win32` the binary is bundled with the package and will be used
+	 * if a local installation is not found.
+	 */
 	constructor(binPath) {
 		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
-			this.unrtfPath = normalizeTrim(binPath);
-		} else if (process.platform === "win32") {
-			this.unrtfPath = joinSafe(
-				__dirname,
-				"lib",
-				"win32",
-				"unrtf-0.19.3",
-				"bin"
-			);
+			this.unrtfPath = binPath;
 		} else {
+			const { platform } = process;
+
+			const which = spawnSync(platform === "win32" ? "where" : "which", [
+				"unrtf",
+			]).stdout.toString();
+			const unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
+
+			switch (platform) {
+				case "win32":
+					this.unrtfPath =
+						unrtfPath ||
+						joinSafe(
+							__dirname,
+							"lib",
+							"win32",
+							"unrtf-0.19.3",
+							"bin"
+						);
+					break;
+				case "darwin":
+				case "linux":
+				default:
+					this.unrtfPath = unrtfPath;
+					break;
+			}
+		}
+
+		if (!this.unrtfPath) {
 			throw new Error(
-				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
+
+		this.unrtfPath = normalizeTrim(this.unrtfPath);
 	}
 
 	/**

@@ -15,7 +15,6 @@ const { UnRTF } = require("./index");
 const testDirectory = `${__dirname}/../test_resources/test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
-const windowsPath = joinSafe(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
 let testBinaryPath;
 switch (process.platform) {
 	// macOS
@@ -30,7 +29,13 @@ switch (process.platform) {
 	// Windows OS
 	case "win32":
 	default:
-		testBinaryPath = windowsPath;
+		testBinaryPath = joinSafe(
+			__dirname,
+			"lib",
+			"win32",
+			"unrtf-0.19.3",
+			"bin"
+		);
 		break;
 }
 
@@ -49,16 +54,12 @@ describe("Constructor", () => {
 		});
 	});
 
-	it("Creates a new UnRTF instance without the binary path set on win32", () => {
-		Object.defineProperty(process, "platform", {
-			value: "win32",
-		});
-
+	it("Creates a new UnRTF instance without the binary path set", () => {
 		const unRtf = new UnRTF();
-		expect(unRtf.unrtfPath).toBe(windowsPath);
+		expect(unRtf.unrtfPath).toBe(testBinaryPath);
 	});
 
-	it("Throws an Error if the binary path is not set and the platform is not win32", () => {
+	it("Throws an Error if the binary path is not set and the platform is not supported", () => {
 		Object.defineProperty(process, "platform", {
 			value: "mockOS",
 		});
@@ -69,7 +70,7 @@ describe("Constructor", () => {
 			const unRtf = new UnRTF();
 		} catch (err) {
 			expect(err.message).toBe(
-				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
 	});
