@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.1](https://github.com/Fdawgs/node-unrtf/compare/v4.0.0...v4.0.1) (2023-09-23)
+
+
+### Miscellaneous
+
+* **.gitattributes:** auto lf eol all files ([baacf05](https://github.com/Fdawgs/node-unrtf/commit/baacf05475767dc2a4398b70c874ab1a82e79118))
+* **tsconfig:** target es2022 ([0284215](https://github.com/Fdawgs/node-unrtf/commit/0284215989abe35e61b6e3bd6530d9901478ce37))
+
+
+### Continuous integration
+
+* **dependabot:** group dependabot updates ([0ad4307](https://github.com/Fdawgs/node-unrtf/commit/0ad43079ccea8d4bc8caca691f12d1f17a05f64e))
+
 ## [4.0.0](https://github.com/Fdawgs/node-unrtf/compare/v3.1.7...v4.0.0) (2023-09-21)
 
 
