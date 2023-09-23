@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.2](https://github.com/Fdawgs/node-unrtf/compare/v4.0.1...v4.0.2) (2023-09-23)
+
+
+### Bug fixes
+
+* **index:** do not mask error code if unknown ([70c4a11](https://github.com/Fdawgs/node-unrtf/commit/70c4a117c5cd19548fd5fb507b1af3477337d06a))
+
 ## [4.0.1](https://github.com/Fdawgs/node-unrtf/compare/v4.0.0...v4.0.1) (2023-09-23)
 
 
