@@ -1,12 +1,9 @@
 "use strict";
 
-const { execFile, spawn } = require("node:child_process");
-const { promisify } = require("node:util");
+const { spawn, spawnSync } = require("node:child_process");
 const { readFile } = require("node:fs/promises");
 const { gt, lt } = require("semver");
 const { joinSafe, normalizeTrim } = require("upath");
-
-const execFileAsync = promisify(execFile);
 
 const errorMessages = {
 	3221225477: "Segmentation fault",
@@ -77,24 +74,59 @@ function parseOptions(acceptedOptions, options, version) {
 }
 
 class UnRTF {
-	/** @param {string} [binPath] - Path of UnRTF binary. */
+	/**
+	 * @param {string} [binPath] - Path of UnRTF binary.
+	 * If not provided, the constructor will attempt to find the binary
+	 * in the PATH environment variable.
+	 *
+	 * For `win32`, a binary is bundled with the package and will be used
+	 * if a local installation is not found.
+	 */
 	constructor(binPath) {
 		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
-			this.unrtfPath = normalizeTrim(binPath);
-		} else if (process.platform === "win32") {
-			this.unrtfPath = joinSafe(
-				__dirname,
-				"lib",
-				"win32",
-				"unrtf-0.19.3",
-				"bin"
-			);
+			/** @type {string|undefined} */
+			this.unrtfPath = binPath;
 		} else {
+			const { platform } = process;
+
+			const which = spawnSync(platform === "win32" ? "where" : "which", [
+				"unrtf",
+			]).stdout.toString();
+			const unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
+
+			if (unrtfPath) {
+				this.unrtfPath = unrtfPath;
+			}
+			if (platform === "win32" && !unrtfPath) {
+				this.unrtfPath = joinSafe(
+					__dirname,
+					"lib",
+					"win32",
+					"unrtf-0.19.3",
+					"bin"
+				);
+			}
+		}
+
+		if (!this.unrtfPath) {
 			throw new Error(
-				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
+		this.unrtfPath = normalizeTrim(this.unrtfPath);
+
+		/**
+		 * Get version of UnRTF binary for use in `convert` function.
+		 * UnRTF outputs the version into stderr:
+		 * v0.19.3 returns "0.19.3\r\n"
+		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
+		 */
+		const version = spawnSync(joinSafe(this.unrtfPath, "unrtf"), [
+			"--version",
+		]).stderr.toString();
+		/** @type {string|undefined} */
+		this.unrtfVersion = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(version)?.[1];
 	}
 
 	/**
@@ -182,20 +214,7 @@ class UnRTF {
 			);
 		}
 
-		const { stderr } = await execFileAsync(
-			joinSafe(this.unrtfPath, "unrtf"),
-			["--version"]
-		);
-
-		/**
-		 * UnRTF outputs the version into stderr:
-		 * v0.19.3 returns "0.19.3\r\n"
-		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
-		 */
-		// @ts-ignore: parseOptions checks if falsy
-		const versionInfo = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
-
-		const args = parseOptions(acceptedOptions, options, versionInfo);
+		const args = parseOptions(acceptedOptions, options, this.unrtfVersion);
 		args.push(normalizeTrim(file));
 
 		return new Promise((resolve, reject) => {

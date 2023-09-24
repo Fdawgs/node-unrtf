@@ -1,4 +1,4 @@
-/* eslint-disable jest/no-conditional-expect */
+/* eslint-disable global-require, jest/no-conditional-expect */
 
 "use strict";
 
@@ -15,7 +15,6 @@ const { UnRTF } = require("./index");
 const testDirectory = `${__dirname}/../test_resources/test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
-const windowsPath = joinSafe(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
 let testBinaryPath;
 switch (process.platform) {
 	// macOS
@@ -30,14 +29,20 @@ switch (process.platform) {
 	// Windows OS
 	case "win32":
 	default:
-		testBinaryPath = windowsPath;
+		testBinaryPath = joinSafe(
+			__dirname,
+			"lib",
+			"win32",
+			"unrtf-0.19.3",
+			"bin"
+		);
 		break;
 }
 
 describe("Constructor", () => {
 	let platform;
 
-	beforeEach(() => {
+	beforeAll(() => {
 		// Copy the process platform
 		({ platform } = process);
 	});
@@ -49,27 +54,41 @@ describe("Constructor", () => {
 		});
 	});
 
-	it("Creates a new UnRTF instance without the binary path set on win32", () => {
-		Object.defineProperty(process, "platform", {
-			value: "win32",
-		});
-
+	it("Creates a new UnRTF instance without the binary path set", () => {
 		const unRtf = new UnRTF();
-		expect(unRtf.unrtfPath).toBe(windowsPath);
+		expect(unRtf.unrtfPath).toBe(testBinaryPath);
 	});
 
-	it("Throws an Error if the binary path is not set and the platform is not win32", () => {
+	/**
+	 * @todo Fix this test, mocking of "node:" scheme not supported yet
+	 * @see {@link https://github.com/jestjs/jest/pull/14297 | Jest PR #14297}
+	 */
+	// eslint-disable-next-line jest/no-disabled-tests
+	it.skip("Throws an Error if the binary path is not found", () => {
 		Object.defineProperty(process, "platform", {
 			value: "mockOS",
 		});
 
+		// Ensure the mock is used by the UnRTF constructor
+		jest.resetModules();
+		jest.mock("node:child_process", () => ({
+			spawnSync: jest.fn(() => ({
+				stdout: {
+					toString: () => "",
+				},
+			})),
+		}));
+		// eslint-disable-next-line security/detect-child-process
+		require("node:child_process");
+		const { UnRTF: UnRTFMock } = require("./index");
+
 		expect.assertions(1);
 		try {
 			// eslint-disable-next-line no-unused-vars
-			const unRtf = new UnRTF();
+			const unRtf = new UnRTFMock();
 		} catch (err) {
 			expect(err.message).toBe(
-				`${process.platform} UnRTF binaries are not provided, please pass the installation directory as a parameter to the UnRTF instance.`
+				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
 	});
