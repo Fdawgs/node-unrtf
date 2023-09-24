@@ -95,23 +95,17 @@ class UnRTF {
 			]).stdout.toString();
 			const unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
 
-			switch (platform) {
-				case "win32":
-					this.unrtfPath =
-						unrtfPath ||
-						joinSafe(
-							__dirname,
-							"lib",
-							"win32",
-							"unrtf-0.19.3",
-							"bin"
-						);
-					break;
-				case "darwin":
-				case "linux":
-				default:
-					this.unrtfPath = unrtfPath;
-					break;
+			if (unrtfPath) {
+				this.unrtfPath = unrtfPath;
+			}
+			if (platform === "win32" && !unrtfPath) {
+				this.unrtfPath = joinSafe(
+					__dirname,
+					"lib",
+					"win32",
+					"unrtf-0.19.3",
+					"bin"
+				);
 			}
 		}
 
