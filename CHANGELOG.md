@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0](https://github.com/Fdawgs/node-unrtf/compare/v4.0.2...v4.1.0) (2023-09-25)
+
+
+### Features
+
+* **index:** use binary from path env variable if not passed as param ([402289b](https://github.com/Fdawgs/node-unrtf/commit/402289b6e1013a3707b7ee5f0319d93488c1bc64))
+
+
+### Dependencies
+
+* **deps-dev:** bump eslint from 8.49.0 to 8.50.0 ([9c0c7fd](https://github.com/Fdawgs/node-unrtf/commit/9c0c7fd2b8e5f5a56780f582090009c88deeaa70))
+
+
+### Improvements
+
+* **index:** check bin version once on class init, not every func call ([1085984](https://github.com/Fdawgs/node-unrtf/commit/1085984fb808b729f79bd97c423c2bc5df562866))
+* **index:** create `acceptedOptions` obj on init, not every func call ([4a9816b](https://github.com/Fdawgs/node-unrtf/commit/4a9816bfda1de634eb6b774dc426e8ea017a1e86))
+
 ## [4.0.2](https://github.com/Fdawgs/node-unrtf/compare/v4.0.1...v4.0.2) (2023-09-23)
 
 
