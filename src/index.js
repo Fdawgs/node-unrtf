@@ -27,7 +27,7 @@ function parseOptions(acceptedOptions, options, version) {
 	const invalidArgs = [];
 	Object.keys(options).forEach((key) => {
 		if (Object.hasOwn(acceptedOptions, key)) {
-			// eslint-disable-next-line valid-typeof
+			// eslint-disable-next-line valid-typeof -- `type` is a string
 			if (typeof options[key] === acceptedOptions[key].type) {
 				// Skip boolean options if false
 				if (acceptedOptions[key].type === "boolean" && !options[key]) {
@@ -203,7 +203,7 @@ class UnRTF {
 		 */
 		let buff;
 		try {
-			// eslint-disable-next-line security/detect-non-literal-fs-filename
+			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File read is wanted
 			buff = await readFile(normalizeTrim(file));
 		} catch {
 			throw new Error("File missing");

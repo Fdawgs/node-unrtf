@@ -5,6 +5,9 @@
 
 * [UnRTF](#UnRTF)
     * [new UnRTF([binPath])](#new_UnRTF_new)
+    * [.unrtfPath](#UnRTF+unrtfPath) : <code>string</code> \| <code>undefined</code>
+    * [.unrtfVersion](#UnRTF+unrtfVersion) : <code>string</code> \| <code>undefined</code>
+    * [.unrtfAcceptedOptions](#UnRTF+unrtfAcceptedOptions) : <code>object</code>
     * [.convert(file, [options])](#UnRTF+convert) ⇒ <code>Promise.&lt;string&gt;</code>
 
 <a name="new_UnRTF_new"></a>
@@ -13,8 +16,20 @@
 
 | Param | Type | Description |
 | --- | --- | --- |
-| [binPath] | <code>string</code> | Path of UnRTF binary. |
+| [binPath] | <code>string</code> | Path of UnRTF binary. If not provided, the constructor will attempt to find the binary in the PATH environment variable. For `win32`, a binary is bundled with the package and will be used if a local installation is not found. |
 
+<a name="UnRTF+unrtfPath"></a>
+
+### unRTF.unrtfPath : <code>string</code> \| <code>undefined</code>
+**Kind**: instance property of [<code>UnRTF</code>](#UnRTF)  
+<a name="UnRTF+unrtfVersion"></a>
+
+### unRTF.unrtfVersion : <code>string</code> \| <code>undefined</code>
+**Kind**: instance property of [<code>UnRTF</code>](#UnRTF)  
+<a name="UnRTF+unrtfAcceptedOptions"></a>
+
+### unRTF.unrtfAcceptedOptions : <code>object</code>
+**Kind**: instance property of [<code>UnRTF</code>](#UnRTF)  
 <a name="UnRTF+convert"></a>
 
 ### unRTF.convert(file, [options]) ⇒ <code>Promise.&lt;string&gt;</code>
