@@ -1,8 +1,20 @@
 export default UnRTF;
 export class UnRTF {
-	/** @param {string} [binPath] - Path of UnRTF binary. */
+	/**
+	 * @param {string} [binPath] - Path of UnRTF binary.
+	 * If not provided, the constructor will attempt to find the binary
+	 * in the PATH environment variable.
+	 *
+	 * For `win32`, a binary is bundled with the package and will be used
+	 * if a local installation is not found.
+	 */
 	constructor(binPath?: string);
-	unrtfPath: string;
+	/** @type {string|undefined} */
+	unrtfPath: string | undefined;
+	/** @type {string|undefined} */
+	unrtfVersion: string | undefined;
+	/** @type {object} */
+	unrtfAcceptedOptions: object;
 	/**
 	 * @author Frazer Smith
 	 * @description Converts an RTF file to HTML/LaTeX/RTF/TXT.
