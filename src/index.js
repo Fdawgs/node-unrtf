@@ -9,6 +9,10 @@ const errorMessages = {
 	3221225477: "Segmentation fault",
 };
 
+const unrtfPathRegex = /(.+)unrtf/u;
+const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
+const rtfMagicNumberRegex = /^\{\\rtf/u;
+
 /**
  * @author Frazer Smith
  * @description Checks each option provided is valid, of the correct type, and can be used by specified
@@ -93,7 +97,7 @@ class UnRTF {
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
 			]).stdout.toString();
-			const unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
+			const unrtfPath = unrtfPathRegex.exec(which)?.[1];
 
 			if (unrtfPath) {
 				this.unrtfPath = unrtfPath;
@@ -126,7 +130,7 @@ class UnRTF {
 			"--version",
 		]).stderr.toString();
 		/** @type {string|undefined} */
-		this.unrtfVersion = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(version)?.[1];
+		this.unrtfVersion = unrtfVersionRegex.exec(version)?.[1];
 
 		/** @type {object} */
 		this.unrtfAcceptedOptions = {
@@ -209,7 +213,7 @@ class UnRTF {
 			throw new Error("File missing");
 		}
 		// Check for RTF specific magic number
-		if (!/^\{\\rtf/u.test(buff.toString())) {
+		if (!rtfMagicNumberRegex.test(buff.toString())) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
