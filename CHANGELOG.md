@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.1](https://github.com/Fdawgs/node-unrtf/compare/v4.1.0...v4.1.1) (2023-10-23)
+
+
+### Dependencies
+
+* **deps-dev:** add eslint-community/eslint-plugin-eslint-comments ([5e28633](https://github.com/Fdawgs/node-unrtf/commit/5e286336f7afdddcfef3523be78ee5388d3ed1a9))
+
+
+### Miscellaneous
+
+* **.vscode:** add github-markdown-preview to recommended extension ([f1d98f8](https://github.com/Fdawgs/node-unrtf/commit/f1d98f82ed0bcc66b532fc6e4a82787fb5977e4a))
+* **.vscode:** add gitlens to recommended extensions ([879578f](https://github.com/Fdawgs/node-unrtf/commit/879578f29ae840871a0a4acacc642f09fb57269f))
+* **scripts/license-checker:** update link to deprecated list ([46ffc53](https://github.com/Fdawgs/node-unrtf/commit/46ffc5397304754375c87867c3f5bd0e5adf27c0))
+* **tsconfig:** use es2022 lib ([504bc84](https://github.com/Fdawgs/node-unrtf/commit/504bc84bac31e594c656f9af399ffe169db8a1b3))
+
+
+### Improvements
+
+* **index:** cache regex literals ([eb46c0c](https://github.com/Fdawgs/node-unrtf/commit/eb46c0cd794a8254190192706e0ddf170c7c80b5))
+
+
+### Documentation
+
+* **readme:** remove section re passing bin path for unix installs ([99b59d7](https://github.com/Fdawgs/node-unrtf/commit/99b59d758a87ab3face30cce8deb29cefa7fca24))
+
 ## [4.1.0](https://github.com/Fdawgs/node-unrtf/compare/v4.0.2...v4.1.0) (2023-09-25)
 
 
