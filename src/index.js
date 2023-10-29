@@ -9,6 +9,7 @@ const errorMessages = {
 	3221225477: "Segmentation fault",
 };
 
+// Cache immutable regex as they are expensive to create and garbage collect
 const unrtfPathRegex = /(.+)unrtf/u;
 const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 const rtfMagicNumberRegex = /^\{\\rtf/u;
