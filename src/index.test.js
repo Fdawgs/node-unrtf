@@ -115,11 +115,11 @@ describe("Convert function", () => {
 			{ outputVt: true },
 		]);
 
+		const unRtf = new UnRTF(testBinaryPath);
+
 		expect.assertions(optionCombos.length);
 		await Promise.all(
 			optionCombos.map(async (options) => {
-				const unRtf = new UnRTF(testBinaryPath);
-
 				await expect(
 					unRtf.convert(file, options)
 				).resolves.toStrictEqual(expect.any(String));
