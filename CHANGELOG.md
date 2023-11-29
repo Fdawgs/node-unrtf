@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.2](https://github.com/Fdawgs/node-unrtf/compare/v4.1.1...v4.1.2) (2023-11-29)
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([162716c](https://github.com/Fdawgs/node-unrtf/commit/162716c05235aea409ef30c97fd4ed6ced2c4396))
+* **deps-dev:** bump the commitlint group with 2 updates ([#334](https://github.com/Fdawgs/node-unrtf/issues/334)) ([1dd812d](https://github.com/Fdawgs/node-unrtf/commit/1dd812d81a0bfc05a270771cf831aa6de7211edf))
+* **deps-dev:** bump the eslint group with 1 update ([#335](https://github.com/Fdawgs/node-unrtf/issues/335)) ([6adc0a6](https://github.com/Fdawgs/node-unrtf/commit/6adc0a6695c5d7b559c1e6e2df85fb12f1851385))
+* **deps-dev:** remove broken eslint-plugin-security-node ([45e8dcb](https://github.com/Fdawgs/node-unrtf/commit/45e8dcb94ebbf79435063511425fd6f130c0f90d))
+
+
+### Miscellaneous
+
+* **index:** add inline comment explaining regex cache ([5a33b91](https://github.com/Fdawgs/node-unrtf/commit/5a33b916670e5a8917ae0d51a0cff63a624ae405))
+
+
+### Continuous integration
+
+* **deps:** bump actions/github-script from 6 to 7 ([#337](https://github.com/Fdawgs/node-unrtf/issues/337)) ([31972e5](https://github.com/Fdawgs/node-unrtf/commit/31972e5e2c9373bf5c4f94baf8b55c76f759ba3a))
+* **deps:** bump actions/setup-node from 3 to 4 ([#333](https://github.com/Fdawgs/node-unrtf/issues/333)) ([1794f54](https://github.com/Fdawgs/node-unrtf/commit/1794f5441b71ba3143c15905ac1cc547a286f973))
+
+
+### Documentation
+
+* **readme:** fix broken ci badge link ([ba00408](https://github.com/Fdawgs/node-unrtf/commit/ba0040823255a6af116a3bcbacaeec57d266e544))
+* **readme:** fix npm badge ([ec9d90e](https://github.com/Fdawgs/node-unrtf/commit/ec9d90e070ef0133626c8d577a229bbd788c96a3))
+* **readme:** update examples ([26f5fcb](https://github.com/Fdawgs/node-unrtf/commit/26f5fcb0b10e1145659170831c1375f8b6003a69))
+
 ## [4.1.1](https://github.com/Fdawgs/node-unrtf/compare/v4.1.0...v4.1.1) (2023-10-23)
 
 
