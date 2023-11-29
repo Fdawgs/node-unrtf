@@ -57,10 +57,10 @@ const { UnRTF } = require("node-unrtf");
 
 ### Async Await
 
-Example of an `async` `await` call to convert an RTF file to HTML, and then output the result to console:
+Example of an `async` `await` call to convert an RTF file to HTML in an ESM environment:
 
 ```js
-const { UnRTF } = require("node-unrtf");
+import { UnRTF } from "node-unrtf";
 
 const file = "test_document.rtf";
 const unRtf = new UnRTF();
@@ -74,7 +74,7 @@ console.log(res);
 
 ### Promise chaining
 
-Example of calling unRTF.convert with a promise chain:
+Example of calling unRTF.convert with a promise chain in a CJS environment:
 
 ```js
 const { UnRTF } = require("node-unrtf");
