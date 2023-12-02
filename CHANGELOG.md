@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.3](https://github.com/Fdawgs/node-unrtf/compare/v4.1.2...v4.1.3) (2023-12-02)
+
+
+### Continuous integration
+
+* **dependabot:** ignore release-please-action major updates ([9b62424](https://github.com/Fdawgs/node-unrtf/commit/9b624241599aee3a4bdfa69735454693749ed15e))
+
 ## [4.1.2](https://github.com/Fdawgs/node-unrtf/compare/v4.1.1...v4.1.2) (2023-11-29)
 
 
