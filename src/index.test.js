@@ -61,7 +61,7 @@ describe("Constructor", () => {
 	});
 
 	/**
-	 * @todo Fix this test, mocking of "node:" scheme not supported yet
+	 * @todo Fix this test, mocking of "node:" scheme not supported yet.
 	 * @see {@link https://github.com/jestjs/jest/pull/14297 | Jest PR #14297}
 	 */
 	// eslint-disable-next-line jest/no-disabled-tests -- Blocked by Jest PR #14297

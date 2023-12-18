@@ -11,6 +11,7 @@ const errorMessages = {
 
 // Cache immutable regex as they are expensive to create and garbage collect
 const unrtfPathRegex = /(.+)unrtf/u;
+// UnRTF version output is inconsistent between versions but always starts with the semantic version number
 const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 const rtfMagicNumberRegex = /^\{\\rtf/u;
 
@@ -123,9 +124,7 @@ class UnRTF {
 
 		/**
 		 * Get version of UnRTF binary for use in `convert` function.
-		 * UnRTF outputs the version into stderr:
-		 * v0.19.3 returns "0.19.3\r\n"
-		 * v0.21.0 returns "0.21.10\nsearch path is: /usr/share/unrtf/\n"
+		 * UnRTF outputs the version into stderr.
 		 */
 		const version = spawnSync(joinSafe(this.unrtfPath, "unrtf"), [
 			"--version",
@@ -204,7 +203,7 @@ class UnRTF {
 	async convert(file, options = {}) {
 		/**
 		 * UnRTF will attempt to convert empty strings, missing files,
-		 * and non-RTF files. Catch before passing to binary
+		 * and non-RTF files. Catch before passing to binary.
 		 */
 		let buff;
 		try {
