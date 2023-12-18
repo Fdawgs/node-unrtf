@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.3](https://github.com/Fdawgs/node-unrtf/compare/v4.1.2...v4.1.3) (2023-12-18)
+
+
+### Miscellaneous
+
+* jsdoc comments must be complete sentences ([d21ba63](https://github.com/Fdawgs/node-unrtf/commit/d21ba6318375fa93d59c081bbd6b17041011dd04))
+
+
+### Continuous integration
+
+* **dependabot:** ignore release-please-action major updates ([8c78af3](https://github.com/Fdawgs/node-unrtf/commit/8c78af32d608bf39edc79ae6cbd3c617978499ef))
+* **deps:** bump actions/upload-artifact from 3 to 4 ([#343](https://github.com/Fdawgs/node-unrtf/issues/343)) ([85f2c54](https://github.com/Fdawgs/node-unrtf/commit/85f2c54c55753745ddb3e1411d9038450ce5fff3))
+* **deps:** bump github/codeql-action from 2 to 3 ([#342](https://github.com/Fdawgs/node-unrtf/issues/342)) ([43f4436](https://github.com/Fdawgs/node-unrtf/commit/43f4436fb6a14a137f6482ec5c30ae1b47cd006c))
+
 ## [4.1.2](https://github.com/Fdawgs/node-unrtf/compare/v4.1.1...v4.1.2) (2023-11-29)
 
 
