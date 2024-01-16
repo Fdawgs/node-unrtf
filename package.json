@@ -23,7 +23,10 @@
 	"main": "src/index.js",
 	"type": "commonjs",
 	"types": "types/index.d.ts",
-	"repository": "git+https://github.com/Fdawgs/node-unrtf.git",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Fdawgs/node-unrtf.git"
+	},
 	"homepage": "https://github.com/Fdawgs/node-unrtf",
 	"bugs": {
 		"url": "https://github.com/Fdawgs/node-unrtf/issues"
