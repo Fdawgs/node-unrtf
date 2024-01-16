@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.5](https://github.com/Fdawgs/node-unrtf/compare/v4.1.4...v4.1.5) (2024-01-16)
+
+
+### Continuous integration
+
+* **cd:** set github package to public ([c5fb131](https://github.com/Fdawgs/node-unrtf/commit/c5fb1314af81eb8299fb47b5bb7494b7021419d0))
+
 ## [4.1.4](https://github.com/Fdawgs/node-unrtf/compare/v4.1.3...v4.1.4) (2024-01-16)
 
 
