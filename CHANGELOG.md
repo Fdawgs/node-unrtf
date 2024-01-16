@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.3](https://github.com/Fdawgs/node-unrtf/compare/v4.1.2...v4.1.3) (2024-01-16)
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([1f4458e](https://github.com/Fdawgs/node-unrtf/commit/1f4458e061ae3ce529bb290fbc7e2271b3525d22))
+
+
+### Miscellaneous
+
+* **.prettierignore:** ignore auto-generate types ([7ea841d](https://github.com/Fdawgs/node-unrtf/commit/7ea841d1a4e05a62cdedf7c69610c28627cdc6e4))
+* jsdoc comments must be complete sentences ([d21ba63](https://github.com/Fdawgs/node-unrtf/commit/d21ba6318375fa93d59c081bbd6b17041011dd04))
+* **license:** update license year ([9546a48](https://github.com/Fdawgs/node-unrtf/commit/9546a48aa54f296761d35089bd177a017e3d4ae3))
+* **package:** add `lint:fix` script ([02f147d](https://github.com/Fdawgs/node-unrtf/commit/02f147d971d85d8152c807029902233fc37b0d1f))
+* **package:** run `lint:prettier` in `test` script ([4a22932](https://github.com/Fdawgs/node-unrtf/commit/4a2293210a65be4c508280cd1389bbc1b76e9392))
+* use shared files from `fdawgs/.github` ([264b1dd](https://github.com/Fdawgs/node-unrtf/commit/264b1dddb235adc6850831ee1e3dd74d091e9616))
+
+
+### Continuous integration
+
+* **automerge:** optimise inline js scripts ([cafd051](https://github.com/Fdawgs/node-unrtf/commit/cafd051b4a231d76ad763671699d4753ebfac5b2))
+* **cd:** add github packages publish job ([028bd85](https://github.com/Fdawgs/node-unrtf/commit/028bd851f97ea99cd083570c132fe5c9376f5660))
+* **dependabot:** ignore release-please-action major updates ([8c78af3](https://github.com/Fdawgs/node-unrtf/commit/8c78af32d608bf39edc79ae6cbd3c617978499ef))
+* **deps:** bump actions/upload-artifact from 3 to 4 ([#343](https://github.com/Fdawgs/node-unrtf/issues/343)) ([85f2c54](https://github.com/Fdawgs/node-unrtf/commit/85f2c54c55753745ddb3e1411d9038450ce5fff3))
+* **deps:** bump github/codeql-action from 2 to 3 ([#342](https://github.com/Fdawgs/node-unrtf/issues/342)) ([43f4436](https://github.com/Fdawgs/node-unrtf/commit/43f4436fb6a14a137f6482ec5c30ae1b47cd006c))
+
+
+### Documentation
+
+* **readme:** update links ([8ee9a87](https://github.com/Fdawgs/node-unrtf/commit/8ee9a87f6377d00fcf37db1e1a94ab7c160d33c6))
+
 ## [4.1.2](https://github.com/Fdawgs/node-unrtf/compare/v4.1.1...v4.1.2) (2023-11-29)
 
 
