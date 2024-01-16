@@ -96,4 +96,4 @@ jobs:
                   npm i --ignore-scripts
                   npm run build
                   npm pkg delete commitlint devDependencies jest scripts
-                  npm publish --ignore-scripts --provenance
+                  npm publish --ignore-scripts --provenance --access public
