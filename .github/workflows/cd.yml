@@ -29,6 +29,26 @@ jobs:
                   release-type: node
                   package-name: node-unrtf
 
+            - name: Check out repo
+              uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
+                  ref: ${{ github.ref }}
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: lts/*
+
+            - name: Build types and documentation
+              run: |
+                  npm i --ignore-scripts
+                  npm run build
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config user.name "github-actions[bot]"
+                  git commit -am "chore: update types and documentation"
+                  git push
+
     publish-npm:
         name: Publish to NPM
         needs: release
@@ -55,8 +75,6 @@ jobs:
               # Build docs and TS definitions and remove dev values
               # from package.json before publishing to reduce package size
               run: |
-                  npm i --ignore-scripts
-                  npm run build
                   npm pkg delete commitlint devDependencies jest scripts
                   npm publish --ignore-scripts --provenance
 
@@ -92,7 +110,5 @@ jobs:
               # Build docs and TS definitions and remove dev values
               # from package.json before publishing to reduce package size
               run: |
-                  npm i --ignore-scripts
-                  npm run build
                   npm pkg delete commitlint devDependencies jest scripts
                   npm publish --ignore-scripts --provenance
