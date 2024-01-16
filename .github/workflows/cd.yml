@@ -52,7 +52,7 @@ jobs:
             - name: Publish to NPM
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-              # Build docs and TS definitions and remove dev values
+              # Build docs and TS definitions, and remove dev values
               # from package.json before publishing to reduce package size
               run: |
                   npm i --ignore-scripts
@@ -67,6 +67,7 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             contents: read
+            id-token: write
             packages: write
         steps:
             - name: Check out repo
@@ -89,7 +90,7 @@ jobs:
             - name: Publish to GitHub Packages
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              # Build docs and TS definitions and remove dev values
+              # Build docs and TS definitions, and remove dev values
               # from package.json before publishing to reduce package size
               run: |
                   npm i --ignore-scripts
