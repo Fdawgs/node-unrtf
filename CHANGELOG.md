@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.4](https://github.com/Fdawgs/node-unrtf/compare/v4.1.3...v4.1.4) (2024-01-16)
+
+
+### Miscellaneous
+
+* **package:** fix `repository` structure ([9a7a9bc](https://github.com/Fdawgs/node-unrtf/commit/9a7a9bc23fcdb74bb729918de29921f124c8722b))
+
+
+### Continuous integration
+
+* **cd:** add missing `id-token` for github package job ([c9b7667](https://github.com/Fdawgs/node-unrtf/commit/c9b766703eef3b9603e3f5ba9f5cf17e57446285))
+
 ## [4.1.3](https://github.com/Fdawgs/node-unrtf/compare/v4.1.2...v4.1.3) (2024-01-16)
 
 
