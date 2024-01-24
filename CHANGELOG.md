@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.6](https://github.com/Fdawgs/node-unrtf/compare/v4.1.5...v4.1.6) (2024-01-24)
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([788cc97](https://github.com/Fdawgs/node-unrtf/commit/788cc97b0987c4d42e8c05ccd34eac9980c5b21f))
+
+
+### Miscellaneous
+
+* **.vscode:** use local prettier version ([ffcf4ed](https://github.com/Fdawgs/node-unrtf/commit/ffcf4ed85718a0bb0a07471b2b270e351a4903d6))
+* **scripts/license-checker:** handle old license arrays or missing ([ba2420d](https://github.com/Fdawgs/node-unrtf/commit/ba2420dc0b43a7904a1763e06d457d4f56d37a0a))
+* **tsconfig:** remove `lib`; `target` will be used in absence ([168250f](https://github.com/Fdawgs/node-unrtf/commit/168250fb2bd3ade3bd5002d1484d8ecb16702273))
+
+
+### Continuous integration
+
+* **cd:** param order ([6debe1b](https://github.com/Fdawgs/node-unrtf/commit/6debe1b46bda7e634e698e9639bb45e7d070e781))
+
 ## [4.1.5](https://github.com/Fdawgs/node-unrtf/compare/v4.1.4...v4.1.5) (2024-01-16)
 
 
