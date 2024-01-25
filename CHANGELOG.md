@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.7](https://github.com/Fdawgs/node-unrtf/compare/v4.1.6...v4.1.7) (2024-01-25)
+
+
+### Continuous integration
+
+* **cd:** use `main` environment for publish-npm job ([014981c](https://github.com/Fdawgs/node-unrtf/commit/014981cc1d0b72fcb37b8e0901bacc76e86348b5))
+
 ## [4.1.6](https://github.com/Fdawgs/node-unrtf/compare/v4.1.5...v4.1.6) (2024-01-24)
 
 
