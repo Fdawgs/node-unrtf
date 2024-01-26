@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.7](https://github.com/Fdawgs/node-unrtf/compare/v4.1.6...v4.1.7) (2024-01-26)
+
+
+### Dependencies
+
+* **deps-dev:** bump husky from 8.0.3 to 9.0.6 ([#358](https://github.com/Fdawgs/node-unrtf/issues/358)) ([ce62a47](https://github.com/Fdawgs/node-unrtf/commit/ce62a47fcd680a14cebf598d3c7032e38d853790))
+
+
+### Miscellaneous
+
+* **.husky:** migrate hooks to v9 style ([d12a911](https://github.com/Fdawgs/node-unrtf/commit/d12a9115dfb9b9be2abd55b5ff1f258c698ddc42))
+
+
+### Continuous integration
+
+* **cd:** use `main` environment for publish-npm job ([014981c](https://github.com/Fdawgs/node-unrtf/commit/014981cc1d0b72fcb37b8e0901bacc76e86348b5))
+* **deps:** bump actions/dependency-review-action from 3 to 4 ([#357](https://github.com/Fdawgs/node-unrtf/issues/357)) ([8533389](https://github.com/Fdawgs/node-unrtf/commit/8533389d3459f0b5f88d86885032beafba561dff))
+
 ## [4.1.6](https://github.com/Fdawgs/node-unrtf/compare/v4.1.5...v4.1.6) (2024-01-24)
 
 
