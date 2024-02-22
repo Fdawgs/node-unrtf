@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.7](https://github.com/Fdawgs/node-unrtf/compare/v4.1.6...v4.1.7) (2024-02-22)
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([598315a](https://github.com/Fdawgs/node-unrtf/commit/598315a9b5c1f69511f4da776beef9d9f9fee7da))
+* **deps-dev:** bump husky from 8.0.3 to 9.0.6 ([#358](https://github.com/Fdawgs/node-unrtf/issues/358)) ([ce62a47](https://github.com/Fdawgs/node-unrtf/commit/ce62a47fcd680a14cebf598d3c7032e38d853790))
+* **deps:** bump semver from 7.5.4 to 7.6.0 ([35d25c9](https://github.com/Fdawgs/node-unrtf/commit/35d25c99942082722fc087eb4b9ea7c834d42748))
+
+
+### Miscellaneous
+
+* **.husky:** migrate hooks to v9 style ([d12a911](https://github.com/Fdawgs/node-unrtf/commit/d12a9115dfb9b9be2abd55b5ff1f258c698ddc42))
+* **.vscode:** fix `prettier.prettierPath` setting ([9542260](https://github.com/Fdawgs/node-unrtf/commit/9542260ac77c553f5360d5937d1f9cd9e4746927))
+
+
+### Continuous integration
+
+* **cd:** use `main` environment for publish-npm job ([014981c](https://github.com/Fdawgs/node-unrtf/commit/014981cc1d0b72fcb37b8e0901bacc76e86348b5))
+* **deps:** bump actions/dependency-review-action from 3 to 4 ([#357](https://github.com/Fdawgs/node-unrtf/issues/357)) ([8533389](https://github.com/Fdawgs/node-unrtf/commit/8533389d3459f0b5f88d86885032beafba561dff))
+
+
+### Improvements
+
+* **index:** swap negated condition ([ee06254](https://github.com/Fdawgs/node-unrtf/commit/ee06254a57c5cbadaadbf51a61912121c982e29b))
+* **index:** use `string.StartsWith()` over `regex.test()` ([d2e21d6](https://github.com/Fdawgs/node-unrtf/commit/d2e21d61f096cbd0d313b7001377bc08aace99bd))
+* **index:** use constant comparison order ([1267519](https://github.com/Fdawgs/node-unrtf/commit/1267519dd8efe72ddf48503021879f7a5a627cf2))
+
 ## [4.1.6](https://github.com/Fdawgs/node-unrtf/compare/v4.1.5...v4.1.6) (2024-01-24)
 
 
