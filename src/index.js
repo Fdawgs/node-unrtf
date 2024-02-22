@@ -8,12 +8,12 @@ const { joinSafe, normalizeTrim } = require("upath");
 const errorMessages = {
 	3221225477: "Segmentation fault",
 };
+const rtfMagicNumber = "{\\rtf1";
 
 // Cache immutable regex as they are expensive to create and garbage collect
 const unrtfPathRegex = /(.+)unrtf/u;
 // UnRTF version output is inconsistent between versions but always starts with the semantic version number
 const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
-const rtfMagicNumberRegex = /^\{\\rtf/u;
 
 /**
  * @author Frazer Smith
@@ -34,7 +34,7 @@ function parseOptions(acceptedOptions, options, version) {
 	Object.keys(options).forEach((key) => {
 		if (Object.hasOwn(acceptedOptions, key)) {
 			// eslint-disable-next-line valid-typeof -- `type` is a string
-			if (typeof options[key] === acceptedOptions[key].type) {
+			if (acceptedOptions[key].type === typeof options[key]) {
 				// Skip boolean options if false
 				if (acceptedOptions[key].type === "boolean" && !options[key]) {
 					return;
@@ -213,7 +213,7 @@ class UnRTF {
 			throw new Error("File missing");
 		}
 		// Check for RTF specific magic number
-		if (!rtfMagicNumberRegex.test(buff.toString())) {
+		if (!buff.toString().startsWith(rtfMagicNumber)) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
@@ -244,9 +244,7 @@ class UnRTF {
 				/* istanbul ignore else */
 				if (stdOut !== "") {
 					resolve(stdOut.trim());
-				} else if (stdErr !== "") {
-					reject(new Error(stdErr.trim()));
-				} else {
+				} else if (stdErr === "") {
 					reject(
 						new Error(
 							errorMessages[code] ||
@@ -255,6 +253,8 @@ class UnRTF {
 								)} exited with code ${code}`
 						)
 					);
+				} else {
+					reject(new Error(stdErr.trim()));
 				}
 			});
 		});
