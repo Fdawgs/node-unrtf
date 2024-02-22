@@ -8,12 +8,12 @@ const { joinSafe, normalizeTrim } = require("upath");
 const errorMessages = {
 	3221225477: "Segmentation fault",
 };
+const rtfMagicNumber = "{\\rtf1";
 
 // Cache immutable regex as they are expensive to create and garbage collect
 const unrtfPathRegex = /(.+)unrtf/u;
 // UnRTF version output is inconsistent between versions but always starts with the semantic version number
 const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
-const rtfMagicNumberRegex = /^\{\\rtf/u;
 
 /**
  * @author Frazer Smith
@@ -213,7 +213,7 @@ class UnRTF {
 			throw new Error("File missing");
 		}
 		// Check for RTF specific magic number
-		if (!rtfMagicNumberRegex.test(buff.toString())) {
+		if (!buff.toString().startsWith(rtfMagicNumber)) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
