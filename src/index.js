@@ -244,9 +244,7 @@ class UnRTF {
 				/* istanbul ignore else */
 				if (stdOut !== "") {
 					resolve(stdOut.trim());
-				} else if (stdErr !== "") {
-					reject(new Error(stdErr.trim()));
-				} else {
+				} else if (stdErr === "") {
 					reject(
 						new Error(
 							errorMessages[code] ||
@@ -255,6 +253,8 @@ class UnRTF {
 								)} exited with code ${code}`
 						)
 					);
+				} else {
+					reject(new Error(stdErr.trim()));
 				}
 			});
 		});
