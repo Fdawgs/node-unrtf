@@ -135,6 +135,9 @@ dist
 # Clinic.js
 .clinic
 
+# Auto generated files
+types/index.d.ts
+
 # lock files
 bun.lockb
 package-lock.json
