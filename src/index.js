@@ -50,13 +50,14 @@ function parseOptions(acceptedOptions, options, version) {
 				);
 			}
 
+			/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 			if (lt(version, acceptedOptions[key].minVersion)) {
 				invalidArgs.push(
 					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
 				);
 			}
 
-			/* istanbul ignore next: requires incredibly old version of UnRTF to test */
+			/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 			if (gt(version, acceptedOptions[key].maxVersion || version)) {
 				invalidArgs.push(
 					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
@@ -73,6 +74,10 @@ function parseOptions(acceptedOptions, options, version) {
 }
 
 class UnRTF {
+	#unrtfPath;
+
+	#unrtfVersion;
+
 	/**
 	 * @param {string} [binPath] - Path of UnRTF binary.
 	 * If not provided, the constructor will attempt to find the binary
@@ -82,10 +87,12 @@ class UnRTF {
 	 * if a local installation is not found.
 	 */
 	constructor(binPath) {
+		this.#unrtfPath = "";
+
 		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
 			/** @type {string|undefined} */
-			this.unrtfPath = binPath;
+			this.#unrtfPath = binPath;
 		} else {
 			const { platform } = process;
 
@@ -95,10 +102,10 @@ class UnRTF {
 			const unrtfPath = unrtfPathRegex.exec(which)?.[1];
 
 			if (unrtfPath) {
-				this.unrtfPath = unrtfPath;
+				this.#unrtfPath = unrtfPath;
 			}
 			if (platform === "win32" && !unrtfPath) {
-				this.unrtfPath = joinSafe(
+				this.#unrtfPath = joinSafe(
 					__dirname,
 					"lib",
 					"win32",
@@ -109,25 +116,24 @@ class UnRTF {
 		}
 
 		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
-		if (!this.unrtfPath) {
+		if (!this.#unrtfPath) {
 			throw new Error(
 				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
-		this.unrtfPath = normalizeTrim(this.unrtfPath);
+		this.#unrtfPath = normalizeTrim(this.#unrtfPath);
 
 		/**
 		 * Get version of UnRTF binary for use in `convert` function.
 		 * UnRTF outputs the version into stderr.
 		 */
-		const version = spawnSync(joinSafe(this.unrtfPath, "unrtf"), [
+		const version = spawnSync(joinSafe(this.#unrtfPath, "unrtf"), [
 			"--version",
 		]).stderr.toString();
-		/** @type {string|undefined} */
-		this.unrtfVersion = unrtfVersionRegex.exec(version)?.[1];
+		this.#unrtfVersion = unrtfVersionRegex.exec(version)?.[1] || "";
 
 		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
-		if (!this.unrtfVersion) {
+		if (!this.#unrtfVersion) {
 			throw new Error("Unable to determine UnRTF version.");
 		}
 
@@ -178,6 +184,22 @@ class UnRTF {
 	}
 
 	/**
+	 * @description Returns the path of the UnRTF binary.
+	 * @returns {string} Path of UnRTF binary.
+	 */
+	get path() {
+		return this.#unrtfPath;
+	}
+
+	/**
+	 * @description Returns the version of the UnRTF binary.
+	 * @returns {string} Version of UnRTF binary.
+	 */
+	get version() {
+		return this.#unrtfVersion;
+	}
+
+	/**
 	 * @author Frazer Smith
 	 * @description Converts an RTF file to HTML/LaTeX/RTF/TXT.
 	 * Defaults to HTML output if no `output*` options are provided.
@@ -221,13 +243,12 @@ class UnRTF {
 		const args = parseOptions(
 			this.unrtfAcceptedOptions,
 			options,
-			// @ts-ignore: unrtfVersion is set in constructor and will throw if not set
-			this.unrtfVersion
+			this.#unrtfVersion
 		);
 		args.push(normalizeTrim(file));
 
 		return new Promise((resolve, reject) => {
-			const child = spawn(joinSafe(this.unrtfPath, "unrtf"), args);
+			const child = spawn(joinSafe(this.#unrtfPath, "unrtf"), args);
 
 			let stdOut = "";
 			let stdErr = "";

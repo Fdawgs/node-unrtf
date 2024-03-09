@@ -57,7 +57,8 @@ describe("Constructor", () => {
 
 	it("Creates a new UnRTF instance without the binary path set", () => {
 		const unRtf = new UnRTF();
-		expect(unRtf.unrtfPath).toBe(testBinaryPath);
+		expect(unRtf.path).toBe(testBinaryPath);
+		expect(unRtf.version).toEqual(expect.any(String));
 	});
 
 	/**
