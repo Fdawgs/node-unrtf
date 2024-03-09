@@ -15,14 +15,16 @@ const unrtfPathRegex = /(.+)unrtf/u;
 // UnRTF version output is inconsistent between versions but always starts with the semantic version number
 const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 
+/** @typedef {{[key: string]: {arg: string, type: string, minVersion: string, maxVersion?: string}}} UnRTFAcceptedOptions */
+
 /**
  * @author Frazer Smith
  * @description Checks each option provided is valid, of the correct type, and can be used by specified
  * version of binary.
  * @ignore
- * @param {object} acceptedOptions - Object containing accepted options.
- * @param {object} options - Object containing options to pass to binary.
- * @param {string} [version] - Semantic version of binary.
+ * @param {UnRTFAcceptedOptions} acceptedOptions - Object containing accepted options.
+ * @param {{[key: string]: any}} options - Object containing options to pass to binary.
+ * @param {string} version - Semantic version of binary.
  * @returns {string[]} Array of CLI arguments.
  * @throws If invalid arguments provided.
  */
@@ -48,23 +50,14 @@ function parseOptions(acceptedOptions, options, version) {
 				);
 			}
 
-			if (
-				acceptedOptions[key].minVersion &&
-				version &&
-				lt(version, acceptedOptions[key].minVersion)
-			) {
+			if (lt(version, acceptedOptions[key].minVersion)) {
 				invalidArgs.push(
 					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
 				);
 			}
 
 			/* istanbul ignore next: requires incredibly old version of UnRTF to test */
-			if (
-				acceptedOptions[key].maxVersion &&
-				version &&
-				// @ts-ignore: type checking is done above
-				gt(version, acceptedOptions[key].maxVersion)
-			) {
+			if (gt(version, acceptedOptions[key].maxVersion || version)) {
 				invalidArgs.push(
 					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
 				);
@@ -115,6 +108,7 @@ class UnRTF {
 			}
 		}
 
+		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.unrtfPath) {
 			throw new Error(
 				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
@@ -132,7 +126,12 @@ class UnRTF {
 		/** @type {string|undefined} */
 		this.unrtfVersion = unrtfVersionRegex.exec(version)?.[1];
 
-		/** @type {object} */
+		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
+		if (!this.unrtfVersion) {
+			throw new Error(`Unable to determine UnRTF version.`);
+		}
+
+		/** @type {UnRTFAcceptedOptions} */
 		this.unrtfAcceptedOptions = {
 			noPictures: {
 				arg: "--nopict",
@@ -222,6 +221,7 @@ class UnRTF {
 		const args = parseOptions(
 			this.unrtfAcceptedOptions,
 			options,
+			// @ts-ignore: unrtfVersion is set in constructor and will throw if not set
 			this.unrtfVersion
 		);
 		args.push(normalizeTrim(file));
@@ -247,6 +247,7 @@ class UnRTF {
 				} else if (stdErr === "") {
 					reject(
 						new Error(
+							// @ts-ignore: Second operand used if code is not in errorMessages
 							errorMessages[code] ||
 								`unrtf ${args.join(
 									" "

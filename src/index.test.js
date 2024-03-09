@@ -92,6 +92,36 @@ describe("Constructor", () => {
 			);
 		}
 	});
+
+	/**
+	 * @todo Fix this test, mocking of "node:" scheme not supported yet.
+	 * @see {@link https://github.com/jestjs/jest/pull/14297 | Jest PR #14297}
+	 */
+	// eslint-disable-next-line jest/no-disabled-tests -- Blocked by Jest PR #14297
+	it.skip("Throws an Error if the version of the binary cannot be determined", () => {
+		// Ensure the mock is used by the UnRTF constructor
+		jest.resetModules();
+		jest.mock("node:child_process", () => ({
+			spawnSync: jest.fn(() => ({
+				stdout: {
+					toString: () => "/usr/bin/unrtf",
+				},
+				stderr: {
+					toString: () => "",
+				},
+			})),
+		}));
+		require("node:child_process");
+		const { UnRTF: UnRTFMock } = require("./index");
+
+		expect.assertions(1);
+		try {
+			// eslint-disable-next-line no-unused-vars -- This is intentional
+			const unRtf = new UnRTFMock();
+		} catch (err) {
+			expect(err.message).toBe("mock error");
+		}
+	});
 });
 
 describe("Convert function", () => {
