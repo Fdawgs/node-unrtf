@@ -136,7 +136,7 @@ dist
 .clinic
 
 # Auto generated files
-types/index.d.ts
+types/
 
 # lock files
 bun.lockb

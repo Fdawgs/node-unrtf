@@ -138,7 +138,7 @@ dist
 # Auto generated files
 package.json
 CHANGELOG.md
-types/index.d.ts
+types/
 
 # lock files
 bun.lockb
