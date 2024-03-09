@@ -262,5 +262,5 @@ class UnRTF {
 	}
 }
 
-module.exports.UnRTF = UnRTF;
-module.exports.default = UnRTF;
+module.exports.default = UnRTF; // ESM default export
+module.exports.UnRTF = UnRTF; // TypeScript and named export
