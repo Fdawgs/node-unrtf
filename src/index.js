@@ -128,7 +128,7 @@ class UnRTF {
 
 		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.unrtfVersion) {
-			throw new Error(`Unable to determine UnRTF version.`);
+			throw new Error("Unable to determine UnRTF version.");
 		}
 
 		/** @type {UnRTFAcceptedOptions} */
