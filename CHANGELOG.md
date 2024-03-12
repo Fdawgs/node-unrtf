@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.0](https://github.com/Fdawgs/node-unrtf/compare/v4.1.7...v5.0.0) (2024-03-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **index:** `unrtfPath` and `unrtfVersion` fields can no longer be changed after class has been initialised
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([b148274](https://github.com/Fdawgs/node-unrtf/commit/b14827437ebe75a7963c5d3185a5dc773595eec3))
+* **deps-dev:** bump the commitlint group with 2 updates ([#362](https://github.com/Fdawgs/node-unrtf/issues/362)) ([37b420e](https://github.com/Fdawgs/node-unrtf/commit/37b420e5671507b7697bf3a9378324fcd9442b5c))
+
+
+### Miscellaneous
+
+* ignore types dir ([4378b45](https://github.com/Fdawgs/node-unrtf/commit/4378b457661e8075a2a3306dfe99d6a19f63d904))
+* **index:** inline comment re export types ([c6c4e02](https://github.com/Fdawgs/node-unrtf/commit/c6c4e023220f4349d5e444ce5152d71af8a23abc))
+* **index:** remove backticks from string ([85bee42](https://github.com/Fdawgs/node-unrtf/commit/85bee42a1301e75e021493d237b065dc94721bcc))
+* stop types being committed ([0e1e412](https://github.com/Fdawgs/node-unrtf/commit/0e1e412ab6a11439e40f286426ee517fd765e71c))
+
+
+### Continuous integration
+
+* **cd:** standardise [@fdawgs](https://github.com/fdawgs) cd workflows ([3e34f52](https://github.com/Fdawgs/node-unrtf/commit/3e34f529fc4dc2acf93ff87878eb427046894612))
+* **ci:** standardise [@fdawgs](https://github.com/fdawgs) ci workflows ([bdff8a4](https://github.com/Fdawgs/node-unrtf/commit/bdff8a4868bfbc4a458abc8b4beafcd45b023813))
+* **dependabot:** add `[@eslint-community](https://github.com/eslint-community)` scoped deps to eslint group ([0985f77](https://github.com/Fdawgs/node-unrtf/commit/0985f77127caf0805f4d9d23016b7c03e9af9be0))
+
+
+### Improvements
+
+* enable strict type checking ([da3b3b4](https://github.com/Fdawgs/node-unrtf/commit/da3b3b4cce312ef70757bf3af2d5e42cdbfb3f3f))
+* **index:** make `unrtfPath` and `unrtfVersion` fields private ([e2c3c50](https://github.com/Fdawgs/node-unrtf/commit/e2c3c50e92fb83f97326ad61e63d4c03f3493396))
+
+
+### Documentation
+
+* remove outdated api docs; refer to type defs instead ([eb30adc](https://github.com/Fdawgs/node-unrtf/commit/eb30adc819b36944a1ddbac1a37898240c92bc65))
+
 ## [4.1.7](https://github.com/Fdawgs/node-unrtf/compare/v4.1.6...v4.1.7) (2024-02-22)
 
 
