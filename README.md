@@ -45,15 +45,9 @@ For macOS, the binary can be installed with [Homebrew](https://brew.sh/):
 brew install unrtf
 ```
 
-## API
+## Example usage
 
-```js
-const { UnRTF } = require("node-unrtf");
-```
-
-[**API Documentation can be found here**](https://github.com/Fdawgs/node-unrtf/blob/main/API.md)
-
-## Examples
+Please refer to the [JSDoc comments in the source code](./src/index.js) or the [generated type definitions](https://www.npmjs.com/package/node-unrtf?activeTab=code) for information on the available options.
 
 ### Async Await
 
