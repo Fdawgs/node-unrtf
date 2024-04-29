@@ -234,7 +234,9 @@ class UnRTF {
 			throw new Error("File missing");
 		}
 		// Check for RTF specific magic number
-		if (!buff.toString().startsWith(rtfMagicNumber)) {
+		if (
+			buff.toString().slice(0, rtfMagicNumber.length) !== rtfMagicNumber
+		) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
 			);
