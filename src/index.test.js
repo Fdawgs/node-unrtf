@@ -20,7 +20,11 @@ let testBinaryPath;
 switch (process.platform) {
 	// macOS
 	case "darwin":
-		testBinaryPath = "/usr/local/bin";
+		if (process.arch === "arm64") {
+			testBinaryPath = "/opt/homebrew/bin";
+		} else {
+			testBinaryPath = "/usr/local/bin";
+		}
 		break;
 
 	case "linux":
