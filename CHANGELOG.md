@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.1](https://github.com/Fdawgs/node-unrtf/compare/v5.0.0...v5.0.1) (2024-04-30)
+
+
+### Continuous integration
+
+* **ci:** audit package signatures and provenance attestations ([9966ace](https://github.com/Fdawgs/node-unrtf/commit/9966acefc813a16b1ebd6737cb8582168af659a2))
+* **deps:** bump wagoid/commitlint-github-action from 5 to 6 ([#365](https://github.com/Fdawgs/node-unrtf/issues/365)) ([8a16660](https://github.com/Fdawgs/node-unrtf/commit/8a16660819d5e107bca89cbbcb3938b0949394f4))
+* use latest node lts version ([172b71d](https://github.com/Fdawgs/node-unrtf/commit/172b71da99ca3ced2d93fa0918373f61a1000f4f))
+
+
+### Improvements
+
+* **index:** use `slice()` over `startsWith()` ([054a0e5](https://github.com/Fdawgs/node-unrtf/commit/054a0e57e78276d7e047728872f907b978bbf3fd))
+
 ## [5.0.0](https://github.com/Fdawgs/node-unrtf/compare/v4.1.7...v5.0.0) (2024-03-12)
 
 
