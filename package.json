@@ -1,38 +1,50 @@
 {
-	"name": "node-unrtf",
-	"version": "5.0.1",
-	"description": "Asynchronous node.js wrapper for the UnRTF RTF conversion program",
+	"name": "node-poppler",
+	"version": "7.2.0",
+	"description": "Asynchronous node.js wrapper for the Poppler PDF rendering library",
 	"keywords": [
 		"async",
+		"attach",
+		"cairo",
 		"converter",
+		"detach",
+		"eps",
 		"html",
-		"latex",
+		"jpg",
+		"jpeg",
+		"pdf",
+		"pdf-converter",
+		"pdf-to-cairo",
+		"pdf-to-html",
+		"pdf-to-image",
+		"pdf-to-ppm",
+		"pdf-to-ps",
+		"pdf-to-text",
+		"png",
+		"poppler",
+		"ppm",
 		"ps",
-		"rtf",
-		"rtf-converter",
-		"rtf-to-html",
-		"rtf-to-latex",
-		"rtf-to-ps",
-		"rtf-to-text",
-		"rtf-to-wpml",
+		"separate",
+		"svg",
 		"text",
+		"tif",
+		"tiff",
 		"txt",
-		"unrtf",
-		"wpml"
+		"unite"
 	],
 	"main": "src/index.js",
 	"type": "commonjs",
 	"types": "types/index.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Fdawgs/node-unrtf.git"
+		"url": "git+https://github.com/Fdawgs/node-poppler.git"
 	},
-	"homepage": "https://github.com/Fdawgs/node-unrtf",
+	"homepage": "https://github.com/Fdawgs/node-poppler",
 	"bugs": {
-		"url": "https://github.com/Fdawgs/node-unrtf/issues"
+		"url": "https://github.com/Fdawgs/node-poppler/issues"
 	},
 	"license": "MIT",
-	"author": "Frazer Smith <frazer.dev@outlook.com>",
+	"author": "Frazer Smith <frazer.dev@icloud.com>",
 	"funding": "https://github.com/sponsors/Fdawgs",
 	"engines": {
 		"node": ">=18.0.0"
@@ -71,7 +83,7 @@
 			}
 		},
 		"testEnvironment": "node",
-		"testTimeout": 10000
+		"testTimeout": 60000
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.1.0",
@@ -87,8 +99,8 @@
 		"eslint-plugin-promise": "^6.1.1",
 		"eslint-plugin-regexp": "^2.3.0",
 		"eslint-plugin-security": "^2.1.1",
+		"glob": "^10.3.10",
 		"husky": "^9.0.11",
-		"is-html": "^2.0.0",
 		"jest": "^29.7.0",
 		"license-checker": "^25.0.1",
 		"prettier": "^3.2.5",
@@ -96,6 +108,7 @@
 		"typescript": "^5.4.2"
 	},
 	"dependencies": {
+		"camelcase": "^6.3.0",
 		"semver": "^7.6.0",
 		"upath": "^2.0.1"
 	}
