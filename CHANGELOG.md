@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.2](https://github.com/Fdawgs/node-unrtf/compare/v5.0.1...v5.0.2) (2024-05-03)
+
+
+### Miscellaneous
+
+* **package:** change author email ([a170220](https://github.com/Fdawgs/node-unrtf/commit/a1702203cb20e71b2a98524b6fe7557a4f4f351c))
+
 ## [5.0.1](https://github.com/Fdawgs/node-unrtf/compare/v5.0.0...v5.0.1) (2024-04-30)
 
 
