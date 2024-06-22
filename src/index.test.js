@@ -52,6 +52,10 @@ describe("Constructor", () => {
 		({ platform } = process);
 	});
 
+	beforeEach(() => {
+		jest.resetModules();
+	});
+
 	afterEach(() => {
 		// Restore the process platform
 		Object.defineProperty(process, "platform", {
@@ -65,19 +69,12 @@ describe("Constructor", () => {
 		expect(unRtf.version).toEqual(expect.any(String));
 	});
 
-	/**
-	 * @todo Fix this test, mocking of "node:" scheme not supported yet.
-	 * @see {@link https://github.com/jestjs/jest/pull/14297 | Jest PR #14297}
-	 */
-	// eslint-disable-next-line jest/no-disabled-tests -- Blocked by Jest PR #14297
-	it.skip("Throws an Error if the binary path is not found", () => {
+	it("Throws an Error if the binary path is not found", () => {
 		Object.defineProperty(process, "platform", {
 			value: "mockOS",
 		});
 
-		// Ensure the mock is used by the UnRTF constructor
-		jest.resetModules();
-		jest.mock("node:child_process", () => ({
+		jest.doMock("node:child_process", () => ({
 			spawnSync: jest.fn(() => ({
 				stdout: {
 					toString: () => "",
@@ -98,15 +95,8 @@ describe("Constructor", () => {
 		}
 	});
 
-	/**
-	 * @todo Fix this test, mocking of "node:" scheme not supported yet.
-	 * @see {@link https://github.com/jestjs/jest/pull/14297 | Jest PR #14297}
-	 */
-	// eslint-disable-next-line jest/no-disabled-tests -- Blocked by Jest PR #14297
-	it.skip("Throws an Error if the version of the binary cannot be determined", () => {
-		// Ensure the mock is used by the UnRTF constructor
-		jest.resetModules();
-		jest.mock("node:child_process", () => ({
+	it("Throws an Error if the version of the binary cannot be determined", () => {
+		jest.doMock("node:child_process", () => ({
 			spawnSync: jest.fn(() => ({
 				stdout: {
 					toString: () => "/usr/bin/unrtf",
@@ -124,7 +114,7 @@ describe("Constructor", () => {
 			// eslint-disable-next-line no-unused-vars -- This is intentional
 			const unRtf = new UnRTFMock();
 		} catch (err) {
-			expect(err.message).toBe("mock error");
+			expect(err.message).toBe("Unable to determine UnRTF version.");
 		}
 	});
 });
