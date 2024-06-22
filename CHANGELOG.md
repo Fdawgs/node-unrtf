@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.3](https://github.com/Fdawgs/node-unrtf/compare/v5.0.2...v5.0.3) (2024-06-22)
+
+
+### Continuous integration
+
+* **cd:** sort changelog-types alphabetically, add tests to changelog ([e52dfe9](https://github.com/Fdawgs/node-unrtf/commit/e52dfe96ec307d59689aef9e6fb5e43ca6cd7a5c))
+* **cd:** sort release note sections alphabetically ([ccdac02](https://github.com/Fdawgs/node-unrtf/commit/ccdac027e36d294068bb4857f7fc8bb962e6c871))
+* **cd:** use folded block for changelog-types param ([92133b8](https://github.com/Fdawgs/node-unrtf/commit/92133b8a8f0dd0fdd89d0309ab95450f6da126fe))
+
+
+### Miscellaneous
+
+* **src/lib:** remove unused files ([05a6ba1](https://github.com/Fdawgs/node-unrtf/commit/05a6ba13cbe6ad05f561170bc8188f4028d880be))
+
+
+### Tests
+
+* **index:** tidy binary path definition ([#381](https://github.com/Fdawgs/node-unrtf/issues/381)) ([db28fb6](https://github.com/Fdawgs/node-unrtf/commit/db28fb6a695d4ca9cc18147ec8bf96bafa3fb70d))
+
 ## [5.0.2](https://github.com/Fdawgs/node-unrtf/compare/v5.0.1...v5.0.2) (2024-06-22)
 
 
