@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.2](https://github.com/Fdawgs/node-unrtf/compare/v5.0.1...v5.0.2) (2024-06-22)
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([e1b7b66](https://github.com/Fdawgs/node-unrtf/commit/e1b7b668f8fc794154fe6b142ab59305bb57d50b))
+* **deps:** bump semver from 7.6.0 to 7.6.2 ([ee59252](https://github.com/Fdawgs/node-unrtf/commit/ee59252753949c30c77f464667edb55868cfe71e))
+
+
+### Miscellaneous
+
+* **package:** change author email ([a2bc85a](https://github.com/Fdawgs/node-unrtf/commit/a2bc85a4e5e9fa1f543ce091eb2ddf9eed5892d3))
+* **src/lib:** remove unused files ([26b67bc](https://github.com/Fdawgs/node-unrtf/commit/26b67bca89dc3dd79186e81c7e8cd9fff46ac7c3))
+* **src:** move options to own typedef ([598d52c](https://github.com/Fdawgs/node-unrtf/commit/598d52c0cc82255391e7a44498ad7feb349887c7))
+
+
+### Continuous integration
+
+* **ci:** add node 22 to test matrix ([f924a5e](https://github.com/Fdawgs/node-unrtf/commit/f924a5ecb46efaabd04849e9700824f1a01f342b))
+* **deps:** bump coverallsapp/github-action from 2.2.3 to 2.3.0 ([#375](https://github.com/Fdawgs/node-unrtf/issues/375)) ([ed31f3b](https://github.com/Fdawgs/node-unrtf/commit/ed31f3bb5e32e8845d2d58b850f8f2467897ad40))
+
 ## [5.0.1](https://github.com/Fdawgs/node-unrtf/compare/v5.0.0...v5.0.1) (2024-04-30)
 
 
