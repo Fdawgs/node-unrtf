@@ -3,11 +3,11 @@
 
 "use strict";
 
-const { execFile } = require("node:child_process");
+const { execFile, spawnSync } = require("node:child_process");
 const { promisify } = require("node:util");
 const isHtml = require("is-html");
 const { gt, lt } = require("semver");
-const { joinSafe } = require("upath");
+const { joinSafe, normalizeTrim } = require("upath");
 const generateCombos = require("../test_resources/utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
@@ -16,33 +16,25 @@ const { UnRTF } = require("./index");
 const testDirectory = `${__dirname}/../test_resources/test_files/`;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
-let testBinaryPath;
-switch (process.platform) {
-	// macOS
-	case "darwin":
-		if (process.arch === "arm64") {
-			testBinaryPath = "/opt/homebrew/bin";
-		} else {
-			testBinaryPath = "/usr/local/bin";
-		}
-		break;
+/**
+ * @description Returns the path to the UnRTF binary based on the OS.
+ * @returns {string} The path to the UnRTF binary.
+ */
+function getTestBinaryPath() {
+	const { platform } = process;
+	const which = spawnSync(platform === "win32" ? "where" : "which", [
+		"unrtf",
+	]).stdout.toString();
+	let unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
 
-	case "linux":
-		testBinaryPath = "/usr/bin";
-		break;
+	if (platform === "win32" && !unrtfPath) {
+		unrtfPath = joinSafe(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
+	}
 
-	// Windows OS
-	case "win32":
-	default:
-		testBinaryPath = joinSafe(
-			__dirname,
-			"lib",
-			"win32",
-			"unrtf-0.19.3",
-			"bin"
-		);
-		break;
+	return normalizeTrim(unrtfPath);
 }
+
+const testBinaryPath = getTestBinaryPath();
 
 describe("Constructor", () => {
 	let platform;
