@@ -15,7 +15,34 @@ const unrtfPathRegex = /(.+)unrtf/u;
 // UnRTF version output is inconsistent between versions but always starts with the semantic version number
 const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 
-/** @typedef {{[key: string]: {arg: string, type: string, minVersion: string, maxVersion?: string}}} UnRTFAcceptedOptions */
+/**
+ * @typedef {object} OptionDetails
+ * @property {string} arg The argument to pass to the binary.
+ * @property {string} type The type of the option (`boolean`, `string`, etc).
+ * @property {string} minVersion The minimum version of the binary that supports this option.
+ * @property {string} [maxVersion] The maximum version of the binary that supports this option (optional).
+ */
+
+/**
+ * @typedef {{[key: string]: OptionDetails}} UnRTFAcceptedOptions
+ */
+
+/**
+ * @typedef UnRTFOptions
+ * @property {boolean} [noPictures] Disable the automatic storing of embedded
+ * pictures to the directory of the original file.
+ * @property {boolean} [noRemap] Disable charset conversion (only works for 8-bit charsets)
+ * (UnRTF v0.20.5 or later only).
+ * @property {boolean} [outputHtml] Generate HTML output.
+ * @property {boolean} [outputLatex] Generate LaTeX output.
+ * @property {boolean} [outputPs] Generate PostScript (PS) output (UnRTF v0.19.4 or earlier only).
+ * @property {boolean} [outputRtf] Generate RTF output. (UnRTF v0.21.3 or later only).
+ * @property {boolean} [outputText] Generate ASCII text output.
+ * @property {boolean} [outputVt] Generate text output with VT100 escape codes.
+ * @property {boolean} [outputWpml] Generate WPML output (UnRTF v0.19.4 or earlier only).
+ * @property {boolean} [printVersionInfo] Print copyright and version info.
+ * @property {boolean} [quiet] Do not print any leading comments in output (UnRTF v0.21.3 or later only).
+ */
 
 /**
  * @author Frazer Smith
@@ -95,7 +122,6 @@ class UnRTF {
 			this.#unrtfPath = binPath;
 		} else {
 			const { platform } = process;
-
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
 			]).stdout.toString();
@@ -205,20 +231,7 @@ class UnRTF {
 	 * Defaults to HTML output if no `output*` options are provided.
 	 * UnRTF will use the directory of the original file to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
-	 * @param {object} [options] - Object containing options to pass to binary.
-	 * @param {boolean} [options.noPictures] - Disable the automatic storing of embedded
-	 * pictures to the directory of the original file.
-	 * @param {boolean} [options.noRemap] - Disable charset conversion (only works for 8-bit charsets)
-	 * (UnRTF v0.20.5 or later only).
-	 * @param {boolean} [options.outputHtml] - Generate HTML output.
-	 * @param {boolean} [options.outputLatex] - Generate LaTeX output.
-	 * @param {boolean} [options.outputPs] - Generate PostScript (PS) output (UnRTF v0.19.4 or earlier only).
-	 * @param {boolean} [options.outputRtf] - Generate RTF output. (UnRTF v0.21.3 or later only).
-	 * @param {boolean} [options.outputText] - Generate ASCII text output.
-	 * @param {boolean} [options.outputVt] - Generate text output with VT100 escape codes.
-	 * @param {boolean} [options.outputWpml] - Generate WPML output (UnRTF v0.19.4 or earlier only).
-	 * @param {boolean} [options.printVersionInfo] - Print copyright and version info.
-	 * @param {boolean} [options.quiet] - Do not print any leading comments in output (UnRTF v0.21.3 or later only).
+	 * @param {UnRTFOptions} [options] - Options to pass to UnRTF binary.
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 */
 	async convert(file, options = {}) {
