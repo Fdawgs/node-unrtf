@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.3](https://github.com/Fdawgs/node-unrtf/compare/v5.0.2...v5.0.3) (2024-07-29)
+
+
+### Continuous integration
+
+* **cd:** sort changelog-types alphabetically, add tests to changelog ([e52dfe9](https://github.com/Fdawgs/node-unrtf/commit/e52dfe96ec307d59689aef9e6fb5e43ca6cd7a5c))
+* **cd:** sort release note sections alphabetically ([ccdac02](https://github.com/Fdawgs/node-unrtf/commit/ccdac027e36d294068bb4857f7fc8bb962e6c871))
+* **cd:** use folded block for changelog-types param ([92133b8](https://github.com/Fdawgs/node-unrtf/commit/92133b8a8f0dd0fdd89d0309ab95450f6da126fe))
+* **ci:** ignore recommended packages ([31f82b3](https://github.com/Fdawgs/node-unrtf/commit/31f82b363754b3a176eaa751064f0011420475b4))
+* **ci:** run `apt-get update` for ubuntu tests ([7122582](https://github.com/Fdawgs/node-unrtf/commit/71225824013997001e95d0363b8f400609b32a9d))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([8efd81e](https://github.com/Fdawgs/node-unrtf/commit/8efd81e500a82ad1deda036c1a067e2096cbf129))
+* **deps:** bump semver from 7.6.2 to 7.6.3 ([8e426e8](https://github.com/Fdawgs/node-unrtf/commit/8e426e8d5635339357c048eaed13b2a4ee68c49e))
+
+
+### Miscellaneous
+
+* **.husky/commit-msg:** remove `npx` usage ([89e9aa8](https://github.com/Fdawgs/node-unrtf/commit/89e9aa8ad6d7032ca59b31753aa1f03edf28f077))
+* **package:** use shorter semver syntax ([48e4693](https://github.com/Fdawgs/node-unrtf/commit/48e469338d06cd035946f39869f1c0dac386f415))
+* **src/lib:** remove unused files ([05a6ba1](https://github.com/Fdawgs/node-unrtf/commit/05a6ba13cbe6ad05f561170bc8188f4028d880be))
+* **tsconfig:** update target to `ES2023` ([e029f7f](https://github.com/Fdawgs/node-unrtf/commit/e029f7f813bc0be4184120d0aa1a660095927c6d))
+
+
+### Tests
+
+* **index:** tidy binary path definition ([#381](https://github.com/Fdawgs/node-unrtf/issues/381)) ([db28fb6](https://github.com/Fdawgs/node-unrtf/commit/db28fb6a695d4ca9cc18147ec8bf96bafa3fb70d))
+
 ## [5.0.2](https://github.com/Fdawgs/node-unrtf/compare/v5.0.1...v5.0.2) (2024-06-22)
 
 
