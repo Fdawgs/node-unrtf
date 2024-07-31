@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.4](https://github.com/Fdawgs/node-unrtf/compare/v5.0.3...v5.0.4) (2024-07-31)
+
+
+### Miscellaneous
+
+* **.npmrc:** remove excess whitespace ([3b4336a](https://github.com/Fdawgs/node-unrtf/commit/3b4336a5ef9452d81d1baed7e9d0ab1b090fc5c6))
+
 ## [5.0.3](https://github.com/Fdawgs/node-unrtf/compare/v5.0.2...v5.0.3) (2024-07-29)
 
 
