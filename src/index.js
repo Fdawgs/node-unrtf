@@ -30,7 +30,7 @@ const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 /**
  * @typedef UnRTFOptions
  * @property {boolean} [noPictures] Disable the automatic storing of embedded
- * pictures to the directory of the original file.
+ * pictures to the current working directory.
  * @property {boolean} [noRemap] Disable charset conversion (only works for 8-bit charsets)
  * (UnRTF v0.20.5 or later only).
  * @property {boolean} [outputHtml] Generate HTML output.
