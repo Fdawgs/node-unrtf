@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.4](https://github.com/Fdawgs/node-unrtf/compare/v5.0.3...v5.0.4) (2024-08-05)
+
+
+### Bug fixes
+
+* **index:** correct `noPictures` option description ([14940ee](https://github.com/Fdawgs/node-unrtf/commit/14940ee56be5dbb565330c9e9ae836668864d78d))
+
+
+### Documentation
+
+* **readme:** add example for removing dumped images in cwd ([32fe58b](https://github.com/Fdawgs/node-unrtf/commit/32fe58b2678dd47d38d611c5fcf64dc62d14e9f0))
+
+
+### Miscellaneous
+
+* **.npmrc:** remove excess whitespace ([3b4336a](https://github.com/Fdawgs/node-unrtf/commit/3b4336a5ef9452d81d1baed7e9d0ab1b090fc5c6))
+
+
+### Tests
+
+* **index:** remove leftover files ([c6574db](https://github.com/Fdawgs/node-unrtf/commit/c6574dbf96daaca4e2f3b8fa519b619dfb839f99))
+
 ## [5.0.3](https://github.com/Fdawgs/node-unrtf/compare/v5.0.2...v5.0.3) (2024-07-29)
 
 
