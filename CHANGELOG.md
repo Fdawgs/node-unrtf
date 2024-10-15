@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.5](https://github.com/Fdawgs/node-unrtf/compare/v5.0.4...v5.0.5) (2024-10-14)
+
+
+### Continuous integration
+
+* **cd:** migrate to manifest config ([7bd038f](https://github.com/Fdawgs/node-unrtf/commit/7bd038f9cf424e778772e3f15c48efbe2cbcdce8))
+
 ## [5.0.4](https://github.com/Fdawgs/node-unrtf/compare/v5.0.3...v5.0.4) (2024-08-15)
 
 
