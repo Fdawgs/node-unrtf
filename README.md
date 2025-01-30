@@ -31,7 +31,7 @@ npm i node-unrtf
 
 ### Linux and macOS/Darwin support
 
-For Linux and Mac users, you will need to download the `unrtf` binary separately.
+For Linux and Mac users, the `unrtf` binary will need to be installed separately.
 
 An example of downloading the binary on a Debian system:
 
