@@ -10,7 +10,7 @@ const { promisify } = require("node:util");
 const { glob } = require("glob");
 const isHtml = require("is-html");
 const { gt, lt } = require("semver");
-const { joinSafe, normalizeTrim } = require("upath");
+const { join, normalize } = require("node:path");
 const generateCombos = require("../test_resources/utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
@@ -31,10 +31,10 @@ function getTestBinaryPath() {
 	let unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
 
 	if (platform === "win32" && !unrtfPath) {
-		unrtfPath = joinSafe(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
+		unrtfPath = join(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
 	}
 
-	return normalizeTrim(unrtfPath);
+	return normalize(unrtfPath);
 }
 
 const testBinaryPath = getTestBinaryPath();
@@ -125,7 +125,7 @@ describe("Node-UnRTF module", () => {
 
 		beforeAll(async () => {
 			const { stderr } = await execFileAsync(
-				joinSafe(testBinaryPath, "unrtf"),
+				join(testBinaryPath, "unrtf"),
 				["--version"]
 			);
 			version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];

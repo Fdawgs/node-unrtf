@@ -3,7 +3,7 @@
 const { spawn, spawnSync } = require("node:child_process");
 const { readFile } = require("node:fs/promises");
 const { gt, lt } = require("semver");
-const { joinSafe, normalizeTrim } = require("upath");
+const { normalize, resolve: pathResolve } = require("node:path");
 
 const errorMessages = {
 	3221225477: "Segmentation fault",
@@ -131,7 +131,7 @@ class UnRTF {
 				this.#unrtfPath = unrtfPath;
 			}
 			if (platform === "win32" && !unrtfPath) {
-				this.#unrtfPath = joinSafe(
+				this.#unrtfPath = pathResolve(
 					__dirname,
 					"lib",
 					"win32",
@@ -147,13 +147,13 @@ class UnRTF {
 				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
-		this.#unrtfPath = normalizeTrim(this.#unrtfPath);
+		this.#unrtfPath = normalize(this.#unrtfPath);
 
 		/**
 		 * Get version of UnRTF binary for use in `convert` function.
 		 * UnRTF outputs the version into stderr.
 		 */
-		const version = spawnSync(joinSafe(this.#unrtfPath, "unrtf"), [
+		const version = spawnSync(pathResolve(this.#unrtfPath, "unrtf"), [
 			"--version",
 		]).stderr.toString();
 		this.#unrtfVersion = unrtfVersionRegex.exec(version)?.[1] || "";
@@ -242,7 +242,7 @@ class UnRTF {
 		let buff;
 		try {
 			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File read is wanted
-			buff = await readFile(normalizeTrim(file));
+			buff = await readFile(normalize(file));
 		} catch {
 			throw new Error("File missing");
 		}
@@ -260,10 +260,10 @@ class UnRTF {
 			options,
 			this.#unrtfVersion
 		);
-		args.push(normalizeTrim(file));
+		args.push(normalize(file));
 
 		return new Promise((resolve, reject) => {
-			const child = spawn(joinSafe(this.#unrtfPath, "unrtf"), args);
+			const child = spawn(pathResolve(this.#unrtfPath, "unrtf"), args);
 
 			let stdOut = "";
 			let stdErr = "";
