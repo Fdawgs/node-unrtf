@@ -98,7 +98,6 @@
 		"typescript": "~5.7.3"
 	},
 	"dependencies": {
-		"semver": "^7.6.3",
-		"upath": "^2.0.1"
+		"semver": "^7.6.3"
 	}
 }
