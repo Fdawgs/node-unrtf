@@ -86,7 +86,7 @@ UnRTF will use the directory of the original file to store embedded pictures.
 | Name | Type | Description |
 | --- | --- | --- |
 | arg | <code>string</code> | The argument to pass to the binary. |
-| type | <code>string</code> | The type of the option (`boolean`, `string`, etc). |
+| type | <code>&#x27;boolean&#x27;</code> \| <code>&#x27;number&#x27;</code> \| <code>&#x27;string&#x27;</code> | The type of the option. |
 | minVersion | <code>string</code> | The minimum version of the binary that supports this option. |
 | [maxVersion] | <code>string</code> | The maximum version of the binary that supports this option (optional). |
 
