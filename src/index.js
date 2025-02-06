@@ -18,7 +18,7 @@ const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 /**
  * @typedef {object} OptionDetails
  * @property {string} arg The argument to pass to the binary.
- * @property {string} type The type of the option (`boolean`, `string`, etc).
+ * @property {('boolean'|'number'|'string')} type The type of the option.
  * @property {string} minVersion The minimum version of the binary that supports this option.
  * @property {string} [maxVersion] The maximum version of the binary that supports this option (optional).
  */
