@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.5](https://github.com/Fdawgs/node-unrtf/compare/v5.0.4...v5.0.5) (2025-02-06)
+
+
+### Continuous integration
+
+* **automerge:** flush buffer to disk ([7f2804b](https://github.com/Fdawgs/node-unrtf/commit/7f2804be147b1562c8b07e0d5f4bcd4a907f8d66))
+* **cd:** migrate to manifest config ([7bd038f](https://github.com/Fdawgs/node-unrtf/commit/7bd038f9cf424e778772e3f15c48efbe2cbcdce8))
+* **ci:** use major tag for coverallsapp/github-action ([e4180e4](https://github.com/Fdawgs/node-unrtf/commit/e4180e4cc65fd5b17cc45558acf032c4cf1e882f))
+* **deps:** bump coverallsapp/github-action from 2.3.0 to 2.3.1 ([#396](https://github.com/Fdawgs/node-unrtf/issues/396)) ([6aee50a](https://github.com/Fdawgs/node-unrtf/commit/6aee50a60f905556068e38f4b8f6cdd3e2c3c850))
+* **deps:** bump coverallsapp/github-action from 2.3.1 to 2.3.4 ([#401](https://github.com/Fdawgs/node-unrtf/issues/401)) ([01dc309](https://github.com/Fdawgs/node-unrtf/commit/01dc30908458e6d2fb2ae36ac42ebbc80561e3f4))
+* **release-please:** declare schema ([97bf5a7](https://github.com/Fdawgs/node-unrtf/commit/97bf5a78215b0f1b8e39604cadd51e89a7e24a7e))
+
+
+### Dependencies
+
+* **deps-dev:** bump dev dependencies ([de8d3ed](https://github.com/Fdawgs/node-unrtf/commit/de8d3eddee15f4d7d4c1c7a1f041f87f4dcaf987))
+* **deps-dev:** bump typescript from 5.5.4 to 5.6.3 ([#399](https://github.com/Fdawgs/node-unrtf/issues/399)) ([0b7020c](https://github.com/Fdawgs/node-unrtf/commit/0b7020c82c5061cfcb7fd51f74894a49f980010a))
+* **deps-dev:** bump typescript from 5.6.3 to 5.7.2 ([#403](https://github.com/Fdawgs/node-unrtf/issues/403)) ([67708b7](https://github.com/Fdawgs/node-unrtf/commit/67708b7ceac1c15e15e4d7e5d658f6b0b3503313))
+* **deps-dev:** lock typescript minor version ([#398](https://github.com/Fdawgs/node-unrtf/issues/398)) ([b795d60](https://github.com/Fdawgs/node-unrtf/commit/b795d6048521b7998259a3e8a4372dcfd3a345d8))
+* **deps:** remove upath ([dcc8ecb](https://github.com/Fdawgs/node-unrtf/commit/dcc8ecbe4c9343d17ec13d04e743bb758272aeaf))
+
+
+### Documentation
+
+* **api:** add api documentation ([#413](https://github.com/Fdawgs/node-unrtf/issues/413)) ([b596693](https://github.com/Fdawgs/node-unrtf/commit/b596693167c4ef0939da4f8426e2da25394f60c7))
+* **readme:** rename ci badge to reflect workflow ([85bea7a](https://github.com/Fdawgs/node-unrtf/commit/85bea7af20e5e1fe642a21ecf75070db14f38b78))
+
+
+### Improvements
+
+* **index:** optimise `parseOptions` ([#414](https://github.com/Fdawgs/node-unrtf/issues/414)) ([d653782](https://github.com/Fdawgs/node-unrtf/commit/d653782cedad2801a77c404bf2e8522645f3e136))
+
+
+### Miscellaneous
+
+* **license:** update license year ([962467c](https://github.com/Fdawgs/node-unrtf/commit/962467c5cee3d0df6ca51b6f0c1f9c122ceeda74))
+* **tsconfig:** set schema ([58c6f7b](https://github.com/Fdawgs/node-unrtf/commit/58c6f7b7874df7d70fb27fedacdc75b5792d5c4d))
+* use impersonal language ([79b852c](https://github.com/Fdawgs/node-unrtf/commit/79b852c1de59b2010ab42e548c941023cb842181))
+
 ## [5.0.4](https://github.com/Fdawgs/node-unrtf/compare/v5.0.3...v5.0.4) (2024-08-15)
 
 
