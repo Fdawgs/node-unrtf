@@ -60,40 +60,42 @@ function parseOptions(acceptedOptions, options, version) {
 	const args = [];
 	/** @type {string[]} */
 	const invalidArgs = [];
-	Object.keys(options).forEach((key) => {
+	for (const key of Object.keys(options)) {
 		if (Object.hasOwn(acceptedOptions, key)) {
+			const option = options[key];
+			const acceptedOption = acceptedOptions[key];
+
 			// eslint-disable-next-line valid-typeof -- `type` is a string
-			if (acceptedOptions[key].type === typeof options[key]) {
+			if (acceptedOption.type === typeof option) {
 				// Skip boolean options if false
-				if (acceptedOptions[key].type === "boolean" && !options[key]) {
-					return;
+				if (acceptedOption.type !== "boolean" || option) {
+					args.push(acceptedOption.arg);
 				}
-				args.push(acceptedOptions[key].arg);
 			} else {
 				invalidArgs.push(
 					`Invalid value type provided for option '${key}', expected ${
-						acceptedOptions[key].type
-					} but received ${typeof options[key]}`
+						acceptedOption.type
+					} but received ${typeof option}`
 				);
 			}
 
 			/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
-			if (lt(version, acceptedOptions[key].minVersion)) {
+			if (lt(version, acceptedOption.minVersion)) {
 				invalidArgs.push(
-					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOptions[key].minVersion}, but received v${version}`
+					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOption.minVersion}, but received v${version}`
 				);
 			}
 
 			/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
-			if (gt(version, acceptedOptions[key].maxVersion || version)) {
+			if (gt(version, acceptedOption.maxVersion || version)) {
 				invalidArgs.push(
-					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOptions[key].maxVersion}, but received v${version}`
+					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOption.maxVersion}, but received v${version}`
 				);
 			}
 		} else {
 			invalidArgs.push(`Invalid option provided '${key}'`);
 		}
-	});
+	}
 	if (invalidArgs.length === 0) {
 		return args;
 	}
