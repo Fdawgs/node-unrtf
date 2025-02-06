@@ -24,7 +24,7 @@ const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  */
 
 /**
- * @typedef {{[key: string]: OptionDetails}} UnRTFAcceptedOptions
+ * @typedef {Record<string, OptionDetails>} UnRTFAcceptedOptions
  */
 
 /**
@@ -50,7 +50,7 @@ const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  * version of binary.
  * @ignore
  * @param {UnRTFAcceptedOptions} acceptedOptions - Object containing accepted options.
- * @param {{[key: string]: any}} options - Object containing options to pass to binary.
+ * @param {Record<string, any>} options - Object containing options to pass to binary.
  * @param {string} version - Semantic version of binary.
  * @returns {string[]} Array of CLI arguments.
  * @throws If invalid arguments provided.
