@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.0](https://github.com/Fdawgs/node-unrtf/compare/v5.0.5...v6.0.0) (2025-02-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* dropped support for node 18
+
+### Miscellaneous
+
+* drop support for node 18 ([5815486](https://github.com/Fdawgs/node-unrtf/commit/581548605b333c52f6350b1b0b80fc4493644709))
+* **index:** improve `OptionDetails` type ([#415](https://github.com/Fdawgs/node-unrtf/issues/415)) ([c2485f9](https://github.com/Fdawgs/node-unrtf/commit/c2485f9d32423cfb5d6a343df7053492951f2b91))
+
 ## [5.0.5](https://github.com/Fdawgs/node-unrtf/compare/v5.0.4...v5.0.5) (2025-02-06)
 
 
