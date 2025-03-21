@@ -13,13 +13,13 @@
 [![Coverage status](https://coveralls.io/repos/github/Fdawgs/node-unrtf/badge.svg?branch=main)](https://coveralls.io/github/Fdawgs/node-unrtf?branch=main)
 [![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
 
-> Asynchronous node.js wrapper for the UnRTF RTF conversion program
+> Asynchronous Node.js wrapper for the UnRTF RTF conversion program
 
 ## Overview
 
 [UnRTF](https://gnu.org/software/unrtf/) is a CLI program that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
 
-The `node-unrtf` module provides an asynchronous node.js wrapper around said CLI program for easier use.
+The `node-unrtf` module provides an asynchronous Node.js wrapper around said CLI program for easier use.
 
 ## Installation
 
