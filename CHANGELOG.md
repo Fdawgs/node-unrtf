@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.0](https://github.com/Fdawgs/node-unrtf/compare/v5.0.5...v6.0.0) (2025-03-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* dropped support for node 18
+
+### Continuous integration
+
+* **.github:** pin actions to commit-hash; set permissions at job level ([3ffc7f7](https://github.com/Fdawgs/node-unrtf/commit/3ffc7f74651331f3b02c1340135749306e155dcc))
+* add top-level workflow permissions ([#424](https://github.com/Fdawgs/node-unrtf/issues/424)) ([7cc3e14](https://github.com/Fdawgs/node-unrtf/commit/7cc3e14638131205bdf9a2be8c659e5f87711e78))
+* **codeql:** analyse github actions ([34826e1](https://github.com/Fdawgs/node-unrtf/commit/34826e1a8041da7d41f8c7ee1f8ad9dea4a80b64))
+
+
+### Dependencies
+
+* **deps-dev:** bump typescript from 5.7.3 to 5.8.2 ([#421](https://github.com/Fdawgs/node-unrtf/issues/421)) ([7a00001](https://github.com/Fdawgs/node-unrtf/commit/7a00001bea0a50573997146e7aca751e1944ad4b))
+
+
+### Documentation
+
+* correctly capitalise node.js ([9df2c91](https://github.com/Fdawgs/node-unrtf/commit/9df2c9161f18d45c12091e0f4c52005d219d3c4b))
+
+
+### Miscellaneous
+
+* drop support for node 18 ([5815486](https://github.com/Fdawgs/node-unrtf/commit/581548605b333c52f6350b1b0b80fc4493644709))
+* **index:** improve `OptionDetails` type ([#415](https://github.com/Fdawgs/node-unrtf/issues/415)) ([c2485f9](https://github.com/Fdawgs/node-unrtf/commit/c2485f9d32423cfb5d6a343df7053492951f2b91))
+* **package:** standardise test script naming ([b1a203e](https://github.com/Fdawgs/node-unrtf/commit/b1a203eeb5293006c85a18941ce2b3fb22798fa8))
+
 ## [5.0.5](https://github.com/Fdawgs/node-unrtf/compare/v5.0.4...v5.0.5) (2025-02-06)
 
 
