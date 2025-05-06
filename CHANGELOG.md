@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.1](https://github.com/Fdawgs/node-unrtf/compare/v6.0.0...v6.0.1) (2025-05-06)
+
+
+### Improvements
+
+* **index:** replace `Object.keys` with `Object.entries` ([#433](https://github.com/Fdawgs/node-unrtf/issues/433)) ([673b7f2](https://github.com/Fdawgs/node-unrtf/commit/673b7f20b09eaef65486d50cb2452bbaa4d928c3))
+
 ## [6.0.0](https://github.com/Fdawgs/node-unrtf/compare/v5.0.5...v6.0.0) (2025-05-04)
 
 
