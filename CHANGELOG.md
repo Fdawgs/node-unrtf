@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.2](https://github.com/Fdawgs/node-unrtf/compare/v6.0.1...v6.0.2) (2025-05-11)
+
+
+### Continuous integration
+
+* **ci:** add node 24 to test matrix ([#435](https://github.com/Fdawgs/node-unrtf/issues/435)) ([62d0d8c](https://github.com/Fdawgs/node-unrtf/commit/62d0d8cc6c52a7e9aa1c9d782b46ab266d399d6b))
+
 ## [6.0.1](https://github.com/Fdawgs/node-unrtf/compare/v6.0.0...v6.0.1) (2025-05-06)
 
 
