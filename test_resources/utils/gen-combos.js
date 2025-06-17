@@ -12,10 +12,7 @@ const btPowerSetRecursive = require("./bt-power-set");
 function generateCombos(originalSet) {
 	const powerSet = btPowerSetRecursive(originalSet);
 
-	/**
-	 * Combine resulting array of arrays of objects from `btPowerSetRecursive()`
-	 * into a single array of combined objects.
-	 */
+	// Merge resulting array of arrays of objects into a single array of objects
 	const reducedPowerSet = powerSet.map((subset) =>
 		subset.reduce((acc, cur) => ({ ...acc, ...cur }), {})
 	);

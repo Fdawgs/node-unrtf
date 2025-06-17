@@ -60,10 +60,8 @@ function parseOptions(acceptedOptions, options, version) {
 	const args = [];
 	/** @type {string[]} */
 	const invalidArgs = [];
-	/**
-	 * Imperative loops are faster than functional loops.
-	 * @see {@link https://romgrk.com/posts/optimizing-javascript#3-avoid-arrayobject-methods || Optimizing JavaScript}
-	 */
+
+	// Imperative loops are faster than functional loops, see https://romgrk.com/posts/optimizing-javascript
 	const entries = Object.entries(options);
 	const entriesLength = entries.length;
 	for (let i = 0; i < entriesLength; i += 1) {
@@ -159,10 +157,7 @@ class UnRTF {
 		}
 		this.#unrtfPath = normalize(this.#unrtfPath);
 
-		/**
-		 * Get version of UnRTF binary for use in `convert` function.
-		 * UnRTF outputs the version into stderr.
-		 */
+		// Version needed for option validation; which is output to stderr
 		const version = spawnSync(pathResolve(this.#unrtfPath, "unrtf"), [
 			"--version",
 		]).stderr.toString();
@@ -245,10 +240,7 @@ class UnRTF {
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 */
 	async convert(file, options = {}) {
-		/**
-		 * UnRTF will attempt to convert empty strings, missing files,
-		 * and non-RTF files. Catch before passing to binary.
-		 */
+		// Catch empty strings, missing files, and non-RTF files, as UnRTF will attempt to convert them
 		let buff;
 		try {
 			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File read is wanted
