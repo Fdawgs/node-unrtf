@@ -1,4 +1,4 @@
-/* eslint-disable global-require, security/detect-child-process -- Mocking child_process */
+/* eslint-disable n/global-require, security/detect-child-process -- Mocking child_process */
 /* eslint-disable jest/no-conditional-expect -- Depends on the version of the binary */
 /* eslint-disable security/detect-non-literal-fs-filename -- Filenames are not user-provided */
 
@@ -16,7 +16,7 @@ const generateCombos = require("../test_resources/utils/gen-combos");
 const execFileAsync = promisify(execFile);
 const { UnRTF } = require("./index");
 
-const testDirectory = `${__dirname}/../test_resources/test_files/`;
+const testDirectory = join(__dirname, "../test_resources/test_files/");
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 /**
