@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.3](https://github.com/Fdawgs/node-unrtf/compare/v6.0.2...v6.0.3) (2025-07-07)
+
+
+### Miscellaneous
+
+* **index:** use upper snakecase for cached values ([#448](https://github.com/Fdawgs/node-unrtf/issues/448)) ([88153dd](https://github.com/Fdawgs/node-unrtf/commit/88153ddb5dd77edb0f1e3ecc92e9b5ba154c5a00))
+
 ## [6.0.2](https://github.com/Fdawgs/node-unrtf/compare/v6.0.1...v6.0.2) (2025-07-07)
 
 
