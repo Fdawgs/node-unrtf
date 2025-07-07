@@ -5,15 +5,15 @@ const { readFile } = require("node:fs/promises");
 const { normalize, resolve: pathResolve } = require("node:path");
 const { gt, lt } = require("semver");
 
-const errorMessages = {
+const ERROR_MSGS = {
 	3221225477: "Segmentation fault",
 };
-const rtfMagicNumber = "{\\rtf1";
+const RTF_MAGIC_NUMBER = "{\\rtf1";
 
 // Cache immutable regex as they are expensive to create and garbage collect
-const unrtfPathRegex = /(.+)unrtf/u;
+const UNRTF_PATH_REG = /(.+)unrtf/u;
 // UnRTF version output is inconsistent between versions but always starts with the semantic version number
-const unrtfVersionRegex = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
+const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 
 /**
  * @typedef {object} OptionDetails
@@ -132,7 +132,7 @@ class UnRTF {
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
 			]).stdout.toString();
-			const unrtfPath = unrtfPathRegex.exec(which)?.[1];
+			const unrtfPath = UNRTF_PATH_REG.exec(which)?.[1];
 
 			if (unrtfPath) {
 				this.#unrtfPath = unrtfPath;
@@ -160,7 +160,7 @@ class UnRTF {
 		const version = spawnSync(pathResolve(this.#unrtfPath, "unrtf"), [
 			"--version",
 		]).stderr.toString();
-		this.#unrtfVersion = unrtfVersionRegex.exec(version)?.[1] || "";
+		this.#unrtfVersion = UNRTF_VERSION_REG.exec(version)?.[1] || "";
 
 		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.#unrtfVersion) {
@@ -249,7 +249,8 @@ class UnRTF {
 		}
 		// Check for RTF specific magic number
 		if (
-			buff.toString().slice(0, rtfMagicNumber.length) !== rtfMagicNumber
+			buff.toString().slice(0, RTF_MAGIC_NUMBER.length) !==
+			RTF_MAGIC_NUMBER
 		) {
 			throw new Error(
 				"File is not the correct media type, expected 'application/rtf'"
@@ -284,8 +285,8 @@ class UnRTF {
 				} else if (stdErr === "") {
 					reject(
 						new Error(
-							// @ts-ignore: Second operand used if code is not in errorMessages
-							errorMessages[code] ||
+							// @ts-ignore: Second operand used if code is not in ERROR_MSGS
+							ERROR_MSGS[code] ||
 								`unrtf ${args.join(
 									" "
 								)} exited with code ${code}`
