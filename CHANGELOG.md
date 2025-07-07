@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.2](https://github.com/Fdawgs/node-unrtf/compare/v6.0.1...v6.0.2) (2025-07-07)
+
+
+### Continuous integration
+
+* **cd:** grant issue write permissions for tags ([#441](https://github.com/Fdawgs/node-unrtf/issues/441)) ([542a2ac](https://github.com/Fdawgs/node-unrtf/commit/542a2ace07c9d0cb3ba0cc961b313ced2f6a55ab))
+* **ci:** add node 24 to test matrix ([#435](https://github.com/Fdawgs/node-unrtf/issues/435)) ([62d0d8c](https://github.com/Fdawgs/node-unrtf/commit/62d0d8cc6c52a7e9aa1c9d782b46ab266d399d6b))
+* **deps:** bump actions/dependency-review-action from 4.6.0 to 4.7.1 ([#437](https://github.com/Fdawgs/node-unrtf/issues/437)) ([92eb59b](https://github.com/Fdawgs/node-unrtf/commit/92eb59b18915a85098863d048ee299ec64630c4f))
+* **deps:** bump github/codeql-action from 3.28.16 to 3.28.18 ([#438](https://github.com/Fdawgs/node-unrtf/issues/438)) ([90ca6f8](https://github.com/Fdawgs/node-unrtf/commit/90ca6f83a31ee5d2f1497febc9bdc149dff39868))
+* use tags for immutable github actions ([#439](https://github.com/Fdawgs/node-unrtf/issues/439)) ([a0352c7](https://github.com/Fdawgs/node-unrtf/commit/a0352c753dbd6ef4466964c16cc5ffc61836872f))
+
+
+### Dependencies
+
+* **deps-dev:** bump @types/jest from 29.5.14 to 30.0.0 ([#445](https://github.com/Fdawgs/node-unrtf/issues/445)) ([87237b9](https://github.com/Fdawgs/node-unrtf/commit/87237b9e4499d332c9957db136390c287ea1dafe))
+* **deps-dev:** bump jest from 29.7.0 to 30.0.3 ([#446](https://github.com/Fdawgs/node-unrtf/issues/446)) ([4a5a9d4](https://github.com/Fdawgs/node-unrtf/commit/4a5a9d4a28aded2e58f3b6e6bfa55463715b4cb7))
+* **deps-dev:** migrate to eslint flat config ([#444](https://github.com/Fdawgs/node-unrtf/issues/444)) ([f4f8f7b](https://github.com/Fdawgs/node-unrtf/commit/f4f8f7b01821e5dd18c9f5c6735d941941480eea))
+* **deps-dev:** replace license-checker with licensee ([#443](https://github.com/Fdawgs/node-unrtf/issues/443)) ([240529c](https://github.com/Fdawgs/node-unrtf/commit/240529cd971b379db97591bcbf7d2a9ae3e52189))
+
+
+### Miscellaneous
+
+* **license:** replace date range with `-present` ([#442](https://github.com/Fdawgs/node-unrtf/issues/442)) ([11be3ec](https://github.com/Fdawgs/node-unrtf/commit/11be3ecc46382fdd2335f05e0fba77bdcda0514c))
+* remove redundant jsdoc comments ([#440](https://github.com/Fdawgs/node-unrtf/issues/440)) ([09eb4d8](https://github.com/Fdawgs/node-unrtf/commit/09eb4d81539df985a0deea994583d796606020b1))
+
 ## [6.0.1](https://github.com/Fdawgs/node-unrtf/compare/v6.0.0...v6.0.1) (2025-05-06)
 
 
