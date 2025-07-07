@@ -2,8 +2,8 @@
 
 const { spawn, spawnSync } = require("node:child_process");
 const { readFile } = require("node:fs/promises");
-const { gt, lt } = require("semver");
 const { normalize, resolve: pathResolve } = require("node:path");
+const { gt, lt } = require("semver");
 
 const errorMessages = {
 	3221225477: "Segmentation fault",
@@ -71,7 +71,6 @@ function parseOptions(acceptedOptions, options, version) {
 			const option = entries[i][1];
 			const acceptedOption = acceptedOptions[key];
 
-			// eslint-disable-next-line valid-typeof -- `type` is a string
 			if (acceptedOption.type === typeof option) {
 				// Skip boolean options if false
 				if (acceptedOption.type !== "boolean" || option) {
