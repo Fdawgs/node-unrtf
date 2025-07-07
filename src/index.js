@@ -2,8 +2,8 @@
 
 const { spawn, spawnSync } = require("node:child_process");
 const { readFile } = require("node:fs/promises");
-const { gt, lt } = require("semver");
 const { normalize, resolve: pathResolve } = require("node:path");
+const { gt, lt } = require("semver");
 
 const errorMessages = {
 	3221225477: "Segmentation fault",

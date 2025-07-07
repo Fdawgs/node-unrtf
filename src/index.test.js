@@ -6,17 +6,26 @@
 
 const { execFile, spawnSync } = require("node:child_process");
 const { unlink } = require("node:fs/promises");
+const { join, normalize, posix } = require("node:path");
 const { promisify } = require("node:util");
+const {
+	afterEach,
+	beforeAll,
+	beforeEach,
+	describe,
+	expect,
+	it,
+	jest,
+} = require("@jest/globals");
 const { glob } = require("glob");
 const isHtml = require("is-html");
 const { gt, lt } = require("semver");
-const { join, normalize } = require("node:path");
 const generateCombos = require("../test_resources/utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
 const { UnRTF } = require("./index");
 
-const testDirectory = join(__dirname, "../test_resources/test_files/");
+const testDirectory = posix.join(__dirname, "../test_resources/test_files/");
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 /**
