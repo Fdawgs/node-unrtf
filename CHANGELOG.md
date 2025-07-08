@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.3](https://github.com/Fdawgs/node-unrtf/compare/v6.0.2...v6.0.3) (2025-07-08)
+
+
+### Improvements
+
+* **index:** import `node:process` explicitly ([#450](https://github.com/Fdawgs/node-unrtf/issues/450)) ([a491760](https://github.com/Fdawgs/node-unrtf/commit/a491760be8f045040f65bc2df73ad47eae039a2f))
+
+
+### Miscellaneous
+
+* **index:** use upper snakecase for cached values ([#448](https://github.com/Fdawgs/node-unrtf/issues/448)) ([88153dd](https://github.com/Fdawgs/node-unrtf/commit/88153ddb5dd77edb0f1e3ecc92e9b5ba154c5a00))
+
+
+### Tests
+
+* **utils/gen-combos:** replace accumulator spread with object.assign ([#451](https://github.com/Fdawgs/node-unrtf/issues/451)) ([ed4c5d7](https://github.com/Fdawgs/node-unrtf/commit/ed4c5d7c7147f3edfaa3bb1c770fce366e5a159a))
+
 ## [6.0.2](https://github.com/Fdawgs/node-unrtf/compare/v6.0.1...v6.0.2) (2025-07-07)
 
 
