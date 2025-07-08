@@ -7,6 +7,7 @@
 const { execFile, spawnSync } = require("node:child_process");
 const { unlink } = require("node:fs/promises");
 const { join, normalize, posix } = require("node:path");
+const { platform } = require("node:process");
 const { promisify } = require("node:util");
 const {
 	afterEach,
@@ -33,7 +34,6 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
  * @returns {string} The path to the UnRTF binary.
  */
 function getTestBinaryPath() {
-	const { platform } = process;
 	const which = spawnSync(platform === "win32" ? "where" : "which", [
 		"unrtf",
 	]).stdout.toString();
@@ -55,22 +55,8 @@ describe("Node-UnRTF module", () => {
 	});
 
 	describe("Constructor", () => {
-		let platform;
-
-		beforeAll(() => {
-			// Copy the process platform
-			({ platform } = process);
-		});
-
 		beforeEach(() => {
 			jest.resetModules();
-		});
-
-		afterEach(() => {
-			// Restore the process platform
-			Object.defineProperty(process, "platform", {
-				value: platform,
-			});
 		});
 
 		it("Creates a new UnRTF instance without the binary path set", () => {
@@ -80,9 +66,10 @@ describe("Node-UnRTF module", () => {
 		});
 
 		it("Throws an Error if the binary path is not found", () => {
-			Object.defineProperty(process, "platform", {
-				value: "mockOS",
-			});
+			jest.doMock("node:process", () => ({
+				platform: "mockOS",
+			}));
+			const { platform: mockPlatform } = require("node:process");
 
 			jest.doMock("node:child_process", () => ({
 				spawnSync: jest.fn(() => ({
@@ -100,7 +87,7 @@ describe("Node-UnRTF module", () => {
 				const unRtf = new UnRTFMock();
 			} catch (err) {
 				expect(err.message).toBe(
-					`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
+					`Unable to find ${mockPlatform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 				);
 			}
 		});

@@ -3,6 +3,7 @@
 const { spawn, spawnSync } = require("node:child_process");
 const { readFile } = require("node:fs/promises");
 const { normalize, resolve: pathResolve } = require("node:path");
+const { platform } = require("node:process");
 const { gt, lt } = require("semver");
 
 const ERROR_MSGS = {
@@ -128,7 +129,6 @@ class UnRTF {
 			/** @type {string|undefined} */
 			this.#unrtfPath = binPath;
 		} else {
-			const { platform } = process;
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
 			]).stdout.toString();
@@ -151,7 +151,7 @@ class UnRTF {
 		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.#unrtfPath) {
 			throw new Error(
-				`Unable to find ${process.platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
+				`Unable to find ${platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
 		this.#unrtfPath = normalize(this.#unrtfPath);
