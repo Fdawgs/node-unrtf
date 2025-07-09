@@ -29,7 +29,8 @@ const testDirectory = posix.join(__dirname, "../test_resources/test_files/");
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 // Cache immutable regex as they are expensive to create and garbage collect
-const HTML_REG = /^\s*(?:<!doctype html>|<(?:html|body)\b[^>]*>|<x-[^>]+>)/iu;
+const HTML_REG =
+	/^\s*<!doctype html\b[^>]*>|<(?:html|body)\b[^>]*>|<x-[^>]+>/iu;
 
 /**
  * @description Returns the path to the UnRTF binary based on the OS.
