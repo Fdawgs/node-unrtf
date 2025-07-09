@@ -86,7 +86,6 @@
 		"eslint-plugin-jest": "^29.0.1",
 		"glob": "^11.0.3",
 		"husky": "^9.1.7",
-		"is-html": "^2.0.0",
 		"jest": "^30.0.4",
 		"jsdoc-to-markdown": "^9.1.1",
 		"licensee": "^11.1.1",

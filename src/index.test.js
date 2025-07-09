@@ -19,7 +19,6 @@ const {
 	jest,
 } = require("@jest/globals");
 const { glob } = require("glob");
-const isHtml = require("is-html");
 const { gt, lt } = require("semver");
 const generateCombos = require("../test_resources/utils/gen-combos");
 
@@ -28,6 +27,9 @@ const { UnRTF } = require("./index");
 
 const testDirectory = posix.join(__dirname, "../test_resources/test_files/");
 const file = `${testDirectory}test-rtf-complex.rtf`;
+
+// Cache immutable regex as they are expensive to create and garbage collect
+const HTML_REG = /^\s*(?:<!doctype html>|<(?:html|body)\b[^>]*>|<x-[^>]+>)/iu;
 
 /**
  * @description Returns the path to the UnRTF binary based on the OS.
@@ -182,7 +184,7 @@ describe("Node-UnRTF module", () => {
 
 					const res = await unRtf.convert(file, options);
 
-					expect(isHtml(res)).toBe(true);
+					expect(res).toMatch(HTML_REG);
 				})
 			);
 		});
@@ -234,7 +236,7 @@ describe("Node-UnRTF module", () => {
 
 			const res = await unRtf.convert(file, options);
 
-			expect(isHtml(res)).toBe(expected.html);
+			expect(HTML_REG.test(res)).toBe(expected.html);
 			expect(res).toMatch(expected.stringMatch);
 		});
 
