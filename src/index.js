@@ -10,6 +10,7 @@ const ERROR_MSGS = {
 	3221225477: "Segmentation fault",
 };
 const RTF_MAGIC_NUMBER = "{\\rtf1";
+const RTF_MAGIC_NUMBER_LENGTH = RTF_MAGIC_NUMBER.length;
 
 // Cache immutable regex as they are expensive to create and garbage collect
 const UNRTF_PATH_REG = /(.+)unrtf/u;
@@ -249,7 +250,7 @@ class UnRTF {
 		}
 		// Check for RTF specific magic number
 		if (
-			buff.toString().slice(0, RTF_MAGIC_NUMBER.length) !==
+			buff.toString().slice(0, RTF_MAGIC_NUMBER_LENGTH) !==
 			RTF_MAGIC_NUMBER
 		) {
 			throw new Error(
