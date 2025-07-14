@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.4](https://github.com/Fdawgs/node-unrtf/compare/v6.0.3...v6.0.4) (2025-07-14)
+
+
+### Dependencies
+
+* **deps-dev:** remove is-html ([#453](https://github.com/Fdawgs/node-unrtf/issues/453)) ([b870fd8](https://github.com/Fdawgs/node-unrtf/commit/b870fd8c13373ed37580d3539e979354c65bccf3))
+
+
+### Improvements
+
+* **index:** cache rtf magic number length ([#455](https://github.com/Fdawgs/node-unrtf/issues/455)) ([af371fe](https://github.com/Fdawgs/node-unrtf/commit/af371fecca1f2744f2d62ca1b1b56e233be95a05))
+
 ## [6.0.3](https://github.com/Fdawgs/node-unrtf/compare/v6.0.2...v6.0.3) (2025-07-08)
 
 
