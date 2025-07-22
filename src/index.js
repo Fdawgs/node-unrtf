@@ -1,7 +1,7 @@
 "use strict";
 
 const { spawn, spawnSync } = require("node:child_process");
-const { readFile } = require("node:fs/promises");
+const { open } = require("node:fs/promises");
 const { normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
 const { gt, lt } = require("semver");
@@ -241,21 +241,33 @@ class UnRTF {
 	 */
 	async convert(file, options = {}) {
 		// Catch empty strings, missing files, and non-RTF files, as UnRTF will attempt to convert them
-		let buff;
+		let fileHandle;
 		try {
-			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File read is wanted
-			buff = await readFile(normalize(file));
-		} catch {
-			throw new Error("File missing");
-		}
-		// Check for RTF specific magic number
-		if (
-			buff.toString().slice(0, RTF_MAGIC_NUMBER_LENGTH) !==
-			RTF_MAGIC_NUMBER
-		) {
-			throw new Error(
-				"File is not the correct media type, expected 'application/rtf'"
+			const normalizedFile = normalize(file);
+			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File open is wanted
+			fileHandle = await open(normalizedFile, "r");
+
+			const { buffer } = await fileHandle.read(
+				Buffer.alloc(RTF_MAGIC_NUMBER_LENGTH),
+				0,
+				RTF_MAGIC_NUMBER_LENGTH,
+				0
 			);
+
+			// Check for RTF specific magic number
+			if (buffer.toString() !== RTF_MAGIC_NUMBER) {
+				throw new Error(
+					"File is not the correct media type, expected 'application/rtf'"
+				);
+			}
+		} catch (err) {
+			// @ts-ignore: code property found in fs errors
+			if (err instanceof Error && err.code !== "ENOENT") {
+				throw err;
+			}
+			throw new Error("File missing");
+		} finally {
+			await fileHandle?.close();
 		}
 
 		const args = parseOptions(
