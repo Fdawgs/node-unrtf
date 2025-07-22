@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.4](https://github.com/Fdawgs/node-unrtf/compare/v6.0.3...v6.0.4) (2025-07-22)
+
+
+### Continuous integration
+
+* **cd:** only scope package if it is not already ([#456](https://github.com/Fdawgs/node-unrtf/issues/456)) ([8cfa35d](https://github.com/Fdawgs/node-unrtf/commit/8cfa35d644496b75be39925a891411cabd147d62))
+
+
+### Dependencies
+
+* **deps-dev:** remove is-html ([#453](https://github.com/Fdawgs/node-unrtf/issues/453)) ([b870fd8](https://github.com/Fdawgs/node-unrtf/commit/b870fd8c13373ed37580d3539e979354c65bccf3))
+
+
+### Improvements
+
+* **index:** cache rtf magic number length ([#455](https://github.com/Fdawgs/node-unrtf/issues/455)) ([af371fe](https://github.com/Fdawgs/node-unrtf/commit/af371fecca1f2744f2d62ca1b1b56e233be95a05))
+* **index:** only check first 6 bytes for rtf magic number ([#457](https://github.com/Fdawgs/node-unrtf/issues/457)) ([e003b9e](https://github.com/Fdawgs/node-unrtf/commit/e003b9e338bc09eeddc5470c9e0cbf1f854fdec2))
+
 ## [6.0.3](https://github.com/Fdawgs/node-unrtf/compare/v6.0.2...v6.0.3) (2025-07-08)
 
 
