@@ -10,7 +10,9 @@ const ERROR_MSGS = {
 	3221225477: "Segmentation fault",
 };
 const RTF_MAGIC_NUMBER = "{\\rtf1";
+const RTF_MAGIC_BUFFER = Buffer.from(RTF_MAGIC_NUMBER);
 const RTF_MAGIC_NUMBER_LENGTH = RTF_MAGIC_NUMBER.length;
+const RTF_MAGIC_NUMBER_LENGTH_BUFFER = Buffer.alloc(RTF_MAGIC_NUMBER_LENGTH);
 
 // Cache immutable regex as they are expensive to create and garbage collect
 const UNRTF_PATH_REG = /(.+)unrtf/u;
@@ -254,14 +256,14 @@ class UnRTF {
 			fileHandle = await open(normalizedFile, "r");
 
 			const { buffer } = await fileHandle.read(
-				Buffer.alloc(RTF_MAGIC_NUMBER_LENGTH),
+				RTF_MAGIC_NUMBER_LENGTH_BUFFER,
 				0,
 				RTF_MAGIC_NUMBER_LENGTH,
 				0
 			);
 
 			// Check for RTF specific magic number
-			if (buffer.toString() !== RTF_MAGIC_NUMBER) {
+			if (!buffer.equals(RTF_MAGIC_BUFFER)) {
 				throw new Error(
 					"File is not the correct media type, expected 'application/rtf'"
 				);
