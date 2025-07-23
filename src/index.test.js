@@ -6,7 +6,7 @@
 
 const { execFile, spawnSync } = require("node:child_process");
 const { unlink } = require("node:fs/promises");
-const { join, normalize, posix } = require("node:path");
+const { join, normalize, sep } = require("node:path");
 const { platform } = require("node:process");
 const { promisify } = require("node:util");
 const {
@@ -25,7 +25,8 @@ const generateCombos = require("../test_resources/utils/gen-combos");
 const execFileAsync = promisify(execFile);
 const { UnRTF } = require("./index");
 
-const testDirectory = posix.join(__dirname, "../test_resources/test_files/");
+const testDirectory =
+	join(__dirname, "..", "test_resources", "test_files") + sep;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 // Cache immutable regex as they are expensive to create and garbage collect
