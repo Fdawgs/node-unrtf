@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.5](https://github.com/Fdawgs/node-unrtf/compare/v6.0.4...v6.0.5) (2025-07-23)
+
+
+### Dependencies
+
+* **deps:** bump dev dependencies ([#463](https://github.com/Fdawgs/node-unrtf/issues/463)) ([4dd43f7](https://github.com/Fdawgs/node-unrtf/commit/4dd43f7c960915b6d8811d28244416f965d004c1))
+* **deps:** bump semver from 7.6.3 to 7.7.2 ([#464](https://github.com/Fdawgs/node-unrtf/issues/464)) ([6a4f3eb](https://github.com/Fdawgs/node-unrtf/commit/6a4f3eb018de5b11ccf9c441e06785fc414624ba))
+
+
+### Improvements
+
+* **index:** cache buffers to reduce `alloc()` and `toString()` calls ([#462](https://github.com/Fdawgs/node-unrtf/issues/462)) ([e320006](https://github.com/Fdawgs/node-unrtf/commit/e32000629f3b6fb689552e29b3d9754232409baf))
+* **index:** only call `normalize()` once per file ([#458](https://github.com/Fdawgs/node-unrtf/issues/458)) ([b2a5819](https://github.com/Fdawgs/node-unrtf/commit/b2a581992191a7ed4be2d0814f41cbeb0fbae482))
+* **index:** resolve unrtf bin path once on init, not on every call ([#461](https://github.com/Fdawgs/node-unrtf/issues/461)) ([e82f304](https://github.com/Fdawgs/node-unrtf/commit/e82f304d6779270332bf95e9bd70882fa4e4b337))
+
+
+### Tests
+
+* **index:** build test directory in cleaner fashion ([#459](https://github.com/Fdawgs/node-unrtf/issues/459)) ([a94073e](https://github.com/Fdawgs/node-unrtf/commit/a94073ef1c0e1f1c46f9d8ea37d5143ca823b007))
+
 ## [6.0.4](https://github.com/Fdawgs/node-unrtf/compare/v6.0.3...v6.0.4) (2025-07-22)
 
 
