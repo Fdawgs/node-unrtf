@@ -110,6 +110,8 @@ function parseOptions(acceptedOptions, options, version) {
 }
 
 class UnRTF {
+	#unrtfBin;
+
 	#unrtfPath;
 
 	#unrtfVersion;
@@ -157,8 +159,10 @@ class UnRTF {
 		}
 		this.#unrtfPath = normalize(this.#unrtfPath);
 
+		this.#unrtfBin = pathResolve(this.#unrtfPath, "unrtf");
+
 		// Version needed for option validation; which is output to stderr
-		const version = spawnSync(pathResolve(this.#unrtfPath, "unrtf"), [
+		const version = spawnSync(this.#unrtfBin, [
 			"--version",
 		]).stderr.toString();
 		this.#unrtfVersion = UNRTF_VERSION_REG.exec(version)?.[1] || "";
@@ -280,7 +284,7 @@ class UnRTF {
 		args.push(normalizedFile);
 
 		return new Promise((resolve, reject) => {
-			const child = spawn(pathResolve(this.#unrtfPath, "unrtf"), args);
+			const child = spawn(this.#unrtfBin, args);
 
 			let stdOut = "";
 			let stdErr = "";
