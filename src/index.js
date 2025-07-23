@@ -240,10 +240,12 @@ class UnRTF {
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 */
 	async convert(file, options = {}) {
+		let normalizedFile;
+
 		// Catch empty strings, missing files, and non-RTF files, as UnRTF will attempt to convert them
 		let fileHandle;
 		try {
-			const normalizedFile = normalize(file);
+			normalizedFile = normalize(file);
 			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File open is wanted
 			fileHandle = await open(normalizedFile, "r");
 
@@ -275,7 +277,7 @@ class UnRTF {
 			options,
 			this.#unrtfVersion
 		);
-		args.push(normalize(file));
+		args.push(normalizedFile);
 
 		return new Promise((resolve, reject) => {
 			const child = spawn(pathResolve(this.#unrtfPath, "unrtf"), args);
