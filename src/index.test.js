@@ -120,6 +120,8 @@ describe("Node-UnRTF module", () => {
 		});
 	});
 
+	const unRtf = new UnRTF(testBinaryPath);
+
 	describe("Convert function", () => {
 		let version;
 
@@ -141,8 +143,6 @@ describe("Node-UnRTF module", () => {
 				{ outputVt: true },
 			]);
 
-			const unRtf = new UnRTF(testBinaryPath);
-
 			expect.assertions(optionCombos.length);
 			await Promise.all(
 				optionCombos.map(async (options) => {
@@ -154,7 +154,6 @@ describe("Node-UnRTF module", () => {
 		});
 
 		it("Rejects with version info `printVersionInfo` option is set", async () => {
-			const unRtf = new UnRTF(testBinaryPath);
 			const options = {
 				printVersionInfo: true,
 			};
@@ -173,8 +172,6 @@ describe("Node-UnRTF module", () => {
 				"outputText",
 				"outputVt",
 			];
-
-			const unRtf = new UnRTF(testBinaryPath);
 
 			expect.assertions(outputOptions.length);
 			await Promise.all(
@@ -234,8 +231,6 @@ describe("Node-UnRTF module", () => {
 				},
 			},
 		])("Converts RTF file to $testName", async ({ options, expected }) => {
-			const unRtf = new UnRTF(testBinaryPath);
-
 			const res = await unRtf.convert(file, options);
 
 			expect(HTML_REG.test(res)).toBe(expected.html);
@@ -243,7 +238,6 @@ describe("Node-UnRTF module", () => {
 		});
 
 		it("Rejects with an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
-			const unRtf = new UnRTF(testBinaryPath);
 			const options = {
 				noPictures: true,
 				outputRtf: true,
@@ -256,7 +250,6 @@ describe("Node-UnRTF module", () => {
 		});
 
 		it("Rejects with an Error object if option provided is only available in an earlier version of the UnRTF binary than what was provided", async () => {
-			const unRtf = new UnRTF(testBinaryPath);
 			const options = {
 				noPictures: true,
 				outputPs: true,
@@ -308,8 +301,6 @@ describe("Node-UnRTF module", () => {
 		])(
 			"Rejects with an Error object if $testName",
 			async ({ filePath, options, expError }) => {
-				const unRtf = new UnRTF(testBinaryPath);
-
 				await expect(
 					unRtf.convert(filePath, {
 						noPictures: true,
