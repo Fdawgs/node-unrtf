@@ -113,10 +113,53 @@ function parseOptions(acceptedOptions, options, version) {
 
 class UnRTF {
 	#unrtfBin;
-
 	#unrtfPath;
-
 	#unrtfVersion;
+
+	/** @type {UnRTFAcceptedOptions} */
+	static #acceptedOptions = {
+		noPictures: {
+			arg: "--nopict",
+			type: "boolean",
+			minVersion: "0.0.1",
+		},
+		noRemap: {
+			arg: "--noremap",
+			type: "boolean",
+			minVersion: "0.20.5",
+		},
+		outputHtml: {
+			arg: "--html",
+			type: "boolean",
+			minVersion: "0.0.1",
+		},
+		outputLatex: {
+			arg: "--latex",
+			type: "boolean",
+			minVersion: "0.0.1",
+		},
+		outputPs: {
+			arg: "--ps",
+			type: "boolean",
+			minVersion: "0.0.1",
+			maxVersion: "0.19.4",
+		},
+		outputRtf: { arg: "--rtf", type: "boolean", minVersion: "0.21.3" },
+		outputText: { arg: "--text", type: "boolean", minVersion: "0.0.1" },
+		outputVt: { arg: "--vt", type: "boolean", minVersion: "0.0.1" },
+		outputWpml: {
+			arg: "--wpml",
+			type: "boolean",
+			minVersion: "0.0.1",
+			maxVersion: "0.19.4",
+		},
+		printVersionInfo: {
+			arg: "--version",
+			type: "boolean",
+			minVersion: "0.0.1",
+		},
+		quiet: { arg: "--quiet", type: "boolean", minVersion: "0.21.3" },
+	};
 
 	/**
 	 * @param {string} [binPath] - Path of UnRTF binary.
@@ -173,51 +216,6 @@ class UnRTF {
 		if (!this.#unrtfVersion) {
 			throw new Error("Unable to determine UnRTF version.");
 		}
-
-		/** @type {UnRTFAcceptedOptions} */
-		this.unrtfAcceptedOptions = {
-			noPictures: {
-				arg: "--nopict",
-				type: "boolean",
-				minVersion: "0.0.1",
-			},
-			noRemap: {
-				arg: "--noremap",
-				type: "boolean",
-				minVersion: "0.20.5",
-			},
-			outputHtml: {
-				arg: "--html",
-				type: "boolean",
-				minVersion: "0.0.1",
-			},
-			outputLatex: {
-				arg: "--latex",
-				type: "boolean",
-				minVersion: "0.0.1",
-			},
-			outputPs: {
-				arg: "--ps",
-				type: "boolean",
-				minVersion: "0.0.1",
-				maxVersion: "0.19.4",
-			},
-			outputRtf: { arg: "--rtf", type: "boolean", minVersion: "0.21.3" },
-			outputText: { arg: "--text", type: "boolean", minVersion: "0.0.1" },
-			outputVt: { arg: "--vt", type: "boolean", minVersion: "0.0.1" },
-			outputWpml: {
-				arg: "--wpml",
-				type: "boolean",
-				minVersion: "0.0.1",
-				maxVersion: "0.19.4",
-			},
-			printVersionInfo: {
-				arg: "--version",
-				type: "boolean",
-				minVersion: "0.0.1",
-			},
-			quiet: { arg: "--quiet", type: "boolean", minVersion: "0.21.3" },
-		};
 	}
 
 	/**
@@ -279,7 +277,7 @@ class UnRTF {
 		}
 
 		const args = parseOptions(
-			this.unrtfAcceptedOptions,
+			UnRTF.#acceptedOptions,
 			options,
 			this.#unrtfVersion
 		);
