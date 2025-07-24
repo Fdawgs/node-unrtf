@@ -24,7 +24,6 @@
 * [UnRTF](#UnRTF)
     * [new UnRTF([binPath])](#new_UnRTF_new)
     * _instance_
-        * [.unrtfAcceptedOptions](#UnRTF+unrtfAcceptedOptions) : [<code>UnRTFAcceptedOptions</code>](#UnRTFAcceptedOptions)
         * [.path](#UnRTF+path) ⇒ <code>string</code>
         * [.version](#UnRTF+version) ⇒ <code>string</code>
         * [.convert(file, [options])](#UnRTF+convert) ⇒ <code>Promise.&lt;string&gt;</code>
@@ -39,10 +38,6 @@
 | --- | --- | --- |
 | [binPath] | <code>string</code> | Path of UnRTF binary. If not provided, the constructor will attempt to find the binary in the PATH environment variable. For `win32`, a binary is bundled with the package and will be used if a local installation is not found. |
 
-<a name="UnRTF+unrtfAcceptedOptions"></a>
-
-### unRTF.unrtfAcceptedOptions : [<code>UnRTFAcceptedOptions</code>](#UnRTFAcceptedOptions)
-**Kind**: instance property of [<code>UnRTF</code>](#UnRTF)  
 <a name="UnRTF+path"></a>
 
 ### unRTF.path ⇒ <code>string</code>
