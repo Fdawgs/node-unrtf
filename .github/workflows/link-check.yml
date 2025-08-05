@@ -52,4 +52,4 @@ jobs:
               with:
                   paths: "**/*.md"
                   retry: true
-                  skip: "https://(?:www.|)github.com/Fdawgs/.*/(?:commit|issues|compare)/, http://0.0.0.0"
+                  skip: "https://(?:www.|)github.com/Fdawgs/.*/(?:commit|issues|compare)/, http://0.0.0.0, https://gnu.org/software/unrtf/"
