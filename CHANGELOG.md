@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.6](https://github.com/Fdawgs/node-unrtf/compare/v6.0.5...v6.0.6) (2025-09-01)
+
+
+### Bug fixes
+
+* **index:** race condition writing to same buffer concurrently ([#472](https://github.com/Fdawgs/node-unrtf/issues/472)) ([ce3ccda](https://github.com/Fdawgs/node-unrtf/commit/ce3ccda295e4d5538b7401a38cd6c2d982cb05dc))
+
+
+### Continuous integration
+
+* **cd:** use oicd for publishing to npm ([#471](https://github.com/Fdawgs/node-unrtf/issues/471)) ([f65809e](https://github.com/Fdawgs/node-unrtf/commit/f65809e755d5d8021ea960d88d37e15abc2b18eb))
+* **deps:** bump actions/checkout from 4 to 5 ([#473](https://github.com/Fdawgs/node-unrtf/issues/473)) ([000f4cc](https://github.com/Fdawgs/node-unrtf/commit/000f4cc87a91ea52921eef7bec4d6afcd743ee8a))
+* **deps:** bump actions/dependency-review-action from 4.7.1 to 4.7.3 ([#474](https://github.com/Fdawgs/node-unrtf/issues/474)) ([bb4e825](https://github.com/Fdawgs/node-unrtf/commit/bb4e8253de5b54ff7b491c305ec236736e26ef11))
+* **deps:** bump googleapis/release-please-action from 4.2.0 to 4.3.0 ([#475](https://github.com/Fdawgs/node-unrtf/issues/475)) ([8a42a3b](https://github.com/Fdawgs/node-unrtf/commit/8a42a3b367ee04402780567c1f27cf6a9f9a2e3d))
+* **link-check:** ignore unrtf link ([#470](https://github.com/Fdawgs/node-unrtf/issues/470)) ([7a3235b](https://github.com/Fdawgs/node-unrtf/commit/7a3235b4bed8fcdbdba484abf458248968f99a0c))
+* **link-check:** retry on 429 response ([#469](https://github.com/Fdawgs/node-unrtf/issues/469)) ([5cf9c27](https://github.com/Fdawgs/node-unrtf/commit/5cf9c2721abc7f5176dce28999c38282a9e2789c))
+
+
+### Dependencies
+
+* **deps-dev:** bump typescript from 5.8.3 to 5.9.2 ([#468](https://github.com/Fdawgs/node-unrtf/issues/468)) ([5e16c2c](https://github.com/Fdawgs/node-unrtf/commit/5e16c2ca3984bd8bb166a6677232f3e4dcb71e2a))
+
+
+### Improvements
+
+* **index:** make `acceptedOptions` private static object ([#465](https://github.com/Fdawgs/node-unrtf/issues/465)) ([eb7f53c](https://github.com/Fdawgs/node-unrtf/commit/eb7f53c20fa97c31982ec965e556d159fcf74736))
+
+
+### Tests
+
+* **index:** reuse same `UnRTF` instance ([#467](https://github.com/Fdawgs/node-unrtf/issues/467)) ([c29c1ec](https://github.com/Fdawgs/node-unrtf/commit/c29c1ecf81fd108fb61a7052381655a6759258f1))
+
 ## [6.0.5](https://github.com/Fdawgs/node-unrtf/compare/v6.0.4...v6.0.5) (2025-07-23)
 
 
