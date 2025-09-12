@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.7](https://github.com/Fdawgs/node-unrtf/compare/v6.0.6...v6.0.7) (2025-09-12)
+
+
+### Miscellaneous
+
+* add `.nvmrc` file ([#476](https://github.com/Fdawgs/node-unrtf/issues/476)) ([e3de9c1](https://github.com/Fdawgs/node-unrtf/commit/e3de9c18453b1a6410958b096e74263416ecd47a))
+
 ## [6.0.6](https://github.com/Fdawgs/node-unrtf/compare/v6.0.5...v6.0.6) (2025-09-01)
 
 
