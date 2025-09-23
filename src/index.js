@@ -14,9 +14,9 @@ const RTF_MAGIC_BUFFER = Buffer.from(RTF_MAGIC_NUMBER);
 const RTF_MAGIC_NUMBER_LENGTH = RTF_MAGIC_NUMBER.length;
 
 // Cache immutable regex as they are expensive to create and garbage collect
-const UNRTF_PATH_REG = /(.+)unrtf/u;
+const UNRTF_PATH_REG = /(.+)unrtf/v;
 // UnRTF version output is inconsistent between versions but always starts with the semantic version number
-const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
+const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/v;
 
 /**
  * @typedef {object} OptionDetails
