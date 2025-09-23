@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.7](https://github.com/Fdawgs/node-unrtf/compare/v6.0.6...v6.0.7) (2025-09-23)
+
+
+### Continuous integration
+
+* **cd:** protect against cache poisoning ([#485](https://github.com/Fdawgs/node-unrtf/issues/485)) ([ed509f3](https://github.com/Fdawgs/node-unrtf/commit/ed509f3fbcfdb83e25283de2bd996b585297b0ce))
+* **ci:** check dependabot prs originate from repo ([#481](https://github.com/Fdawgs/node-unrtf/issues/481)) ([36a9757](https://github.com/Fdawgs/node-unrtf/commit/36a97577e96000d690c925fcc4e63ed81737ae7b))
+* **deps:** bump actions/setup-node from 4 to 5 ([#479](https://github.com/Fdawgs/node-unrtf/issues/479)) ([c28b90a](https://github.com/Fdawgs/node-unrtf/commit/c28b90a00c7ad996e4672e342b7be7db9091cbf9))
+* tidy conditional checks ([#482](https://github.com/Fdawgs/node-unrtf/issues/482)) ([b69f195](https://github.com/Fdawgs/node-unrtf/commit/b69f195cf458c417cddd1c7f72ca294789cbd8a1))
+
+
+### Dependencies
+
+* **dependabot:** add cooldowns ([#478](https://github.com/Fdawgs/node-unrtf/issues/478)) ([cd4f3e7](https://github.com/Fdawgs/node-unrtf/commit/cd4f3e791b62f15feca7f79f12753b3373c9da9a))
+* **tsconfig:** add typescript declaration map ([#484](https://github.com/Fdawgs/node-unrtf/issues/484)) ([6f0e38b](https://github.com/Fdawgs/node-unrtf/commit/6f0e38b58b9bcc1b9b1cc71c222412df09cd43f5))
+
+
+### Improvements
+
+* **index:** enable regex charset and unicode with `v` flag ([#483](https://github.com/Fdawgs/node-unrtf/issues/483)) ([e168dca](https://github.com/Fdawgs/node-unrtf/commit/e168dcab5e7acf9dc110e116477e3ace5bd1d069))
+
+
+### Miscellaneous
+
+* **.npmrc:** ignore scripts ([#480](https://github.com/Fdawgs/node-unrtf/issues/480)) ([61dd6df](https://github.com/Fdawgs/node-unrtf/commit/61dd6dfbd8439850b35c66f81ecb6fea5dbc408e))
+* add `.nvmrc` file ([#476](https://github.com/Fdawgs/node-unrtf/issues/476)) ([e3de9c1](https://github.com/Fdawgs/node-unrtf/commit/e3de9c18453b1a6410958b096e74263416ecd47a))
+
 ## [6.0.6](https://github.com/Fdawgs/node-unrtf/compare/v6.0.5...v6.0.6) (2025-09-01)
 
 
