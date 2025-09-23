@@ -7,3 +7,4 @@
 !src/lib/win32/unrtf*/contrib/**/COPYING
 !src/lib/win32/unrtf*/contrib/**/README
 !types/index.d.ts
+!types/index.d.ts.map
