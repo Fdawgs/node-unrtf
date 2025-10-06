@@ -31,7 +31,7 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
 
 // Cache immutable regex as they are expensive to create and garbage collect
 const HTML_REG =
-	/^\s*<!doctype html\b[^>]*>|<(?:html|body)\b[^>]*>|<x-[^>]+>/iv;
+	/^\s*<!doctype html\b[^>]*>|<(?:html|body)\b[^>]*>|<x-[^>]+>/iu;
 
 /**
  * @description Returns the path to the UnRTF binary based on the OS.
@@ -41,7 +41,7 @@ function getTestBinaryPath() {
 	const which = spawnSync(platform === "win32" ? "where" : "which", [
 		"unrtf",
 	]).stdout.toString();
-	let unrtfPath = /(.+)unrtf/v.exec(which)?.[1];
+	let unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
 
 	if (platform === "win32" && !unrtfPath) {
 		unrtfPath = join(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
@@ -130,7 +130,7 @@ describe("Node-UnRTF module", () => {
 				join(testBinaryPath, "unrtf"),
 				["--version"]
 			);
-			version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/v.exec(stderr)[1];
+			version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
 		});
 
 		it("Converts RTF if any valid options are set", async () => {
