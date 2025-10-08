@@ -36,6 +36,7 @@ const HTML_REG =
 /**
  * @description Returns the path to the UnRTF binary based on the OS.
  * @returns {string} The path to the UnRTF binary.
+ * @throws {Error} If the OS is not supported or the binaries are not found.
  */
 function getTestBinaryPath() {
 	const which = spawnSync(platform === "win32" ? "where" : "which", [
