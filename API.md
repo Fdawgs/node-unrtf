@@ -5,6 +5,13 @@
 <dd></dd>
 </dl>
 
+## Constants
+
+<dl>
+<dt><a href="#ERROR_MSGS">ERROR_MSGS</a> : <code>Record.&lt;string, string&gt;</code></dt>
+<dd></dd>
+</dl>
+
 ## Typedefs
 
 <dl>
@@ -33,6 +40,10 @@
 <a name="new_UnRTF_new"></a>
 
 ### new UnRTF([binPath])
+**Throws**:
+
+- <code>Error</code> If UnRTF binary cannot be found or version cannot be determined.
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -61,6 +72,10 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 **Kind**: instance method of [<code>UnRTF</code>](#UnRTF)  
 **Returns**: <code>Promise.&lt;string&gt;</code> - A promise that resolves with a stdout string, or rejects with an `Error` object.  
+**Throws**:
+
+- <code>Error</code> If the file is missing, not an RTF file, or if UnRTF returns an error.
+
 **Author**: Frazer Smith  
 
 | Param | Type | Description |
@@ -72,6 +87,10 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 ### UnRTF.UnRTF : <code>string</code> \| <code>undefined</code>
 **Kind**: static property of [<code>UnRTF</code>](#UnRTF)  
+<a name="ERROR_MSGS"></a>
+
+## ERROR\_MSGS : <code>Record.&lt;string, string&gt;</code>
+**Kind**: global constant  
 <a name="OptionDetails"></a>
 
 ## OptionDetails : <code>object</code>

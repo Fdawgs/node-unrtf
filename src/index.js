@@ -6,6 +6,7 @@ const { normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
 const { gt, lt } = require("semver");
 
+/** @type {Record<string, string>} */
 const ERROR_MSGS = {
 	3221225477: "Segmentation fault",
 };
@@ -53,10 +54,10 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  * version of binary.
  * @ignore
  * @param {UnRTFAcceptedOptions} acceptedOptions - Object containing accepted options.
- * @param {Record<string, any>} options - Object containing options to pass to binary.
+ * @param {UnRTFOptions} options - Object containing options to pass to binary.
  * @param {string} version - Semantic version of binary.
  * @returns {string[]} Array of CLI arguments.
- * @throws If invalid arguments provided.
+ * @throws {Error} If invalid arguments provided.
  */
 function parseOptions(acceptedOptions, options, version) {
 	/** @type {string[]} */
@@ -167,6 +168,7 @@ class UnRTF {
 	 *
 	 * For `win32`, a binary is bundled with the package and will be used
 	 * if a local installation is not found.
+	 * @throws {Error} If UnRTF binary cannot be found or version cannot be determined.
 	 */
 	constructor(binPath) {
 		this.#unrtfPath = "";
@@ -241,6 +243,7 @@ class UnRTF {
 	 * @param {string} file - Filepath of the RTF file to read.
 	 * @param {UnRTFOptions} [options] - Options to pass to UnRTF binary.
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
+	 * @throws {Error} If the file is missing, not an RTF file, or if UnRTF returns an error.
 	 */
 	async convert(file, options = {}) {
 		let normalizedFile;
@@ -303,8 +306,7 @@ class UnRTF {
 				} else if (stdErr === "") {
 					reject(
 						new Error(
-							// @ts-ignore: Second operand used if code is not in ERROR_MSGS
-							ERROR_MSGS[code] ||
+							ERROR_MSGS[code ?? -1] ||
 								`unrtf ${args.join(
 									" "
 								)} exited with code ${code}`

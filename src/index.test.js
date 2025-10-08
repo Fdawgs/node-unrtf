@@ -47,6 +47,10 @@ function getTestBinaryPath() {
 		unrtfPath = join(__dirname, "lib", "win32", "unrtf-0.19.3", "bin");
 	}
 
+	if (!unrtfPath) {
+		throw new Error(`Unable to find ${platform} UnRTF binaries.`);
+	}
+
 	return normalize(unrtfPath);
 }
 
@@ -90,9 +94,11 @@ describe("Node-UnRTF module", () => {
 				// eslint-disable-next-line no-unused-vars -- This is intentional
 				const unRtf = new UnRTFMock();
 			} catch (err) {
-				expect(err.message).toBe(
-					`Unable to find ${mockPlatform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
-				);
+				if (err instanceof Error) {
+					expect(err.message).toBe(
+						`Unable to find ${mockPlatform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
+					);
+				}
 			}
 		});
 
@@ -115,7 +121,11 @@ describe("Node-UnRTF module", () => {
 				// eslint-disable-next-line no-unused-vars -- This is intentional
 				const unRtf = new UnRTFMock();
 			} catch (err) {
-				expect(err.message).toBe("Unable to determine UnRTF version.");
+				if (err instanceof Error) {
+					expect(err.message).toBe(
+						"Unable to determine UnRTF version."
+					);
+				}
 			}
 		});
 	});
@@ -123,6 +133,7 @@ describe("Node-UnRTF module", () => {
 	const unRtf = new UnRTF(testBinaryPath);
 
 	describe("Convert function", () => {
+		/** @type {string} */
 		let version;
 
 		beforeAll(async () => {
@@ -130,7 +141,12 @@ describe("Node-UnRTF module", () => {
 				join(testBinaryPath, "unrtf"),
 				["--version"]
 			);
-			version = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr)[1];
+
+			const match = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u.exec(stderr);
+			if (!match?.[1]) {
+				throw new Error("Unable to parse UnRTF version from stderr");
+			}
+			version = match[1];
 		});
 
 		it("Converts RTF if any valid options are set", async () => {
@@ -302,6 +318,7 @@ describe("Node-UnRTF module", () => {
 			"Rejects with an Error object if $testName",
 			async ({ filePath, options, expError }) => {
 				await expect(
+					// @ts-expect-error: Testing invalid parameters being passed
 					unRtf.convert(filePath, {
 						noPictures: true,
 						...options,
