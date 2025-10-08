@@ -59,7 +59,7 @@ const testBinaryPath = getTestBinaryPath();
 describe("Node-UnRTF module", () => {
 	afterEach(async () => {
 		// Remove leftover test files
-		const files = await glob("*.{emf,wmf}");
+		const files = await glob("*.{emf,wmf,png}");
 		await Promise.all(files.map((filed) => unlink(filed)));
 	});
 

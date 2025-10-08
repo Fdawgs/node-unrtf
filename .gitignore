@@ -147,3 +147,4 @@ yarn.lock
 # Test files
 *.wmf
 *.emf
+*.png
