@@ -5,13 +5,6 @@
 <dd></dd>
 </dl>
 
-## Constants
-
-<dl>
-<dt><a href="#ERROR_MSGS">ERROR_MSGS</a> : <code>Record.&lt;string, string&gt;</code></dt>
-<dd></dd>
-</dl>
-
 ## Typedefs
 
 <dl>
@@ -87,10 +80,6 @@ UnRTF will use the directory of the original file to store embedded pictures.
 
 ### UnRTF.UnRTF : <code>string</code> \| <code>undefined</code>
 **Kind**: static property of [<code>UnRTF</code>](#UnRTF)  
-<a name="ERROR_MSGS"></a>
-
-## ERROR\_MSGS : <code>Record.&lt;string, string&gt;</code>
-**Kind**: global constant  
 <a name="OptionDetails"></a>
 
 ## OptionDetails : <code>object</code>
