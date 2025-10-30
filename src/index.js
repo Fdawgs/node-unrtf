@@ -6,7 +6,10 @@ const { normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
 const { gt, lt } = require("semver");
 
-/** @type {Record<string, string>} */
+/**
+ * @type {Readonly<Record<string, string>>}
+ * @ignore
+ */
 const ERROR_MSGS = {
 	3221225477: "Segmentation fault",
 };
