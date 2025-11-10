@@ -69,43 +69,44 @@ function parseOptions(acceptedOptions, options, version) {
 	const invalidArgs = [];
 
 	// Imperative loops are faster than functional loops, see https://romgrk.com/posts/optimizing-javascript
-	const entries = Object.entries(options);
-	const entriesLength = entries.length;
-	for (let i = 0; i < entriesLength; i += 1) {
-		// Destructuring adds overhead, so use index access
-		const key = entries[i][0];
-		if (Object.hasOwn(acceptedOptions, key)) {
-			const option = entries[i][1];
-			const acceptedOption = acceptedOptions[key];
+	const keys = Object.keys(options);
+	const keysLength = keys.length;
+	for (let i = 0; i < keysLength; i += 1) {
+		const key = keys[i];
+		if (!Object.hasOwn(acceptedOptions, key)) {
+			invalidArgs.push(`Invalid option provided '${key}'`);
+			continue;
+		}
 
-			if (acceptedOption.type === typeof option) {
-				// Skip boolean options if false
-				if (acceptedOption.type !== "boolean" || option) {
-					args.push(acceptedOption.arg);
-				}
-			} else {
-				invalidArgs.push(
-					`Invalid value type provided for option '${key}', expected ${
-						acceptedOption.type
-					} but received ${typeof option}`
-				);
-			}
+		// @ts-ignore: keys are from options, TS cannot infer this
+		const option = options[key];
+		const acceptedOption = acceptedOptions[key];
 
-			/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
-			if (lt(version, acceptedOption.minVersion)) {
-				invalidArgs.push(
-					`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOption.minVersion}, but received v${version}`
-				);
-			}
-
-			/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
-			if (gt(version, acceptedOption.maxVersion || version)) {
-				invalidArgs.push(
-					`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOption.maxVersion}, but received v${version}`
-				);
+		if (acceptedOption.type === typeof option) {
+			// Skip boolean options if false
+			if (acceptedOption.type !== "boolean" || option) {
+				args.push(acceptedOption.arg);
 			}
 		} else {
-			invalidArgs.push(`Invalid option provided '${key}'`);
+			invalidArgs.push(
+				`Invalid value type provided for option '${key}', expected ${
+					acceptedOption.type
+				} but received ${typeof option}`
+			);
+		}
+
+		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
+		if (lt(version, acceptedOption.minVersion)) {
+			invalidArgs.push(
+				`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOption.minVersion}, but received v${version}`
+			);
+		}
+
+		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
+		if (gt(version, acceptedOption.maxVersion || version)) {
+			invalidArgs.push(
+				`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOption.maxVersion}, but received v${version}`
+			);
 		}
 	}
 	if (invalidArgs.length === 0) {
