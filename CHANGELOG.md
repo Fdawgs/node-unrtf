@@ -2,6 +2,62 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.7](https://github.com/Fdawgs/node-unrtf/compare/v6.0.6...v6.0.7) (2025-11-10)
+
+
+### Bug fixes
+
+* **index:** revert [#483](https://github.com/Fdawgs/node-unrtf/issues/483) ([#489](https://github.com/Fdawgs/node-unrtf/issues/489)) ([b5e096c](https://github.com/Fdawgs/node-unrtf/commit/b5e096c1bdfc950c9e380cbaa46d9fbbe2580a58))
+
+
+### Continuous integration
+
+* **cd:** protect against cache poisoning ([#485](https://github.com/Fdawgs/node-unrtf/issues/485)) ([ed509f3](https://github.com/Fdawgs/node-unrtf/commit/ed509f3fbcfdb83e25283de2bd996b585297b0ce))
+* **ci:** add typecheck to lint job ([#486](https://github.com/Fdawgs/node-unrtf/issues/486)) ([0ead965](https://github.com/Fdawgs/node-unrtf/commit/0ead965391660640ab36531904f8f5ad491fccdc))
+* **ci:** check dependabot prs originate from repo ([#481](https://github.com/Fdawgs/node-unrtf/issues/481)) ([36a9757](https://github.com/Fdawgs/node-unrtf/commit/36a97577e96000d690c925fcc4e63ed81737ae7b))
+* **ci:** ignore dependabot prs in coverage updates ([#495](https://github.com/Fdawgs/node-unrtf/issues/495)) ([83a7b99](https://github.com/Fdawgs/node-unrtf/commit/83a7b995382549f3029af0de498ded01e9fa0f27))
+* **ci:** only send coverage to coveralls on main ([#506](https://github.com/Fdawgs/node-unrtf/issues/506)) ([a76b723](https://github.com/Fdawgs/node-unrtf/commit/a76b7235af9f7b48382bcd1fd4a6e710dd9df2ee))
+* **deps:** bump actions/dependency-review-action from 4.7.3 to 4.8.0 ([#487](https://github.com/Fdawgs/node-unrtf/issues/487)) ([1771b4c](https://github.com/Fdawgs/node-unrtf/commit/1771b4ce1edfa2a779c0e5ee111de8b1cf9c58c5))
+* **deps:** bump actions/dependency-review-action from 4.8.0 to 4.8.1 ([#500](https://github.com/Fdawgs/node-unrtf/issues/500)) ([59295de](https://github.com/Fdawgs/node-unrtf/commit/59295deed997df1059e3e3277e7eca6ad91f9e27))
+* **deps:** bump actions/setup-node from 4 to 5 ([#479](https://github.com/Fdawgs/node-unrtf/issues/479)) ([c28b90a](https://github.com/Fdawgs/node-unrtf/commit/c28b90a00c7ad996e4672e342b7be7db9091cbf9))
+* **deps:** bump actions/setup-node from 5 to 6 ([#501](https://github.com/Fdawgs/node-unrtf/issues/501)) ([8472e0a](https://github.com/Fdawgs/node-unrtf/commit/8472e0aa81061a0b157df8340eee81abe4ea299e))
+* **deps:** bump fastify/github-action-merge-dependabot ([#503](https://github.com/Fdawgs/node-unrtf/issues/503)) ([903d82b](https://github.com/Fdawgs/node-unrtf/commit/903d82bf57686ebd367275c1aea96f1ce7e2f235))
+* **deps:** bump github/codeql-action from 3 to 4 ([#502](https://github.com/Fdawgs/node-unrtf/issues/502)) ([5daaeb1](https://github.com/Fdawgs/node-unrtf/commit/5daaeb12e4934528cc8720605ea0184c97b07efe))
+* **deps:** bump googleapis/release-please-action from 4.3.0 to 4.4.0 ([#499](https://github.com/Fdawgs/node-unrtf/issues/499)) ([6825c66](https://github.com/Fdawgs/node-unrtf/commit/6825c66ffa688a58e064ad16233adc72ca3a0268))
+* **deps:** bump JustinBeckwith/linkinator-action from 1.11.0 to 2.3 ([#498](https://github.com/Fdawgs/node-unrtf/issues/498)) ([5023ea3](https://github.com/Fdawgs/node-unrtf/commit/5023ea391cc2dee2d7abf16f276b0c76a1721240))
+* tidy conditional checks ([#482](https://github.com/Fdawgs/node-unrtf/issues/482)) ([b69f195](https://github.com/Fdawgs/node-unrtf/commit/b69f195cf458c417cddd1c7f72ca294789cbd8a1))
+* use `.nvmrc` for node-version ([#490](https://github.com/Fdawgs/node-unrtf/issues/490)) ([8b9a6c7](https://github.com/Fdawgs/node-unrtf/commit/8b9a6c7d2256c4806f76a900e63526a450ccdab9))
+
+
+### Dependencies
+
+* **dependabot:** add cooldowns ([#478](https://github.com/Fdawgs/node-unrtf/issues/478)) ([cd4f3e7](https://github.com/Fdawgs/node-unrtf/commit/cd4f3e791b62f15feca7f79f12753b3373c9da9a))
+* **deps-dev:** bump @fdawgs/eslint-config in the eslint group ([#504](https://github.com/Fdawgs/node-unrtf/issues/504)) ([59716b8](https://github.com/Fdawgs/node-unrtf/commit/59716b8a24af5539b8e0f6f0ec6daa71443916d4))
+* **deps-dev:** bump the commitlint group with 2 updates ([#488](https://github.com/Fdawgs/node-unrtf/issues/488)) ([e938bc0](https://github.com/Fdawgs/node-unrtf/commit/e938bc01c010b4f90d68fc45002d54d7fa96d469))
+* **tsconfig:** add typescript declaration map ([#484](https://github.com/Fdawgs/node-unrtf/issues/484)) ([6f0e38b](https://github.com/Fdawgs/node-unrtf/commit/6f0e38b58b9bcc1b9b1cc71c222412df09cd43f5))
+
+
+### Improvements
+
+* **index:** enable regex charset and unicode with `v` flag ([#483](https://github.com/Fdawgs/node-unrtf/issues/483)) ([e168dca](https://github.com/Fdawgs/node-unrtf/commit/e168dcab5e7acf9dc110e116477e3ace5bd1d069))
+* **index:** use `Object.keys` over `Object.entries` for opt parsing ([#505](https://github.com/Fdawgs/node-unrtf/issues/505)) ([d61fa06](https://github.com/Fdawgs/node-unrtf/commit/d61fa06e7100a59d706165c8f02e4bf9693c1df2))
+
+
+### Miscellaneous
+
+* **.devcontainer:** add devcontainer ([#493](https://github.com/Fdawgs/node-unrtf/issues/493)) ([e88ada1](https://github.com/Fdawgs/node-unrtf/commit/e88ada193d57126a96557d561c37bd5fb2f41482))
+* **.npmrc:** ignore scripts ([#480](https://github.com/Fdawgs/node-unrtf/issues/480)) ([61dd6df](https://github.com/Fdawgs/node-unrtf/commit/61dd6dfbd8439850b35c66f81ecb6fea5dbc408e))
+* add `.nvmrc` file ([#476](https://github.com/Fdawgs/node-unrtf/issues/476)) ([e3de9c1](https://github.com/Fdawgs/node-unrtf/commit/e3de9c18453b1a6410958b096e74263416ecd47a))
+* **index:** add throw jsdoc tags; add type guards to tests ([#491](https://github.com/Fdawgs/node-unrtf/issues/491)) ([7101ed3](https://github.com/Fdawgs/node-unrtf/commit/7101ed3be6f6338286621d19fae9bc355b18cdf9))
+* **index:** hide global from api docs ([#496](https://github.com/Fdawgs/node-unrtf/issues/496)) ([0fb2d29](https://github.com/Fdawgs/node-unrtf/commit/0fb2d29e6a1e6f660a42b60d4c7121ace15c1c81))
+* rename lint scripts to reflect use ([#497](https://github.com/Fdawgs/node-unrtf/issues/497)) ([4b89e37](https://github.com/Fdawgs/node-unrtf/commit/4b89e37714345d10304dd3469d09a3d5ec3f1910))
+
+
+### Tests
+
+* **index:** add throw jsdoc tag ([#492](https://github.com/Fdawgs/node-unrtf/issues/492)) ([9799a8c](https://github.com/Fdawgs/node-unrtf/commit/9799a8ce86a5190dfb4e14d143e0e1ae474847ba))
+* **utils:** use template for types ([#494](https://github.com/Fdawgs/node-unrtf/issues/494)) ([0829533](https://github.com/Fdawgs/node-unrtf/commit/0829533b7aa5e79d932e3bd9eded14ceb5e8790f))
+
 ## [6.0.6](https://github.com/Fdawgs/node-unrtf/compare/v6.0.5...v6.0.6) (2025-09-01)
 
 
