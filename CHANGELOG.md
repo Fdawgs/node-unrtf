@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.8](https://github.com/Fdawgs/node-unrtf/compare/v6.0.7...v6.0.8) (2025-11-15)
+
+
+### Continuous integration
+
+* add lock-threads workflow; fix concurrency groups ([#511](https://github.com/Fdawgs/node-unrtf/issues/511)) ([44274d5](https://github.com/Fdawgs/node-unrtf/commit/44274d59631fbfaaf1a40dc133a60722e2307133))
+* **link-check:** use reusable workflow ([#513](https://github.com/Fdawgs/node-unrtf/issues/513)) ([4af79b8](https://github.com/Fdawgs/node-unrtf/commit/4af79b83d1b01aa32804e56dea4352e34309b2c0))
+* **lock-threads:** set cron to every day ([#512](https://github.com/Fdawgs/node-unrtf/issues/512)) ([cf663a8](https://github.com/Fdawgs/node-unrtf/commit/cf663a8ea3f26a7ceb7a695cf0a30ce6e4c884bb))
+
+
+### Miscellaneous
+
+* **.editorconfig:** add file to enforce consistent coding styles ([#507](https://github.com/Fdawgs/node-unrtf/issues/507)) ([0133b8e](https://github.com/Fdawgs/node-unrtf/commit/0133b8ef9f205903f6d67938570d470d07d885e4))
+* **.editorconfig:** use spaces for yml file indentation ([#510](https://github.com/Fdawgs/node-unrtf/issues/510)) ([c378d59](https://github.com/Fdawgs/node-unrtf/commit/c378d59abb64f8b9e55ead067862c562277471a8))
+* **eslint.config:** stop applying to jsx files ([#509](https://github.com/Fdawgs/node-unrtf/issues/509)) ([1462cc6](https://github.com/Fdawgs/node-unrtf/commit/1462cc6ce0fa3d699351a266047ecc80300a69dc))
+
 ## [6.0.7](https://github.com/Fdawgs/node-unrtf/compare/v6.0.6...v6.0.7) (2025-11-10)
 
 
