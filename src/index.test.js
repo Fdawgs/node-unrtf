@@ -45,10 +45,8 @@ function getTestBinaryPath() {
 	let unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
 
 	if (platform === "win32" && !unrtfPath) {
-		unrtfPath = /** @type {string} */ (
-			// @ts-ignore: Optional dependency
-			require("node-unrtf-win32")
-		);
+		// @ts-ignore: Optional dependency
+		unrtfPath = require("node-unrtf-win32");
 	}
 
 	if (!unrtfPath) {
