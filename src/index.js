@@ -78,7 +78,7 @@ function parseOptions(acceptedOptions, options, version) {
 			continue;
 		}
 
-		// @ts-ignore: keys are from options, TS cannot infer this
+		// @ts-ignore: Keys are from options, TS cannot infer this
 		const option = options[key];
 		const acceptedOption = acceptedOptions[key];
 
@@ -192,6 +192,7 @@ class UnRTF {
 			}
 			if (platform === "win32" && !unrtfPath) {
 				try {
+					// @ts-ignore: Optional dependency; TS cannot find type declarations
 					// eslint-disable-next-line n/global-require -- Optional dependency
 					this.#unrtfPath = require("node-unrtf-win32");
 				} catch {
@@ -272,7 +273,7 @@ class UnRTF {
 				);
 			}
 		} catch (err) {
-			// @ts-ignore: code property found in fs errors
+			// @ts-ignore: Code property found in fs errors
 			if (err instanceof Error && err.code !== "ENOENT") {
 				throw err;
 			}
