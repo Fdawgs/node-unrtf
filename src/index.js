@@ -191,13 +191,12 @@ class UnRTF {
 				this.#unrtfPath = unrtfPath;
 			}
 			if (platform === "win32" && !unrtfPath) {
-				this.#unrtfPath = pathResolve(
-					__dirname,
-					"lib",
-					"win32",
-					"unrtf-0.19.3",
-					"bin"
-				);
+				try {
+					// eslint-disable-next-line n/global-require -- Optional dependency
+					this.#unrtfPath = require("node-unrtf-win32");
+				} catch {
+					// Leave #unrtfPath empty; the generic "Unable to find ... binaries" error below will fire
+				}
 			}
 		}
 

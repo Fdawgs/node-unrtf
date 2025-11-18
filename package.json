@@ -93,10 +93,14 @@
 		"jest": "^30.0.5",
 		"jsdoc-to-markdown": "^9.1.2",
 		"licensee": "^11.1.1",
+		"node-unrtf-win32": "^1.0.0",
 		"prettier": "^3.6.2",
 		"typescript": "~5.9.2"
 	},
 	"dependencies": {
 		"semver": "^7.7.2"
+	},
+	"optionalDependencies": {
+		"node-unrtf-win32": "^1.0.0"
 	}
 }
