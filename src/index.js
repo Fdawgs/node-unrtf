@@ -1,3 +1,4 @@
+/* eslint-disable n/global-require -- Optional dependencies imported inline */
 "use strict";
 
 const { spawn, spawnSync } = require("node:child_process");
@@ -192,9 +193,10 @@ class UnRTF {
 			}
 			if (platform === "win32" && !unrtfPath) {
 				try {
-					// @ts-ignore: Optional dependency; TS cannot find type declarations
-					// eslint-disable-next-line n/global-require -- Optional dependency
-					this.#unrtfPath = require("node-unrtf-win32");
+					this.#unrtfPath = /** @type {string} */ (
+						// @ts-ignore: Optional dependency
+						require("node-unrtf-win32")
+					);
 				} catch {
 					// Leave #unrtfPath empty; the generic "Unable to find ... binaries" error below will fire
 				}
