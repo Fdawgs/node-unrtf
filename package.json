@@ -98,5 +98,8 @@
 	},
 	"dependencies": {
 		"semver": "^7.7.2"
+	},
+	"optionalDependencies": {
+		"node-unrtf-win32": "^1.0.0"
 	}
 }

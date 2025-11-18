@@ -78,7 +78,7 @@ function parseOptions(acceptedOptions, options, version) {
 			continue;
 		}
 
-		// @ts-ignore: keys are from options, TS cannot infer this
+		// @ts-ignore: Keys are from options, TS cannot infer this
 		const option = options[key];
 		const acceptedOption = acceptedOptions[key];
 
@@ -191,13 +191,13 @@ class UnRTF {
 				this.#unrtfPath = unrtfPath;
 			}
 			if (platform === "win32" && !unrtfPath) {
-				this.#unrtfPath = pathResolve(
-					__dirname,
-					"lib",
-					"win32",
-					"unrtf-0.19.3",
-					"bin"
-				);
+				try {
+					// @ts-ignore: Optional dependency
+					// eslint-disable-next-line n/global-require -- Conditional require
+					this.#unrtfPath = require("node-unrtf-win32");
+				} catch {
+					// Leave #unrtfPath empty; the generic "Unable to find ... binaries" error below will fire
+				}
 			}
 		}
 
@@ -273,7 +273,7 @@ class UnRTF {
 				);
 			}
 		} catch (err) {
-			// @ts-ignore: code property found in fs errors
+			// @ts-ignore: Code property found in fs errors
 			if (err instanceof Error && err.code !== "ENOENT") {
 				throw err;
 			}
