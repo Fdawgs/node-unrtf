@@ -104,7 +104,7 @@ import { unlink } from "node:fs/promises";
 import { UnRTF } from "node-unrtf";
 import { glob } from "glob";
 
-const file = "test_resources/test_files/test-rtf-complex.rtf";
+const file = "test/files/test-rtf-complex.rtf";
 const unRtf = new UnRTF();
 const options = {
 	outputHtml: true,
