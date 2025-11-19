@@ -135,10 +135,10 @@ dist
 # Clinic.js
 .clinic
 
-# Auto generated files
+# Auto-generated files
 types/
 
-# lock files
+# Lockfiles
 bun.lockb
 package-lock.json
 pnpm-lock.yaml
