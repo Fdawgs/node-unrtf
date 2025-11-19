@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.1](https://github.com/Fdawgs/node-unrtf/compare/v7.0.0...v7.0.1) (2025-11-19)
+
+
+### Dependencies
+
+* **deps-dev:** remove husky ([#515](https://github.com/Fdawgs/node-unrtf/issues/515)) ([bae3ce7](https://github.com/Fdawgs/node-unrtf/commit/bae3ce755efb728cd108c19a1f947471a422996f))
+* **deps-dev:** remove type definition map and `API.md` ([#518](https://github.com/Fdawgs/node-unrtf/issues/518)) ([38f21dc](https://github.com/Fdawgs/node-unrtf/commit/38f21dca8d6cdf71cba7fe73220f71fad68af622))
+
+
+### Miscellaneous
+
+* move tests from src to test dir ([#517](https://github.com/Fdawgs/node-unrtf/issues/517)) ([637eeaf](https://github.com/Fdawgs/node-unrtf/commit/637eeaf7ff944ba15d458227a140f700262e3cfd))
+
 ## [7.0.0](https://github.com/Fdawgs/node-unrtf/compare/v6.0.7...v7.0.0) (2025-11-18)
 
 
