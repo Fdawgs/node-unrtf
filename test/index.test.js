@@ -20,13 +20,12 @@ const {
 } = require("@jest/globals");
 const { glob } = require("glob");
 const { gt, lt } = require("semver");
-const generateCombos = require("../test_resources/utils/gen-combos");
+const generateCombos = require("./utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
-const { UnRTF } = require("./index");
+const { UnRTF } = require("../src/index");
 
-const testDirectory =
-	join(__dirname, "..", "test_resources", "test_files") + sep;
+const testDirectory = join(__dirname, "files") + sep;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 // Cache immutable regex as they are expensive to create and garbage collect
@@ -89,7 +88,7 @@ describe("Node-UnRTF module", () => {
 				})),
 			}));
 			require("node:child_process");
-			const { UnRTF: UnRTFMock } = require("./index");
+			const { UnRTF: UnRTFMock } = require("../src/index");
 
 			expect.assertions(1);
 			try {
@@ -116,7 +115,7 @@ describe("Node-UnRTF module", () => {
 				})),
 			}));
 			require("node:child_process");
-			const { UnRTF: UnRTFMock } = require("./index");
+			const { UnRTF: UnRTFMock } = require("../src/index");
 
 			expect.assertions(1);
 			try {
