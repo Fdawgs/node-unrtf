@@ -25,7 +25,7 @@ const generateCombos = require("./utils/gen-combos");
 const execFileAsync = promisify(execFile);
 const { UnRTF } = require("../src/index");
 
-const testDirectory = join(__dirname, "files") + sep;
+const testDirectory = join(__dirname, "fixtures") + sep;
 const file = `${testDirectory}test-rtf-complex.rtf`;
 
 // Cache immutable regex as they are expensive to create and garbage collect
