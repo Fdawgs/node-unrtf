@@ -10,9 +10,9 @@ const { gt, lt } = require("semver");
  * @type {Readonly<Record<string, string>>}
  * @ignore
  */
-const ERROR_MSGS = {
+const ERROR_MSGS = Object.freeze({
 	3221225477: "Segmentation fault",
-};
+});
 const RTF_MAGIC_NUMBER = "{\\rtf1";
 const RTF_MAGIC_BUFFER = Buffer.from(RTF_MAGIC_NUMBER);
 const RTF_MAGIC_NUMBER_LENGTH = RTF_MAGIC_NUMBER.length;
