@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.2](https://github.com/Fdawgs/node-unrtf/compare/v7.0.1...v7.0.2) (2025-11-21)
+
+
+### Continuous integration
+
+* **codeql:** check cjs, mjs, and ts files ([#521](https://github.com/Fdawgs/node-unrtf/issues/521)) ([d1d5f1e](https://github.com/Fdawgs/node-unrtf/commit/d1d5f1e88e4f26f0ad658ccb1249cf7fab3a732e))
+
+
+### Improvements
+
+* **index:** freeze `ERROR_MSGS` object ([#522](https://github.com/Fdawgs/node-unrtf/issues/522)) ([4446ee5](https://github.com/Fdawgs/node-unrtf/commit/4446ee5b0a33e3dfa110ae9ad49201f6137672ab))
+
+
+### Miscellaneous
+
+* **.devcontainer:** remove prepare script call ([#525](https://github.com/Fdawgs/node-unrtf/issues/525)) ([812bded](https://github.com/Fdawgs/node-unrtf/commit/812bdede448a4d78472921534824a5ef9a075852))
+* tidy dotfiles, remove redundant deps ([#519](https://github.com/Fdawgs/node-unrtf/issues/519)) ([10c4b5c](https://github.com/Fdawgs/node-unrtf/commit/10c4b5c25ff2f398966e38b4b5e80e63ae6b8a42))
+
+
+### Tests
+
+* **index:** check all html starts with tags ([#524](https://github.com/Fdawgs/node-unrtf/issues/524)) ([e715c22](https://github.com/Fdawgs/node-unrtf/commit/e715c22b4a49a9dd03f3b28eae81b362575682ce))
+
 ## [7.0.1](https://github.com/Fdawgs/node-unrtf/compare/v7.0.0...v7.0.1) (2025-11-19)
 
 
