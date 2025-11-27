@@ -299,7 +299,6 @@ class UnRTF {
 			});
 
 			child.on("close", (code) => {
-				/* istanbul ignore else */
 				if (stdOut !== "") {
 					resolve(stdOut.trim());
 				} else if (stdErr === "") {
