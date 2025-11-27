@@ -31,7 +31,7 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  */
 
 /**
- * @typedef {Record<string, OptionDetails>} UnRTFAcceptedOptions
+ * @typedef {Readonly<Record<string, OptionDetails>>} UnRTFAcceptedOptions
  */
 
 /**
@@ -119,7 +119,7 @@ class UnRTF {
 	#unrtfVersion;
 
 	/** @type {UnRTFAcceptedOptions} */
-	static #acceptedOptions = {
+	static #acceptedOptions = Object.freeze({
 		noPictures: {
 			arg: "--nopict",
 			type: "boolean",
@@ -161,7 +161,7 @@ class UnRTF {
 			minVersion: "0.0.1",
 		},
 		quiet: { arg: "--quiet", type: "boolean", minVersion: "0.21.3" },
-	};
+	});
 
 	/**
 	 * @param {string} [binPath] - Path of UnRTF binary.
