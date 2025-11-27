@@ -187,6 +187,8 @@ class UnRTF {
 			if (unrtfPath) {
 				this.#unrtfPath = unrtfPath;
 			}
+
+			/* istanbul ignore next: requires specific OS */
 			if (platform === "win32" && !unrtfPath) {
 				try {
 					// @ts-ignore: Optional dependency
