@@ -175,6 +175,7 @@ class UnRTF {
 	constructor(binPath) {
 		this.#unrtfPath = "";
 
+		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
 			/** @type {string|undefined} */
 			this.#unrtfPath = binPath;
@@ -188,7 +189,6 @@ class UnRTF {
 				this.#unrtfPath = unrtfPath;
 			}
 
-			/* istanbul ignore next: requires specific OS */
 			if (platform === "win32" && !unrtfPath) {
 				try {
 					// @ts-ignore: Optional dependency
