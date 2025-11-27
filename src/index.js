@@ -95,14 +95,12 @@ function parseOptions(acceptedOptions, options, version) {
 			);
 		}
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (lt(version, acceptedOption.minVersion)) {
 			invalidArgs.push(
 				`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOption.minVersion}, but received v${version}`
 			);
 		}
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (gt(version, acceptedOption.maxVersion || version)) {
 			invalidArgs.push(
 				`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOption.maxVersion}, but received v${version}`
@@ -177,11 +175,11 @@ class UnRTF {
 	constructor(binPath) {
 		this.#unrtfPath = "";
 
-		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
 			/** @type {string|undefined} */
 			this.#unrtfPath = binPath;
 		} else {
+			/* istanbul ignore next: requires specific OS */
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
 			]).stdout.toString();
@@ -190,6 +188,8 @@ class UnRTF {
 			if (unrtfPath) {
 				this.#unrtfPath = unrtfPath;
 			}
+
+			/* istanbul ignore next: requires specific OS */
 			if (platform === "win32" && !unrtfPath) {
 				try {
 					// @ts-ignore: Optional dependency
@@ -201,7 +201,6 @@ class UnRTF {
 			}
 		}
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.#unrtfPath) {
 			throw new Error(
 				`Unable to find ${platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
@@ -217,7 +216,6 @@ class UnRTF {
 		]).stderr.toString();
 		this.#unrtfVersion = UNRTF_VERSION_REG.exec(version)?.[1] || "";
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.#unrtfVersion) {
 			throw new Error("Unable to determine UnRTF version.");
 		}
@@ -304,7 +302,6 @@ class UnRTF {
 			});
 
 			child.on("close", (code) => {
-				/* istanbul ignore else */
 				if (stdOut !== "") {
 					resolve(stdOut.trim());
 				} else if (stdErr === "") {

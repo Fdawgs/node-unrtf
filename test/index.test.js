@@ -19,7 +19,6 @@ const {
 	jest,
 } = require("@jest/globals");
 const { glob } = require("glob");
-const { gt, lt } = require("semver");
 const generateCombos = require("./utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
@@ -150,6 +149,10 @@ describe("Node-UnRTF module", () => {
 			version = match[1];
 		});
 
+		beforeEach(() => {
+			jest.resetModules();
+		});
+
 		it("Converts RTF if any valid options are set", async () => {
 			// Generates 32 different combinations
 			const optionCombos = generateCombos([
@@ -255,28 +258,111 @@ describe("Node-UnRTF module", () => {
 		});
 
 		it("Rejects with an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
+			jest.doMock("node:child_process", () => ({
+				spawnSync: jest.fn(() => ({
+					stdout: {
+						toString: () => "/usr/bin/unrtf",
+					},
+					stderr: {
+						toString: () => "0.19.0",
+					},
+				})),
+			}));
+			require("node:child_process");
+			const { UnRTF: UnRTFMock } = require("../src/index");
+			const unRtfMock = new UnRTFMock(testBinaryPath);
 			const options = {
 				noPictures: true,
 				outputRtf: true,
 			};
-			if (lt(version, "0.21.3")) {
-				await expect(unRtf.convert(file, options)).rejects.toThrow(
-					`Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v${version}`
-				);
-			}
+
+			await expect(unRtfMock.convert(file, options)).rejects.toThrow(
+				"Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v0.19.0"
+			);
 		});
 
 		it("Rejects with an Error object if option provided is only available in an earlier version of the UnRTF binary than what was provided", async () => {
+			const mockVersion = "0.21.0";
+			jest.doMock("node:child_process", () => ({
+				spawnSync: jest.fn(() => ({
+					stdout: {
+						toString: () => "/usr/bin/unrtf",
+					},
+					stderr: {
+						toString: () => mockVersion,
+					},
+				})),
+			}));
+			require("node:child_process");
+			const { UnRTF: UnRTFMock } = require("../src/index");
+			const unRtfMock = new UnRTFMock(testBinaryPath);
 			const options = {
 				noPictures: true,
 				outputPs: true,
 			};
-			if (gt(version, "0.19.4")) {
-				await expect(unRtf.convert(file, options)).rejects.toThrow(
-					`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${version}`
-				);
-			}
+
+			await expect(unRtfMock.convert(file, options)).rejects.toThrow(
+				`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${mockVersion}`
+			);
 		});
+
+		it.each([
+			{
+				testName: "a non-zero code and no output",
+				exitCode: 1,
+				expectedError: /exited with code 1/u,
+			},
+			{
+				testName: "a segmentation fault",
+				exitCode: 3221225477,
+				expectedError: "Segmentation fault",
+			},
+			{
+				testName: "a null code and no output",
+				exitCode: null,
+				expectedError: /exited with code null/u,
+			},
+		])(
+			"Rejects with an Error object if UnRTF exits with $testName",
+			async ({ exitCode, expectedError }) => {
+				/** @type {typeof import("node:child_process")} */
+				const originalChildProcess =
+					jest.requireActual("node:child_process");
+
+				jest.doMock("node:child_process", () => {
+					const { EventEmitter } = require("node:events");
+					const { Readable } = require("node:stream");
+					return {
+						...originalChildProcess,
+						spawn: jest.fn(() => {
+							const emitter =
+								/** @type {import("node:child_process").ChildProcess} */ (
+									new EventEmitter()
+								);
+							emitter.stdout = new Readable({
+								read() {
+									this.push(null);
+								},
+							});
+							emitter.stderr = new Readable({
+								read() {
+									this.push(null);
+								},
+							});
+							setImmediate(() => emitter.emit("close", exitCode));
+							return emitter;
+						}),
+					};
+				});
+				require("node:child_process");
+				const { UnRTF: UnRTFMock } = require("../src/index");
+				const unRtfMock = new UnRTFMock(testBinaryPath);
+
+				await expect(
+					unRtfMock.convert(file, { noPictures: true })
+				).rejects.toThrow(expectedError);
+			}
+		);
 
 		it.each([
 			{
