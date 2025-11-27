@@ -19,7 +19,6 @@ const {
 	jest,
 } = require("@jest/globals");
 const { glob } = require("glob");
-const { gt, lt } = require("semver");
 const generateCombos = require("./utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
@@ -150,6 +149,10 @@ describe("Node-UnRTF module", () => {
 			version = match[1];
 		});
 
+		beforeEach(() => {
+			jest.resetModules();
+		});
+
 		it("Converts RTF if any valid options are set", async () => {
 			// Generates 32 different combinations
 			const optionCombos = generateCombos([
@@ -255,27 +258,52 @@ describe("Node-UnRTF module", () => {
 		});
 
 		it("Rejects with an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
+			jest.doMock("node:child_process", () => ({
+				spawnSync: jest.fn(() => ({
+					stdout: {
+						toString: () => "/usr/bin/unrtf",
+					},
+					stderr: {
+						toString: () => "0.19.0",
+					},
+				})),
+			}));
+			require("node:child_process");
+			const { UnRTF: UnRTFMock } = require("../src/index");
+			const unRtfMock = new UnRTFMock(testBinaryPath);
 			const options = {
 				noPictures: true,
 				outputRtf: true,
 			};
-			if (lt(version, "0.21.3")) {
-				await expect(unRtf.convert(file, options)).rejects.toThrow(
-					`Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v${version}`
-				);
-			}
+
+			await expect(unRtfMock.convert(file, options)).rejects.toThrow(
+				"Invalid option provided for the current version of the binary used. 'outputRtf' was introduced in v0.21.3, but received v0.19.0"
+			);
 		});
 
 		it("Rejects with an Error object if option provided is only available in an earlier version of the UnRTF binary than what was provided", async () => {
+			const version = "0.21.0";
+			jest.doMock("node:child_process", () => ({
+				spawnSync: jest.fn(() => ({
+					stdout: {
+						toString: () => "/usr/bin/unrtf",
+					},
+					stderr: {
+						toString: () => version,
+					},
+				})),
+			}));
+			require("node:child_process");
+			const { UnRTF: UnRTFMock } = require("../src/index");
+			const unRtfMock = new UnRTFMock(testBinaryPath);
 			const options = {
 				noPictures: true,
 				outputPs: true,
 			};
-			if (gt(version, "0.19.4")) {
-				await expect(unRtf.convert(file, options)).rejects.toThrow(
-					`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${version}`
-				);
-			}
+
+			await expect(unRtfMock.convert(file, options)).rejects.toThrow(
+				`Invalid option provided for the current version of the binary used. 'outputPs' is only present up to v0.19.4, but received v${version}`
+			);
 		});
 
 		it.each([

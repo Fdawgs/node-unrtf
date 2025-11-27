@@ -95,14 +95,12 @@ function parseOptions(acceptedOptions, options, version) {
 			);
 		}
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (lt(version, acceptedOption.minVersion)) {
 			invalidArgs.push(
 				`Invalid option provided for the current version of the binary used. '${key}' was introduced in v${acceptedOption.minVersion}, but received v${version}`
 			);
 		}
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (gt(version, acceptedOption.maxVersion || version)) {
 			invalidArgs.push(
 				`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOption.maxVersion}, but received v${version}`
