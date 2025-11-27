@@ -31,6 +31,11 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
 const HTML_REG =
 	/^\s*(?:<!doctype html\b[^>]*>|<(?:html|body)\b[^>]*>|<x-[^>]+>)/iu;
 
+/** @type {typeof import("node:child_process")} */
+const originalChildProcess = jest.requireActual("node:child_process");
+/** @type {typeof import("node:process")} */
+const originalProcess = jest.requireActual("node:process");
+
 /**
  * @description Returns the path to the UnRTF binary based on the OS.
  * @returns {string} The path to the UnRTF binary.
@@ -75,11 +80,13 @@ describe("Node-UnRTF module", () => {
 
 		it("Throws an Error if the binary path is not found", () => {
 			jest.doMock("node:process", () => ({
+				...originalProcess,
 				platform: "mockOS",
 			}));
 			const { platform: mockPlatform } = require("node:process");
 
 			jest.doMock("node:child_process", () => ({
+				...originalChildProcess,
 				spawnSync: jest.fn(() => ({
 					stdout: {
 						toString: () => "",
@@ -104,6 +111,7 @@ describe("Node-UnRTF module", () => {
 
 		it("Throws an Error if the version of the binary cannot be determined", () => {
 			jest.doMock("node:child_process", () => ({
+				...originalChildProcess,
 				spawnSync: jest.fn(() => ({
 					stdout: {
 						toString: () => "/usr/bin/unrtf",
@@ -259,6 +267,7 @@ describe("Node-UnRTF module", () => {
 
 		it("Rejects with an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
 			jest.doMock("node:child_process", () => ({
+				...originalChildProcess,
 				spawnSync: jest.fn(() => ({
 					stdout: {
 						toString: () => "/usr/bin/unrtf",
@@ -283,7 +292,9 @@ describe("Node-UnRTF module", () => {
 
 		it("Rejects with an Error object if option provided is only available in an earlier version of the UnRTF binary than what was provided", async () => {
 			const mockVersion = "0.21.0";
+
 			jest.doMock("node:child_process", () => ({
+				...originalChildProcess,
 				spawnSync: jest.fn(() => ({
 					stdout: {
 						toString: () => "/usr/bin/unrtf",
@@ -325,10 +336,6 @@ describe("Node-UnRTF module", () => {
 		])(
 			"Rejects with an Error object if UnRTF exits with $testName",
 			async ({ exitCode, expectedError }) => {
-				/** @type {typeof import("node:child_process")} */
-				const originalChildProcess =
-					jest.requireActual("node:child_process");
-
 				jest.doMock("node:child_process", () => {
 					const { EventEmitter } = require("node:events");
 					const { Readable } = require("node:stream");
