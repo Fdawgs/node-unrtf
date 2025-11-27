@@ -177,7 +177,6 @@ class UnRTF {
 	constructor(binPath) {
 		this.#unrtfPath = "";
 
-		/* istanbul ignore else: requires specific OS */
 		if (binPath) {
 			/** @type {string|undefined} */
 			this.#unrtfPath = binPath;
@@ -201,7 +200,6 @@ class UnRTF {
 			}
 		}
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.#unrtfPath) {
 			throw new Error(
 				`Unable to find ${platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
@@ -217,7 +215,6 @@ class UnRTF {
 		]).stderr.toString();
 		this.#unrtfVersion = UNRTF_VERSION_REG.exec(version)?.[1] || "";
 
-		/* istanbul ignore next: unable to test due to https://github.com/jestjs/jest/pull/14297 */
 		if (!this.#unrtfVersion) {
 			throw new Error("Unable to determine UnRTF version.");
 		}
