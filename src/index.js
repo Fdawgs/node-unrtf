@@ -4,6 +4,7 @@ const { spawn, spawnSync } = require("node:child_process");
 const { open } = require("node:fs/promises");
 const { normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
+const freeze = require("ice-barrage");
 const { gt, lt } = require("semver");
 
 /**
@@ -31,7 +32,7 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  */
 
 /**
- * @typedef {Record<string, OptionDetails>} UnRTFAcceptedOptions
+ * @typedef {Readonly<Record<string, Readonly<OptionDetails>>>} UnRTFAcceptedOptions
  */
 
 /**
@@ -119,7 +120,7 @@ class UnRTF {
 	#unrtfVersion;
 
 	/** @type {UnRTFAcceptedOptions} */
-	static #acceptedOptions = {
+	static #acceptedOptions = freeze({
 		noPictures: {
 			arg: "--nopict",
 			type: "boolean",
@@ -161,7 +162,7 @@ class UnRTF {
 			minVersion: "0.0.1",
 		},
 		quiet: { arg: "--quiet", type: "boolean", minVersion: "0.21.3" },
-	};
+	});
 
 	/**
 	 * @param {string} [binPath] - Path of UnRTF binary.
