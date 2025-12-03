@@ -327,7 +327,7 @@ class UnRTF {
 
 			child.on("close", (code) => {
 				// Clean up event listener to prevent memory leaks
-				if (abortHandler && signal) {
+				if (abortHandler) {
 					signal.removeEventListener("abort", abortHandler);
 				}
 
