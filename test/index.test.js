@@ -420,5 +420,137 @@ describe("Node-UnRTF module", () => {
 				).rejects.toThrow(expError);
 			}
 		);
+
+		describe("AbortSignal", () => {
+			it("Throws an AbortError if already aborted before starting", async () => {
+				const controller = new AbortController();
+				controller.abort();
+
+				await expect(
+					unRtf.convert(
+						file,
+						{ noPictures: true },
+						{ signal: controller.signal }
+					)
+				).rejects.toThrow(
+					expect.objectContaining({
+						name: "AbortError",
+					})
+				);
+			});
+
+			it("Throws default AbortError if already aborted with undefined reason", async () => {
+				// Create a mock signal with aborted=true but no reason
+				const mockSignal = /** @type {AbortSignal} */ ({
+					aborted: true,
+					reason: undefined,
+				});
+
+				await expect(
+					unRtf.convert(
+						file,
+						{ noPictures: true },
+						{ signal: mockSignal }
+					)
+				).rejects.toThrow(
+					expect.objectContaining({
+						name: "AbortError",
+					})
+				);
+			});
+
+			it("Throws an AbortError with custom reason if already aborted with reason", async () => {
+				const controller = new AbortController();
+				const customError = new Error("Custom abort reason");
+				controller.abort(customError);
+
+				await expect(
+					unRtf.convert(
+						file,
+						{ noPictures: true },
+						{ signal: controller.signal }
+					)
+				).rejects.toThrow(customError);
+			});
+
+			it("Throws an AbortError when signal is aborted during conversion", async () => {
+				const controller = new AbortController();
+
+				// Abort after a short delay to ensure conversion has started
+				setTimeout(() => controller.abort(), 10);
+
+				await expect(
+					unRtf.convert(
+						file,
+						{ noPictures: true },
+						{ signal: controller.signal }
+					)
+				).rejects.toThrow(
+					expect.objectContaining({
+						name: "AbortError",
+					})
+				);
+			});
+
+			it("Throws default AbortError when signal is aborted during conversion with undefined reason", async () => {
+				let abortHandler;
+				const mockSignal = /** @type {AbortSignal} */ ({
+					aborted: false,
+					reason: undefined,
+					addEventListener: jest.fn((event, handler) => {
+						if (event === "abort") {
+							abortHandler = handler;
+						}
+					}),
+					removeEventListener: jest.fn(),
+				});
+
+				// Abort after a short delay
+				setTimeout(() => {
+					mockSignal.aborted = true;
+					if (abortHandler) {
+						abortHandler();
+					}
+				}, 10);
+
+				await expect(
+					unRtf.convert(
+						file,
+						{ noPictures: true },
+						{ signal: mockSignal }
+					)
+				).rejects.toThrow(
+					expect.objectContaining({
+						name: "AbortError",
+					})
+				);
+			});
+
+			it("Works normally when signal is provided but never aborted", async () => {
+				const controller = new AbortController();
+
+				const result = await unRtf.convert(
+					file,
+					{ noPictures: true },
+					{ signal: controller.signal }
+				);
+
+				expect(result).toStrictEqual(expect.any(String));
+			});
+
+			it("Works normally when no extras object is provided", async () => {
+				const result = await unRtf.convert(file, { noPictures: true });
+				expect(result).toStrictEqual(expect.any(String));
+			});
+
+			it("Works normally when empty extras object is provided", async () => {
+				const result = await unRtf.convert(
+					file,
+					{ noPictures: true },
+					{}
+				);
+				expect(result).toStrictEqual(expect.any(String));
+			});
+		});
 	});
 });
