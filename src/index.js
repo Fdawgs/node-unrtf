@@ -285,11 +285,6 @@ class UnRTF {
 
 		const { signal } = extras;
 
-		// Check if already aborted before starting
-		if (signal?.aborted) {
-			throw signal.reason ?? new DOMException("Aborted", "AbortError");
-		}
-
 		const args = parseOptions(
 			UnRTF.#acceptedOptions,
 			options,
@@ -298,24 +293,10 @@ class UnRTF {
 		args.push(normalizedFile);
 
 		return new Promise((resolve, reject) => {
-			const child = spawn(this.#unrtfBin, args);
+			const child = spawn(this.#unrtfBin, args, { signal });
 
 			let stdOut = "";
 			let stdErr = "";
-
-			/** @type {(() => void) | undefined} */
-			let abortHandler;
-
-			if (signal) {
-				abortHandler = () => {
-					child.kill();
-					reject(
-						signal.reason ??
-							new DOMException("Aborted", "AbortError")
-					);
-				};
-				signal.addEventListener("abort", abortHandler);
-			}
 
 			child.stdout.on("data", (data) => {
 				stdOut += data;
@@ -325,13 +306,12 @@ class UnRTF {
 				stdErr += data;
 			});
 
-			child.on("close", (code) => {
-				// Clean up event listener to prevent memory leaks
-				if (abortHandler) {
-					signal.removeEventListener("abort", abortHandler);
-				}
+			child.on("error", (err) => {
+				reject(err);
+			});
 
-				// If aborted, the rejection was already handled
+			child.on("close", (code) => {
+				// If aborted, the rejection was already handled by the error event
 				if (signal?.aborted) {
 					return;
 				}

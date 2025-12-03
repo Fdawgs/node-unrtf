@@ -439,26 +439,6 @@ describe("Node-UnRTF module", () => {
 				);
 			});
 
-			it("Throws default AbortError if already aborted with undefined reason", async () => {
-				// Create a mock signal with aborted=true but no reason
-				const mockSignal = /** @type {AbortSignal} */ ({
-					aborted: true,
-					reason: undefined,
-				});
-
-				await expect(
-					unRtf.convert(
-						file,
-						{ noPictures: true },
-						{ signal: mockSignal }
-					)
-				).rejects.toThrow(
-					expect.objectContaining({
-						name: "AbortError",
-					})
-				);
-			});
-
 			it("Throws an AbortError with custom reason if already aborted with reason", async () => {
 				const controller = new AbortController();
 				const customError = new Error("Custom abort reason");
@@ -470,7 +450,12 @@ describe("Node-UnRTF module", () => {
 						{ noPictures: true },
 						{ signal: controller.signal }
 					)
-				).rejects.toThrow(customError);
+				).rejects.toThrow(
+					expect.objectContaining({
+						name: "AbortError",
+						cause: customError,
+					})
+				);
 			});
 
 			it("Throws an AbortError when signal is aborted during conversion", async () => {
@@ -484,40 +469,6 @@ describe("Node-UnRTF module", () => {
 						file,
 						{ noPictures: true },
 						{ signal: controller.signal }
-					)
-				).rejects.toThrow(
-					expect.objectContaining({
-						name: "AbortError",
-					})
-				);
-			});
-
-			it("Throws default AbortError when signal is aborted during conversion with undefined reason", async () => {
-				let abortHandler;
-				const mockSignal = /** @type {AbortSignal} */ ({
-					aborted: false,
-					reason: undefined,
-					addEventListener: jest.fn((event, handler) => {
-						if (event === "abort") {
-							abortHandler = handler;
-						}
-					}),
-					removeEventListener: jest.fn(),
-				});
-
-				// Abort after a short delay
-				setTimeout(() => {
-					mockSignal.aborted = true;
-					if (abortHandler) {
-						abortHandler();
-					}
-				}, 10);
-
-				await expect(
-					unRtf.convert(
-						file,
-						{ noPictures: true },
-						{ signal: mockSignal }
 					)
 				).rejects.toThrow(
 					expect.objectContaining({
