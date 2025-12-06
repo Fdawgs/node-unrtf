@@ -251,6 +251,8 @@ class UnRTF {
 	 * @throws {Error} If the file is missing, not an RTF file, or if UnRTF returns an error.
 	 */
 	async convert(file, options = {}, extras = {}) {
+		const { signal } = extras;
+
 		let normalizedFile;
 
 		// Catch empty strings, missing files, and non-RTF files, as UnRTF will attempt to convert them
@@ -282,8 +284,6 @@ class UnRTF {
 		} finally {
 			await fileHandle?.close();
 		}
-
-		const { signal } = extras;
 
 		const args = parseOptions(
 			UnRTF.#acceptedOptions,
