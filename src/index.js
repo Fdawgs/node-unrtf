@@ -297,6 +297,7 @@ class UnRTF {
 
 			let stdOut = "";
 			let stdErr = "";
+			let errorHandled = false;
 
 			child.stdout.on("data", (data) => {
 				stdOut += data;
@@ -307,12 +308,13 @@ class UnRTF {
 			});
 
 			child.on("error", (err) => {
+				errorHandled = true;
 				reject(err);
 			});
 
 			child.on("close", (code) => {
-				// If aborted, the rejection was already handled by the error event
-				if (signal?.aborted) {
+				// If an error was already emitted, don't process the close event
+				if (errorHandled) {
 					return;
 				}
 
