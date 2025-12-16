@@ -420,5 +420,55 @@ describe("Node-UnRTF module", () => {
 				).rejects.toThrow(expError);
 			}
 		);
+
+		it.each([
+			{
+				testName: "signal is already aborted before starting",
+				abortBefore: true,
+				abortDuring: false,
+			},
+			{
+				testName: "signal is aborted during conversion",
+				abortBefore: false,
+				abortDuring: true,
+			},
+		])(
+			"Rejects with an Error object if $testName",
+			async ({ abortBefore, abortDuring }) => {
+				const controller = new AbortController();
+
+				if (abortBefore) {
+					controller.abort();
+				}
+
+				if (abortDuring) {
+					setTimeout(() => controller.abort(), 10);
+				}
+
+				await expect(
+					unRtf.convert(
+						file,
+						{ noPictures: true },
+						{ signal: controller.signal }
+					)
+				).rejects.toThrow(
+					expect.objectContaining({
+						name: "AbortError",
+					})
+				);
+			}
+		);
+
+		it("Converts RTF file to HTML with `signal` extra provided but never aborted", async () => {
+			const controller = new AbortController();
+
+			const result = await unRtf.convert(
+				file,
+				{ noPictures: true },
+				{ signal: controller.signal }
+			);
+
+			expect(result).toStrictEqual(expect.any(String));
+		});
 	});
 });

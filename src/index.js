@@ -245,10 +245,14 @@ class UnRTF {
 	 * UnRTF will use the directory of the original file to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
 	 * @param {UnRTFOptions} [options] - Options to pass to UnRTF binary.
+	 * @param {object} [extras] - Extra options.
+	 * @param {AbortSignal} [extras.signal] - An `AbortSignal` that can be used to cancel the operation.
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 * @throws {Error} If the file is missing, not an RTF file, or if UnRTF returns an error.
 	 */
-	async convert(file, options = {}) {
+	async convert(file, options = {}, extras = {}) {
+		const { signal } = extras;
+
 		let normalizedFile;
 
 		// Catch empty strings, missing files, and non-RTF files, as UnRTF will attempt to convert them
@@ -289,10 +293,11 @@ class UnRTF {
 		args.push(normalizedFile);
 
 		return new Promise((resolve, reject) => {
-			const child = spawn(this.#unrtfBin, args);
+			const child = spawn(this.#unrtfBin, args, { signal });
 
 			let stdOut = "";
 			let stdErr = "";
+			let errorHandled = false;
 
 			child.stdout.on("data", (data) => {
 				stdOut += data;
@@ -302,7 +307,17 @@ class UnRTF {
 				stdErr += data;
 			});
 
+			child.on("error", (err) => {
+				errorHandled = true;
+				reject(err);
+			});
+
 			child.on("close", (code) => {
+				// If an error was already emitted, don't process the close event
+				if (errorHandled) {
+					return;
+				}
+
 				if (stdOut !== "") {
 					resolve(stdOut.trim());
 				} else if (stdErr === "") {
