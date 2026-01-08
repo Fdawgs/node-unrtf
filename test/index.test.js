@@ -442,7 +442,7 @@ describe("Node-UnRTF module", () => {
 				}
 
 				if (abortDuring) {
-					setTimeout(() => controller.abort(), 10);
+					setImmediate(() => controller.abort());
 				}
 
 				await expect(
