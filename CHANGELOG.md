@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.1](https://github.com/Fdawgs/node-unrtf/compare/v7.1.0...v7.1.1) (2026-01-08)
+
+
+### Tests
+
+* **index:** use setimmediate to prevent timing flakes ([#539](https://github.com/Fdawgs/node-unrtf/issues/539)) ([e4675a6](https://github.com/Fdawgs/node-unrtf/commit/e4675a621a3e61391dabd6bdb53cc1d78717f003))
+
 ## [7.1.0](https://github.com/Fdawgs/node-unrtf/compare/v7.0.1...v7.1.0) (2026-01-08)
 
 
