@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.0](https://github.com/Fdawgs/node-unrtf/compare/v7.0.1...v7.1.0) (2026-01-08)
+
+
+### Continuous integration
+
+* **codeql:** check cjs, mjs, and ts files ([#521](https://github.com/Fdawgs/node-unrtf/issues/521)) ([d1d5f1e](https://github.com/Fdawgs/node-unrtf/commit/d1d5f1e88e4f26f0ad658ccb1249cf7fab3a732e))
+* **deps:** bump actions/checkout from 5 to 6 ([#531](https://github.com/Fdawgs/node-unrtf/issues/531)) ([972288c](https://github.com/Fdawgs/node-unrtf/commit/972288c81aab0a967e69fbbb275b755bbfffe1d4))
+* **deps:** bump actions/dependency-review-action from 4.8.1 to 4.8.2 ([#530](https://github.com/Fdawgs/node-unrtf/issues/530)) ([1cfd4c9](https://github.com/Fdawgs/node-unrtf/commit/1cfd4c9a4ac5bf23805c8b8093f6dae4334470fa))
+* **deps:** bump coverallsapp/github-action from 2.3.6 to 2.3.7 ([#529](https://github.com/Fdawgs/node-unrtf/issues/529)) ([75ad975](https://github.com/Fdawgs/node-unrtf/commit/75ad9757a6889e032b3c4eb96a81bc84e5b38caf))
+
+
+### Dependencies
+
+* **deps-dev:** bump @eslint/compat in the eslint group ([#532](https://github.com/Fdawgs/node-unrtf/issues/532)) ([c9aaf74](https://github.com/Fdawgs/node-unrtf/commit/c9aaf7403e8f3c91fc8afea97b7c7fd6e09a7cd3))
+* **deps-dev:** bump @types/node from 24.10.4 to 25.0.3 ([#537](https://github.com/Fdawgs/node-unrtf/issues/537)) ([00ac667](https://github.com/Fdawgs/node-unrtf/commit/00ac667de339bb199f199029b09f00ca5e708cbe))
+* **deps-dev:** bump glob from 11.1.0 to 13.0.0 ([#533](https://github.com/Fdawgs/node-unrtf/issues/533)) ([35817d3](https://github.com/Fdawgs/node-unrtf/commit/35817d34fab1bda4d5ae4f3bfa5d548ce2933e0e))
+
+
+### Documentation
+
+* **readme:** remove broken link ([#534](https://github.com/Fdawgs/node-unrtf/issues/534)) ([c1cbe1d](https://github.com/Fdawgs/node-unrtf/commit/c1cbe1d3cbde206f90200a86bc7e6189458cd042))
+
+
+### Features
+
+* add AbortSignal support for `convert` ([#536](https://github.com/Fdawgs/node-unrtf/issues/536)) ([a1cef24](https://github.com/Fdawgs/node-unrtf/commit/a1cef247e4158dd3745c5d9a25ebc26cb0204e27))
+
+
+### Improvements
+
+* **index:** freeze `#acceptedOptions` object ([#523](https://github.com/Fdawgs/node-unrtf/issues/523)) ([99d7318](https://github.com/Fdawgs/node-unrtf/commit/99d7318c4c9f61033602200d66f82a040e09d6b0))
+* **index:** freeze `ERROR_MSGS` object ([#522](https://github.com/Fdawgs/node-unrtf/issues/522)) ([4446ee5](https://github.com/Fdawgs/node-unrtf/commit/4446ee5b0a33e3dfa110ae9ad49201f6137672ab))
+
+
+### Miscellaneous
+
+* **.devcontainer:** remove prepare script call ([#525](https://github.com/Fdawgs/node-unrtf/issues/525)) ([812bded](https://github.com/Fdawgs/node-unrtf/commit/812bdede448a4d78472921534824a5ef9a075852))
+* **index:** move extra options to own typedef ([#538](https://github.com/Fdawgs/node-unrtf/issues/538)) ([5ed92ed](https://github.com/Fdawgs/node-unrtf/commit/5ed92eded2b028781d3d1cc1f809c5ba9443e36f))
+* tidy dotfiles, remove redundant deps ([#519](https://github.com/Fdawgs/node-unrtf/issues/519)) ([10c4b5c](https://github.com/Fdawgs/node-unrtf/commit/10c4b5c25ff2f398966e38b4b5e80e63ae6b8a42))
+
+
+### Tests
+
+* **index:** check all html starts with tags ([#524](https://github.com/Fdawgs/node-unrtf/issues/524)) ([e715c22](https://github.com/Fdawgs/node-unrtf/commit/e715c22b4a49a9dd03f3b28eae81b362575682ce))
+* **index:** cover spawn errors ([#527](https://github.com/Fdawgs/node-unrtf/issues/527)) ([997ae4d](https://github.com/Fdawgs/node-unrtf/commit/997ae4d19b287e2e612659f33606a5e75417e7a3))
+* **index:** reuse cached `jest.requireActual` modules across tests ([#528](https://github.com/Fdawgs/node-unrtf/issues/528)) ([3ac5d72](https://github.com/Fdawgs/node-unrtf/commit/3ac5d7223cdb78deb02a2a5f1a00fce562b6fb3a))
+
 ## [7.0.1](https://github.com/Fdawgs/node-unrtf/compare/v7.0.0...v7.0.1) (2025-11-19)
 
 
