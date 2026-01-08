@@ -53,6 +53,11 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  */
 
 /**
+ * @typedef {object} UnRTFExtraOptions
+ * @property {AbortSignal} [signal] An `AbortSignal` that can be used to cancel the operation.
+ */
+
+/**
  * @author Frazer Smith
  * @description Checks each option provided is valid, of the correct type, and can be used by specified
  * version of binary.
@@ -245,8 +250,7 @@ class UnRTF {
 	 * UnRTF will use the directory of the original file to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
 	 * @param {UnRTFOptions} [options] - Options to pass to UnRTF binary.
-	 * @param {object} [extras] - Extra options.
-	 * @param {AbortSignal} [extras.signal] - An `AbortSignal` that can be used to cancel the operation.
+	 * @param {UnRTFExtraOptions} [extras] - Non-CLI options.
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 * @throws {Error} If the file is missing, not an RTF file, or if UnRTF returns an error.
 	 */
