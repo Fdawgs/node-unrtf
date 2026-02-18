@@ -107,7 +107,10 @@ function parseOptions(acceptedOptions, options, version) {
 			);
 		}
 
-		if (gt(version, acceptedOption.maxVersion || version)) {
+		if (
+			acceptedOption.maxVersion &&
+			gt(version, acceptedOption.maxVersion)
+		) {
 			invalidArgs.push(
 				`Invalid option provided for the current version of the binary used. '${key}' is only present up to v${acceptedOption.maxVersion}, but received v${version}`
 			);
@@ -130,21 +133,25 @@ class UnRTF {
 			arg: "--nopict",
 			type: "boolean",
 			minVersion: "0.0.1",
+			maxVersion: undefined,
 		},
 		noRemap: {
 			arg: "--noremap",
 			type: "boolean",
 			minVersion: "0.20.5",
+			maxVersion: undefined,
 		},
 		outputHtml: {
 			arg: "--html",
 			type: "boolean",
 			minVersion: "0.0.1",
+			maxVersion: undefined,
 		},
 		outputLatex: {
 			arg: "--latex",
 			type: "boolean",
 			minVersion: "0.0.1",
+			maxVersion: undefined,
 		},
 		outputPs: {
 			arg: "--ps",
@@ -152,9 +159,24 @@ class UnRTF {
 			minVersion: "0.0.1",
 			maxVersion: "0.19.4",
 		},
-		outputRtf: { arg: "--rtf", type: "boolean", minVersion: "0.21.3" },
-		outputText: { arg: "--text", type: "boolean", minVersion: "0.0.1" },
-		outputVt: { arg: "--vt", type: "boolean", minVersion: "0.0.1" },
+		outputRtf: {
+			arg: "--rtf",
+			type: "boolean",
+			minVersion: "0.21.3",
+			maxVersion: undefined,
+		},
+		outputText: {
+			arg: "--text",
+			type: "boolean",
+			minVersion: "0.0.1",
+			maxVersion: undefined,
+		},
+		outputVt: {
+			arg: "--vt",
+			type: "boolean",
+			minVersion: "0.0.1",
+			maxVersion: undefined,
+		},
 		outputWpml: {
 			arg: "--wpml",
 			type: "boolean",
@@ -165,8 +187,14 @@ class UnRTF {
 			arg: "--version",
 			type: "boolean",
 			minVersion: "0.0.1",
+			maxVersion: undefined,
 		},
-		quiet: { arg: "--quiet", type: "boolean", minVersion: "0.21.3" },
+		quiet: {
+			arg: "--quiet",
+			type: "boolean",
+			minVersion: "0.21.3",
+			maxVersion: undefined,
+		},
 	});
 
 	/**
