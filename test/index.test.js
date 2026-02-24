@@ -6,7 +6,7 @@
 
 const { execFile, spawnSync } = require("node:child_process");
 const { unlink } = require("node:fs/promises");
-const { join, normalize, sep } = require("node:path");
+const { dirname, join, normalize, sep } = require("node:path");
 const { platform } = require("node:process");
 const { promisify } = require("node:util");
 const {
@@ -42,10 +42,10 @@ const originalProcess = jest.requireActual("node:process");
  * @throws {Error} If the OS is not supported or the binaries are not found.
  */
 function getTestBinaryPath() {
-	const which = spawnSync(platform === "win32" ? "where" : "which", [
-		"unrtf",
-	]).stdout.toString();
-	let unrtfPath = /(.+)unrtf/u.exec(which)?.[1];
+	const which = spawnSync(platform === "win32" ? "where" : "which", ["unrtf"])
+		.stdout.toString()
+		.trim();
+	let unrtfPath = dirname(which);
 
 	if (platform === "win32" && !unrtfPath) {
 		// @ts-ignore: Optional dependency
