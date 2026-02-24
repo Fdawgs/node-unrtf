@@ -317,6 +317,62 @@ describe("Node-UnRTF module", () => {
 			);
 		});
 
+		it("Does not reject when version-constrained boolean options are set to false on an older binary", async () => {
+			jest.doMock("node:child_process", () => ({
+				...originalChildProcess,
+				spawnSync: jest.fn(() => ({
+					stdout: {
+						toString: () => "/usr/bin/unrtf",
+					},
+					stderr: {
+						toString: () => "0.19.0",
+					},
+				})),
+			}));
+			require("node:child_process");
+			const { UnRTF: UnRTFMock } = require("../src/index");
+			const unRtfMock = new UnRTFMock(testBinaryPath);
+
+			// outputRtf requires v0.21.3+ and quiet requires v0.21.3+,
+			const options = {
+				noPictures: true,
+				outputRtf: false,
+				quiet: false,
+			};
+
+			await expect(
+				unRtfMock.convert(file, options)
+			).resolves.toStrictEqual(expect.any(String));
+		});
+
+		it("Does not reject when version-constrained boolean options are set to false on a newer binary", async () => {
+			jest.doMock("node:child_process", () => ({
+				...originalChildProcess,
+				spawnSync: jest.fn(() => ({
+					stdout: {
+						toString: () => "/usr/bin/unrtf",
+					},
+					stderr: {
+						toString: () => "0.21.0",
+					},
+				})),
+			}));
+			require("node:child_process");
+			const { UnRTF: UnRTFMock } = require("../src/index");
+			const unRtfMock = new UnRTFMock(testBinaryPath);
+
+			// outputPs and outputWpml have maxVersion 0.19.4
+			const options = {
+				noPictures: true,
+				outputPs: false,
+				outputWpml: false,
+			};
+
+			await expect(
+				unRtfMock.convert(file, options)
+			).resolves.toStrictEqual(expect.any(String));
+		});
+
 		it.each([
 			{
 				testName: "a non-zero code and no output",
