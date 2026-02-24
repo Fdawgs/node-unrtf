@@ -2,7 +2,7 @@
 
 const { spawn, spawnSync } = require("node:child_process");
 const { open } = require("node:fs/promises");
-const { normalize, resolve: pathResolve } = require("node:path");
+const { dirname, normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
 const freeze = require("ice-barrage");
 const { gt, lt } = require("semver");
@@ -19,7 +19,6 @@ const RTF_MAGIC_BUFFER = Buffer.from(RTF_MAGIC_NUMBER);
 const RTF_MAGIC_NUMBER_LENGTH = RTF_MAGIC_NUMBER.length;
 
 // Cache immutable regex as they are expensive to create and garbage collect
-const UNRTF_PATH_REG = /(.+)unrtf/u;
 // UnRTF version output is inconsistent between versions but always starts with the semantic version number
 const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 
@@ -218,15 +217,15 @@ class UnRTF {
 			/* istanbul ignore next: requires specific OS */
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
-			]).stdout.toString();
-			const unrtfPath = UNRTF_PATH_REG.exec(which)?.[1];
-
-			if (unrtfPath) {
-				this.#unrtfPath = unrtfPath;
+			])
+				.stdout.toString()
+				.trim();
+			if (which) {
+				this.#unrtfPath = dirname(which);
 			}
 
 			/* istanbul ignore next: requires specific OS */
-			if (platform === "win32" && !unrtfPath) {
+			if (platform === "win32" && !this.#unrtfPath) {
 				try {
 					// @ts-ignore: Optional dependency
 					// eslint-disable-next-line n/global-require -- Conditional require
