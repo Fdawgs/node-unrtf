@@ -362,7 +362,6 @@ describe("Node-UnRTF module", () => {
 			const unRtfMock = new UnRTFMock(testBinaryPath);
 
 			// outputPs and outputWpml have maxVersion 0.19.4
-
 			const options = {
 				noPictures: true,
 				outputPs: false,
