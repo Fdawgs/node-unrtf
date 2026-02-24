@@ -90,10 +90,11 @@ function parseOptions(acceptedOptions, options, version) {
 		const optionType = typeof option;
 
 		if (acceptedOption.type === optionType) {
-			// Skip boolean options if false
-			if (acceptedOption.type !== "boolean" || option) {
-				args.push(acceptedOption.arg);
+			// Boolean options set to false won't be passed to the binary; skip arg and version checks
+			if (acceptedOption.type === "boolean" && !option) {
+				continue;
 			}
+			args.push(acceptedOption.arg);
 		} else {
 			invalidArgs.push(
 				`Invalid value type provided for option '${key}', expected ${
