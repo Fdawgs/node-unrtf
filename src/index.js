@@ -126,7 +126,7 @@ function parseOptions(acceptedOptions, options, version) {
 
 class UnRTF {
 	#unrtfBin;
-	#unrtfPath;
+	#unrtfDir;
 	#unrtfVersion;
 
 	/** @type {UnRTFAcceptedOptions} */
@@ -200,7 +200,7 @@ class UnRTF {
 	});
 
 	/**
-	 * @param {string} [binPath] - Path of UnRTF binary.
+	 * @param {string} [binDir] - Directory path of UnRTF binary.
 	 * If not provided, the constructor will attempt to find the binary
 	 * in the PATH environment variable.
 	 *
@@ -208,43 +208,43 @@ class UnRTF {
 	 * if a local installation is not found.
 	 * @throws {Error} If UnRTF binary cannot be found or version cannot be determined.
 	 */
-	constructor(binPath) {
-		this.#unrtfPath = "";
+	constructor(binDir) {
+		this.#unrtfDir = "";
 
-		if (binPath) {
+		if (binDir) {
 			/** @type {string|undefined} */
-			this.#unrtfPath = binPath;
+			this.#unrtfDir = binDir;
 		} else {
 			/* istanbul ignore next: requires specific OS */
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
 			]).stdout.toString();
-			const unrtfPath = UNRTF_PATH_REG.exec(which)?.[1];
+			const unrtfDir = UNRTF_PATH_REG.exec(which)?.[1];
 
-			if (unrtfPath) {
-				this.#unrtfPath = unrtfPath;
+			if (unrtfDir) {
+				this.#unrtfDir = unrtfDir;
 			}
 
 			/* istanbul ignore next: requires specific OS */
-			if (platform === "win32" && !unrtfPath) {
+			if (platform === "win32" && !unrtfDir) {
 				try {
 					// @ts-ignore: Optional dependency
 					// eslint-disable-next-line n/global-require -- Conditional require
-					this.#unrtfPath = require("node-unrtf-win32");
+					this.#unrtfDir = require("node-unrtf-win32");
 				} catch {
-					// Leave #unrtfPath empty; the generic "Unable to find ... binaries" error below will fire
+					// Leave #unrtfDir empty; the generic "Unable to find ... binaries" error below will fire
 				}
 			}
 		}
 
-		if (!this.#unrtfPath) {
+		if (!this.#unrtfDir) {
 			throw new Error(
 				`Unable to find ${platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
 			);
 		}
-		this.#unrtfPath = normalize(this.#unrtfPath);
+		this.#unrtfDir = normalize(this.#unrtfDir);
 
-		this.#unrtfBin = pathResolve(this.#unrtfPath, "unrtf");
+		this.#unrtfBin = pathResolve(this.#unrtfDir, "unrtf");
 
 		// Version needed for option validation; which is output to stderr
 		const version = spawnSync(this.#unrtfBin, [
@@ -258,11 +258,11 @@ class UnRTF {
 	}
 
 	/**
-	 * @description Returns the path of the UnRTF binary.
-	 * @returns {string} Path of UnRTF binary.
+	 * @description Returns the directory path of the UnRTF binary.
+	 * @returns {string} Directory path of UnRTF binary.
 	 */
 	get path() {
-		return this.#unrtfPath;
+		return this.#unrtfDir;
 	}
 
 	/**
