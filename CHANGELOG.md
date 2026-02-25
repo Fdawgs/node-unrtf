@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.1](https://github.com/Fdawgs/node-unrtf/compare/v7.1.0...v7.1.1) (2026-02-25)
+
+
+### Bug fixes
+
+* **index:** skip version checks for `false` boolean options ([#546](https://github.com/Fdawgs/node-unrtf/issues/546)) ([13c0078](https://github.com/Fdawgs/node-unrtf/commit/13c0078c8f4f9f21296d30fd9f9899aba58a6f4f))
+
+
+### Continuous integration
+
+* **cd:** make provenance publishing explicit ([#551](https://github.com/Fdawgs/node-unrtf/issues/551)) ([0d461ed](https://github.com/Fdawgs/node-unrtf/commit/0d461ede1b186c5c9172681acc1be4a339949051))
+
+
+### Dependencies
+
+* **deps-dev:** bump licensee from 11.1.1 to 12.0.1 ([#541](https://github.com/Fdawgs/node-unrtf/issues/541)) ([94a820c](https://github.com/Fdawgs/node-unrtf/commit/94a820c8337100ffdc2569ade96d04beeaa66efa))
+
+
+### Improvements
+
+* **index:** cache typeof result in `parseOptions` ([#543](https://github.com/Fdawgs/node-unrtf/issues/543)) ([4891f1f](https://github.com/Fdawgs/node-unrtf/commit/4891f1fa3445be0f99d8eb69a0a0f5c0d1429ee7))
+* **index:** make `acceptedOptions` objects monomorphic ([#542](https://github.com/Fdawgs/node-unrtf/issues/542)) ([9c4488c](https://github.com/Fdawgs/node-unrtf/commit/9c4488c815853729f6a4ec99a7bc8244e80238cb))
+
+
+### Miscellaneous
+
+* **license:** add contact email ([#544](https://github.com/Fdawgs/node-unrtf/issues/544)) ([14169c4](https://github.com/Fdawgs/node-unrtf/commit/14169c447520a8ff1e83197801e9f0f3a8273ea0))
+* **package:** stop running `lint:prettier` twice on `test` call ([#550](https://github.com/Fdawgs/node-unrtf/issues/550)) ([5a31518](https://github.com/Fdawgs/node-unrtf/commit/5a315185546191ee35d551ca4690de8531d98c57))
+
+
+### Tests
+
+* **index:** use setimmediate to prevent timing flakes ([#539](https://github.com/Fdawgs/node-unrtf/issues/539)) ([e4675a6](https://github.com/Fdawgs/node-unrtf/commit/e4675a621a3e61391dabd6bdb53cc1d78717f003))
+
 ## [7.1.0](https://github.com/Fdawgs/node-unrtf/compare/v7.0.1...v7.1.0) (2026-01-08)
 
 
