@@ -314,7 +314,7 @@ class UnRTF {
 			if (err instanceof Error && err.code !== "ENOENT") {
 				throw err;
 			}
-			throw new Error("File missing");
+			throw new Error("File missing", { cause: err });
 		} finally {
 			await fileHandle?.close();
 		}
