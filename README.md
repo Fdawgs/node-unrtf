@@ -1,6 +1,6 @@
 > **Note**
 > An UnRTF v0.19.3 binary is included as an optional dependency for Windows users via [node-unrtf-win32](https://github.com/Fdawgs/node-unrtf-win32) which, due to its age, has several issues,
-> such as the [inability to convert RTF documents generated from 2007 onwards](https://github.com/Fdawgs/node-unrtf/issues/83), and a [bug in the
+> such as the [inability to convert RTF documents generated from 2007 onwards](https://github.com/Fdawgs/node-unrtf/issues/83#issuecomment-855788586), and a [bug in the
 > `noPictures` option that still generates pictures](https://github.com/Fdawgs/node-unrtf/issues/81).
 > It is recommended that whatever application is using the `node-unrtf` module is run in a Linux environment using the latest
 > available UnRTF binaries, which do not have these bugs.
