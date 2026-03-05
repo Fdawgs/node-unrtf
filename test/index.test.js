@@ -468,7 +468,7 @@ describe("Node-UnRTF module", () => {
 			"Rejects with an Error object if $testName",
 			async ({ filePath, options, expError }) => {
 				await expect(
-					// @ts-expect-error: Testing invalid parameters being passed
+					// @ts-expect-error: Testing invalid argument
 					unRtf.convert(filePath, {
 						noPictures: true,
 						...options,

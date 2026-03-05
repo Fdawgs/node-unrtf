@@ -84,7 +84,7 @@ function parseOptions(acceptedOptions, options, version) {
 			continue;
 		}
 
-		// @ts-ignore: Keys are from options, TS cannot infer this
+		// @ts-expect-error: Keys are from options, TS cannot infer this
 		const option = options[key];
 		const acceptedOption = acceptedOptions[key];
 		const optionType = typeof option;
@@ -310,7 +310,7 @@ class UnRTF {
 				);
 			}
 		} catch (err) {
-			// @ts-ignore: Code property found in fs errors
+			// @ts-expect-error: Code property found in fs errors
 			if (err instanceof Error && err.code !== "ENOENT") {
 				throw err;
 			}
