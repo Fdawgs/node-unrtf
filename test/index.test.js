@@ -103,7 +103,7 @@ describe("Node-UnRTF module", () => {
 			} catch (err) {
 				if (err instanceof Error) {
 					expect(err.message).toBe(
-						`Unable to find ${mockPlatform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
+						`Unable to find ${mockPlatform} UnRTF binary, please pass the path to the binary directory as a parameter to the UnRTF constructor.`
 					);
 				}
 			}
@@ -131,7 +131,7 @@ describe("Node-UnRTF module", () => {
 			} catch (err) {
 				if (err instanceof Error) {
 					expect(err.message).toBe(
-						"Unable to determine UnRTF version."
+						"Unable to determine version of the UnRTF binary."
 					);
 				}
 			}
