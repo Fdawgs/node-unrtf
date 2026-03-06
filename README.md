@@ -13,19 +13,19 @@
 [![Coverage status](https://coveralls.io/repos/github/Fdawgs/node-unrtf/badge.svg?branch=main)](https://coveralls.io/github/Fdawgs/node-unrtf?branch=main)
 [![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
 
-> Asynchronous Node.js wrapper for the UnRTF RTF conversion program
+> Asynchronous Node.js wrapper for the UnRTF conversion utility
 
 ## Overview
 
-UnRTF is a CLI program that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
+UnRTF is a command-line utility that allows for the manipulation and extraction of data from RTF documents such as converting RTF files to HTML or TXT.
 
-The `node-unrtf` module provides an asynchronous Node.js wrapper around said CLI program for easier use.
+The `node-unrtf` module provides an asynchronous Node.js wrapper around the UnRTF binary for easier use.
 
 ## Installation
 
 Install using `npm`:
 
-```bash
+```sh
 npm i node-unrtf
 ```
 
@@ -35,13 +35,13 @@ For Linux and Mac users, the `unrtf` binary will need to be installed separately
 
 An example of downloading the binary on a Debian system:
 
-```
+```sh
 sudo apt-get install unrtf
 ```
 
 For macOS, the binary can be installed with [Homebrew](https://brew.sh/):
 
-```
+```sh
 brew install unrtf
 ```
 

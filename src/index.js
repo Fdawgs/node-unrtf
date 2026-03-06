@@ -28,7 +28,7 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  * @property {string} arg The argument to pass to the binary.
  * @property {('boolean'|'number'|'string')} type The type of the option.
  * @property {string} minVersion The minimum version of the binary that supports this option.
- * @property {string} [maxVersion] The maximum version of the binary that supports this option (optional).
+ * @property {string} [maxVersion] The maximum version of the binary that supports this option.
  */
 
 /**
@@ -44,7 +44,7 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
  * @property {boolean} [outputHtml] Generate HTML output.
  * @property {boolean} [outputLatex] Generate LaTeX output.
  * @property {boolean} [outputPs] Generate PostScript (PS) output (UnRTF v0.19.4 or earlier only).
- * @property {boolean} [outputRtf] Generate RTF output. (UnRTF v0.21.3 or later only).
+ * @property {boolean} [outputRtf] Generate RTF output (UnRTF v0.21.3 or later only).
  * @property {boolean} [outputText] Generate ASCII text output.
  * @property {boolean} [outputVt] Generate text output with VT100 escape codes.
  * @property {boolean} [outputWpml] Generate WPML output (UnRTF v0.19.4 or earlier only).
@@ -59,12 +59,12 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 
 /**
  * @author Frazer Smith
- * @description Checks each option provided is valid, of the correct type, and can be used by specified
- * version of binary.
+ * @description Checks each option provided is valid, of the correct type, and can be used by the
+ * specified version of the binary.
  * @ignore
  * @param {UnRTFAcceptedOptions} acceptedOptions - Object containing accepted options.
- * @param {UnRTFOptions} options - Object containing options to pass to binary.
- * @param {string} version - Semantic version of binary.
+ * @param {UnRTFOptions} options - Object containing options to pass to the binary.
+ * @param {string} version - Semantic version of the binary.
  * @returns {string[]} Array of CLI arguments.
  * @throws {Error} If invalid arguments provided.
  */
@@ -200,13 +200,13 @@ class UnRTF {
 	});
 
 	/**
-	 * @param {string} [binPath] - Path of UnRTF binary.
+	 * @param {string} [binPath] - Path to the directory containing the UnRTF binary.
 	 * If not provided, the constructor will attempt to find the binary
 	 * in the PATH environment variable.
 	 *
 	 * For `win32`, a binary is bundled with the package and will be used
-	 * if a local installation is not found.
-	 * @throws {Error} If UnRTF binary cannot be found or version cannot be determined.
+	 * if a local binary cannot be found.
+	 * @throws {Error} If the UnRTF binary cannot be found or its version cannot be determined.
 	 */
 	constructor(binPath) {
 		this.#unrtfPath = "";
@@ -232,14 +232,14 @@ class UnRTF {
 					// eslint-disable-next-line n/global-require -- Conditional require
 					this.#unrtfPath = require("node-unrtf-win32");
 				} catch {
-					// Leave #unrtfPath empty; the generic "Unable to find ... binaries" error below will fire
+					// Leave #unrtfPath empty; the generic "Unable to find ... binary" error below will fire
 				}
 			}
 		}
 
 		if (!this.#unrtfPath) {
 			throw new Error(
-				`Unable to find ${platform} UnRTF binaries, please pass the installation directory as a parameter to the UnRTF instance.`
+				`Unable to find ${platform} UnRTF binary, please pass the path to the binary directory as a parameter to the UnRTF constructor.`
 			);
 		}
 		this.#unrtfPath = normalize(this.#unrtfPath);
@@ -253,13 +253,13 @@ class UnRTF {
 		this.#unrtfVersion = UNRTF_VERSION_REG.exec(version)?.[1] || "";
 
 		if (!this.#unrtfVersion) {
-			throw new Error("Unable to determine UnRTF version.");
+			throw new Error("Unable to determine version of the UnRTF binary.");
 		}
 	}
 
 	/**
-	 * @description Returns the path of the UnRTF binary.
-	 * @returns {string} Path of UnRTF binary.
+	 * @description Returns the path of the UnRTF binary directory.
+	 * @returns {string} Path of the UnRTF binary directory.
 	 */
 	get path() {
 		return this.#unrtfPath;
@@ -267,7 +267,7 @@ class UnRTF {
 
 	/**
 	 * @description Returns the version of the UnRTF binary.
-	 * @returns {string} Version of UnRTF binary.
+	 * @returns {string} Version of the UnRTF binary.
 	 */
 	get version() {
 		return this.#unrtfVersion;
@@ -279,7 +279,7 @@ class UnRTF {
 	 * Defaults to HTML output if no `output*` options are provided.
 	 * UnRTF will use the directory of the original file to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
-	 * @param {UnRTFOptions} [options] - Options to pass to UnRTF binary.
+	 * @param {UnRTFOptions} [options] - Options to pass to the UnRTF binary.
 	 * @param {UnRTFExtraOptions} [extras] - Non-CLI options.
 	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 * @throws {Error} If the file is missing, not an RTF file, or if UnRTF returns an error.
