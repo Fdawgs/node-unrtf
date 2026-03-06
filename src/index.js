@@ -219,6 +219,7 @@ class UnRTF {
 			const which = spawnSync(platform === "win32" ? "where" : "which", [
 				"unrtf",
 			]).stdout.toString();
+			// Use regex over dirname as `where` on Windows returns a newline-delimited list
 			const unrtfPath = UNRTF_PATH_REG.exec(which)?.[1];
 
 			if (unrtfPath) {
