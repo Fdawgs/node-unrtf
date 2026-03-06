@@ -37,9 +37,9 @@ const originalChildProcess = jest.requireActual("node:child_process");
 const originalProcess = jest.requireActual("node:process");
 
 /**
- * @description Returns the path to the UnRTF binary based on the OS.
- * @returns {string} The path to the UnRTF binary.
- * @throws {Error} If the OS is not supported or the binaries are not found.
+ * @description Returns the path of the UnRTF binary directory based on OS.
+ * @returns {string} Path of the UnRTF binary directory.
+ * @throws {Error} If the OS is not supported or the UnRTF binary cannot be found.
  */
 function getTestBinaryPath() {
 	const which = spawnSync(platform === "win32" ? "where" : "which", [
@@ -53,7 +53,7 @@ function getTestBinaryPath() {
 	}
 
 	if (!unrtfPath) {
-		throw new Error(`Unable to find ${platform} UnRTF binaries.`);
+		throw new Error(`Unable to find ${platform} UnRTF binary.`);
 	}
 
 	return normalize(unrtfPath);
