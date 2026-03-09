@@ -103,7 +103,7 @@ describe("Node-UnRTF module", () => {
 			} catch (err) {
 				if (err instanceof Error) {
 					expect(err.message).toBe(
-						`Unable to find ${mockPlatform} UnRTF binary, please pass the path to the binary directory as a parameter to the UnRTF constructor.`
+						`Unable to find ${mockPlatform} UnRTF binary, please pass the path to the binary directory as an argument to the UnRTF constructor.`
 					);
 				}
 			}

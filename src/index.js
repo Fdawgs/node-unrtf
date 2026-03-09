@@ -240,7 +240,7 @@ class UnRTF {
 
 		if (!this.#unrtfPath) {
 			throw new Error(
-				`Unable to find ${platform} UnRTF binary, please pass the path to the binary directory as a parameter to the UnRTF constructor.`
+				`Unable to find ${platform} UnRTF binary, please pass the path to the binary directory as an argument to the UnRTF constructor.`
 			);
 		}
 		this.#unrtfPath = normalize(this.#unrtfPath);
