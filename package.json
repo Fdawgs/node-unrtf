@@ -90,7 +90,7 @@
 		"jest": "^30.0.5",
 		"licensee": "^12.0.1",
 		"prettier": "^3.6.2",
-		"typescript": "~5.9.2"
+		"typescript": "~6.0.2"
 	},
 	"dependencies": {
 		"ice-barrage": "^1.0.0",
