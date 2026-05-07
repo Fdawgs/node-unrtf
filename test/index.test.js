@@ -227,6 +227,17 @@ describe("Node-UnRTF module", () => {
 				},
 			},
 			{
+				testName: "HTML with `outputHtml` set to undefined",
+				options: {
+					outputHtml: undefined,
+				},
+				expected: {
+					html: true,
+					stringMatch:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+				},
+			},
+			{
 				testName: "HTML with `outputHtml` set to true",
 				options: {
 					outputHtml: true,
