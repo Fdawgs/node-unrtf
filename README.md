@@ -79,7 +79,7 @@ const options = {
 	outputHtml: true,
 };
 
-unRTF
+unRtf
 	.convert(file, options)
 	.then((res) => {
 		console.log(res);
