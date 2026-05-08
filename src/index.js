@@ -287,7 +287,7 @@ class UnRTF {
 	 * @param {string} file - Filepath of the RTF file to read.
 	 * @param {UnRTFOptions} [options] - Options to pass to the UnRTF binary.
 	 * @param {UnRTFExtraOptions} [extras] - Non-CLI options.
-	 * @returns {Promise<string>}  A promise that resolves with a stdout string, or rejects with an `Error` object.
+	 * @returns {Promise<string>} A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 * @throws {Error} If the file is missing, not an RTF file, or if UnRTF returns an error.
 	 */
 	async convert(file, options = {}, extras = {}) {
