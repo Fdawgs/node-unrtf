@@ -221,9 +221,11 @@ class UnRTF {
 			this.#unrtfPath = binPath;
 		} else {
 			/* istanbul ignore next: requires specific OS */
-			const which = spawnSync(platform === "win32" ? "where" : "which", [
-				"unrtf",
-			]).stdout.toString();
+			const which = spawnSync(
+				platform === "win32" ? "where" : "which",
+				["unrtf"],
+				{ windowsHide: true }
+			).stdout.toString();
 			// Use regex over dirname as `where` on Windows returns a newline-delimited list
 			const unrtfPath = UNRTF_PATH_REG.exec(which)?.[1];
 
@@ -253,9 +255,9 @@ class UnRTF {
 		this.#unrtfBin = pathResolve(this.#unrtfPath, "unrtf");
 
 		// Version needed for option validation; which is output to stderr
-		const version = spawnSync(this.#unrtfBin, [
-			"--version",
-		]).stderr.toString();
+		const version = spawnSync(this.#unrtfBin, ["--version"], {
+			windowsHide: true,
+		}).stderr.toString();
 		this.#unrtfVersion = UNRTF_VERSION_REG.exec(version)?.[1] || "";
 
 		if (!this.#unrtfVersion) {
@@ -333,7 +335,10 @@ class UnRTF {
 		args.push(normalizedFile);
 
 		return new Promise((resolve, reject) => {
-			const child = spawn(this.#unrtfBin, args, { signal });
+			const child = spawn(this.#unrtfBin, args, {
+				signal,
+				windowsHide: true,
+			});
 
 			let stdOut = "";
 			let stdErr = "";
