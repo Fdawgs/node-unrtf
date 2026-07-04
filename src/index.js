@@ -354,13 +354,8 @@ class UnRTF {
 				signal,
 			});
 
-			/** @type {Buffer[]} */
-			const stdOutChunks = [];
-			/** @type {Buffer[]} */
-			const stdErrChunks = [];
-			let stdOutLength = 0;
-			let stdErrLength = 0;
-			let errorHandled = false;
+			let stdOut = "";
+			let stdErr = "";
 
 			child.stdout.on("data", (data) => {
 				stdOutChunks.push(data);
@@ -372,24 +367,11 @@ class UnRTF {
 				stdErrLength += data.length;
 			});
 
-			child.on("error", (err) => {
-				errorHandled = true;
-				reject(err);
-			});
-
-			child.on("close", (code) => {
-				// If an error was already emitted, don't process the close event
-				if (errorHandled) {
-					return;
-				}
-
-				if (stdOutLength > 0) {
-					resolve(
-						Buffer.concat(stdOutChunks, stdOutLength)
-							.toString("utf8")
-							.trim()
-					);
-				} else if (stdErrLength === 0) {
+			child.once("error", reject);
+			child.once("close", (code) => {
+				if (stdOut !== "") {
+					resolve(stdOut.trim());
+				} else if (stdErr === "") {
 					reject(
 						new Error(
 							ERROR_MSGS[code ?? -1] ||
