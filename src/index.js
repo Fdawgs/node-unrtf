@@ -302,15 +302,18 @@ class UnRTF {
 			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File open is wanted
 			fileHandle = await open(normalizedFile, "r");
 
-			const { buffer } = await fileHandle.read(
-				Buffer.alloc(RTF_MAGIC_NUMBER_LENGTH),
+			const readBuf = Buffer.allocUnsafe(RTF_MAGIC_NUMBER_LENGTH);
+			const { bytesRead } = await fileHandle.read(
+				readBuf,
 				0,
 				RTF_MAGIC_NUMBER_LENGTH,
 				0
 			);
 
-			// Check for RTF specific magic number
-			if (!buffer.equals(RTF_MAGIC_BUFFER)) {
+			if (
+				bytesRead < RTF_MAGIC_NUMBER_LENGTH ||
+				!readBuf.equals(RTF_MAGIC_BUFFER)
+			) {
 				throw new Error(
 					"File is not the correct media type, expected 'application/rtf'"
 				);
