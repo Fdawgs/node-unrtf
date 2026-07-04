@@ -72,6 +72,8 @@ console.log(res);
 Example of calling unRTF.convert with a promise chain in a CJS environment:
 
 ```js
+"use strict";
+
 const { UnRTF } = require("node-unrtf");
 
 const file = "test_document.rtf";
