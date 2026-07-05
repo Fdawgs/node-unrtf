@@ -312,6 +312,7 @@ class UnRTF {
 				0
 			);
 
+			// Check file has enough bytes and matches the RTF magic number
 			if (
 				bytesRead < RTF_MAGIC_NUMBER_LENGTH ||
 				!readBuf.equals(RTF_MAGIC_BUFFER)
