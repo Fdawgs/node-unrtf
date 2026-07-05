@@ -145,6 +145,7 @@ pnpm-lock.yaml
 yarn.lock
 
 # Test files
-*.wmf
 *.emf
 *.png
+*.wmf
+test/fixtures/short-file-test.rtf

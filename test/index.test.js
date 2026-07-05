@@ -5,7 +5,7 @@
 "use strict";
 
 const { execFile, spawnSync } = require("node:child_process");
-const { unlink } = require("node:fs/promises");
+const { unlink, writeFile } = require("node:fs/promises");
 const { join, normalize, sep } = require("node:path");
 const { platform } = require("node:process");
 const { promisify } = require("node:util");
@@ -384,6 +384,7 @@ describe("Node-UnRTF module", () => {
 			).resolves.toStrictEqual(expect.any(String));
 		});
 
+		// Child process exit code handling tests
 		it.each([
 			{
 				testName: "a non-zero code and no output",
@@ -438,6 +439,7 @@ describe("Node-UnRTF module", () => {
 			}
 		);
 
+		// General argument validation tests
 		it.each([
 			{
 				testName: "file is not RTF format",
@@ -448,7 +450,6 @@ describe("Node-UnRTF module", () => {
 				expError:
 					"File is not the correct media type, expected 'application/rtf'",
 			},
-
 			{
 				testName: "file is missing",
 				filePath: undefined,
@@ -488,6 +489,44 @@ describe("Node-UnRTF module", () => {
 			}
 		);
 
+		// File size validation tests
+		it.each([
+			{
+				testName: "file is empty (0 bytes)",
+				content: Buffer.alloc(0),
+			},
+			{
+				testName: "file is 1 byte",
+				content: Buffer.from("{"),
+			},
+			{
+				testName: "file is 3 bytes with RTF-like prefix",
+				content: Buffer.from("{\\r"),
+			},
+			{
+				testName:
+					"file is 5 bytes (one byte short of the magic number)",
+				content: Buffer.from("{\\rtf"),
+			},
+		])("Rejects with an Error object if $testName", async ({ content }) => {
+			const shortFile = `${testDirectory}short-file-test.rtf`;
+			await writeFile(shortFile, content);
+			try {
+				await expect(
+					unRtf.convert(shortFile, { noPictures: true })
+				).rejects.toThrow(
+					expect.objectContaining({
+						message: expect.stringContaining(
+							"File is not the correct media type, expected 'application/rtf'"
+						),
+					})
+				);
+			} finally {
+				await unlink(shortFile);
+			}
+		});
+
+		// AbortSignal handling tests
 		it.each([
 			{
 				testName: "signal is already aborted before starting",
