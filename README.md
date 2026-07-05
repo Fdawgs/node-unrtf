@@ -52,7 +52,7 @@ Please refer to the [JSDoc comments in the source code](./src/index.js) or the [
 
 ### Async Await
 
-Example of an `async` `await` call to convert an RTF file to HTML in an ESM environment:
+Example of an `async` `await` call to convert an RTF file to HTML using ESM syntax:
 
 ```js
 import { UnRTF } from "node-unrtf";
@@ -69,9 +69,11 @@ console.log(res);
 
 ### Promise chaining
 
-Example of calling unRTF.convert with a promise chain in a CJS environment:
+Example of calling unRTF.convert with a promise chain using CJS syntax:
 
 ```js
+"use strict";
+
 const { UnRTF } = require("node-unrtf");
 
 const file = "test_document.rtf";
