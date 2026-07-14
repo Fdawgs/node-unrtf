@@ -2,6 +2,92 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.1](https://github.com/Fdawgs/node-unrtf/compare/v7.1.0...v7.1.1) (2026-07-14)
+
+
+### Bug fixes
+
+* **index:** add guard for short files in magic number check ([#598](https://github.com/Fdawgs/node-unrtf/issues/598)) ([79dc046](https://github.com/Fdawgs/node-unrtf/commit/79dc046d5562a721647dd97ccecf197321c22c7a))
+* **index:** hide spawned unrtf console window on windows ([#597](https://github.com/Fdawgs/node-unrtf/issues/597)) ([344d9e9](https://github.com/Fdawgs/node-unrtf/commit/344d9e9c11a36fefb548295a4a2956905689c203))
+* **index:** ignore undefined options ([#569](https://github.com/Fdawgs/node-unrtf/issues/569)) ([44508aa](https://github.com/Fdawgs/node-unrtf/commit/44508aafec5ef6cac05ab7c1db0aef282d896706))
+* **index:** skip version checks for `false` boolean options ([#546](https://github.com/Fdawgs/node-unrtf/issues/546)) ([13c0078](https://github.com/Fdawgs/node-unrtf/commit/13c0078c8f4f9f21296d30fd9f9899aba58a6f4f))
+
+
+### Continuous integration
+
+* add ossf scorecard workflow ([#585](https://github.com/Fdawgs/node-unrtf/issues/585)) ([a8818cb](https://github.com/Fdawgs/node-unrtf/commit/a8818cb9418dcce207749628df7c819cdd899178))
+* **cd:** make provenance publishing explicit ([#551](https://github.com/Fdawgs/node-unrtf/issues/551)) ([0d461ed](https://github.com/Fdawgs/node-unrtf/commit/0d461ede1b186c5c9172681acc1be4a339949051))
+* **cd:** pin installed npm version ([#603](https://github.com/Fdawgs/node-unrtf/issues/603)) ([a8eab7c](https://github.com/Fdawgs/node-unrtf/commit/a8eab7c94fa371d7ba6b605ef9e84b5210942778))
+* **ci:** add node 26 to test matrix ([#573](https://github.com/Fdawgs/node-unrtf/issues/573)) ([21d8b5d](https://github.com/Fdawgs/node-unrtf/commit/21d8b5db0fc824172693863606891b9299037816))
+* **ci:** use reusable code quality workflow ([#566](https://github.com/Fdawgs/node-unrtf/issues/566)) ([b8ce33f](https://github.com/Fdawgs/node-unrtf/commit/b8ce33fbad2d758a8a82a4d722267ecd89a7db7c))
+* **deps:** bump actions/dependency-review-action from 4.8.2 to 4.8.3 ([#552](https://github.com/Fdawgs/node-unrtf/issues/552)) ([b30f834](https://github.com/Fdawgs/node-unrtf/commit/b30f8343da4afa4f45cd3b584a0e81b4693512af))
+* **deps:** bump actions/dependency-review-action from 4.8.3 to 4.9.0 ([#560](https://github.com/Fdawgs/node-unrtf/issues/560)) ([6bec0b6](https://github.com/Fdawgs/node-unrtf/commit/6bec0b60839d8b7f5684f2edb09f29b9676962a4))
+* **deps:** bump fastify/github-action-merge-dependabot ([#562](https://github.com/Fdawgs/node-unrtf/issues/562)) ([8235f56](https://github.com/Fdawgs/node-unrtf/commit/8235f56fbf5e5dd937686c17ac71d2f602091b0b))
+* **deps:** bump fastify/github-action-merge-dependabot ([#592](https://github.com/Fdawgs/node-unrtf/issues/592)) ([f0a1c18](https://github.com/Fdawgs/node-unrtf/commit/f0a1c180a476c754b8c14b72aadb15c17844fcd2))
+* **deps:** bump github/codeql-action in the github-owned group ([#580](https://github.com/Fdawgs/node-unrtf/issues/580)) ([4fce31c](https://github.com/Fdawgs/node-unrtf/commit/4fce31c0463e366fb50fbc375b081ae72d7e05f5))
+* **deps:** bump googleapis/release-please-action from 4.4.0 to 5.0.0 ([#563](https://github.com/Fdawgs/node-unrtf/issues/563)) ([70b5128](https://github.com/Fdawgs/node-unrtf/commit/70b51281d0ae470b5811236857f2dfbd77a98cb2))
+* **deps:** bump the fdawgs-owned group with 3 updates ([#583](https://github.com/Fdawgs/node-unrtf/issues/583)) ([04871f8](https://github.com/Fdawgs/node-unrtf/commit/04871f880ffc2d454f19beb69844e454984538c0))
+* **deps:** bump the fdawgs-owned group with 3 updates ([#591](https://github.com/Fdawgs/node-unrtf/issues/591)) ([3ff0881](https://github.com/Fdawgs/node-unrtf/commit/3ff0881d53420f9536dcc39a6d75a950c2a86849))
+* **deps:** bump the github-owned group across 1 directory with 3 updates ([#595](https://github.com/Fdawgs/node-unrtf/issues/595)) ([44ccfe2](https://github.com/Fdawgs/node-unrtf/commit/44ccfe2477a7a7f4b51f42b083ff8e990876967a))
+* **link-check:** use sha instead of tag ([#567](https://github.com/Fdawgs/node-unrtf/issues/567)) ([35ce203](https://github.com/Fdawgs/node-unrtf/commit/35ce2037213afe554281ca0230043b51ea543dfe))
+* **lock-threads:** reduce frequency from daily to monthly ([#571](https://github.com/Fdawgs/node-unrtf/issues/571)) ([2e51d27](https://github.com/Fdawgs/node-unrtf/commit/2e51d2709425e39aae5467d73d7790ff639048cd))
+* use full-length commit sha for github owned actions ([#575](https://github.com/Fdawgs/node-unrtf/issues/575)) ([c42c9b2](https://github.com/Fdawgs/node-unrtf/commit/c42c9b25242d960259616739fc2fce2e921348e3))
+
+
+### Dependencies
+
+* **.devcontainer:** add lockfile; use bookworm for base image ([#576](https://github.com/Fdawgs/node-unrtf/issues/576)) ([ce3c69d](https://github.com/Fdawgs/node-unrtf/commit/ce3c69dfdc7c35b45013e8d75798b8311dbd8645))
+* **dependabot:** add cooldown for actions and devcontainers ([#579](https://github.com/Fdawgs/node-unrtf/issues/579)) ([08b1d49](https://github.com/Fdawgs/node-unrtf/commit/08b1d49e10476ba7c38428faa9440e9e462693d9))
+* **dependabot:** group github-owned updates ([#568](https://github.com/Fdawgs/node-unrtf/issues/568)) ([2a5b0df](https://github.com/Fdawgs/node-unrtf/commit/2a5b0df5b24dd4512fa3305cf35eacd1df7a6a1c))
+* **dependabot:** remove redundant includes cooldown array ([#601](https://github.com/Fdawgs/node-unrtf/issues/601)) ([2839a06](https://github.com/Fdawgs/node-unrtf/commit/2839a0637a3d41f3f931794dbc9dee650b7316cd))
+* **deps-dev:** bump @types/node from 25.9.4 to 26.0.0 ([#594](https://github.com/Fdawgs/node-unrtf/issues/594)) ([51a9c1d](https://github.com/Fdawgs/node-unrtf/commit/51a9c1d361dcad20f49190806cdcc75eb834cb56))
+* **deps-dev:** bump licensee from 11.1.1 to 12.0.1 ([#541](https://github.com/Fdawgs/node-unrtf/issues/541)) ([94a820c](https://github.com/Fdawgs/node-unrtf/commit/94a820c8337100ffdc2569ade96d04beeaa66efa))
+* **deps-dev:** bump prettier from 3.6.2 to 3.8.4 ([#593](https://github.com/Fdawgs/node-unrtf/issues/593)) ([59ffc43](https://github.com/Fdawgs/node-unrtf/commit/59ffc43a532f708f4d3da0f4b637ea18c33a6af5))
+* **deps-dev:** bump prettier from 3.8.4 to 3.8.5 ([#602](https://github.com/Fdawgs/node-unrtf/issues/602)) ([f04ffc1](https://github.com/Fdawgs/node-unrtf/commit/f04ffc10d246ceec600c4ffd8cd5848f328acc62))
+* **deps-dev:** bump the eslint group across 1 directory with 2 updates ([#578](https://github.com/Fdawgs/node-unrtf/issues/578)) ([c5b8ed2](https://github.com/Fdawgs/node-unrtf/commit/c5b8ed2e97ec16a1c8bf8479425132c5aebd0aa9))
+* **deps-dev:** bump typescript from 5.9.3 to 6.0.3 ([#564](https://github.com/Fdawgs/node-unrtf/issues/564)) ([b55d6aa](https://github.com/Fdawgs/node-unrtf/commit/b55d6aa6334786ae3ad2104ce806c841c238c7a0))
+* **deps-dev:** pin prettier ([#587](https://github.com/Fdawgs/node-unrtf/issues/587)) ([87de24e](https://github.com/Fdawgs/node-unrtf/commit/87de24ecf61aa8caf2c1e36ee714625f491e5c7f))
+
+
+### Documentation
+
+* fix broken links ([#589](https://github.com/Fdawgs/node-unrtf/issues/589)) ([4f1bbb3](https://github.com/Fdawgs/node-unrtf/commit/4f1bbb3b3ad4c3808e2e8c4e41c89bf58104025b))
+* **readme:** add strict directive to cjs examples ([#596](https://github.com/Fdawgs/node-unrtf/issues/596)) ([c293ca7](https://github.com/Fdawgs/node-unrtf/commit/c293ca7e6501648d6ba9af62dda08bd363b1d535))
+* **readme:** link direct to issue comment re windows ([#545](https://github.com/Fdawgs/node-unrtf/issues/545)) ([1c180e3](https://github.com/Fdawgs/node-unrtf/commit/1c180e312af964b6cc603d4a36e97eb305577947))
+* **readme:** readability fixup ([#604](https://github.com/Fdawgs/node-unrtf/issues/604)) ([ca9b955](https://github.com/Fdawgs/node-unrtf/commit/ca9b9556482f8dd881ce5e6635fda7e3381c3ee0))
+
+
+### Improvements
+
+* **index:** cache typeof result in `parseOptions` ([#543](https://github.com/Fdawgs/node-unrtf/issues/543)) ([4891f1f](https://github.com/Fdawgs/node-unrtf/commit/4891f1fa3445be0f99d8eb69a0a0f5c0d1429ee7))
+* **index:** make `acceptedOptions` objects monomorphic ([#542](https://github.com/Fdawgs/node-unrtf/issues/542)) ([9c4488c](https://github.com/Fdawgs/node-unrtf/commit/9c4488c815853729f6a4ec99a7bc8244e80238cb))
+* **index:** surface cause on enoent ([#547](https://github.com/Fdawgs/node-unrtf/issues/547)) ([fbe8170](https://github.com/Fdawgs/node-unrtf/commit/fbe8170c19965fb2e091adf13258ce4d08421b75))
+
+
+### Miscellaneous
+
+* **.npmrc:** add min-release-age ([#565](https://github.com/Fdawgs/node-unrtf/issues/565)) ([b3569dd](https://github.com/Fdawgs/node-unrtf/commit/b3569ddabed658b7bbd89439193e79586b8770c0))
+* **.nvmrc:** remove redundant prefix ([#572](https://github.com/Fdawgs/node-unrtf/issues/572)) ([84d7207](https://github.com/Fdawgs/node-unrtf/commit/84d72075051b1e35bb8f6a64c4742e5e5bb65a17))
+* **.vscode:** remove redundant javascript default formatter ([#582](https://github.com/Fdawgs/node-unrtf/issues/582)) ([ac482ee](https://github.com/Fdawgs/node-unrtf/commit/ac482ee6eba0438c3364b2f1bd4dbd44d724135a))
+* **.vscode:** update js and telemetry settings ([#559](https://github.com/Fdawgs/node-unrtf/issues/559)) ([eb07564](https://github.com/Fdawgs/node-unrtf/commit/eb075645ff9f871d396576ffb9728f495dd56ca1))
+* align editorconfig and prettier ignore rules ([#586](https://github.com/Fdawgs/node-unrtf/issues/586)) ([58de6e4](https://github.com/Fdawgs/node-unrtf/commit/58de6e465a96a672fc8786bd868b5fc98b68671a))
+* **eslint.config:** `includeIgnoreFile` from `eslint/config` ([#581](https://github.com/Fdawgs/node-unrtf/issues/581)) ([6a2a07c](https://github.com/Fdawgs/node-unrtf/commit/6a2a07cdd60e429dddbe77751d29f1f460bcd145))
+* fix typos ([#570](https://github.com/Fdawgs/node-unrtf/issues/570)) ([36a3d93](https://github.com/Fdawgs/node-unrtf/commit/36a3d9307393080a5e2e5169cff366ce08aa4c48))
+* **index:** add inline comment for short file check ([#600](https://github.com/Fdawgs/node-unrtf/issues/600)) ([23c55d5](https://github.com/Fdawgs/node-unrtf/commit/23c55d571ba70bd1e9274f3b9823a9690327ab3d))
+* **index:** add inline comment re windows which ([#556](https://github.com/Fdawgs/node-unrtf/issues/556)) ([5967bc6](https://github.com/Fdawgs/node-unrtf/commit/5967bc6b0434ded177ee89dfff90a39a87e2d780))
+* **index:** correctly refer to params ([#558](https://github.com/Fdawgs/node-unrtf/issues/558)) ([b20b41f](https://github.com/Fdawgs/node-unrtf/commit/b20b41f68e48a5518388cc526ace19026207e274))
+* **license:** add contact email ([#544](https://github.com/Fdawgs/node-unrtf/issues/544)) ([14169c4](https://github.com/Fdawgs/node-unrtf/commit/14169c447520a8ff1e83197801e9f0f3a8273ea0))
+* **package:** stop running `lint:prettier` twice on `test` call ([#550](https://github.com/Fdawgs/node-unrtf/issues/550)) ([5a31518](https://github.com/Fdawgs/node-unrtf/commit/5a315185546191ee35d551ca4690de8531d98c57))
+* replace http links with https ([#590](https://github.com/Fdawgs/node-unrtf/issues/590)) ([e91e449](https://github.com/Fdawgs/node-unrtf/commit/e91e449280666a213f5aeba3f24c0993195bff97))
+* use correct terminology; use complete sentences ([#555](https://github.com/Fdawgs/node-unrtf/issues/555)) ([d2fa1cf](https://github.com/Fdawgs/node-unrtf/commit/d2fa1cf0365b0efe8f8d9a4fe40e483c680858c5))
+* use ts-expect-error over ts-ignore ([#554](https://github.com/Fdawgs/node-unrtf/issues/554)) ([f96690e](https://github.com/Fdawgs/node-unrtf/commit/f96690e650ef81ffcbb426d081b42663653a246e))
+
+
+### Tests
+
+* **index:** correct terminology ([#557](https://github.com/Fdawgs/node-unrtf/issues/557)) ([81f3160](https://github.com/Fdawgs/node-unrtf/commit/81f3160da75d8b7350f00d7e255b4a996d0d45d7))
+* **index:** use setimmediate to prevent timing flakes ([#539](https://github.com/Fdawgs/node-unrtf/issues/539)) ([e4675a6](https://github.com/Fdawgs/node-unrtf/commit/e4675a621a3e61391dabd6bdb53cc1d78717f003))
+
 ## [7.1.0](https://github.com/Fdawgs/node-unrtf/compare/v7.0.1...v7.1.0) (2026-01-08)
 
 
