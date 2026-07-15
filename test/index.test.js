@@ -4,10 +4,12 @@
 
 "use strict";
 
+const { EventEmitter } = require("node:events");
 const { execFile, spawnSync } = require("node:child_process");
 const { unlink, writeFile } = require("node:fs/promises");
 const { join, normalize, sep } = require("node:path");
 const { platform } = require("node:process");
+const { Readable } = require("node:stream");
 const { promisify } = require("node:util");
 const {
 	afterEach,
@@ -276,6 +278,66 @@ describe("Node-UnRTF module", () => {
 			expect(res).toMatch(expected.stringMatch);
 		});
 
+		it.each([
+			{
+				testName: "2-byte character (£) is split across boundary",
+				chunks: [
+					Buffer.from([0xc2]), // first byte of £
+					Buffer.from([0xa3, 0x21]), // last byte of £ + '!'
+				],
+				expected: "£!",
+			},
+			{
+				testName: "3-byte character (€) is split across boundary",
+				chunks: [
+					Buffer.from([0xe2, 0x82]), // first 2 bytes of €
+					Buffer.from([0xac, 0x21]), // last byte of € + '!'
+				],
+				expected: "€!",
+			},
+			{
+				testName: "4-byte character (𝄞) is split across boundary",
+				chunks: [
+					Buffer.from([0xf0, 0x9d]), // first 2 bytes of 𝄞
+					Buffer.from([0x84, 0x9e, 0x21]), // last 2 bytes of 𝄞 + '!'
+				],
+				expected: "𝄞!",
+			},
+		])(
+			"Correctly decodes stdout when $testName",
+			async ({ chunks, expected }) => {
+				jest.doMock("node:child_process", () => ({
+					...originalChildProcess,
+					spawn: jest.fn(() => {
+						const emitter =
+							/** @type {import("node:child_process").ChildProcess} */ (
+								new EventEmitter()
+							);
+						emitter.stdout = Readable.from(chunks);
+						emitter.stderr = new Readable({
+							read() {
+								this.push(null);
+							},
+						});
+						emitter.stdout.on("end", () => {
+							setImmediate(() => emitter.emit("close", 0));
+						});
+						return emitter;
+					}),
+				}));
+				require("node:child_process");
+				const { UnRTF: UnRTFMock } = require("../src/index");
+				const unRtfMock = new UnRTFMock(testBinaryPath);
+
+				const result = await unRtfMock.convert(file, {
+					noPictures: true,
+				});
+
+				expect(result).toBe(expected);
+				expect(result).not.toContain("\uFFFD");
+			}
+		);
+
 		it("Rejects with an Error object if option provided is only available in a later version of the UnRTF binary than what was provided", async () => {
 			jest.doMock("node:child_process", () => ({
 				...originalChildProcess,
@@ -404,31 +466,27 @@ describe("Node-UnRTF module", () => {
 		])(
 			"Rejects with an Error object if UnRTF exits with $testName",
 			async ({ exitCode, expectedError }) => {
-				jest.doMock("node:child_process", () => {
-					const { EventEmitter } = require("node:events");
-					const { Readable } = require("node:stream");
-					return {
-						...originalChildProcess,
-						spawn: jest.fn(() => {
-							const emitter =
-								/** @type {import("node:child_process").ChildProcess} */ (
-									new EventEmitter()
-								);
-							emitter.stdout = new Readable({
-								read() {
-									this.push(null);
-								},
-							});
-							emitter.stderr = new Readable({
-								read() {
-									this.push(null);
-								},
-							});
-							setImmediate(() => emitter.emit("close", exitCode));
-							return emitter;
-						}),
-					};
-				});
+				jest.doMock("node:child_process", () => ({
+					...originalChildProcess,
+					spawn: jest.fn(() => {
+						const emitter =
+							/** @type {import("node:child_process").ChildProcess} */ (
+								new EventEmitter()
+							);
+						emitter.stdout = new Readable({
+							read() {
+								this.push(null);
+							},
+						});
+						emitter.stderr = new Readable({
+							read() {
+								this.push(null);
+							},
+						});
+						setImmediate(() => emitter.emit("close", exitCode));
+						return emitter;
+					}),
+				}));
 				require("node:child_process");
 				const { UnRTF: UnRTFMock } = require("../src/index");
 				const unRtfMock = new UnRTFMock(testBinaryPath);
