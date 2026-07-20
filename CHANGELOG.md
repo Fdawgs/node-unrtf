@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.2](https://github.com/Fdawgs/node-unrtf/compare/v7.1.1...v7.1.2) (2026-07-20)
+
+
+### Bug fixes
+
+* **index:** decode child stdout/stderr as one contiguous buffer ([#605](https://github.com/Fdawgs/node-unrtf/issues/605)) ([65fa151](https://github.com/Fdawgs/node-unrtf/commit/65fa151eb1c3e4f47dac0be1d1af6a038f7bcb2b))
+
+
+### Improvements
+
+* **index:** cache child process options ([#606](https://github.com/Fdawgs/node-unrtf/issues/606)) ([a404629](https://github.com/Fdawgs/node-unrtf/commit/a4046290e1f6ecef5972059409b9ff046546e2c0))
+
 ## [7.1.1](https://github.com/Fdawgs/node-unrtf/compare/v7.1.0...v7.1.1) (2026-07-14)
 
 
