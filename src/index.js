@@ -354,16 +354,22 @@ class UnRTF {
 				signal,
 			});
 
-			let stdOut = "";
-			let stdErr = "";
+			/** @type {Buffer[]} */
+			const stdOutChunks = [];
+			/** @type {Buffer[]} */
+			const stdErrChunks = [];
+			let stdOutLength = 0;
+			let stdErrLength = 0;
 			let errorHandled = false;
 
 			child.stdout.on("data", (data) => {
-				stdOut += data;
+				stdOutChunks.push(data);
+				stdOutLength += data.length;
 			});
 
 			child.stderr.on("data", (data) => {
-				stdErr += data;
+				stdErrChunks.push(data);
+				stdErrLength += data.length;
 			});
 
 			child.on("error", (err) => {
@@ -377,9 +383,13 @@ class UnRTF {
 					return;
 				}
 
-				if (stdOut !== "") {
-					resolve(stdOut.trim());
-				} else if (stdErr === "") {
+				if (stdOutLength > 0) {
+					resolve(
+						Buffer.concat(stdOutChunks, stdOutLength)
+							.toString("utf8")
+							.trim()
+					);
+				} else if (stdErrLength === 0) {
 					reject(
 						new Error(
 							ERROR_MSGS[code ?? -1] ||
@@ -389,7 +399,13 @@ class UnRTF {
 						)
 					);
 				} else {
-					reject(new Error(stdErr.trim()));
+					reject(
+						new Error(
+							Buffer.concat(stdErrChunks, stdErrLength)
+								.toString("utf8")
+								.trim()
+						)
+					);
 				}
 			});
 		});
