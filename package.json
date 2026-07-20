@@ -77,8 +77,8 @@
 		"testTimeout": 10000
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^20.1.0",
-		"@commitlint/config-conventional": "^20.0.0",
+		"@commitlint/cli": "^21.2.0",
+		"@commitlint/config-conventional": "^21.2.0",
 		"@fdawgs/eslint-config": "^3.0.0",
 		"@jest/globals": "^30.0.5",
 		"@types/node": "^26.0.0",
