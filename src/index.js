@@ -1,9 +1,11 @@
 "use strict";
 
 const { spawn, spawnSync } = require("node:child_process");
+const { once } = require("node:events");
 const { open } = require("node:fs/promises");
 const { normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
+const { text: streamToText } = require("node:stream/consumers");
 const freeze = require("ice-barrage");
 const { gt, lt } = require("semver");
 
@@ -348,49 +350,27 @@ class UnRTF {
 		);
 		args.push(normalizedFile);
 
-		return new Promise((resolve, reject) => {
-			const child = spawn(this.#unrtfBin, args, {
-				...CHILD_PROCESS_OPTS,
-				signal,
-			});
-
-			let stdOut = "";
-			let stdErr = "";
-
-			child.stdout.on("data", (data) => {
-				stdOutChunks.push(data);
-				stdOutLength += data.length;
-			});
-
-			child.stderr.on("data", (data) => {
-				stdErrChunks.push(data);
-				stdErrLength += data.length;
-			});
-
-			child.once("error", reject);
-			child.once("close", (code) => {
-				if (stdOut !== "") {
-					resolve(stdOut.trim());
-				} else if (stdErr === "") {
-					reject(
-						new Error(
-							ERROR_MSGS[code ?? -1] ||
-								`unrtf ${args.join(
-									" "
-								)} exited with code ${code}`
-						)
-					);
-				} else {
-					reject(
-						new Error(
-							Buffer.concat(stdErrChunks, stdErrLength)
-								.toString("utf8")
-								.trim()
-						)
-					);
-				}
-			});
+		const child = spawn(this.#unrtfBin, args, {
+			...CHILD_PROCESS_OPTS,
+			signal,
 		});
+
+		const [stdout, stderr, [code]] = await Promise.all([
+			streamToText(child.stdout),
+			streamToText(child.stderr),
+			once(child, "close"),
+		]);
+
+		if (stdout.length > 0) {
+			return stdout;
+		}
+		if (stderr.length === 0) {
+			throw new Error(
+				ERROR_MSGS[code ?? -1] ||
+					`unrtf ${args.join(" ")} exited with code ${code}`
+			);
+		}
+		throw new Error(stderr);
 	}
 }
 
