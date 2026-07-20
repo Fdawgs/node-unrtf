@@ -355,11 +355,13 @@ class UnRTF {
 			signal,
 		});
 
-		const [stdout, stderr, [code]] = await Promise.all([
+		const [stdoutRaw, stderrRaw, [code]] = await Promise.all([
 			streamToText(child.stdout),
 			streamToText(child.stderr),
 			once(child, "close"),
 		]);
+		const stdout = stdoutRaw.trim();
+		const stderr = stderrRaw.trim();
 
 		if (stdout.length > 0) {
 			return stdout;
