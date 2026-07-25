@@ -1,9 +1,11 @@
 "use strict";
 
 const { spawn, spawnSync } = require("node:child_process");
+const { once } = require("node:events");
 const { open } = require("node:fs/promises");
 const { normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
+const { text: streamToText } = require("node:stream/consumers");
 const freeze = require("ice-barrage");
 const { gt, lt } = require("semver");
 
@@ -348,67 +350,29 @@ class UnRTF {
 		);
 		args.push(normalizedFile);
 
-		return new Promise((resolve, reject) => {
-			const child = spawn(this.#unrtfBin, args, {
-				...CHILD_PROCESS_OPTS,
-				signal,
-			});
-
-			/** @type {Buffer[]} */
-			const stdOutChunks = [];
-			/** @type {Buffer[]} */
-			const stdErrChunks = [];
-			let stdOutLength = 0;
-			let stdErrLength = 0;
-			let errorHandled = false;
-
-			child.stdout.on("data", (data) => {
-				stdOutChunks.push(data);
-				stdOutLength += data.length;
-			});
-
-			child.stderr.on("data", (data) => {
-				stdErrChunks.push(data);
-				stdErrLength += data.length;
-			});
-
-			child.on("error", (err) => {
-				errorHandled = true;
-				reject(err);
-			});
-
-			child.on("close", (code) => {
-				// If an error was already emitted, don't process the close event
-				if (errorHandled) {
-					return;
-				}
-
-				if (stdOutLength > 0) {
-					resolve(
-						Buffer.concat(stdOutChunks, stdOutLength)
-							.toString("utf8")
-							.trim()
-					);
-				} else if (stdErrLength === 0) {
-					reject(
-						new Error(
-							ERROR_MSGS[code ?? -1] ||
-								`unrtf ${args.join(
-									" "
-								)} exited with code ${code}`
-						)
-					);
-				} else {
-					reject(
-						new Error(
-							Buffer.concat(stdErrChunks, stdErrLength)
-								.toString("utf8")
-								.trim()
-						)
-					);
-				}
-			});
+		const child = spawn(this.#unrtfBin, args, {
+			...CHILD_PROCESS_OPTS,
+			signal,
 		});
+
+		const [stdoutRaw, stderrRaw, [code]] = await Promise.all([
+			streamToText(child.stdout),
+			streamToText(child.stderr),
+			once(child, "close"),
+		]);
+		const stdout = stdoutRaw.trim();
+		const stderr = stderrRaw.trim();
+
+		if (stdout.length > 0) {
+			return stdout;
+		}
+		if (stderr.length === 0) {
+			throw new Error(
+				ERROR_MSGS[code ?? -1] ||
+					`unrtf ${args.join(" ")} exited with code ${code}`
+			);
+		}
+		throw new Error(stderr);
 	}
 }
 
