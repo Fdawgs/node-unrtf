@@ -21,7 +21,9 @@ const CHILD_PROCESS_OPTS = Object.freeze({
  * @type {Readonly<Record<string, string>>}
  * @ignore
  */
+// @ts-expect-error -- TS cannot infer that __proto__ is a special property and not part of the record type
 const ERROR_MSGS = Object.freeze({
+	__proto__: null,
 	3221225477: "Segmentation fault",
 });
 const RTF_MAGIC_NUMBER = "{\\rtf1";
