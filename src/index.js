@@ -18,8 +18,8 @@ const CHILD_PROCESS_OPTS = Object.freeze(
 );
 
 /**
- * @type {Readonly<Record<string, string>>}
  * @ignore
+ * @type {Readonly<Record<string, string>>}
  */
 // @ts-expect-error -- TS cannot infer that __proto__ is a special property and not part of the record type
 const ERROR_MSGS = Object.freeze({
