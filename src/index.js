@@ -14,6 +14,7 @@ const { gt, lt } = require("semver");
  * @ignore
  */
 const CHILD_PROCESS_OPTS = Object.freeze({
+	stdio: ["ignore", "pipe", "pipe"],
 	windowsHide: true,
 });
 
