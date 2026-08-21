@@ -6,7 +6,8 @@
 
 const { EventEmitter } = require("node:events");
 const { execFile, spawnSync } = require("node:child_process");
-const { unlink, writeFile } = require("node:fs/promises");
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Tests, not in distributed code
+const { glob, writeFile, unlink } = require("node:fs/promises");
 const { join, normalize, sep } = require("node:path");
 const { platform } = require("node:process");
 const { Readable } = require("node:stream");
@@ -20,7 +21,6 @@ const {
 	it,
 	jest,
 } = require("@jest/globals");
-const { glob } = require("glob");
 const generateCombos = require("./utils/gen-combos");
 
 const execFileAsync = promisify(execFile);
@@ -65,8 +65,11 @@ const testBinaryPath = getTestBinaryPath();
 describe("Node-UnRTF module", () => {
 	afterEach(async () => {
 		// Remove leftover test files
-		const files = await glob("*.{emf,wmf,png}");
-		await Promise.all(files.map((filed) => unlink(filed)));
+		const files = [];
+		for await (const filePath of glob("*.{emf,wmf,png}")) {
+			files.push(filePath);
+		}
+		await Promise.all(files.map((filePath) => unlink(filePath)));
 	});
 
 	describe("Constructor", () => {
