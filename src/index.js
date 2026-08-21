@@ -350,7 +350,13 @@ class UnRTF {
 			options,
 			this.#unrtfVersion
 		);
-		args.push(normalizedFile);
+
+		// Protect against reading filepath with leading `-` as an option as UnRTF has no `--` terminator
+		args.push(
+			normalizedFile.startsWith("-")
+				? `./${normalizedFile}`
+				: normalizedFile
+		);
 
 		const child = spawn(this.#unrtfBin, args, {
 			...CHILD_PROCESS_OPTS,

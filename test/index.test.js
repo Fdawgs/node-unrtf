@@ -9,7 +9,7 @@ const { execFile, spawnSync } = require("node:child_process");
 // eslint-disable-next-line n/no-unsupported-features/node-builtins -- Tests, not in distributed code
 const { glob, writeFile, unlink } = require("node:fs/promises");
 const { join, normalize, sep } = require("node:path");
-const { platform } = require("node:process");
+const { chdir, cwd, platform } = require("node:process");
 const { Readable } = require("node:stream");
 const { promisify } = require("node:util");
 const {
@@ -416,9 +416,9 @@ describe("Node-UnRTF module", () => {
 				quiet: false,
 			};
 
-			await expect(
-				unRtfMock.convert(file, options)
-			).resolves.toStrictEqual(expect.any(String));
+			await expect(unRtfMock.convert(file, options)).resolves.toMatch(
+				HTML_REG
+			);
 		});
 
 		it("Does not reject when version-constrained boolean options are set to false on a newer binary", async () => {
@@ -444,9 +444,9 @@ describe("Node-UnRTF module", () => {
 				outputWpml: false,
 			};
 
-			await expect(
-				unRtfMock.convert(file, options)
-			).resolves.toStrictEqual(expect.any(String));
+			await expect(unRtfMock.convert(file, options)).resolves.toMatch(
+				HTML_REG
+			);
 		});
 
 		// Child process exit code handling tests
@@ -635,7 +635,23 @@ describe("Node-UnRTF module", () => {
 				{ signal: controller.signal }
 			);
 
-			expect(result).toStrictEqual(expect.any(String));
+			expect(result).toMatch(HTML_REG);
+		});
+
+		it("Converts RTF file with leading dash in filepath", async () => {
+			const originalCwd = cwd();
+			chdir(testDirectory);
+
+			try {
+				const result = await unRtf.convert("-n.rtf", {
+					noPictures: true,
+				});
+
+				expect(result).toMatch(HTML_REG);
+				expect(result).toMatch("Dash guard fixture");
+			} finally {
+				chdir(originalCwd);
+			}
 		});
 	});
 });
