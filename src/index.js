@@ -9,14 +9,13 @@ const { text: streamToText } = require("node:stream/consumers");
 const freeze = require("ice-barrage");
 const { gt, lt } = require("semver");
 
-/**
- * @type {Readonly<import("node:child_process").CommonOptions>}
- * @ignore
- */
-const CHILD_PROCESS_OPTS = Object.freeze({
-	stdio: ["ignore", "pipe", "pipe"],
-	windowsHide: true,
-});
+/** @ignore */
+const CHILD_PROCESS_OPTS = Object.freeze(
+	/** @type {import("node:child_process").SpawnOptionsWithStdioTuple<"ignore", "pipe", "pipe">} */ ({
+		stdio: ["ignore", "pipe", "pipe"],
+		windowsHide: true,
+	})
+);
 
 /**
  * @type {Readonly<Record<string, string>>}
