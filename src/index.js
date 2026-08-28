@@ -7,7 +7,8 @@ const { normalize, resolve: pathResolve } = require("node:path");
 const { platform } = require("node:process");
 const { text: streamToText } = require("node:stream/consumers");
 const freeze = require("ice-barrage");
-const { gt, lt } = require("semver");
+const gt = require("semver/functions/gt");
+const lt = require("semver/functions/lt");
 
 /** @ignore */
 const CHILD_PROCESS_OPTS = Object.freeze(
