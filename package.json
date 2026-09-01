@@ -91,7 +91,7 @@
 		"typescript": "~7.0.2"
 	},
 	"dependencies": {
-		"ice-barrage": "^1.0.0",
+		"ice-barrage": "^2.0.0",
 		"semver": "^7.7.2"
 	},
 	"optionalDependencies": {
