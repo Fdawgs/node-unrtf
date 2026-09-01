@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.0.0](https://github.com/Fdawgs/node-unrtf/compare/v7.1.2...v8.0.0) (2026-08-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported version bumped from node 20 to 22
+
+### Bug fixes
+
+* **index:** anchor unrtf path regex ([#622](https://github.com/Fdawgs/node-unrtf/issues/622)) ([b77ca2a](https://github.com/Fdawgs/node-unrtf/commit/b77ca2a45539e662bef1f25a11b24f333a73ef03))
+* **index:** prefix leading-dash filepaths with `./` ([#620](https://github.com/Fdawgs/node-unrtf/issues/620)) ([654e09b](https://github.com/Fdawgs/node-unrtf/commit/654e09b4d4e06f1278099b1c458a69e65a95d636))
+
+
+### Continuous integration
+
+* **deps:** bump coverallsapp/github-action from 2.3.7 to 2.3.8 ([#617](https://github.com/Fdawgs/node-unrtf/issues/617)) ([576efc7](https://github.com/Fdawgs/node-unrtf/commit/576efc73d6f18eae626a644230dbf64f1c231ebb))
+* **deps:** bump the fdawgs-owned group with 4 updates ([#609](https://github.com/Fdawgs/node-unrtf/issues/609)) ([c837c16](https://github.com/Fdawgs/node-unrtf/commit/c837c16c3825910f31c22f3c02e122313e22270a))
+* **deps:** bump the github-owned group across 1 directory with 4 updates ([#612](https://github.com/Fdawgs/node-unrtf/issues/612)) ([e0028bb](https://github.com/Fdawgs/node-unrtf/commit/e0028bb6f8d8412328562d246a928f89a56cd581))
+
+
+### Dependencies
+
+* **deps-dev:** bump prettier from 3.8.5 to 3.9.5 ([#610](https://github.com/Fdawgs/node-unrtf/issues/610)) ([3c9943f](https://github.com/Fdawgs/node-unrtf/commit/3c9943fe150a5884ce0e62cfd719c3d481b1a971))
+* **deps-dev:** bump prettier from 3.9.5 to 3.9.6 ([#618](https://github.com/Fdawgs/node-unrtf/issues/618)) ([6898546](https://github.com/Fdawgs/node-unrtf/commit/6898546250691ebfc88c321c574223b1548a4bfc))
+* **deps-dev:** bump the commitlint group across 1 directory with 2 updates ([#577](https://github.com/Fdawgs/node-unrtf/issues/577)) ([9905fb4](https://github.com/Fdawgs/node-unrtf/commit/9905fb428aca5129f6c6b321b411fa71bfc508a3))
+* **deps-dev:** bump typescript from 6.0.3 to 7.0.2 ([#611](https://github.com/Fdawgs/node-unrtf/issues/611)) ([8bebd85](https://github.com/Fdawgs/node-unrtf/commit/8bebd85dd7fbdf8f89a83f713ccf6dcad689983d))
+* **deps-dev:** replace glob with native glob ([#574](https://github.com/Fdawgs/node-unrtf/issues/574)) ([bcafb30](https://github.com/Fdawgs/node-unrtf/commit/bcafb308809609d4b4b6d32e10b1e1370c230d1c))
+* **deps:** bump ghcr.io/devcontainers/features/github-cli ([#616](https://github.com/Fdawgs/node-unrtf/issues/616)) ([8381ea4](https://github.com/Fdawgs/node-unrtf/commit/8381ea45e9c83397eadb7d76570c2f8286a3aeef))
+
+
+### Improvements
+
+* **index:** ignore stdin for child processes ([#619](https://github.com/Fdawgs/node-unrtf/issues/619)) ([95bb27e](https://github.com/Fdawgs/node-unrtf/commit/95bb27e0835158dce39d41b782f48f620eaf9464))
+* **index:** use native stream consumer and events ([#599](https://github.com/Fdawgs/node-unrtf/issues/599)) ([42b1974](https://github.com/Fdawgs/node-unrtf/commit/42b19747a4d9dc1e8665af9140c7ebeb3ba3f5f8))
+* **index:** use null prototype for faster property lookup ([#614](https://github.com/Fdawgs/node-unrtf/issues/614)) ([a8bb343](https://github.com/Fdawgs/node-unrtf/commit/a8bb343c4cad659c50f916d7fb100ddd93bdf74a))
+
+
+### Miscellaneous
+
+* drop support for node 20 ([#615](https://github.com/Fdawgs/node-unrtf/issues/615)) ([804a7a2](https://github.com/Fdawgs/node-unrtf/commit/804a7a2f09aec66abc10cd84a067bb22e14206f2))
+* **index:** correct description re image location ([#621](https://github.com/Fdawgs/node-unrtf/issues/621)) ([8ce18a0](https://github.com/Fdawgs/node-unrtf/commit/8ce18a073b934ce14b76f68ce74efd4f38d08873))
+
+
+### Tests
+
+* **fixtures:** remove unused files ([#613](https://github.com/Fdawgs/node-unrtf/issues/613)) ([e9a59bc](https://github.com/Fdawgs/node-unrtf/commit/e9a59bcff6494c42380f87a4c57fd26261c53079))
+
 ## [7.1.2](https://github.com/Fdawgs/node-unrtf/compare/v7.1.1...v7.1.2) (2026-07-20)
 
 
