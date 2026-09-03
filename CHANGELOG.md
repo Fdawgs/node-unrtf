@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.1.0](https://github.com/Fdawgs/node-unrtf/compare/v8.0.0...v8.1.0) (2026-09-03)
+
+
+### Continuous integration
+
+* **deps:** bump the github-owned group with 2 updates ([#628](https://github.com/Fdawgs/node-unrtf/issues/628)) ([da5bbd3](https://github.com/Fdawgs/node-unrtf/commit/da5bbd368c84576bcf4d5d93715eaef4f7fcba31))
+
+
+### Dependencies
+
+* **deps:** bump ghcr.io/devcontainers/features/github-cli ([#629](https://github.com/Fdawgs/node-unrtf/issues/629)) ([41f3ed1](https://github.com/Fdawgs/node-unrtf/commit/41f3ed17adcf93a7930413506481b7196cc188c0))
+* **deps:** bump ice-barrage from 1.0.2 to 2.0.0 ([#627](https://github.com/Fdawgs/node-unrtf/issues/627)) ([24587ec](https://github.com/Fdawgs/node-unrtf/commit/24587eca7b76246b13d6211edf696f79a2bf5c4b))
+* **deps:** bump node-unrtf-win32 from 1.0.3 to 2.0.1 ([#626](https://github.com/Fdawgs/node-unrtf/issues/626)) ([44f0397](https://github.com/Fdawgs/node-unrtf/commit/44f03974fe1ccf428830dac41d97a48273eaf521))
+
+
+### Features
+
+* **index:** add `cwd` extra option ([#625](https://github.com/Fdawgs/node-unrtf/issues/625)) ([266771e](https://github.com/Fdawgs/node-unrtf/commit/266771e336f74fe6c93c9df55889852c74f33ab4))
+
+
+### Improvements
+
+* **index:** load semver comparison functions directly ([#623](https://github.com/Fdawgs/node-unrtf/issues/623)) ([62ea6a8](https://github.com/Fdawgs/node-unrtf/commit/62ea6a84370021463d611d8866a8745939267b5b))
+
 ## [8.0.0](https://github.com/Fdawgs/node-unrtf/compare/v7.1.2...v8.0.0) (2026-08-27)
 
 
