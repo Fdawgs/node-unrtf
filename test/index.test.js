@@ -6,11 +6,20 @@
 
 const { EventEmitter } = require("node:events");
 const { execFile, spawnSync } = require("node:child_process");
-// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Tests, not in distributed code
-const { glob, writeFile, unlink } = require("node:fs/promises");
+const {
+	// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Tests, not in distributed code
+	glob,
+	mkdtemp,
+	readdir,
+	rm,
+	writeFile,
+	unlink,
+} = require("node:fs/promises");
+const { tmpdir } = require("node:os");
 const { join, normalize, sep } = require("node:path");
 const { chdir, cwd, platform } = require("node:process");
 const { Readable } = require("node:stream");
+const { pathToFileURL } = require("node:url");
 const { promisify } = require("node:util");
 const {
 	afterEach,
@@ -32,6 +41,7 @@ const file = `${testDirectory}test-rtf-complex.rtf`;
 // Cache immutable regex as they are expensive to create and garbage collect
 const HTML_REG =
 	/^\s*(?:<!doctype html\b[^>]*>|<(?:html|body)\b[^>]*>|<x-[^>]+>)/iu;
+const IMAGE_REG = /\.(?:emf|jpe?g|png|wmf)$/iu;
 
 /** @type {typeof import("node:child_process")} */
 const originalChildProcess = jest.requireActual("node:child_process");
@@ -587,61 +597,11 @@ describe("Node-UnRTF module", () => {
 			}
 		});
 
-		// AbortSignal handling tests
-		it.each([
-			{
-				testName: "signal is already aborted before starting",
-				abortBefore: true,
-				abortDuring: false,
-			},
-			{
-				testName: "signal is aborted during conversion",
-				abortBefore: false,
-				abortDuring: true,
-			},
-		])(
-			"Rejects with an Error object if $testName",
-			async ({ abortBefore, abortDuring }) => {
-				const controller = new AbortController();
-
-				if (abortBefore) {
-					controller.abort();
-				}
-
-				if (abortDuring) {
-					setImmediate(() => controller.abort());
-				}
-
-				await expect(
-					unRtf.convert(
-						file,
-						{ noPictures: true },
-						{ signal: controller.signal }
-					)
-				).rejects.toThrow(
-					expect.objectContaining({
-						name: "AbortError",
-					})
-				);
-			}
-		);
-
-		it("Converts RTF file to HTML with `signal` extra provided but never aborted", async () => {
-			const controller = new AbortController();
-
-			const result = await unRtf.convert(
-				file,
-				{ noPictures: true },
-				{ signal: controller.signal }
-			);
-
-			expect(result).toMatch(HTML_REG);
-		});
-
 		it("Converts RTF file with leading dash in filepath", async () => {
 			const originalCwd = cwd();
 			chdir(testDirectory);
 
+			expect.assertions(2);
 			try {
 				const result = await unRtf.convert("-n.rtf", {
 					noPictures: true,
@@ -652,6 +612,117 @@ describe("Node-UnRTF module", () => {
 			} finally {
 				chdir(originalCwd);
 			}
+		});
+
+		describe("`signal` extra option", () => {
+			it.each([
+				{
+					testName: "signal is already aborted before starting",
+					abortBefore: true,
+					abortDuring: false,
+				},
+				{
+					testName: "signal is aborted during conversion",
+					abortBefore: false,
+					abortDuring: true,
+				},
+			])(
+				"Rejects with an Error object if $testName",
+				async ({ abortBefore, abortDuring }) => {
+					const controller = new AbortController();
+
+					if (abortBefore) {
+						controller.abort();
+					}
+
+					if (abortDuring) {
+						setImmediate(() => controller.abort());
+					}
+
+					await expect(
+						unRtf.convert(
+							file,
+							{ noPictures: true },
+							{ signal: controller.signal }
+						)
+					).rejects.toThrow(
+						expect.objectContaining({
+							name: "AbortError",
+						})
+					);
+				}
+			);
+
+			it("Converts RTF file to HTML with `signal` extra provided but never aborted", async () => {
+				const controller = new AbortController();
+
+				const result = await unRtf.convert(
+					file,
+					{ noPictures: true },
+					{ signal: controller.signal }
+				);
+
+				expect(result).toMatch(HTML_REG);
+			});
+		});
+
+		describe("`cwd` extra option", () => {
+			/** @type {string} */
+			let outputDirectory;
+
+			beforeEach(async () => {
+				outputDirectory = await mkdtemp(join(tmpdir(), "node-unrtf-"));
+			});
+
+			afterEach(async () => {
+				await rm(outputDirectory, { force: true, recursive: true });
+			});
+
+			it.each([
+				{
+					testName: "path string",
+					toCwd: /** @type {(dir: string) => string} */ (
+						(dir) => dir
+					),
+				},
+				{
+					testName: "file URL",
+					toCwd: pathToFileURL,
+				},
+			])(
+				"Writes embedded pictures to the `cwd` provided as a $testName",
+				async ({ toCwd }) => {
+					await unRtf.convert(
+						file,
+						{ noPictures: false, outputHtml: true },
+						{ cwd: toCwd(outputDirectory) }
+					);
+
+					await expect(readdir(outputDirectory)).resolves.toEqual(
+						expect.arrayContaining([
+							expect.stringMatching(IMAGE_REG),
+						])
+					);
+				}
+			);
+
+			it("Resolves relative filepaths against the current working directory rather than `cwd`", async () => {
+				const originalCwd = cwd();
+				chdir(testDirectory);
+
+				expect.assertions(1);
+				try {
+					const result = await unRtf.convert(
+						"-n.rtf",
+						{ noPictures: true },
+						{ cwd: outputDirectory }
+					);
+
+					expect(result).toMatch("Dash guard fixture");
+				} finally {
+					chdir(originalCwd);
+				}
+			});
 		});
 	});
 });
