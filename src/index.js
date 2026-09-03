@@ -67,6 +67,8 @@ const UNRTF_VERSION_REG = /^(\d{1,2}\.\d{1,2}\.\d{1,2})/u;
 
 /**
  * @typedef {object} UnRTFExtraOptions
+ * @property {string|URL} [cwd] Existing directory to run the conversion in; embedded pictures are written here.
+ * Defaults to the current working directory.
  * @property {AbortSignal} [signal] An `AbortSignal` that can be used to cancel the operation.
  */
 
@@ -300,24 +302,25 @@ class UnRTF {
 	 * @author Frazer Smith
 	 * @description Converts an RTF file to HTML/LaTeX/RTF/TXT.
 	 * Defaults to HTML output if no `output*` options are provided.
-	 * UnRTF will use the current working directory to store embedded pictures.
 	 * @param {string} file - Filepath of the RTF file to read.
+	 * Relative paths are resolved against the current working directory, not `extras.cwd`.
 	 * @param {UnRTFOptions} [options] - Options to pass to the UnRTF binary.
 	 * @param {UnRTFExtraOptions} [extras] - Non-CLI options.
 	 * @returns {Promise<string>} A promise that resolves with a stdout string, or rejects with an `Error` object.
 	 * @throws {Error} If the file is missing, not an RTF file, or if UnRTF returns an error.
 	 */
 	async convert(file, options = {}, extras = {}) {
-		const { signal } = extras;
+		const { cwd, signal } = extras;
 
-		let normalizedFile;
+		let resolvedFile;
 
 		// Catch empty strings, missing files, and non-RTF files, as UnRTF will attempt to convert them
 		let fileHandle;
 		try {
-			normalizedFile = normalize(file);
+			// Absolute paths survive a different child `cwd` and never start with `-` (UnRTF has no `--` terminator)
+			resolvedFile = pathResolve(file);
 			// eslint-disable-next-line security/detect-non-literal-fs-filename -- File open is wanted
-			fileHandle = await open(normalizedFile, "r");
+			fileHandle = await open(resolvedFile, "r");
 
 			const readBuf = Buffer.allocUnsafe(RTF_MAGIC_NUMBER_LENGTH);
 			const { bytesRead } = await fileHandle.read(
@@ -351,16 +354,11 @@ class UnRTF {
 			options,
 			this.#unrtfVersion
 		);
-
-		// Protect against reading filepath with leading `-` as an option as UnRTF has no `--` terminator
-		args.push(
-			normalizedFile.startsWith("-")
-				? `./${normalizedFile}`
-				: normalizedFile
-		);
+		args.push(resolvedFile);
 
 		const child = spawn(this.#unrtfBin, args, {
 			...CHILD_PROCESS_OPTS,
+			cwd,
 			signal,
 		});
 
